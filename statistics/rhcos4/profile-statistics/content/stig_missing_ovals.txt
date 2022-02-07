@@ -1,0 +1,3 @@
+encrypt_partitions
+partition_for_var_log
+partition_for_var_log_audit

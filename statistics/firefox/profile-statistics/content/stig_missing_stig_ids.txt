@@ -1,0 +1,4 @@
+firefox_preferences-dod_root_certificate_installed
+firefox_preferences-enable_ca_trust
+firefox_preferences-lock_settings_config_file
+firefox_preferences-lock_settings_obscure
