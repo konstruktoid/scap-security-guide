@@ -2488,7 +2488,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
+  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
 </tr>
 <tr>
   <td>IA-5(f)<br/>IA-5(1)(e)</td>
@@ -2508,7 +2508,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
+  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
 </tr>
 <tr>
   <td>IA-5(c)<br/>IA-5(1)(a)<br/>CM-6(a)<br/>IA-5(4)</td>
@@ -4773,14 +4773,6 @@ This prevents the system from being accidentally or maliciously booted into a <t
 mode. To do so, run the following command:
 
 <pre>sudo yum remove xorg-x11-server-Xorg xorg-x11-server-common xorg-x11-server-utils xorg-x11-server-Xwayland</pre>
-
-Additionally, setting the system's default target to
-<tt>multi-user.target</tt> will prevent automatic startup of the X server.
-To do so, run:
-<pre>$ systemctl set-default multi-user.target</pre>
-You should see the following output:
-<pre>Removed symlink /etc/systemd/system/default.target.
-Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/multi-user.target.</pre>
   </td>
   <td xml:lang="en-US">
 Unnecessary service packages must not be installed to decrease the attack surface of the system. X windows has a long history of security

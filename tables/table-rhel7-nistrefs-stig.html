@@ -2858,7 +2858,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_unlock_time=never</td>
+  <td>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>
@@ -4001,14 +4001,6 @@ This prevents the system from being accidentally or maliciously booted into a <t
 mode. To do so, run the following command:
 
 <pre>sudo yum remove xorg-x11-server-Xorg xorg-x11-server-common xorg-x11-server-utils</pre>
-
-Additionally, setting the system's default target to
-<tt>multi-user.target</tt> will prevent automatic startup of the X server.
-To do so, run:
-<pre>$ systemctl set-default multi-user.target</pre>
-You should see the following output:
-<pre>Removed symlink /etc/systemd/system/default.target.
-Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/multi-user.target.</pre>
   </td>
   <td xml:lang="en-US">
 Unnecessary service packages must not be installed to decrease the attack surface of the system. X windows has a long history of security

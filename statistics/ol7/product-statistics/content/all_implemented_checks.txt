@@ -557,6 +557,7 @@ securetty_root_login_console_only
 security_patches_up_to_date
 selinux_all_devicefiles_labeled
 selinux_confinement_of_daemons
+selinux_context_elevation_for_sudo
 selinux_policytype
 selinux_state
 service_abrtd_disabled
