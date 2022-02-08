@@ -303,3 +303,4 @@ tftpd_uses_secure_mode
 usbguard_generate_policy
 wireless_disable_interfaces
 xwindows_remove_packages
+xwindows_runlevel_target

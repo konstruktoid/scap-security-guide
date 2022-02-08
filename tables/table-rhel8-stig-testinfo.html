@@ -8791,6 +8791,30 @@ Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/syst
 </td>
 <td></td>
 </tr>
+<tr>
+<td>xwindows_runlevel_target</td>
+<td>medium</td>
+<td>Disable X Windows Startup By Setting Default Target</td>
+<td xml:lang="en-US">Services that are not required for system and application processes
+must not be active to decrease the attack surface of the system. X windows has a
+long history of security vulnerabilities and should not be used unless approved
+and documented.</td>
+<td xml:lang="en-US">Systems that do not require a graphical user interface should only boot by
+default into <code>multi-user.target</code> mode. This prevents accidental booting of the system
+into a <code>graphical.target</code> mode. Setting the system's default target to
+<code>multi-user.target</code> will prevent automatic startup of the X server. To do so, run:
+<pre>$ systemctl set-default multi-user.target</pre>
+You should see the following output:
+<pre>Removed symlink /etc/systemd/system/default.target.
+Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/multi-user.target.</pre>
+</td>
+<td></td>
+<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
+</td>
+<td>CCI-000366<br>
+</td>
+<td></td>
+</tr>
 </table>
 </body>
 </html>

@@ -1538,7 +1538,11 @@ then install the Oracle GPG key from trusted media such as
 the Oracle installation CD-ROM or DVD. Assuming the disc is mounted
 in <tt>/media/cdrom</tt>, use the following command as the root user to import
 it into the keyring:
-<pre>$ sudo rpm --import /media/cdrom/RPM-GPG-KEY</pre>
+<pre>$ sudo rpm --import /media/cdrom/RPM-GPG-KEY-oracle</pre>
+
+Alternatively, the key may be pre-loaded during the Oracle installation. In
+such cases, the key can be installed by running the following command:
+<pre>sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-oracle</pre>
   </td>
   <td xml:lang="en-US">
 Changes to software components can have significant effects on the

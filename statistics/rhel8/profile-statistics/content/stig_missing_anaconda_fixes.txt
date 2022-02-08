@@ -315,3 +315,4 @@ sysctl_user_max_user_namespaces
 tftpd_uses_secure_mode
 usbguard_generate_policy
 wireless_disable_interfaces
+xwindows_runlevel_target

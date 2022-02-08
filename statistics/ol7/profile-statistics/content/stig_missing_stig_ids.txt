@@ -4,4 +4,3 @@ dconf_gnome_disable_automount_open
 dconf_gnome_disable_autorun
 mount_option_dev_shm_nodev
 mount_option_dev_shm_nosuid
-package_aide_installed

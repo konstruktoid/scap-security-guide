@@ -3,6 +3,7 @@ account_temp_expire_date
 account_unique_id
 account_unique_name
 account_use_centralized_automated_auth
+accounts_authorized_local_users
 accounts_password_all_shadowed
 accounts_password_all_shadowed_sha512
 accounts_root_gid_zero

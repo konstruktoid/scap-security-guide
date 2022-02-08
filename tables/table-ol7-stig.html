@@ -16,11 +16,11 @@
 <th>STIG ids missing rule</th>
 </tr></thead>
 <tbody><tr>
-<td>253</td>
-<td>5</td>
-<td>248</td>
-<td>98.02%</td>
-<td>OL07-00-010118OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
+<td>237</td>
+<td>8</td>
+<td>229</td>
+<td>96.62%</td>
+<td>OL07-00-010118OL07-00-010291OL07-00-010339OL07-00-010344OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1059,7 +1059,7 @@ after pam_pwquality to set minimum password length requirements.</td>
 <td>V-221687</td>
 <td>366</td>
 <td>high</td>
-<td>The Oracle Linux operating system must not have accounts configured with blank or null passwords.</td>
+<td>The Oracle Linux operating system must not allow accounts configured with blank or null passwords.</td>
 <td>If an account has an empty password, anyone could log in and
 run commands with the privileges of that account. Accounts with
 empty passwords should never be used in operational environments.</td>
@@ -1086,6 +1086,17 @@ considered a risk, because it should not be possible to directly login into
 a container anyway.</td>
 <td>OL07-00-010290</td>
 <td>no_empty_passwords</td>
+</tr>
+<tr>
+<td>V-251698</td>
+<td></td>
+<td>high</td>
+<td>The Oracle Linux operating system must not have accounts configured with blank or null passwords.</td>
+<td></td>
+<td></td>
+<td></td>
+<td>OL07-00-010291</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-221688</td>
@@ -1202,6 +1213,17 @@ depending on the OS version.</td>
 <td>accounts_passwords_pam_faillock_deny_root</td>
 </tr>
 <tr>
+<td>V-251699</td>
+<td></td>
+<td>medium</td>
+<td>The Oracle Linux operating system must specify the default "include" directory for the /etc/sudoers file.</td>
+<td></td>
+<td></td>
+<td></td>
+<td>OL07-00-010339</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
 <td>V-221692</td>
 <td>2038</td>
 <td>medium</td>
@@ -1301,6 +1323,17 @@ If the value is set to an integer less than 0, the user's time stamp will not ex
 and the user will not have to re-authenticate for privileged actions until the user's session is terminated.</td>
 <td>OL07-00-010343</td>
 <td>sudo_require_reauthentication</td>
+</tr>
+<tr>
+<td>V-251700</td>
+<td></td>
+<td>medium</td>
+<td>The Oracle Linux operating system must not be configured to bypass password requirements for privilege escalation.</td>
+<td></td>
+<td></td>
+<td></td>
+<td>OL07-00-010344</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-228569</td>
@@ -1886,6 +1919,22 @@ SELinux context with the use of the sudo command:
 </td>
 <td>OL07-00-020023</td>
 <td>selinux_context_elevation_for_sudo</td>
+</tr>
+<tr>
+<td>V-251701</td>
+<td>2696</td>
+<td>medium</td>
+<td>The Oracle Linux operating system must use a file integrity tool to verify correct operation of all security functions.</td>
+<td>The AIDE package must be installed if it is to be available for integrity checking.</td>
+<td>Run the following command to determine if the aide package is installed: $ rpm -q aide
+      Is it the case that the package is not installed?
+      </td>
+<td>The <code>aide</code> package can be installed with the following command:
+<pre>
+$ sudo yum install aide</pre>
+</td>
+<td>OL07-00-020029</td>
+<td>package_aide_installed</td>
 </tr>
 <tr>
 <td>V-221708</td>
@@ -3732,78 +3781,7 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>V-221778</td>
 <td>172</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the chown syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-chown system call, run the following command:
-$ sudo grep "chown" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030370</td>
-<td>audit_rules_dac_modification_chown</td>
-</tr>
-<tr>
-<td>V-221779</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fchown syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-fchown system call, run the following command:
-$ sudo grep "fchown" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030380</td>
-<td>audit_rules_dac_modification_fchown</td>
-</tr>
-<tr>
-<td>V-221780</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the lchown syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the chown, fchown, fchownat, and lchown syscalls.</td>
 <td>The changing of file permissions could indicate that a user is attempting to
 gain access to information that would otherwise be disallowed. Auditing DAC modifications
 can facilitate the identification of patterns of abuse among both authorized and
@@ -3830,116 +3808,14 @@ utility to read audit rules during daemon startup, add the following line to
 If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
-<td>OL07-00-030390</td>
+<td>OL07-00-030370</td>
 <td>audit_rules_dac_modification_lchown</td>
-</tr>
-<tr>
-<td>V-221781</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fchownat syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-fchownat system call, run the following command:
-$ sudo grep "fchownat" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030400</td>
-<td>audit_rules_dac_modification_fchownat</td>
 </tr>
 <tr>
 <td>V-221782</td>
 <td>172</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the chmod syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-chmod system call, run the following command:
-$ sudo grep "chmod" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030410</td>
-<td>audit_rules_dac_modification_chmod</td>
-</tr>
-<tr>
-<td>V-221783</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fchmod syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-fchmod system call, run the following command:
-$ sudo grep "fchmod" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fchmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fchmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030420</td>
-<td>audit_rules_dac_modification_fchmod</td>
-</tr>
-<tr>
-<td>V-221784</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fchmodat syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the chmod, fchmod, and fchmodat syscalls.</td>
 <td>The changing of file permissions could indicate that a user is attempting to
 gain access to information that would otherwise be disallowed. Auditing DAC modifications
 can facilitate the identification of patterns of abuse among both authorized and
@@ -3966,14 +3842,14 @@ utility to read audit rules during daemon startup, add the following line to
 If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
-<td>OL07-00-030430</td>
+<td>OL07-00-030410</td>
 <td>audit_rules_dac_modification_fchmodat</td>
 </tr>
 <tr>
 <td>V-221785</td>
 <td>172</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the setxattr syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the setxattr, fsetxattr, lsetxattr, removexattr, fremovexattr, and lremovexattr syscalls.</td>
 <td>The changing of file permissions could indicate that a user is attempting to
 gain access to information that would otherwise be disallowed. Auditing DAC modifications
 can facilitate the identification of patterns of abuse among both authorized and
@@ -4004,352 +3880,10 @@ If the system is 64 bit then also add the following line:
 <td>audit_rules_dac_modification_setxattr</td>
 </tr>
 <tr>
-<td>V-221786</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fsetxattr syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-fsetxattr system call, run the following command:
-$ sudo grep "fsetxattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030450</td>
-<td>audit_rules_dac_modification_fsetxattr</td>
-</tr>
-<tr>
-<td>V-221787</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the lsetxattr syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-lsetxattr system call, run the following command:
-$ sudo grep "lsetxattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030460</td>
-<td>audit_rules_dac_modification_lsetxattr</td>
-</tr>
-<tr>
-<td>V-221788</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the removexattr syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-removexattr system call, run the following command:
-$ sudo grep "removexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>augenrules</code>
-program to read audit rules during daemon startup (the default), add the
-following line to a file with suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030470</td>
-<td>audit_rules_dac_modification_removexattr</td>
-</tr>
-<tr>
-<td>V-221789</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the fremovexattr syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-fremovexattr system call, run the following command:
-$ sudo grep "fremovexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030480</td>
-<td>audit_rules_dac_modification_fremovexattr</td>
-</tr>
-<tr>
-<td>V-221790</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the lremovexattr syscall.</td>
-<td>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</td>
-<td>To determine if the system is configured to audit calls to the
-lremovexattr system call, run the following command:
-$ sudo grep "lremovexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-</td>
-<td>OL07-00-030490</td>
-<td>audit_rules_dac_modification_lremovexattr</td>
-</tr>
-<tr>
-<td>V-221791</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the creat syscall.</td>
-<td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
-these events could serve as evidence of potential system compromise.</td>
-<td>To determine if the system is configured to audit calls to the
-creat system call, run the following command:
-$ sudo grep "creat" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect unauthorized file
-accesses for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following lines to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S creat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S creat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S creat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following lines to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S creat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S creat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S creat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-</td>
-<td>OL07-00-030500</td>
-<td>audit_rules_unsuccessful_file_modification_creat</td>
-</tr>
-<tr>
 <td>V-221792</td>
 <td>2884</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the open syscall.</td>
-<td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
-these events could serve as evidence of potential system compromise.</td>
-<td>To determine if the system is configured to audit calls to the
-open system call, run the following command:
-$ sudo grep "open" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect unauthorized file
-accesses for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following lines to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following lines to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-</td>
-<td>OL07-00-030510</td>
-<td>audit_rules_unsuccessful_file_modification_open</td>
-</tr>
-<tr>
-<td>V-221793</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the openat syscall.</td>
-<td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
-these events could serve as evidence of potential system compromise.</td>
-<td>To determine if the system is configured to audit calls to the
-openat system call, run the following command:
-$ sudo grep "openat" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect unauthorized file
-accesses for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following lines to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S openat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S openat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S openat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S openat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following lines to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S openat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S openat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S openat -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S openat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-</td>
-<td>OL07-00-030520</td>
-<td>audit_rules_unsuccessful_file_modification_openat</td>
-</tr>
-<tr>
-<td>V-221794</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the open_by_handle_at syscall.</td>
-<td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
-these events could serve as evidence of potential system compromise.</td>
-<td>To determine if the system is configured to audit calls to the
-open_by_handle_at system call, run the following command:
-$ sudo grep "open_by_handle_at" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect unauthorized file
-accesses for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following lines to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following lines to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S open_by_handle_at,truncate,ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open_by_handle_at,truncate,ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S open_by_handle_at,truncate,ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open_by_handle_at,truncate,ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-</td>
-<td>OL07-00-030530</td>
-<td>audit_rules_unsuccessful_file_modification_open_by_handle_at</td>
-</tr>
-<tr>
-<td>V-221795</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the truncate syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the creat, open, openat, open_by_handle_at, truncate, and ftruncate syscalls.</td>
 <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
 these events could serve as evidence of potential system compromise.</td>
 <td>To determine if the system is configured to audit calls to the
@@ -4383,49 +3917,8 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S truncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
 -a always,exit -F arch=b64 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
-<td>OL07-00-030540</td>
+<td>OL07-00-030510</td>
 <td>audit_rules_unsuccessful_file_modification_truncate</td>
-</tr>
-<tr>
-<td>V-221796</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the ftruncate syscall.</td>
-<td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
-these events could serve as evidence of potential system compromise.</td>
-<td>To determine if the system is configured to audit calls to the
-ftruncate system call, run the following command:
-$ sudo grep "ftruncate" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect unauthorized file
-accesses for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following lines to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S ftruncate -F exiu=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following lines to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-
-If the system is 64 bit then also add the following lines:
-<pre>
--a always,exit -F arch=b64 -S ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
-</td>
-<td>OL07-00-030550</td>
-<td>audit_rules_unsuccessful_file_modification_ftruncate</td>
 </tr>
 <tr>
 <td>V-221797</td>
@@ -5225,7 +4718,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <td>V-221821</td>
 <td>172</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the init_module syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the init_module and finit_module syscalls.</td>
 <td>The addition of kernel modules can be used to alter the behavior of
 the kernel and potentially introduce malicious code into kernel space. It is important
 to have an audit trail of modules that have been introduced into the kernel.</td>
@@ -5248,35 +4741,6 @@ If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 add the line to file <code>/etc/audit/audit.rules</code>.</td>
 <td>OL07-00-030820</td>
 <td>audit_rules_kernel_module_loading_init</td>
-</tr>
-<tr>
-<td>V-221822</td>
-<td>172</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the finit_module syscall.</td>
-<td>The addition/removal of kernel modules can be used to alter the behavior of
-the kernel and potentially introduce malicious code into kernel space. It is important
-to have an audit trail of modules that have been introduced into the kernel.</td>
-<td>To determine if the system is configured to audit calls to the
-finit_module system call, run the following command:
-$ sudo grep "finit_module" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>If the <code>auditd</code> daemon is configured to use the <code>augenrules</code> program
-to read audit rules during daemon startup (the default), add the following lines to a file
-with suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code> to capture kernel module
-loading and unloading events, setting ARCH to either b32 or b64 as appropriate for your system:
-<pre>-a always,exit -F arch=<i>ARCH</i> -S finit_module -F key=modules</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code> utility to read audit
-rules during daemon startup, add the following lines to <code>/etc/audit/audit.rules</code> file
-in order to capture kernel module loading and unloading events, setting ARCH to either b32 or
-b64 as appropriate for your system:
-<pre>-a always,exit -F arch=<i>ARCH</i> -S finit_module -F key=modules</pre>
-</td>
-<td>OL07-00-030821</td>
-<td>audit_rules_kernel_module_loading_finit</td>
 </tr>
 <tr>
 <td>V-221823</td>
@@ -5493,134 +4957,10 @@ account changes:
 <td>audit_rules_usergroup_modification_opasswd</td>
 </tr>
 <tr>
-<td>V-221830</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the rename syscall.</td>
-<td>Auditing file deletions will create an audit trail for files that are removed
-from the system. The audit trail could aid in system troubleshooting, as well as, detecting
-malicious processes that attempt to delete log files to conceal their presence.</td>
-<td>To determine if the system is configured to audit calls to the
-rename system call, run the following command:
-$ sudo grep "rename" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file deletion events
-for all users and root. If the <code>auditd</code> daemon is configured to use the
-<code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rename -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rename -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-</td>
-<td>OL07-00-030880</td>
-<td>audit_rules_file_deletion_events_rename</td>
-</tr>
-<tr>
-<td>V-221831</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the renameat syscall.</td>
-<td>Auditing file deletions will create an audit trail for files that are removed
-from the system. The audit trail could aid in system troubleshooting, as well as, detecting
-malicious processes that attempt to delete log files to conceal their presence.</td>
-<td>To determine if the system is configured to audit calls to the
-renameat system call, run the following command:
-$ sudo grep "renameat" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file deletion events
-for all users and root. If the <code>auditd</code> daemon is configured to use the
-<code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S renameat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S renameat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-</td>
-<td>OL07-00-030890</td>
-<td>audit_rules_file_deletion_events_renameat</td>
-</tr>
-<tr>
-<td>V-221832</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the rmdir syscall.</td>
-<td>Auditing file deletions will create an audit trail for files that are removed
-from the system. The audit trail could aid in system troubleshooting, as well as, detecting
-malicious processes that attempt to delete log files to conceal their presence.</td>
-<td>To determine if the system is configured to audit calls to the
-rmdir system call, run the following command:
-$ sudo grep "rmdir" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file deletion events
-for all users and root. If the <code>auditd</code> daemon is configured to use the
-<code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rmdir -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S rmdir -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-</td>
-<td>OL07-00-030900</td>
-<td>audit_rules_file_deletion_events_rmdir</td>
-</tr>
-<tr>
 <td>V-221833</td>
 <td>2884</td>
 <td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the unlink syscall.</td>
-<td>Auditing file deletions will create an audit trail for files that are removed
-from the system. The audit trail could aid in system troubleshooting, as well as, detecting
-malicious processes that attempt to delete log files to conceal their presence.</td>
-<td>To determine if the system is configured to audit calls to the
-unlink system call, run the following command:
-$ sudo grep "unlink" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </td>
-<td>At a minimum, the audit system should collect file deletion events
-for all users and root. If the <code>auditd</code> daemon is configured to use the
-<code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S unlink -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
-appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S unlink -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
-</td>
-<td>OL07-00-030910</td>
-<td>audit_rules_file_deletion_events_unlink</td>
-</tr>
-<tr>
-<td>V-221834</td>
-<td>2884</td>
-<td>medium</td>
-<td>The Oracle Linux operating system must audit all uses of the unlinkat syscall.</td>
+<td>The Oracle Linux operating system must audit all uses of the unlink, unlinkat, rename, renameat, and rmdir syscalls.</td>
 <td>Auditing file deletions will create an audit trail for files that are removed
 from the system. The audit trail could aid in system troubleshooting, as well as, detecting
 malicious processes that attempt to delete log files to conceal their presence.</td>
@@ -5644,7 +4984,7 @@ utility to read audit rules during daemon startup, add the following line to
 appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
-<td>OL07-00-030920</td>
+<td>OL07-00-030910</td>
 <td>audit_rules_file_deletion_events_unlinkat</td>
 </tr>
 <tr>

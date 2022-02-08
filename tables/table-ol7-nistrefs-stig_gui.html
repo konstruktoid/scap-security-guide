@@ -2082,12 +2082,12 @@ accepted.
 To specify the number of days after a password expires (which
 signifies inactivity) until an account is permanently disabled, add or correct
 the following line in <tt>/etc/default/useradd</tt>:
-<pre>INACTIVE=<i><tt>0</tt></i></pre>
+<pre>INACTIVE=<i><tt>35</tt></i></pre>
 If a password is currently on the verge of expiration, then
-<tt><tt>0</tt></tt>
+<tt><tt>35</tt></tt>
 day(s) remain(s) until the account is automatically
 disabled. However, if the password will not expire for another 60 days, then 60
-days plus <tt><tt>0</tt></tt> day(s) could
+days plus <tt><tt>35</tt></tt> day(s) could
 elapse until the account would be automatically disabled. See the
 <tt>useradd</tt> man page for more information.
   </td>
@@ -2096,7 +2096,7 @@ Disabling inactive accounts ensures that accounts which may not
 have been responsibly removed are not available to attackers
 who may have compromised their credentials.
   </td>
-  <td>var_account_disable_post_pw_expiration=0</td>
+  <td>var_account_disable_post_pw_expiration=35</td>
 </tr>
 <tr>
   <td>AC-4<br/>CM-7(b)<br/>CA-3(5)<br/>SC-7(21)<br/>CM-6(a)</td>
@@ -2771,7 +2771,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
+  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -3033,11 +3033,11 @@ to distinguish.
   <td>Configure Time Service Maxpoll Interval</td>
   <td xml:lang="en-US">
 The <tt>maxpoll</tt> should be configured to
-<tt>system_default</tt> in <tt>/etc/ntp.conf</tt> or
+<tt>18_hours</tt> in <tt>/etc/ntp.conf</tt> or
 <tt>/etc/chrony.conf</tt> to continuously poll time servers. To configure
 <tt>maxpoll</tt> in <tt>/etc/ntp.conf</tt> or <tt>/etc/chrony.conf</tt>
 add the following:
-<pre>maxpoll <tt>system_default</tt></pre>
+<pre>maxpoll <tt>18_hours</tt></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
   </td>
@@ -3048,7 +3048,7 @@ time a particular event occurred on a system is critical when conducting
 forensic analysis and investigating system events. Sources outside the
 configured acceptable allowance (drift) may be inaccurate.
   </td>
-  <td>var_time_service_set_maxpoll=system_default</td>
+  <td>var_time_service_set_maxpoll=18_hours</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-6(1)<br/>CM-7(b)</td>
