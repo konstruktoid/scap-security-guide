@@ -582,7 +582,11 @@ The console can now be locked with the following key combination:
 <td>Support session locking with tmux</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 </tr></table>
 <table><tr>
 <td>Configure the tmux Lock Command</td>
@@ -705,7 +709,11 @@ Publicly viewable images can include static or dynamic images, for example, patt
 <td>Support session locking with tmux</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 </tr></table></td>
 </tr>
 <tr>
@@ -770,8 +778,14 @@ is not commented out or superseded by later includes:
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 </tr></table>
 </td>
 </tr>
@@ -800,10 +814,13 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -1983,10 +2000,13 @@ At a minimum, the organization must audit the full-text recording of privileged 
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -3591,10 +3611,13 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -5190,10 +5213,8 @@ Password complexity is one factor of several that determines how long it takes t
 <table><tr>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -5719,9 +5740,13 @@ $ sudo yum erase tuned</pre>
 <td>Enable Kernel Page-Table Isolation (KPTI)</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -6336,22 +6361,7 @@ To enable FIPS mode, run the following command:
 Some maintenance and test tools are either standalone devices with their own operating systems or are applications bundled with an operating system.
 
 Nonlocal maintenance and diagnostic activities are those activities conducted by individuals communicating through a network, either an external network (e.g., the Internet) or an internal network. Local maintenance and diagnostic activities are those activities carried out by individuals physically present at the information system or information system component and not communicating across a network connection.</td>
-<td><table><tr>
-<td>Set SSH Idle Timeout Interval</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-</tr></table></td>
+<td></td>
 </tr>
 <tr>
 <td>V-56835</td>
@@ -6413,27 +6423,39 @@ Developers and implementers can increase the assurance in security functions by 
 <td>Disable vsyscalls</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 </tr></table>
 <table><tr>
 <td>Enable page allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 </tr></table>
 <table><tr>
 <td>Enable SLUB/SLAB allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 </tr></table>
 </td>
@@ -6499,40 +6521,7 @@ Managing excess capacity ensures that sufficient capacity is available to counte
 <td>Terminating an idle session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle session will also free up resources committed by the managed network element. 
 
 Terminating network connections associated with communications sessions includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, and de-allocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean that the operating system terminates all sessions or network access; it only ends the inactive session and releases the resources associated with that session.</td>
-<td>
-<table><tr>
-<td>Set SSH Idle Timeout Interval</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-</tr></table>
-<table><tr>
-<td>Set SSH Client Alive Count Max to zero</td>
-<td xml:lang="en-US">The SSH server sends at most <code>ClientAliveCountMax</code> messages
-during a SSH session and waits for a response from the SSH client.
-The option <code>ClientAliveInterval</code> configures timeout after
-each <code>ClientAliveCountMax</code> message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config</code>:</td>
-</tr></table>
-</td>
+<td></td>
 </tr>
 <tr>
 <td>V-56869</td>
@@ -7309,19 +7298,26 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 </tr></table>
 </td>
@@ -7723,40 +7719,7 @@ Session termination terminates all processes associated with a user's logical se
 Conditions or trigger events requiring automatic session termination can include, for example, organization-defined periods of user inactivity, targeted responses to certain types of incidents, and time-of-day restrictions on information system use.
 
 This capability is typically reserved for specific operating system functionality where the system owner, data owner, or organization requires additional assurance.</td>
-<td>
-<table><tr>
-<td>Set SSH Idle Timeout Interval</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-</tr></table>
-<table><tr>
-<td>Set SSH Client Alive Count Max to zero</td>
-<td xml:lang="en-US">The SSH server sends at most <code>ClientAliveCountMax</code> messages
-during a SSH session and waits for a response from the SSH client.
-The option <code>ClientAliveInterval</code> configures timeout after
-each <code>ClientAliveCountMax</code> message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config</code>:</td>
-</tr></table>
-</td>
+<td></td>
 </tr>
 <tr>
 <td>V-57209</td>
@@ -8524,9 +8487,13 @@ audit logs that will be created by the auditing daemon.</td>
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -8931,7 +8898,8 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network.
 
 Organizations should consider endpoints that may not have regular access to the authoritative time server (e.g., mobile, teleworking, and tactical endpoints).</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Configure Time Service Maxpoll Interval</td>
 <td xml:lang="en-US">The <code>maxpoll</code> should be configured to
 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
@@ -8940,8 +8908,15 @@ Organizations should consider endpoints that may not have regular access to the 
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
-</tr></table></td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
+</tr></table>
+<table><tr>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57203</td>
@@ -8953,7 +8928,8 @@ should be configured too.</td>
 Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network. Organizations should consider setting time periods for different types of systems (e.g., financial, legal, or mission-critical systems).
 
 Organizations should also consider endpoints that may not have regular access to the authoritative time server (e.g., mobile, teleworking, and tactical endpoints). This requirement is related to the comparison done every 24 hours in SRG-OS-000355 because a comparison must be done in order to determine the time difference.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Configure Time Service Maxpoll Interval</td>
 <td xml:lang="en-US">The <code>maxpoll</code> should be configured to
 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
@@ -8962,8 +8938,15 @@ Organizations should also consider endpoints that may not have regular access to
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
-</tr></table></td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
+</tr></table>
+<table><tr>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>SV-71453</td>
@@ -9028,7 +9011,13 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
+</tr></table>
+<table><tr>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
 </tr></table>
 </td>
 </tr>
@@ -9763,10 +9752,13 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -10884,22 +10876,7 @@ Crypto policies may be customized by crypto policy modules, in which case it is 
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must verify remote disconnection at the termination of nonlocal maintenance and diagnostic sessions, when used for nonlocal maintenance sessions.</td>
 <td>If the remote connection is not closed and verified as closed, the session may remain open and be exploited by an attacker; this is referred to as a zombie session. Remote connections must be disconnected and verified as disconnected when nonlocal maintenance sessions have been terminated and are no longer available for use.</td>
-<td><table><tr>
-<td>Set SSH Idle Timeout Interval</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-</tr></table></td>
+<td></td>
 </tr>
 <tr>
 <td>SV-71043</td>
@@ -11232,9 +11209,13 @@ on AMD-based systems.</td>
 <td>Enable SLUB/SLAB allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 </tr></table>
 </td>
@@ -11252,9 +11233,13 @@ Examples of attacks are buffer overflow attacks.</td>
 <td>Enable Kernel Page-Table Isolation (KPTI)</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -11977,10 +11962,13 @@ Audit records can be generated from various components within the information sy
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -14241,10 +14229,13 @@ Audit records can be generated from various components within the information sy
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -15390,10 +15381,13 @@ Audit records can be generated from various components within the information sy
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -16002,10 +15996,8 @@ There must be a resolvable DNS CNAME or Alias record set to "<xccdf-1.1:sub xmln
 <table><tr>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -16142,6 +16134,16 @@ Restrict privileged actions by removing the following entries from the sudoers f
 </td>
 </tr></table>
 <table><tr>
+<td>Ensure sudo only includes the default configuration directory</td>
+<td xml:lang="en-US">Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
+</tr></table>
+<table><tr>
 <td>Ensure invoking users password for privilege escalation when using sudo</td>
 <td xml:lang="en-US">The sudoers security policy requires that users authenticate themselves before they can use sudo.
 When sudoers requires authentication, it validates the invoking user's credentials.
@@ -16201,6 +16203,20 @@ settings in
 <code>/etc/pam.d/postlogin</code> to read as follows:
 <pre>session     required pam_lastlog.so showfailed</pre>
 And make sure that the <code>silent</code> option is not set.</td>
+</tr></table>
+<table><tr>
+<td>Ensure PAM password complexity module is enabled in password-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+</tr></table>
+<table><tr>
+<td>Ensure PAM password complexity module is enabled in system-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
 </tr></table>
 <table><tr>
 <td>Disable debug-shell SystemD Service</td>
@@ -16408,9 +16424,13 @@ in <code>/etc/audit/auditd.conf</code>.</td>
 <td>Disable vsyscalls</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -16814,9 +16834,13 @@ To make sure that the setting is persistent, add the following line to a file in
 <td>Enable page allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 </tr></table>
 <table><tr>
@@ -17064,8 +17088,14 @@ To explicitly enable LastLog in SSH, add or correct the following line in
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 </tr></table>
 <table><tr>
 <td>SSH server uses strong entropy to seed</td>

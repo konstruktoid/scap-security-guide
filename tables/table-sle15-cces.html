@@ -1155,9 +1155,11 @@ to require use of a special character in passwords.</td>
 <td></td>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
+
 Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  to show
+<code>/etc/pam.d/system-auth</code> to show
+
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -2062,9 +2064,8 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
+GRUB 2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain audit=1 as follows:
 <pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
 </td>
 </tr>
@@ -2073,9 +2074,9 @@ GRUB 2 command line for the Linux operating system in
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain audit_backlog_limit=8192 as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit_backlog_limit=8192"</pre>
 </td>
 </tr>
 <tr>
@@ -4219,7 +4220,10 @@ The <code>apparmor</code> service can be enabled with the following command:
 <td></td>
 <td>IOMMU configuration directive</td>
 <td xml:lang="en-US">On x86 architecture supporting VT-d, the IOMMU manages the access control policy between the hardware devices and some
-    of the system critical units such as the memory.</td>
+    of the system critical units such as the memory.
+Configure the default Grub2 kernel command line to contain iommu=force as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) iommu=force"</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-85849-8</td>
@@ -4644,10 +4648,9 @@ add or correct the following line in
 <td>Ensure IPv6 is disabled through kernel boot parameter</td>
 <td xml:lang="en-US">To disable IPv6 protocol support in the Linux kernel,
 add the argument <code>ipv6.disable=1</code> to the default
-GRUB2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre>sudo  grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"</pre>
+GRUB2 command line for the Linux operating system.
+Configure the default Grub2 kernel command line to contain ipv6.disable=1 as follows:
+<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"</pre>
 </td>
 </tr>
 <tr>
@@ -6725,7 +6728,9 @@ The <code>systemd_timesyncd</code> service can be enabled with the following com
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 </tr>
 <tr>
 <td>CCE-85834-0</td>
@@ -6767,6 +6772,11 @@ To ensure that chronyd is running under chrony user account, Add or edit the
 <code>OPTIONS</code> variable in <code>/etc/sysconfig/chronyd</code> to include <code>-u chrony</code>:
 <pre>OPTIONS="-u chrony"</pre>
 This recommendation only applies if chrony is in use on the system.</td>
+</tr>
+<tr>
+<td></td>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
 </tr>
 <tr>
 <td>CCE-85833-2</td>
@@ -7544,8 +7554,14 @@ To explicitly enable LastLog in SSH, add or correct the following line in
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 </tr>
 <tr>
 <td>CCE-83281-6</td>

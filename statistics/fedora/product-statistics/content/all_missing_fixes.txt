@@ -48,6 +48,7 @@ avahi_disable_publishing
 bios_assign_password
 bios_disable_usb_boot
 bios_enable_execution_restrictions
+chronyd_server_directive
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 dconf_gnome_disable_power_settings

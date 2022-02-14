@@ -43,6 +43,7 @@ auditd_overflow_action
 avahi_disable_publishing
 banner_etc_issue
 bios_disable_usb_boot
+chronyd_server_directive
 chronyd_specify_remote_server
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy

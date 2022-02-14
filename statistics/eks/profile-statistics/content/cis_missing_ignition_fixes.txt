@@ -1,1 +1,2 @@
+audit_logging
 configure_network_policies_namespaces

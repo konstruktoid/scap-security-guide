@@ -52,10 +52,10 @@ Ensure that unsuccessful attempts to access a file are audited.
 
 The following rules configure audit as described above:
 <pre>## Unsuccessful file access (any other opens) This has to go last.
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
 
 Load new Audit rules into kernel by running:
 <pre>augenrules --load</pre>
@@ -77,8 +77,8 @@ Ensure that successful attempts to access a file are audited.
 The following rules configure audit as described above:
 <pre>## Successful file access (any other opens) This has to go last.
 ## These next two are likely to result in a whole lot of events
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access    </pre>
 
 The <tt>Audit</tt> package provides pre-configured  rules in <tt>/usr/share/audit/sample-rules</tt>. The above content can be found in <tt>/usr/share/audit/sample-rules/30-ospp-v42-3-access-success.rules</tt>.
 To deploy this configuration, it is recommended to copy it over to the <tt>/etc/audit/rules.d/</tt> directory:
@@ -454,6 +454,10 @@ The following rules configure audit as described above:
 -a always,exit -F path=/usr/bin/at -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=special-config-changes
 
 ## Privilege escalation via su or sudo. This is entirely handled by pam.
+
+## Watch for configuration changes to privilege escalation.
+-a always,exit -F path=/etc/sudoers -F perm=wa -F key=special-config-changes
+-a always,exit -F dir=/etc/sudoers.d/ -F perm=wa -F key=special-config-changes
 
 ## Audit log access
 -a always,exit -F dir=/var/log/audit/ -F perm=r -F auid&gt;=1000 -F auid!=unset -F key=access-audit-trail
@@ -3417,7 +3421,10 @@ disallows the use of user namespaces.
   <td xml:lang="en-US">
 The <tt>tmux</tt> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<tt>/etc/bashrc</tt>.
+<tt>/etc/bashrc</tt> or drop-in files within <tt>/etc/profile.d/</tt>.
+Additionally it must be ensured that the <tt>tmux</tt> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
   </td>
   <td xml:lang="en-US">
 Unlike <tt>bash</tt> itself, the <tt>tmux</tt> terminal multiplexer
@@ -3557,7 +3564,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_ssh_client_rekey_limit_time=1hour<br/>var_ssh_client_rekey_limit_size=1G</td>
+  <td>var_ssh_client_rekey_limit_size=1G<br/>var_ssh_client_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
@@ -3567,15 +3574,20 @@ encryption keys are limited.
 The <tt>RekeyLimit</tt> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<tt>RekeyLimit <tt>1G</tt> <tt>1hour</tt></tt> to file <tt>/etc/ssh/sshd_config</tt>.
+elapsed.<br/>
+To decrease the default limits, add or correct the following line in
+
+
+<tt>/etc/ssh/sshd_config</tt>:
+
+<pre>RekeyLimit <tt>1G</tt> <tt>1hour</tt></pre>
   </td>
   <td xml:lang="en-US">
 By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

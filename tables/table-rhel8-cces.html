@@ -1361,6 +1361,17 @@ Restrict privileged actions by removing the following entries from the sudoers f
 <td xml:lang="en-US">The sudo <code>NOPASSWD</code> tag, when specified, allows a user to execute commands using sudo without having to authenticate. Only the <code>vdsm</code> user should have this capability in any sudo configuration snippets in <code>/etc/sudoers.d/</code>.</td>
 </tr>
 <tr>
+<td>CCE-86377-9</td>
+<td>Ensure sudo only includes the default configuration directory</td>
+<td xml:lang="en-US">Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
+</tr>
+<tr>
 <td>CCE-83632-0</td>
 <td>Explicit arguments in sudo specifications</td>
 <td xml:lang="en-US">All commands in the sudoers file must strictly specify the arguments allowed to be used for a given user.
@@ -2123,13 +2134,27 @@ in <code>/etc/security/pwquality.conf</code> to equal <xccdf-1.1:sub xmlns:xccdf
 to require use of a special character in passwords.</td>
 </tr>
 <tr>
+<td>CCE-85877-9</td>
+<td>Ensure PAM password complexity module is enabled in password-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+</tr>
+<tr>
+<td>CCE-85872-0</td>
+<td>Ensure PAM password complexity module is enabled in system-auth</td>
+<td xml:lang="en-US">To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+</tr>
+<tr>
 <td>CCE-80664-6</td>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -2298,7 +2323,11 @@ The console can now be locked with the following key combination:
 <td>Support session locking with tmux</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-82199-1</td>
@@ -3058,10 +3087,13 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Enable Auditing for Processes Which Start Prior to the Audit Daemon</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 </tr>
 <tr>
@@ -3069,9 +3101,13 @@ GRUB 2 command line for the Linux operating system in
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 </tr>
 <tr>
@@ -6675,10 +6711,10 @@ This is the default setting.</td>
 
 The following rules configure audit as described above:
 <pre>## Unsuccessful file access (any other opens) This has to go last.
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
 
 Load new Audit rules into kernel by running:
 <pre>augenrules --load</pre>
@@ -6693,8 +6729,8 @@ Note: This rule utilizes a file provided by <code>Audit</code> package to comply
 The following rules configure audit as described above:
 <pre>## Successful file access (any other opens) This has to go last.
 ## These next two are likely to result in a whole lot of events
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
 
 The <code>Audit</code> package provides pre-configured  rules in <code>/usr/share/audit/sample-rules</code>. The above content can be found in <code>/usr/share/audit/sample-rules/30-ospp-v42-3-access-success.rules</code>.
 To deploy this configuration, it is recommended to copy it over to the <code>/etc/audit/rules.d/</code> directory:
@@ -7005,6 +7041,10 @@ The following rules configure audit as described above:
 
 ## Privilege escalation via su or sudo. This is entirely handled by pam.
 
+## Watch for configuration changes to privilege escalation.
+-a always,exit -F path=/etc/sudoers -F perm=wa -F key=special-config-changes
+-a always,exit -F dir=/etc/sudoers.d/ -F perm=wa -F key=special-config-changes
+
 ## Audit log access
 -a always,exit -F dir=/var/log/audit/ -F perm=r -F auid&gt;=1000 -F auid!=unset -F key=access-audit-trail
 ## Attempts to Alter Process and Session Initiation Information
@@ -7154,7 +7194,14 @@ cp /usr/share/doc/audit*/rules/{10-base-config,11-loginuid,30-ospp-v42,43-module
 <td>CCE-83920-9</td>
 <td>IOMMU configuration directive</td>
 <td xml:lang="en-US">On x86 architecture supporting VT-d, the IOMMU manages the access control policy between the hardware devices and some
-    of the system critical units such as the memory.</td>
+    of the system critical units such as the memory.
+To ensure that <code>iommu=force</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>iommu=force</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... iommu=force ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="iommu=force"</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-83314-5</td>
@@ -7165,8 +7212,13 @@ compilation, e.g. the option <code>CONFIG_RANDOM_TRUST_CPU</code> is set to
 <code>Y</code>, make sure that it is not overridden with the boot parameter.
 There must not exist the boot parameter <code>random.trust_cpu=off</code>. If
 the option is not compiled in, make sure that <code>random.trust_cpu=on</code>
-is configured as a boot parameter by running the following command:
-<pre>sudo grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) random.trust_cpu=on"</pre>
+is configured as a boot parameter.
+To ensure that <code>random.trust_cpu=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>random.trust_cpu=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... random.trust_cpu=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="random.trust_cpu=on"</pre>
 </td>
 </tr>
 <tr>
@@ -7174,9 +7226,13 @@ is configured as a boot parameter by running the following command:
 <td>Enable Kernel Page-Table Isolation (KPTI)</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 </tr>
 <tr>
@@ -7184,9 +7240,13 @@ GRUB 2 command line for the Linux operating system in
 <td>Disable vsyscalls</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 </tr>
 <tr>
@@ -7898,10 +7958,13 @@ add or correct the following line in
 <td>Ensure IPv6 is disabled through kernel boot parameter</td>
 <td xml:lang="en-US">To disable IPv6 protocol support in the Linux kernel,
 add the argument <code>ipv6.disable=1</code> to the default
-GRUB2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre>sudo  grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) ipv6.disable=1"</pre>
+GRUB2 command line for the Linux operating system.
+To ensure that <code>ipv6.disable=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>ipv6.disable=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... ipv6.disable=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="ipv6.disable=1"</pre>
 </td>
 </tr>
 <tr>
@@ -9643,9 +9706,13 @@ and modify <code>/etc/default/grub</code> if necessary.</td>
 <td>Enable page allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 </tr>
 <tr>
@@ -9653,9 +9720,13 @@ GRUB 2 command line for the Linux operating system in
 <td>Enable SLUB/SLAB allocator poisoning</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 </tr>
 <tr>
@@ -14760,7 +14831,9 @@ for management connections made by chronyc.</td>
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 </tr>
 <tr>
 <td>CCE-80764-4</td>
@@ -14829,6 +14902,11 @@ To ensure that chronyd is running under chrony user account, Add or edit the
 <code>OPTIONS</code> variable in <code>/etc/sysconfig/chronyd</code> to include <code>-u chrony</code>:
 <pre>OPTIONS="-u chrony"</pre>
 This recommendation only applies if chrony is in use on the system.</td>
+</tr>
+<tr>
+<td>CCE-86077-5</td>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
 </tr>
 <tr>
 <td>CCE-82873-1</td>
@@ -15806,8 +15884,14 @@ To explicitly enable LastLog in SSH, add or correct the following line in
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 </tr>
 <tr>
 <td>CCE-80906-1</td>

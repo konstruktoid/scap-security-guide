@@ -475,9 +475,15 @@ Address Space Layout Randomization (ASLR) and systematic presence of No eXecute 
   <td xml:lang="en-US">
 On x86 architecture supporting VT-d, the IOMMU manages the access control policy between the hardware devices and some
     of the system critical units such as the memory.
+To ensure that <tt>iommu=force</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>iommu=force</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... iommu=force ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="iommu=force"</pre>
   </td>
   <td xml:lang="en-US">
-On x86 architectures, activating the I/OMMU prevents the system from arbritrary accesses potentially made by
+On x86 architectures, activating the I/OMMU prevents the system from arbitrary accesses potentially made by
     hardware devices.
   </td>
 </tr>

@@ -4701,10 +4701,13 @@ attackers, thus compromising its confidentiality.
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/boot/grub2/grubenv</tt>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether

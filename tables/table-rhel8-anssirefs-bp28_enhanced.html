@@ -285,6 +285,24 @@ Removing the <tt>ypserv</tt> package decreases the risk of the accidental
   <td></td>
 </tr>
 <tr>
+  <td>BP28(R4)<br/>BP28(R66)</td>
+  <td>CCE-80869-1</td>
+  <td>Ensure SELinux State is Enforcing</td>
+  <td xml:lang="en-US">
+The SELinux state should be set to <tt><tt>enforcing</tt></tt> at
+system boot time.  In the file <tt>/etc/selinux/config</tt>, add or correct the
+following line to configure the system to boot into enforcing mode:
+<pre>SELINUX=<tt>enforcing</tt></pre>
+  </td>
+  <td xml:lang="en-US">
+Setting the SELinux state to enforcing ensures SELinux is able to confine
+potentially compromised processes to the security policy, which is designed to
+prevent them from causing damage to the system or further elevating their
+privileges.
+  </td>
+  <td>var_selinux_state=enforcing</td>
+</tr>
+<tr>
   <td>BP28(R5)<br/>NT28(R46)</td>
   <td>CCE-80847-7</td>
   <td>Ensure rsyslog is Installed</td>

@@ -2665,7 +2665,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
+  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -2771,9 +2771,11 @@ approved Certificate Authority (CA).
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<tt>3</tt></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -2858,7 +2860,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900</td>
+  <td>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>
@@ -2937,6 +2939,8 @@ add the following:
 <pre>maxpoll <tt>system_default</tt></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
+If no <tt>server</tt> or <tt>pool</tt> directives are configured, the rule evaluates
+to pass.
   </td>
   <td xml:lang="en-US">
 Inaccurate time stamps make it more difficult to correlate

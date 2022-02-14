@@ -49,6 +49,7 @@ avahi_restrict_published_information
 bios_assign_password
 bios_disable_usb_boot
 bios_enable_execution_restrictions
+chronyd_server_directive
 configure_openssl_tls_crypto_policy
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument

@@ -1142,7 +1142,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td>SUSE Linux Enterprise 15 natively supports partition encryption through the
@@ -1847,7 +1848,9 @@ maxpoll .
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>SLES-15-010400</td>
 <td>chronyd_or_ntpd_set_maxpoll</td>
 </tr>
@@ -2809,6 +2812,7 @@ when using the "sudo" command to elevate privileges, run the following command:
 sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d
 The output should be:
 /etc/sudoers:Defaults timestamp_timeout=0 or "timestamp_timeout" is set to a positive number.
+If results are returned from more than one file location, this is a finding.
       Is it the case that timestamp_timeout is not set with the appropriate value for sudo?
       </td>
 <td>The sudo <code>timestamp_timeout</code> tag sets the amount of time sudo password prompt waits.
@@ -2831,7 +2835,8 @@ and the user will not have to re-authenticate for privileged actions until the u
 the invoking user for the "root" user password.</td>
 <td>Run the following command to Verify that the sudoers security policy is configured to use the invoking user's password for privilege escalation:
  sudo egrep -i '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/* | grep -v '#'
-If no results are returned, this is a finding
+If no results are returned, this is a finding.
+If results are returned from more than one file location, this is a finding.
 If "Defaults !targetpw" is not defined, this is a finding.
 If "Defaults !rootpw" is not defined, this is a finding.
 If "Defaults !runaspw" is not defined, this is a finding.

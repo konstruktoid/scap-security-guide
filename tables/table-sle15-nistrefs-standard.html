@@ -1072,9 +1072,11 @@ duplicate acknowledgments for invalid segments.
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<tt>3</tt></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts

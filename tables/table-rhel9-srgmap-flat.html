@@ -1640,24 +1640,35 @@ The session lock is implemented at the point where session activity can be deter
 Regardless of where the session lock is determined and implemented, once invoked, the session lock shall remain in place until the user re-authenticates. No other activity aside from re-authentication shall unlock the system.</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system retains a user's session lock until that user reestablishes access using established identification and authentication procedures. If it does not, this is a finding.</td>
 <td>To verify that tmux is configured to execute,
 run the following command:
-$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc
+$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc /etc/profile.d/*
 The output should return the following:
 if [ "$PS1" ]; then
   parent=$(ps -o ppid= -p $$)
   name=$(ps -o comm= -p $parent)
   case "$name" in sshd|login) exec tmux ;; esac
 fi
-      Is it the case that exec tmux is not present at the end of bashrc?
+To verify that the tmux process is running,
+run the following command:
+ps all | grep tmux | grep -v grep
+If the command does not produce output, this is a finding.
+      Is it the case that exec tmux is not present at the end of bashrc or tmux process is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3723r557051_fix">Configure the operating system to retain a user's session lock until that user reestablishes access using established identification and authentication procedures.</fixtext></td>
 <td>The tmux terminal multiplexer is used to implement
 automatic session locking. It should be started from
-/etc/bashrc.</td>
+/etc/bashrc or drop-in files within /etc/profile.d/.
+Additionally it must be ensured that the tmux process is running
+and it can be verified with the following command:
+ps all | grep tmux | grep -v grep</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -1968,24 +1979,35 @@ The session lock is implemented at the point where session activity can be deter
 Publicly viewable images can include static or dynamic images, for example, patterns used with screen savers, photographic images, solid colors, a clock, a battery life indicator, or a blank screen, with the additional caveat that none of the images convey sensitive information.</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system conceals, via the session lock, information previously visible on the display with a publicly viewable image. If it does not, this is a finding.</td>
 <td>To verify that tmux is configured to execute,
 run the following command:
-$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc
+$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc /etc/profile.d/*
 The output should return the following:
 if [ "$PS1" ]; then
   parent=$(ps -o ppid= -p $$)
   name=$(ps -o comm= -p $parent)
   case "$name" in sshd|login) exec tmux ;; esac
 fi
-      Is it the case that exec tmux is not present at the end of bashrc?
+To verify that the tmux process is running,
+run the following command:
+ps all | grep tmux | grep -v grep
+If the command does not produce output, this is a finding.
+      Is it the case that exec tmux is not present at the end of bashrc or tmux process is not running?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3726r557060_fix">Configure the operating system to conceal, via the session lock, information previously visible on the display with a publicly viewable image.</fixtext></td>
 <td>The tmux terminal multiplexer is used to implement
 automatic session locking. It should be started from
-/etc/bashrc.</td>
+/etc/bashrc or drop-in files within /etc/profile.d/.
+Additionally it must be ensured that the tmux process is running
+and it can be verified with the following command:
+ps all | grep tmux | grep -v grep</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -2130,13 +2152,21 @@ Encryption provides a means to secure the remote connection to prevent unauthori
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system implements DoD-approved encryption to protect the confidentiality of remote access sessions. If it does not, this is a finding.</td>
 <td>To check if RekeyLimit is set correctly, run the
 following command:
-$ sudo grep RekeyLimit /etc/ssh/sshd_config
+
+$ sudo grep RekeyLimit /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*
+
 If configured properly, output should be
 RekeyLimit  
       Is it the case that it is commented out or is not set?
@@ -2145,8 +2175,13 @@ RekeyLimit
 <td>The RekeyLimit parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-RekeyLimit   to file /etc/ssh/sshd_config.</td>
+elapsed.
+To decrease the default limits, add or correct the following line in
+
+
+/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf:
+
+RekeyLimit  </td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -2205,33 +2240,40 @@ Audit record content that may be necessary to satisfy this requirement includes,
 Associating event types with detected events in the operating system audit logs provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured operating system.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system produces audit records containing information to establish what type of events occurred. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3729r557069_fix">Configure the operating system to produce audit records containing information to establish what type of events occurred.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -5759,33 +5801,40 @@ Edit the file "/etc/passwd" and provide each interactive user account that has a
 At a minimum, the organization must audit the full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system generates audit records containing the full-text recording of privileged commands. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3734r557084_fix">Configure the operating system to generate audit records containing the full-text recording of privileged commands.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -10492,10 +10541,13 @@ DoD has defined the list of events for which the operating system will provide a
 4) All kernel module load, unload, and restart actions.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system provides audit record generation capability for DoD-defined auditable events for all operating system components. 
@@ -10511,17 +10563,18 @@ DoD has defined the list of events for which the operating system will provide a
 4) All kernel module load, unload, and restart actions.
 
 If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3744r557582_fix">Configure the operating system to provide audit record generation capability for DoD-defined auditable events for all operating system components.
@@ -10537,10 +10590,13 @@ DoD has defined the list of events for which the operating system will provide a
 4) All kernel module load, unload, and restart actions.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -17168,10 +17224,8 @@ domains = testing.test
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -17180,7 +17234,7 @@ per session.</td>
 <td>Verify the operating system enforces password complexity by requiring that at least one upper-case character be used. If it does not, this is a finding.</td>
 <td>To check how many retry attempts are permitted on a per-session basis, run the following command:
 
-$ grep pam_pwquality /etc/pam.d/system-auth /etc/pam.d/password-auth
+$ grep retry /etc/security/pwquality.conf
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
@@ -17189,10 +17243,8 @@ This would appear as retry=3, or a lower value.
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3750r557600_fix">Configure the operating system to enforce password complexity by requiring that at least one upper-case character be used.</fixtext></td>
 <td>To configure the number of retry prompts that are permitted per-session:
-Edit the pam_pwquality.so statement in
 
-/etc/pam.d/system-auth  and
-/etc/pam.d/password-auth  to show
+Edit the /etc/security/pwquality.conf to include
 
 retry=, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -17358,7 +17410,7 @@ to prevent a run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
 $ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4.
+For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
       Is it the case that that is not the case?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
@@ -18493,29 +18545,40 @@ Operating systems are capable of providing a wide variety of functions and servi
 Examples of non-essential capabilities include, but are not limited to, games, software packages, tools, and demonstration software, not related to requirements or providing a wide array of functionality not required for every mission, but which cannot be disabled.</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured to disable non-essential capabilities. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include pti=on,
-then Kernel page-table isolation is enabled at boot time.
-
-To ensure pti=on is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="pti=on
-
+in /etc/default/grub. If it includes pti=on,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*pti=on.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*pti=on.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'pti=on'
+The command should not return any output.
       Is it the case that Kernel page-table isolation is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3762r557637_fix">Configure the operating system to disable non-essential capabilities.</fixtext></td>
 <td>To enable Kernel page-table isolation,
 add the argument pti=on to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="pti=on"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that pti=on is added as a kernel command line
+argument to newly installed kernels, ad pti=on to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... pti=on ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="pti=on"</td>
 <td>high</td>
 <td></td>
 <td></td>
@@ -20094,51 +20157,23 @@ fips-mode-setup --enable</td>
 <td>SRG-OS-000126-GPOS-00066</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must terminate all sessions and network connections related to nonlocal maintenance when nonlocal maintenance is completed.</td>
-<td>CCE-90811-1:Set SSH Idle Timeout Interval</td>
+<td></td>
 <td> If a maintenance session or connection remains open after maintenance is completed, it may be hijacked by an attacker and used to compromise or damage the system.
 
 Some maintenance and test tools are either standalone devices with their own operating systems or are applications bundled with an operating system.
 
 Nonlocal maintenance and diagnostic activities are those activities conducted by individuals communicating through a network, either an external network (e.g., the Internet) or an internal network. Local maintenance and diagnostic activities are those activities carried out by individuals physically present at the information system or information system component and not communicating across a network connection.</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system terminates all sessions and network connections related to nonlocal maintenance when nonlocal maintenance is completed. If it does not, this is a finding.</td>
-<td>Run the following command to see what the timeout interval is:
-$ sudo grep ClientAliveInterval /etc/ssh/sshd_config
-If properly configured, the output should be:
-ClientAliveInterval 
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3779r557208_fix">Configure the operating system to terminate all sessions and network connections related to nonlocal maintenance when nonlocal maintenance is completed.</fixtext></td>
-<td>SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-
-To set an idle timeout interval, edit the following line in /etc/ssh/sshd_config as
-follows:
-ClientAliveInterval 
-
-The timeout interval is given in seconds. For example, have a timeout
-of 10 minutes, set interval to 600.
-
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in /etc/ssh/sshd_config. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>medium</td>
+<td>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</td>
 </tr>
 <tr>
 <td>V-56835</td>
@@ -20393,29 +20428,40 @@ Security functions are the hardware, software, and/or firmware of the informatio
 Developers and implementers can increase the assurance in security functions by employing well-defined security policy models; structured, disciplined, and rigorous hardware and software development techniques; and sound system/security engineering principles. Implementation may include isolation of memory space and libraries. Operating systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities.</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system isolates security functions from nonsecurity functions. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include vsyscall=none,
-then virtyal syscalls are not enabled at boot time.
-
-To ensure vsyscall=none is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="vsyscall=none
-
+in /etc/default/grub. If it includes vsyscall=none,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*vsyscall=none.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*vsyscall=none.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'vsyscall=none'
+The command should not return any output.
       Is it the case that vsyscalls are enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3781r557214_fix">Configure the operating system to isolate security functions from nonsecurity functions.</fixtext></td>
 <td>To disable use of virtual syscalls,
 add the argument vsyscall=none to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="vsyscall=none"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that vsyscall=none is added as a kernel command line
+argument to newly installed kernels, ad vsyscall=none to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... vsyscall=none ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="vsyscall=none"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -20434,29 +20480,40 @@ Security functions are the hardware, software, and/or firmware of the informatio
 Developers and implementers can increase the assurance in security functions by employing well-defined security policy models; structured, disciplined, and rigorous hardware and software development techniques; and sound system/security engineering principles. Implementation may include isolation of memory space and libraries. Operating systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities.</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system isolates security functions from nonsecurity functions. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include page_poison=1,
-then page poisoning is enabled at boot time.
-
-To ensure page_poison=1 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="page_poison=1
-
+in /etc/default/grub. If it includes page_poison=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*page_poison=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*page_poison=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'page_poison=1'
+The command should not return any output.
       Is it the case that page allocator poisoning is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3781r557214_fix">Configure the operating system to isolate security functions from nonsecurity functions.</fixtext></td>
 <td>To enable poisoning of free pages,
 add the argument page_poison=1 to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="page_poison=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that page_poison=1 is added as a kernel command line
+argument to newly installed kernels, ad page_poison=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... page_poison=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="page_poison=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -20475,29 +20532,40 @@ Security functions are the hardware, software, and/or firmware of the informatio
 Developers and implementers can increase the assurance in security functions by employing well-defined security policy models; structured, disciplined, and rigorous hardware and software development techniques; and sound system/security engineering principles. Implementation may include isolation of memory space and libraries. Operating systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities.</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system isolates security functions from nonsecurity functions. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include slub_debug=P,
-then SLUB/SLAB poisoning is enabled at boot time.
-
-To ensure slub_debug=P is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="slub_debug=P
-
+in /etc/default/grub. If it includes slub_debug=P,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*slub_debug=P.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*slub_debug=P.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'slub_debug=P'
+The command should not return any output.
       Is it the case that SLUB/SLAB poisoning is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3781r557214_fix">Configure the operating system to isolate security functions from nonsecurity functions.</fixtext></td>
 <td>To enable poisoning of SLUB/SLAB objects,
 add the argument slub_debug=P to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="slub_debug=P"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that slub_debug=P is added as a kernel command line
+argument to newly installed kernels, ad slub_debug=P to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... slub_debug=P ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="slub_debug=P"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -20673,103 +20741,21 @@ Managing excess capacity ensures that sufficient capacity is available to counte
 <td>SRG-OS-000163-GPOS-00072</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must terminate all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes of inacti</td>
-<td>CCE-90811-1:Set SSH Idle Timeout Interval</td>
+<td></td>
 <td>Terminating an idle session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle session will also free up resources committed by the managed network element. 
 
 Terminating network connections associated with communications sessions includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, and de-allocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean that the operating system terminates all sessions or network access; it only ends the inactive session and releases the resources associated with that session.</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system terminates all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes of ina</td>
-<td>Run the following command to see what the timeout interval is:
-$ sudo grep ClientAliveInterval /etc/ssh/sshd_config
-If properly configured, the output should be:
-ClientAliveInterval 
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3784r557223_fix">Configure the operating system to terminate all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes o</fixtext></td>
-<td>SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-
-To set an idle timeout interval, edit the following line in /etc/ssh/sshd_config as
-follows:
-ClientAliveInterval 
-
-The timeout interval is given in seconds. For example, have a timeout
-of 10 minutes, set interval to 600.
-
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in /etc/ssh/sshd_config. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>medium</td>
+<td>
 <td></td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td>SV-71125</td>
-<td>SRG-OS-000163-GPOS-00072</td>
-<td><i>TBD - Assigned by DISA after STIG release</i></td>
-<td>The operating system must terminate all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes of inacti</td>
-<td>CCE-90271-8:Set SSH Client Alive Count Max to zero</td>
-<td>Terminating an idle session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle session will also free up resources committed by the managed network element. 
-
-Terminating network connections associated with communications sessions includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, and de-allocating networking assignments at the application level if multiple application sessions are using a single operating system-level network connection. This does not mean that the operating system terminates all sessions or network access; it only ends the inactive session and releases the resources associated with that session.</td>
-<td xml:lang="en-US">The SSH server sends at most <code>ClientAliveCountMax</code> messages
-during a SSH session and waits for a response from the SSH client.
-The option <code>ClientAliveInterval</code> configures timeout after
-each <code>ClientAliveCountMax</code> message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf</code>:</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system terminates all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes of ina</td>
-<td>To ensure ClientAliveInterval is set correctly, run the following command:
-
-$ sudo grep ClientAliveCountMax /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*.conf
-
-If properly configured, the output should be:
-ClientAliveCountMax 0
-
-In this case, the SSH idle timeout occurs precisely when
-the ClientAliveInterval is set.
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3784r557223_fix">Configure the operating system to terminate all network connections associated with a communications session at the end of the session, or as follows: for in-band management sessions (privileged sessions), the session must be terminated after 10 minutes o</fixtext></td>
-<td>The SSH server sends at most ClientAliveCountMax messages
-during a SSH session and waits for a response from the SSH client.
-The option ClientAliveInterval configures timeout after
-each ClientAliveCountMax message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-ClientAliveInterval is set, set the ClientAliveCountMax to
-value of 0 in
-
-
-/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf:</td>
-<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+</td>
 </tr>
 <tr>
 <td>V-56869</td>
@@ -20841,7 +20827,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3786r557229_fix">Configure the operating system to protect the confidentiality and integrity of all information at rest.</fixtext></td>
@@ -23066,33 +23053,40 @@ $ sudo systemctl enable auditd.service</td>
 <td>If auditing is enabled late in the start-up process, the actions of some start-up processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system initiates session audits at system start-up. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3795r374838_fix">Configure the operating system to initiate session audits at system start-up.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -23107,29 +23101,40 @@ GRUB 2 command line for the Linux operating system in
 <td>If auditing is enabled late in the start-up process, the actions of some start-up processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system initiates session audits at system start-up. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include audit=1, then auditing
-is enabled at boot time.
-
-To ensure audit_backlog_limit=8192 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="audit_backlog_limit=8192"
-
+in /etc/default/grub. If it includes audit_backlog_limit=8192,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit_backlog_limit=8192.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit_backlog_limit=8192.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit_backlog_limit=8192'
+The command should not return any output.
       Is it the case that audit backlog limit is not configured?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3795r374838_fix">Configure the operating system to initiate session audits at system start-up.</fixtext></td>
 <td>To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument audit_backlog_limit=8192 to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit_backlog_limit=8192 is added as a kernel command line
+argument to newly installed kernels, ad audit_backlog_limit=8192 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -24101,7 +24106,7 @@ If one or more lines are missing, this is a finding.
 <td>SRG-OS-000279-GPOS-00109</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must automatically terminate a user session after inactivity time-outs have expired or at shutdown.</td>
-<td>CCE-90811-1:Set SSH Idle Timeout Interval</td>
+<td></td>
 <td>Automatic session termination addresses the termination of user-initiated logical sessions in contrast to the termination of network connections that are associated with communications sessions (i.e., network disconnect). A logical session (for local, network, and remote access) is initiated whenever a user (or process acting on behalf of a user) accesses an organizational information system. Such user sessions can be terminated (and thus terminate user access) without terminating network sessions.
 
 Session termination terminates all processes associated with a user's logical session except those processes that are specifically created by the user (i.e., session owner) to continue after the session is terminated.
@@ -24109,103 +24114,17 @@ Session termination terminates all processes associated with a user's logical se
 Conditions or trigger events requiring automatic session termination can include, for example, organization-defined periods of user inactivity, targeted responses to certain types of incidents, and time-of-day restrictions on information system use.
 
 This capability is typically reserved for specific operating system functionality where the system owner, data owner, or organization requires additional assurance.</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system automatically terminates a user session after inactivity time-outs have expired or at shutdown. If it does not, this is a finding.</td>
-<td>Run the following command to see what the timeout interval is:
-$ sudo grep ClientAliveInterval /etc/ssh/sshd_config
-If properly configured, the output should be:
-ClientAliveInterval 
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3808r374937_fix">Configure the operating system to automatically terminate a user session after inactivity time-outs have expired or at shutdown.</fixtext></td>
-<td>SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-
-To set an idle timeout interval, edit the following line in /etc/ssh/sshd_config as
-follows:
-ClientAliveInterval 
-
-The timeout interval is given in seconds. For example, have a timeout
-of 10 minutes, set interval to 600.
-
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in /etc/ssh/sshd_config. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>medium</td>
+<td>
 <td></td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td>SV-71467</td>
-<td>SRG-OS-000279-GPOS-00109</td>
-<td><i>TBD - Assigned by DISA after STIG release</i></td>
-<td>The operating system must automatically terminate a user session after inactivity time-outs have expired or at shutdown.</td>
-<td>CCE-90271-8:Set SSH Client Alive Count Max to zero</td>
-<td>Automatic session termination addresses the termination of user-initiated logical sessions in contrast to the termination of network connections that are associated with communications sessions (i.e., network disconnect). A logical session (for local, network, and remote access) is initiated whenever a user (or process acting on behalf of a user) accesses an organizational information system. Such user sessions can be terminated (and thus terminate user access) without terminating network sessions.
-
-Session termination terminates all processes associated with a user's logical session except those processes that are specifically created by the user (i.e., session owner) to continue after the session is terminated.
-
-Conditions or trigger events requiring automatic session termination can include, for example, organization-defined periods of user inactivity, targeted responses to certain types of incidents, and time-of-day restrictions on information system use.
-
-This capability is typically reserved for specific operating system functionality where the system owner, data owner, or organization requires additional assurance.</td>
-<td xml:lang="en-US">The SSH server sends at most <code>ClientAliveCountMax</code> messages
-during a SSH session and waits for a response from the SSH client.
-The option <code>ClientAliveInterval</code> configures timeout after
-each <code>ClientAliveCountMax</code> message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf</code>:</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system automatically terminates a user session after inactivity time-outs have expired or at shutdown. If it does not, this is a finding.</td>
-<td>To ensure ClientAliveInterval is set correctly, run the following command:
-
-$ sudo grep ClientAliveCountMax /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*.conf
-
-If properly configured, the output should be:
-ClientAliveCountMax 0
-
-In this case, the SSH idle timeout occurs precisely when
-the ClientAliveInterval is set.
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3808r374937_fix">Configure the operating system to automatically terminate a user session after inactivity time-outs have expired or at shutdown.</fixtext></td>
-<td>The SSH server sends at most ClientAliveCountMax messages
-during a SSH session and waits for a response from the SSH client.
-The option ClientAliveInterval configures timeout after
-each ClientAliveCountMax message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-ClientAliveInterval is set, set the ClientAliveCountMax to
-value of 0 in
-
-
-/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf:</td>
-<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+</td>
 </tr>
 <tr>
 <td>V-57209</td>
@@ -26325,29 +26244,40 @@ audit logs that will be created by the auditing daemon.</td>
 The task of allocating audit record storage capacity is usually performed during initial installation of the operating system.</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system allocates audit record storage capacity to store at least one week's worth of audit records, when audit records are not immediately sent to a central audit record storage facility. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include audit=1, then auditing
-is enabled at boot time.
-
-To ensure audit_backlog_limit=8192 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="audit_backlog_limit=8192"
-
+in /etc/default/grub. If it includes audit_backlog_limit=8192,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit_backlog_limit=8192.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit_backlog_limit=8192.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit_backlog_limit=8192'
+The command should not return any output.
       Is it the case that audit backlog limit is not configured?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3825r375048_fix">Configure the operating system to allocate audit record storage capacity to store at least one week's worth of audit records, when audit records are not immediately sent to a central audit record storage facility.</fixtext></td>
 <td>To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument audit_backlog_limit=8192 to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit_backlog_limit=8192 is added as a kernel command line
+argument to newly installed kernels, ad audit_backlog_limit=8192 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -27435,7 +27365,9 @@ Organizations should consider endpoints that may not have regular access to the 
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system, for networked systems, compares internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS). If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -27452,7 +27384,35 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-57267</td>
+<td>SRG-OS-000355-GPOS-00143</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designat</td>
+<td>CCE-87077-4:Ensure Chrony is only configured with the server directive</td>
+<td>Inaccurate time stamps make it more difficult to correlate events and can lead to an inaccurate analysis. Determining the correct time a particular event occurred on a system is critical when conducting forensic analysis and investigating system events. Sources outside the configured acceptable allowance (drift) may be inaccurate.
+
+Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network.
+
+Organizations should consider endpoints that may not have regular access to the authoritative time server (e.g., mobile, teleworking, and tactical endpoints).</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system, for networked systems, compares internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS). If it does not, this is a finding.</td>
+<td>Run the following command and verify that time sources are only configure with server directive:
+# grep -E "^(server|pool)" /etc/chrony.conf
+A line with the appropriate server should be returned, any line returned starting with pool is a finding.
+      Is it the case that a remote time server is not configured or configured with pool directive?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3836r375141_fix">Configure the operating system to, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</fixtext></td>
+<td>Check that Chrony only has time sources configured with the server directive.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -27476,7 +27436,9 @@ Organizations should also consider endpoints that may not have regular access to
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system synchronizes internal information system clocks to the authoritative time source when the time difference is greater than one second. If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -27493,7 +27455,35 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-57203</td>
+<td>SRG-OS-000356-GPOS-00144</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must synchronize internal information system clocks to the authoritative time source when the time difference is greater than one second.</td>
+<td>CCE-87077-4:Ensure Chrony is only configured with the server directive</td>
+<td>Inaccurate time stamps make it more difficult to correlate events and can lead to an inaccurate analysis. Determining the correct time a particular event occurred on a system is critical when conducting forensic analysis and investigating system events.
+
+Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network. Organizations should consider setting time periods for different types of systems (e.g., financial, legal, or mission-critical systems).
+
+Organizations should also consider endpoints that may not have regular access to the authoritative time server (e.g., mobile, teleworking, and tactical endpoints). This requirement is related to the comparison done every 24 hours in SRG-OS-000355 because a comparison must be done in order to determine the time difference.</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system synchronizes internal information system clocks to the authoritative time source when the time difference is greater than one second. If it does not, this is a finding.</td>
+<td>Run the following command and verify that time sources are only configure with server directive:
+# grep -E "^(server|pool)" /etc/chrony.conf
+A line with the appropriate server should be returned, any line returned starting with pool is a finding.
+      Is it the case that a remote time server is not configured or configured with pool directive?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3837r375144_fix">Configure the operating system to synchronize internal information system clocks to the authoritative time source when the time difference is greater than the organization-defined time period.</fixtext></td>
+<td>Check that Chrony only has time sources configured with the server directive.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -27657,7 +27647,9 @@ Time stamps generated by the operating system include date and time. Time is com
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system records time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT). If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -27674,7 +27666,33 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-57189</td>
+<td>SRG-OS-000359-GPOS-00146</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must record time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT).</td>
+<td>CCE-87077-4:Ensure Chrony is only configured with the server directive</td>
+<td>If time stamps are not consistently applied and there is no common time reference, it is difficult to perform forensic analysis.
+
+Time stamps generated by the operating system include date and time. Time is commonly expressed in Coordinated Universal Time (UTC), a modern continuation of Greenwich Mean Time (GMT), or local time with an offset from UTC.</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system records time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT). If it does not, this is a finding.</td>
+<td>Run the following command and verify that time sources are only configure with server directive:
+# grep -E "^(server|pool)" /etc/chrony.conf
+A line with the appropriate server should be returned, any line returned starting with pool is a finding.
+      Is it the case that a remote time server is not configured or configured with pool directive?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3839r375150_fix">Configure the operating system to record time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT).</fixtext></td>
+<td>Check that Chrony only has time sources configured with the server directive.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -29036,6 +29054,7 @@ when using the "sudo" command to elevate privileges, run the following command:
 sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d
 The output should be:
 /etc/sudoers:Defaults timestamp_timeout=0 or "timestamp_timeout" is set to a positive number.
+If results are returned from more than one file location, this is a finding.
       Is it the case that timestamp_timeout is not set with the appropriate value for sudo?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3848r375177_fix">Configure the operating system to require users to re-authenticate for privilege escalation.</fixtext></td>
@@ -29823,33 +29842,40 @@ Nonlocal maintenance and diagnostic activities are those activities conducted by
 This requirement applies to hardware/software diagnostic test equipment or tools. This requirement does not cover hardware/software components that may support information system maintenance, yet are a part of the system, for example, the software implementing "ping," "ls," "ipconfig," or the hardware and software implementing the monitoring port of an Ethernet switch.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system audits all activities performed during nonlocal maintenance and diagnostic sessions. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3860r375270_fix">Configure the operating system to audit all activities performed during nonlocal maintenance and diagnostic sessions.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -33366,47 +33392,19 @@ Crypto policies may be customized by crypto policy modules, in which case it is 
 <td>SRG-OS-000395-GPOS-00175</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must verify remote disconnection at the termination of nonlocal maintenance and diagnostic sessions, when used for nonlocal maintenance sessions.</td>
-<td>CCE-90811-1:Set SSH Idle Timeout Interval</td>
+<td></td>
 <td>If the remote connection is not closed and verified as closed, the session may remain open and be exploited by an attacker; this is referred to as a zombie session. Remote connections must be disconnected and verified as disconnected when nonlocal maintenance sessions have been terminated and are no longer available for use.</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>Applicable - Configurable</td>
-<td>Verify the operating system verifies remote disconnection at the termination of nonlocal maintenance and diagnostic sessions, when used for nonlocal maintenance sessions. If it does not, this is a finding.</td>
-<td>Run the following command to see what the timeout interval is:
-$ sudo grep ClientAliveInterval /etc/ssh/sshd_config
-If properly configured, the output should be:
-ClientAliveInterval 
-      Is it the case that it is commented out or not configured properly?
-      </td>
-<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3863r375279_fix">Configure the operating system to verify remote disconnection at the termination of nonlocal maintenance and diagnostic sessions, when used for nonlocal maintenance sessions.</fixtext></td>
-<td>SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-
-To set an idle timeout interval, edit the following line in /etc/ssh/sshd_config as
-follows:
-ClientAliveInterval 
-
-The timeout interval is given in seconds. For example, have a timeout
-of 10 minutes, set interval to 600.
-
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in /etc/ssh/sshd_config. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td>medium</td>
+<td>
 <td></td>
 <td></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</td>
 </tr>
 <tr>
 <td>SV-71043</td>
@@ -33599,7 +33597,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3870r375300_fix">Configure the operating system to implement cryptographic mechanisms to prevent unauthorized modification of all information at rest on all operating system components.</fixtext></td>
@@ -33686,7 +33685,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3871r375303_fix">Configure the operating system to implement cryptographic mechanisms to prevent unauthorized disclosure of all information at rest on all operating system components.</fixtext></td>
@@ -34175,29 +34175,40 @@ on AMD-based systems.</td>
 Examples of attacks are buffer overflow attacks.</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system implements non-executable data to protect its memory from unauthorized code execution. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include slub_debug=P,
-then SLUB/SLAB poisoning is enabled at boot time.
-
-To ensure slub_debug=P is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="slub_debug=P
-
+in /etc/default/grub. If it includes slub_debug=P,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*slub_debug=P.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*slub_debug=P.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'slub_debug=P'
+The command should not return any output.
       Is it the case that SLUB/SLAB poisoning is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3878r375381_fix">Configure the operating system to implement non-executable data to protect its memory from unauthorized code execution.</fixtext></td>
 <td>To enable poisoning of SLUB/SLAB objects,
 add the argument slub_debug=P to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="slub_debug=P"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that slub_debug=P is added as a kernel command line
+argument to newly installed kernels, ad slub_debug=P to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... slub_debug=P ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="slub_debug=P"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -34214,29 +34225,40 @@ GRUB_CMDLINE_LINUX="slub_debug=P"</td>
 Examples of attacks are buffer overflow attacks.</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system implements address space layout randomization to protect its memory from unauthorized code execution. If it does not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include pti=on,
-then Kernel page-table isolation is enabled at boot time.
-
-To ensure pti=on is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="pti=on
-
+in /etc/default/grub. If it includes pti=on,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*pti=on.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*pti=on.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'pti=on'
+The command should not return any output.
       Is it the case that Kernel page-table isolation is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3879r375384_fix">Configure the operating system to implement address space layout randomization to protect its memory from unauthorized code execution.</fixtext></td>
 <td>To enable Kernel page-table isolation,
 add the argument pti=on to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="pti=on"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that pti=on is added as a kernel command line
+argument to newly installed kernels, ad pti=on to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... pti=on ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="pti=on"</td>
 <td>high</td>
 <td></td>
 <td></td>
@@ -36087,33 +36109,40 @@ If the system is 64 bit then also add the following lines:
 Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system generates audit records when successful/unsuccessful attempts to modify privileges occur. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3886r375405_fix">Configure the operating system to generate audit records when successful/unsuccessful attempts to modify privileges occur.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -42545,33 +42574,40 @@ edits of files involved in storing logon events:
 Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system generates audit records for privileged activities or other system-level access. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3893r375426_fix">Configure the operating system to generate audit records for privileged activities or other system-level access.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -45915,33 +45951,40 @@ Audit records can be generated from various components within the information sy
 Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system generates audit records when concurrent logons to the same account occur from different sources. If it does not, this is a finding.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3896r375705_fix">Configure the operating system to generate audit records when concurrent logons to the same account occur from different sources.</fixtext></td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument audit=1 to the default
-GRUB 2 command line for the Linux operating system in
-
-/boot/grub2/grubenv, in the manner below:
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that audit=1 is added as a kernel command line
+argument to newly installed kernels, ad audit=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... audit=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -47600,10 +47643,8 @@ dictcheck is set to 1 passwords will be checked for dictionary words.</td>
 <td>CCE-83569-4:Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td>If the operating system allows the user to select passwords based on dictionary words, then this increases the chances of password compromise by increasing the opportunity for successful guesses and brute-force attacks.</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -47612,7 +47653,7 @@ per session.</td>
 <td>Verify the operating system prevents the use of dictionary words for passwords. If it does not, this is a finding.</td>
 <td>To check how many retry attempts are permitted on a per-session basis, run the following command:
 
-$ grep pam_pwquality /etc/pam.d/system-auth /etc/pam.d/password-auth
+$ grep retry /etc/security/pwquality.conf
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
@@ -47621,10 +47662,8 @@ This would appear as retry=3, or a lower value.
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3903r375726_fix">Configure the operating system to prevent the use of dictionary words for passwords.</fixtext></td>
 <td>To configure the number of retry prompts that are permitted per-session:
-Edit the pam_pwquality.so statement in
 
-/etc/pam.d/system-auth  and
-/etc/pam.d/password-auth  to show
+Edit the /etc/security/pwquality.conf to include
 
 retry=, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -48090,7 +48129,8 @@ The expected output for:
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Run the following command to Verify that the sudoers security policy is configured to use the invoking user's password for privilege escalation:
  sudo egrep -i '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/* | grep -v '#'
-If no results are returned, this is a finding
+If no results are returned, this is a finding.
+If results are returned from more than one file location, this is a finding.
 If "Defaults !targetpw" is not defined, this is a finding.
 If "Defaults !rootpw" is not defined, this is a finding.
 If "Defaults !runaspw" is not defined, this is a finding.
@@ -48277,6 +48317,68 @@ settings in
 session     required pam_lastlog.so showfailed
 And make sure that the silent option is not set.</td>
 <td>low</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-70851</td>
+<td>SRG-OS-000480-GPOS-00227</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
+<td>CCE-85878-7:Ensure PAM password complexity module is enabled in password-auth</td>
+<td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
+
+Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
+<td xml:lang="en-US">To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
+<td>To check if pam_pwhistory.so is enabled in password-auth, run the following command:
+$ grep pam_pwquality /etc/pam.d/password-auth
+The output should be similar to the following:
+password    requisite                                    pam_pwquality.so
+      Is it the case that pam_pwquality.so is not enabled in password-auth?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
+<td>To enable PAM password complexity in password-auth file:
+Edit the password section in
+/etc/pam.d/password-auth to show
+password    requisite                                    pam_pwquality.so.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-70851</td>
+<td>SRG-OS-000480-GPOS-00227</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
+<td>CCE-85873-8:Ensure PAM password complexity module is enabled in system-auth</td>
+<td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
+
+Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
+<td xml:lang="en-US">To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
+<td>To check if pam_pwhistory.so is enabled in system-auth, run the following command:
+$ grep pam_pwquality /etc/pam.d/system-auth
+The output should be similar to the following:
+password    requisite                                    pam_pwquality.so
+      Is it the case that pam_pwquality.so is not enabled in system-auth?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
+<td>To enable PAM password complexity in system-auth file:
+Edit the password section in
+/etc/pam.d/system-auth to show
+password    requisite                                    pam_pwquality.so.</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -49102,29 +49204,40 @@ in /etc/audit/auditd.conf.</td>
 Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include vsyscall=none,
-then virtyal syscalls are not enabled at boot time.
-
-To ensure vsyscall=none is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="vsyscall=none
-
+in /etc/default/grub. If it includes vsyscall=none,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*vsyscall=none.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*vsyscall=none.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'vsyscall=none'
+The command should not return any output.
       Is it the case that vsyscalls are enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To disable use of virtual syscalls,
 add the argument vsyscall=none to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="vsyscall=none"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that vsyscall=none is added as a kernel command line
+argument to newly installed kernels, ad vsyscall=none to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... vsyscall=none ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="vsyscall=none"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -51107,29 +51220,40 @@ To make sure that the setting is persistent, add the following line to a file in
 Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include page_poison=1,
-then page poisoning is enabled at boot time.
-
-To ensure page_poison=1 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="page_poison=1
-
+in /etc/default/grub. If it includes page_poison=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*page_poison=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*page_poison=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'page_poison=1'
+The command should not return any output.
       Is it the case that page allocator poisoning is not enabled?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To enable poisoning of free pages,
 add the argument page_poison=1 to the default
-GRUB 2 command line for the Linux operating system in
-/etc/default/grub, in the manner below:
-GRUB_CMDLINE_LINUX="page_poison=1"</td>
+GRUB 2 command line for the Linux operating system.
+To ensure that page_poison=1 is added as a kernel command line
+argument to newly installed kernels, ad page_poison=1 to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+/etc/default/grub as shown below:
+GRUB_CMDLINE_LINUX="... page_poison=1 ..."
+Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="page_poison=1"</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -51947,13 +52071,21 @@ Configuration settings are the set of parameters that can be changed in hardware
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>To check if RekeyLimit is set correctly, run the
 following command:
-$ sudo grep RekeyLimit /etc/ssh/sshd_config
+
+$ sudo grep RekeyLimit /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*
+
 If configured properly, output should be
 RekeyLimit  
       Is it the case that it is commented out or is not set?
@@ -51962,8 +52094,13 @@ RekeyLimit
 <td>The RekeyLimit parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-RekeyLimit   to file /etc/ssh/sshd_config.</td>
+elapsed.
+To decrease the default limits, add or correct the following line in
+
+
+/etc/ssh/sshd_config.d/00-complianceascode-hardening.conf:
+
+RekeyLimit  </td>
 <td>medium</td>
 <td></td>
 <td></td>

@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>371</td>
-<td>43</td>
-<td>328</td>
-<td>88.41%</td>
-<td>RHEL-08-010090RHEL-08-010100RHEL-08-010121RHEL-08-010163RHEL-08-010379RHEL-08-010385RHEL-08-010572RHEL-08-010710RHEL-08-010731RHEL-08-010741RHEL-08-020011RHEL-08-020013RHEL-08-020014RHEL-08-020015RHEL-08-020017RHEL-08-020018RHEL-08-020019RHEL-08-020020RHEL-08-020021RHEL-08-020023RHEL-08-020025RHEL-08-020026RHEL-08-020027RHEL-08-020028RHEL-08-020031RHEL-08-020032RHEL-08-020080RHEL-08-020081RHEL-08-020082RHEL-08-020101RHEL-08-020102RHEL-08-020103RHEL-08-020104RHEL-08-020332RHEL-08-030590RHEL-08-030620RHEL-08-030630RHEL-08-030640RHEL-08-040020RHEL-08-040090RHEL-08-040137RHEL-08-040150RHEL-08-040259</td>
+<td>40</td>
+<td>331</td>
+<td>89.22%</td>
+<td>RHEL-08-010090RHEL-08-010100RHEL-08-010121RHEL-08-010163RHEL-08-010385RHEL-08-010572RHEL-08-010710RHEL-08-010731RHEL-08-010741RHEL-08-020011RHEL-08-020013RHEL-08-020014RHEL-08-020015RHEL-08-020017RHEL-08-020018RHEL-08-020019RHEL-08-020020RHEL-08-020021RHEL-08-020023RHEL-08-020025RHEL-08-020026RHEL-08-020027RHEL-08-020028RHEL-08-020031RHEL-08-020032RHEL-08-020080RHEL-08-020081RHEL-08-020082RHEL-08-020102RHEL-08-020103RHEL-08-020332RHEL-08-030590RHEL-08-030620RHEL-08-030630RHEL-08-030640RHEL-08-040020RHEL-08-040090RHEL-08-040137RHEL-08-040150RHEL-08-040259</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -173,7 +173,8 @@ Output will be similar to:
 /dev/sda2: UUID=" bc98d7ef-6g54-321h-1d24-9870de2ge1a2
 " TYPE="crypto_LUKS"
 
-Pseudo-file systems, such as /proc, /sys, and tmpfs, are not required to use disk encryption and are not a finding.
+The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
+are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
       </td>
 <td>Red Hat Enterprise Linux 8 natively supports partition encryption through the
@@ -1929,14 +1930,28 @@ To make sure that the setting is persistent, add the following line to a file in
 </tr>
 <tr>
 <td>V-251711</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>RHEL 8 must specify the default "include" directory for the /etc/sudoers file.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Some <code>sudo</code> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.</td>
+<td>To determine whether sudo command includes configuration files from the appropriate directory,
+run the following command:
+$ sudo grep -rP '^#include(dir)?' /etc/sudoers /etc/sudoers.d
+If only the line /etc/sudoers:#includedir /etc/sudoers.d is returned, then the drop-in include configuration is set correctly.
+Any other line returned is a finding.
+      Is it the case that the /etc/sudoers doesn't include /etc/sudores.d or includes other directories??
+      </td>
+<td>Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
 <td>RHEL-08-010379</td>
-<td>Missing Rule</td>
+<td>sudoers_default_includedir</td>
 </tr>
 <tr>
 <td>V-230271</td>
@@ -2016,7 +2031,8 @@ Restrict privileged actions by removing the following entries from the sudoers f
 the invoking user for the "root" user password.</td>
 <td>Run the following command to Verify that the sudoers security policy is configured to use the invoking user's password for privilege escalation:
  sudo egrep -i '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/* | grep -v '#'
-If no results are returned, this is a finding
+If no results are returned, this is a finding.
+If results are returned from more than one file location, this is a finding.
 If "Defaults !targetpw" is not defined, this is a finding.
 If "Defaults !rootpw" is not defined, this is a finding.
 If "Defaults !runaspw" is not defined, this is a finding.
@@ -2048,6 +2064,7 @@ when using the "sudo" command to elevate privileges, run the following command:
 sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d
 The output should be:
 /etc/sudoers:Defaults timestamp_timeout=0 or "timestamp_timeout" is set to a positive number.
+If results are returned from more than one file location, this is a finding.
       Is it the case that timestamp_timeout is not set with the appropriate value for sudo?
       </td>
 <td>The sudo <code>timestamp_timeout</code> tag sets the amount of time sudo password prompt waits.
@@ -2179,21 +2196,28 @@ detected and prevented.
 This prevents many types of use-after-free vulnerabilities at little performance cost.
 Also prevents leak of data and detection of corrupted memory.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include page_poison=1,
-then page poisoning is enabled at boot time.
-
-To ensure page_poison=1 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="page_poison=1
-
+in /etc/default/grub. If it includes page_poison=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*page_poison=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*page_poison=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'page_poison=1'
+The command should not return any output.
       Is it the case that page allocator poisoning is not enabled?
       </td>
 <td>To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 <td>RHEL-08-010421</td>
 <td>grub2_page_poison_argument</td>
@@ -2206,21 +2230,28 @@ GRUB 2 command line for the Linux operating system in
 <td>Virtual Syscalls provide an opportunity of attack for a user who has control
 of the return instruction pointer.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include vsyscall=none,
-then virtyal syscalls are not enabled at boot time.
-
-To ensure vsyscall=none is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="vsyscall=none
-
+in /etc/default/grub. If it includes vsyscall=none,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*vsyscall=none.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*vsyscall=none.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'vsyscall=none'
+The command should not return any output.
       Is it the case that vsyscalls are enabled?
       </td>
 <td>To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 <td>RHEL-08-010422</td>
 <td>grub2_vsyscall_argument</td>
@@ -2236,21 +2267,28 @@ detected and prevented.
 This prevents many types of use-after-free vulnerabilities at little performance cost.
 Also prevents leak of data and detection of corrupted memory.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include slub_debug=P,
-then SLUB/SLAB poisoning is enabled at boot time.
-
-To ensure slub_debug=P is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="slub_debug=P
-
+in /etc/default/grub. If it includes slub_debug=P,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*slub_debug=P.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*slub_debug=P.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'slub_debug=P'
+The command should not return any output.
       Is it the case that SLUB/SLAB poisoning is not enabled?
       </td>
 <td>To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 <td>RHEL-08-010423</td>
 <td>grub2_slub_debug_argument</td>
@@ -4063,18 +4101,26 @@ The console can now be locked with the following key combination:
 provides a mechanism to lock sessions after period of inactivity.</td>
 <td>To verify that tmux is configured to execute,
 run the following command:
-$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc
+$ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc /etc/profile.d/*
 The output should return the following:
 if [ "$PS1" ]; then
   parent=$(ps -o ppid= -p $$)
   name=$(ps -o comm= -p $parent)
   case "$name" in sshd|login) exec tmux ;; esac
 fi
-      Is it the case that exec tmux is not present at the end of bashrc?
+To verify that the tmux process is running,
+run the following command:
+ps all | grep tmux | grep -v grep
+If the command does not produce output, this is a finding.
+      Is it the case that exec tmux is not present at the end of bashrc or tmux process is not running?
       </td>
 <td>The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 <td>RHEL-08-020041</td>
 <td>configure_bashrc_exec_tmux</td>
 </tr>
@@ -4254,41 +4300,40 @@ domains = testing.test
 <td>366</td>
 <td>medium</td>
 <td>RHEL 8 must ensure the password complexity module is enabled in the password-auth file.</td>
-<td>Setting the password retry prompts that are permitted on a per-session basis to a low value
-requires some software, such as SSH, to re-connect. This can slow down and
-draw additional attention to some types of password-guessing attacks. Note that this
-is different from account lockout, which is provided by the pam_faillock module.</td>
-<td>To check how many retry attempts are permitted on a per-session basis, run the following command:
-
-$ grep pam_pwquality /etc/pam.d/system-auth /etc/pam.d/password-auth
-
-The retry parameter will indicate how many attempts are permitted.
-The DoD required value is less than or equal to 3.
-This would appear as retry=3, or a lower value.
-      Is it the case that it is not the required value?
+<td>Enabling PAM password complexity permits to enforce strong passwords and consequently
+makes the system less prone to dictionary attacks.</td>
+<td>To check if pam_pwhistory.so is enabled in password-auth, run the following command:
+$ grep pam_pwquality /etc/pam.d/password-auth
+The output should be similar to the following:
+password    requisite                                    pam_pwquality.so
+      Is it the case that pam_pwquality.so is not enabled in password-auth?
       </td>
-<td>To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
-
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
-
-<code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
-policy is more restrictive. The DoD requirement is a maximum of 3 prompts
-per session.</td>
+<td>To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
 <td>RHEL-08-020100</td>
-<td>accounts_password_pam_retry</td>
+<td>accounts_password_pam_pwquality_password_auth</td>
 </tr>
 <tr>
 <td>V-251713</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>RHEL 8 must ensure the password complexity module is enabled in the system-auth file.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Enabling PAM password complexity permits to enforce strong passwords and consequently
+makes the system less prone to dictionary attacks.</td>
+<td>To check if pam_pwhistory.so is enabled in system-auth, run the following command:
+$ grep pam_pwquality /etc/pam.d/system-auth
+The output should be similar to the following:
+password    requisite                                    pam_pwquality.so
+      Is it the case that pam_pwquality.so is not enabled in system-auth?
+      </td>
+<td>To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
 <td>RHEL-08-020101</td>
-<td>Missing Rule</td>
+<td>accounts_password_pam_pwquality_system_auth</td>
 </tr>
 <tr>
 <td>V-251714</td>
@@ -4314,14 +4359,31 @@ per session.</td>
 </tr>
 <tr>
 <td>V-251716</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>RHEL 8 systems, version 8.4 and above, must ensure the password complexity module is configured for three retries or less.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Setting the password retry prompts that are permitted on a per-session basis to a low value
+requires some software, such as SSH, to re-connect. This can slow down and
+draw additional attention to some types of password-guessing attacks. Note that this
+is different from account lockout, which is provided by the pam_faillock module.</td>
+<td>To check how many retry attempts are permitted on a per-session basis, run the following command:
+
+$ grep retry /etc/security/pwquality.conf
+
+The retry parameter will indicate how many attempts are permitted.
+The DoD required value is less than or equal to 3.
+This would appear as retry=3, or a lower value.
+      Is it the case that it is not the required value?
+      </td>
+<td>To configure the number of retry prompts that are permitted per-session:
+
+Edit the <code>/etc/security/pwquality.conf</code> to include
+
+<code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
+policy is more restrictive. The DoD requirement is a maximum of 3 prompts
+per session.</td>
 <td>RHEL-08-020104</td>
-<td>Missing Rule</td>
+<td>accounts_password_pam_retry</td>
 </tr>
 <tr>
 <td>V-230357</td>
@@ -4422,7 +4484,7 @@ more complex a password, the greater the number of possible combinations that ne
 password is compromised.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
 $ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4.
+For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
       Is it the case that that is not the case?
       </td>
 <td>The pam_pwquality module's <code>maxclassrepeat</code> parameter controls requirements for
@@ -7114,25 +7176,29 @@ edits of files involved in storing logon events:
 its activities can be audited. Although <code>auditd</code> takes care of enabling
 this for all processes which launch after it does, adding the kernel argument
 ensures it is set for every process during boot.</td>
-<td>
-Inspect the form of default GRUB 2 command line for the Linux operating system
-in /boot/grub2/grubenv. If they include audit=1, then auditing
-is enabled at boot time.
-# grep 'kernelopts.*audit=1.*' /boot/grub2/grubenv
-
-To ensure audit=1 is configured on all installed kernels, the
-following command may be used:
-
-# grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"
-
+<td>Inspect the form of default GRUB 2 command line for the Linux operating system
+in /etc/default/grub. If it includes audit=1,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit=1'
+The command should not return any output.
       Is it the case that auditing is not enabled at boot time?
       </td>
 <td>To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td>RHEL-08-030601</td>
 <td>grub2_audit_argument</td>
@@ -7147,21 +7213,28 @@ to the audit daemon. Until the audit daemon is up and running, all log messages
 are stored in this queue.  If the queue is overrun during boot process, the action
 defined by audit failure flag is taken.</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include audit=1, then auditing
-is enabled at boot time.
-
-To ensure audit_backlog_limit=8192 is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="audit_backlog_limit=8192"
-
+in /etc/default/grub. If it includes audit_backlog_limit=8192,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit_backlog_limit=8192.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*audit_backlog_limit=8192.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'audit_backlog_limit=8192'
+The command should not return any output.
       Is it the case that audit backlog limit is not configured?
       </td>
 <td>To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 <td>RHEL-08-030602</td>
 <td>grub2_audit_backlog_limit_argument</td>
@@ -7556,27 +7629,15 @@ also include <code>suspend</code>, <code>single</code>, and <code>halt</code>.</
 <td>1891</td>
 <td>medium</td>
 <td>RHEL 8 must securely compare internal information system clocks at least every 24 hours with a server synchronized to an authoritative time source, such as the United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</td>
-<td>Inaccurate time stamps make it more difficult to correlate
-events and can lead to an inaccurate analysis. Determining the correct
-time a particular event occurred on a system is critical when conducting
-forensic analysis and investigating system events. Sources outside the
-configured acceptable allowance (drift) may be inaccurate.</td>
-<td>To verify that maxpoll has been set properly, perform the following:
-$ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
-The output should return
-maxpoll .
-      Is it the case that it does not exist or maxpoll has not been set to the expected value?
+<td>Depending on the infrastruture being used the <code>pool</code> directive may not be supported.</td>
+<td>Run the following command and verify that time sources are only configure with server directive:
+# grep -E "^(server|pool)" /etc/chrony.conf
+A line with the appropriate server should be returned, any line returned starting with pool is a finding.
+      Is it the case that a remote time server is not configured or configured with pool directive?
       </td>
-<td>The <code>maxpoll</code> should be configured to
-<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
-<code>/etc/chrony.conf</code> to continuously poll time servers. To configure
-<code>maxpoll</code> in <code>/etc/ntp.conf</code> or <code>/etc/chrony.conf</code>
-add the following:
-<pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
-to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+<td>Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
 <td>RHEL-08-030740</td>
-<td>chronyd_or_ntpd_set_maxpoll</td>
+<td>chronyd_server_directive</td>
 </tr>
 <tr>
 <td>V-230485</td>
@@ -7700,21 +7761,28 @@ the Meltdown security vulnerability and hardens the kernel
 against attempts to bypass kernel address space layout
 randomization (KASLR).</td>
 <td>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If they include pti=on,
-then Kernel page-table isolation is enabled at boot time.
-
-To ensure pti=on is configured on all installed kernels, the
-following command may be used:
-
-$ sudo /sbin/grubby --update-kernel=ALL --args="pti=on
-
+in /etc/default/grub. If it includes pti=on,
+then the parameter will be configured for newly installed kernels.
+First check if the GRUB recovery is enabled:
+$ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
+If this option is set to true, then check that a line is output by the following command:
+$ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*pti=on.*' /etc/default/grub
+If the recovery is disabled, check the line with
+$ grep 'GRUB_CMDLINE_LINUX.*pti=on.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+Run the following command:
+# grubby --info=ALL | grep args | grep -v 'pti=on'
+The command should not return any output.
       Is it the case that Kernel page-table isolation is not enabled?
       </td>
 <td>To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 <td>RHEL-08-040004</td>
 <td>grub2_pti_argument</td>
@@ -8669,7 +8737,9 @@ time-based limit, effects of potential attacks against
 encryption keys are limited.</td>
 <td>To check if RekeyLimit is set correctly, run the
 following command:
+
 $ sudo grep RekeyLimit /etc/ssh/sshd_config
+
 If configured properly, output should be
 RekeyLimit  
       Is it the case that it is commented out or is not set?
@@ -8677,8 +8747,14 @@ RekeyLimit
 <td>The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 <td>RHEL-08-040161</td>
 <td>sshd_rekey_limit</td>
 </tr>

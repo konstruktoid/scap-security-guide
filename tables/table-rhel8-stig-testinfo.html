@@ -651,6 +651,40 @@ The DoD STIG requirement is 5 passwords.</td>
 <td></td>
 </tr>
 <tr>
+<td>accounts_password_pam_pwquality_password_auth</td>
+<td>medium</td>
+<td>Ensure PAM password complexity module is enabled in password-auth</td>
+<td xml:lang="en-US">Enabling PAM password complexity permits to enforce strong passwords and consequently
+makes the system less prone to dictionary attacks.</td>
+<td xml:lang="en-US">To enable PAM password complexity in password-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/password-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+<td></td>
+<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
+</td>
+<td>CCI-000366<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>accounts_password_pam_pwquality_system_auth</td>
+<td>medium</td>
+<td>Ensure PAM password complexity module is enabled in system-auth</td>
+<td xml:lang="en-US">Enabling PAM password complexity permits to enforce strong passwords and consequently
+makes the system less prone to dictionary attacks.</td>
+<td xml:lang="en-US">To enable PAM password complexity in system-auth file:
+Edit the <code>password</code> section in
+<code>/etc/pam.d/system-auth</code> to show
+<code>password    requisite                                    pam_pwquality.so</code>.</td>
+<td></td>
+<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
+</td>
+<td>CCI-000366<br>
+</td>
+<td></td>
+</tr>
+<tr>
 <td>accounts_password_pam_retry</td>
 <td>medium</td>
 <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
@@ -659,10 +693,8 @@ requires some software, such as SSH, to re-connect. This can slow down and
 draw additional attention to some types of password-guessing attacks. Note that this
 is different from account lockout, which is provided by the pam_faillock module.</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
-Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  and
-<code>/etc/pam.d/password-auth</code>  to show
+Edit the <code>/etc/security/pwquality.conf</code> to include
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -3545,11 +3577,26 @@ configured acceptable allowance (drift) may be inaccurate.</td>
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td></td>
 <td>SRG-OS-000355-GPOS-00143<br>SRG-OS-000356-GPOS-00144<br>
 </td>
 <td>CCI-001891<br>CCI-002046<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>chronyd_server_directive</td>
+<td>medium</td>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td xml:lang="en-US">Depending on the infrastruture being used the <code>pool</code> directive may not be supported.</td>
+<td xml:lang="en-US">Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+<td></td>
+<td>SRG-OS-000355-GPOS-00143<br>
+</td>
+<td>CCI-001891<br>
 </td>
 <td></td>
 </tr>
@@ -3582,7 +3629,11 @@ to <code>1</code> in <code>/etc/yum.conf</code>.</td>
 provides a mechanism to lock sessions after period of inactivity.</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code>.</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
+Additionally it must be ensured that the <code>tmux</code> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
+</td>
 <td></td>
 <td>SRG-OS-000028-GPOS-00009<br>
 </td>
@@ -5032,10 +5083,13 @@ this for all processes which launch after it does, adding the kernel argument
 ensures it is set for every process during boot.</td>
 <td xml:lang="en-US">To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-
-<code>/boot/grub2/grubenv</code>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000254-GPOS-00095<br>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>
@@ -5054,9 +5108,13 @@ are stored in this queue.  If the queue is overrun during boot process, the acti
 defined by audit failure flag is taken.</td>
 <td xml:lang="en-US">To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000341-GPOS-00132<br>
@@ -5076,9 +5134,13 @@ This prevents many types of use-after-free vulnerabilities at little performance
 Also prevents leak of data and detection of corrupted memory.</td>
 <td xml:lang="en-US">To enable poisoning of free pages,
 add the argument <code>page_poison=1</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>page_poison=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_poison=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000134-GPOS-00068<br>
@@ -5123,9 +5185,13 @@ against attempts to bypass kernel address space layout
 randomization (KASLR).</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
 add the argument <code>pti=on</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>pti=on</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>pti=on</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000095-GPOS-00049<br>
@@ -5145,9 +5211,13 @@ This prevents many types of use-after-free vulnerabilities at little performance
 Also prevents leak of data and detection of corrupted memory.</td>
 <td xml:lang="en-US">To enable poisoning of SLUB/SLAB objects,
 add the argument <code>slub_debug=P</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>slub_debug=P</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000134-GPOS-00068<br>
@@ -5219,9 +5289,13 @@ When prompted, enter the password that was selected.
 of the return instruction pointer.</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,
 add the argument <code>vsyscall=none</code> to the default
-GRUB 2 command line for the Linux operating system in
-<code>/etc/default/grub</code>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <code>vsyscall=none</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
 </td>
 <td></td>
 <td>SRG-OS-000134-GPOS-00068<br>
@@ -7866,65 +7940,18 @@ encryption keys are limited.</td>
 <td xml:lang="en-US">The <code>RekeyLimit</code> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<code>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></code> to file <code>/etc/ssh/sshd_config</code>.</td>
+elapsed.<br>
+To decrease the default limits, add or correct the following line in
+
+
+<code>/etc/ssh/sshd_config</code>:
+
+<pre>RekeyLimit <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_size"></xccdf-1.1:sub> <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_rekey_limit_time"></xccdf-1.1:sub></pre>
+</td>
 <td></td>
 <td>SRG-OS-000033-GPOS-00014<br>
 </td>
 <td>CCI-000068<br>
-</td>
-<td></td>
-</tr>
-<tr>
-<td>sshd_set_idle_timeout</td>
-<td>medium</td>
-<td>Set SSH Idle Timeout Interval</td>
-<td xml:lang="en-US">Terminating an idle ssh session within a short time period reduces the window of
-opportunity for unauthorized personnel to take control of a management session
-enabled on the console or console port that has been let unattended.</td>
-<td xml:lang="en-US">SSH allows administrators to set an idle timeout interval. After this interval
-has passed, the idle user will be automatically logged out.
-<br><br>
-To set an idle timeout interval, edit the following line in <code>/etc/ssh/sshd_config</code> as
-follows:
-<pre>ClientAliveInterval <b><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sshd_idle_timeout_value"></xccdf-1.1:sub></b></pre>
-<br><br>
-The timeout <b>interval</b> is given in seconds. For example, have a timeout
-of 10 minutes, set <b>interval</b> to 600.
-<br><br>
-If a shorter timeout has already been set for the login shell, that value will
-preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
-some processes may stop SSH  from correctly detecting that the user is idle.</td>
-<td></td>
-<td>SRG-OS-000126-GPOS-00066<br>SRG-OS-000163-GPOS-00072<br>SRG-OS-000279-GPOS-00109<br>
-</td>
-<td>CCI-000879<br>CCI-001133<br>CCI-002361<br>
-</td>
-<td></td>
-</tr>
-<tr>
-<td>sshd_set_keepalive_0</td>
-<td>medium</td>
-<td>Set SSH Client Alive Count Max to zero</td>
-<td xml:lang="en-US">This ensures a user login will be terminated as soon as the <code>ClientAliveInterval</code>
-is reached.</td>
-<td xml:lang="en-US">The SSH server sends at most <code>ClientAliveCountMax</code> messages
-during a SSH session and waits for a response from the SSH client.
-The option <code>ClientAliveInterval</code> configures timeout after
-each <code>ClientAliveCountMax</code> message. If the SSH server does not
-receive a response from the client, then the connection is considered idle
-and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config</code>:</td>
-<td></td>
-<td>SRG-OS-000126-GPOS-00066<br>SRG-OS-000163-GPOS-00072<br>SRG-OS-000279-GPOS-00109<br>
-</td>
-<td>CCI-000879<br>CCI-001133<br>CCI-002361<br>
 </td>
 <td></td>
 </tr>
@@ -8149,6 +8176,27 @@ Restrict privileged actions by removing the following entries from the sudoers f
 <code>ALL ALL=(ALL) ALL</code>
 <code>ALL ALL=(ALL:ALL) ALL</code>
 </td>
+<td></td>
+<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
+</td>
+<td>CCI-000366<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>sudoers_default_includedir</td>
+<td>medium</td>
+<td>Ensure sudo only includes the default configuration directory</td>
+<td xml:lang="en-US">Some <code>sudo</code> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.</td>
+<td xml:lang="en-US">Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
 <td></td>
 <td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
 </td>

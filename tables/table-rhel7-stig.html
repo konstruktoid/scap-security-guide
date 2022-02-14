@@ -538,7 +538,9 @@ draw additional attention to some types of password-guessing attacks. Note that 
 is different from account lockout, which is provided by the pam_faillock module.</td>
 <td>To check how many retry attempts are permitted on a per-session basis, run the following command:
 
-$ grep pam_pwquality /etc/pam.d/system-auth 
+
+$ grep pam_pwquality /etc/pam.d/system-auth
+
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
@@ -546,9 +548,11 @@ This would appear as retry=3, or a lower value.
       Is it the case that it is not the required value?
       </td>
 <td>To configure the number of retry prompts that are permitted per-session:
+
 Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  to show
+<code>/etc/pam.d/system-auth</code> to show
+
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -789,7 +793,7 @@ more complex a password, the greater the number of possible combinations that ne
 password is compromised.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
 $ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4.
+For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
       Is it the case that that is not the case?
       </td>
 <td>The pam_pwquality module's <code>maxclassrepeat</code> parameter controls requirements for
@@ -1281,7 +1285,8 @@ Restrict privileged actions by removing the following entries from the sudoers f
 the invoking user for the "root" user password.</td>
 <td>Run the following command to Verify that the sudoers security policy is configured to use the invoking user's password for privilege escalation:
  sudo egrep -i '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/* | grep -v '#'
-If no results are returned, this is a finding
+If no results are returned, this is a finding.
+If results are returned from more than one file location, this is a finding.
 If "Defaults !targetpw" is not defined, this is a finding.
 If "Defaults !rootpw" is not defined, this is a finding.
 If "Defaults !runaspw" is not defined, this is a finding.
@@ -1313,6 +1318,7 @@ when using the "sudo" command to elevate privileges, run the following command:
 sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d
 The output should be:
 /etc/sudoers:Defaults timestamp_timeout=0 or "timestamp_timeout" is set to a positive number.
+If results are returned from more than one file location, this is a finding.
       Is it the case that timestamp_timeout is not set with the appropriate value for sudo?
       </td>
 <td>The sudo <code>timestamp_timeout</code> tag sets the amount of time sudo password prompt waits.
@@ -5831,7 +5837,9 @@ maxpoll .
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>RHEL-07-040500</td>
 <td>chronyd_or_ntpd_set_maxpoll</td>
 </tr>

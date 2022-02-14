@@ -52,10 +52,10 @@ Ensure that unsuccessful attempts to access a file are audited.
 
 The following rules configure audit as described above:
 <pre>## Unsuccessful file access (any other opens) This has to go last.
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
 
 Load new Audit rules into kernel by running:
 <pre>augenrules --load</pre>
@@ -77,8 +77,8 @@ Ensure that successful attempts to access a file are audited.
 The following rules configure audit as described above:
 <pre>## Successful file access (any other opens) This has to go last.
 ## These next two are likely to result in a whole lot of events
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access    </pre>
 
 The <tt>Audit</tt> package provides pre-configured  rules in <tt>/usr/share/audit/sample-rules</tt>. The above content can be found in <tt>/usr/share/audit/sample-rules/30-ospp-v42-3-access-success.rules</tt>.
 To deploy this configuration, it is recommended to copy it over to the <tt>/etc/audit/rules.d/</tt> directory:
@@ -454,6 +454,10 @@ The following rules configure audit as described above:
 -a always,exit -F path=/usr/bin/at -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=special-config-changes
 
 ## Privilege escalation via su or sudo. This is entirely handled by pam.
+
+## Watch for configuration changes to privilege escalation.
+-a always,exit -F path=/etc/sudoers -F perm=wa -F key=special-config-changes
+-a always,exit -F dir=/etc/sudoers.d/ -F perm=wa -F key=special-config-changes
 
 ## Audit log access
 -a always,exit -F dir=/var/log/audit/ -F perm=r -F auid&gt;=1000 -F auid!=unset -F key=access-audit-trail
@@ -1494,9 +1498,13 @@ only for developers trying to debug problems.
   <td xml:lang="en-US">
 To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
   </td>
   <td xml:lang="en-US">
 audit_backlog_limit sets the queue length for audit events awaiting transfer
@@ -1513,9 +1521,13 @@ defined by audit failure flag is taken.
   <td xml:lang="en-US">
 To enable poisoning of free pages,
 add the argument <tt>page_poison=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>page_poison=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>page_poison=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed pages, so any modification or
@@ -1533,9 +1545,13 @@ Also prevents leak of data and detection of corrupted memory.
   <td xml:lang="en-US">
 To enable poisoning of SLUB/SLAB objects,
 add the argument <tt>slub_debug=P</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>slub_debug=P</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed objects, so any modification or
@@ -2055,9 +2071,13 @@ direct attack attempts on root's password.
   <td xml:lang="en-US">
 To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
   </td>
   <td xml:lang="en-US">
 Virtual Syscalls provide an opportunity of attack for a user who has control
@@ -3242,9 +3262,13 @@ and makes system configuration more fragmented.
   <td xml:lang="en-US">
 To enable Kernel page-table isolation,
 add the argument <tt>pti=on</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>pti=on</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>pti=on</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
   </td>
   <td xml:lang="en-US">
 Kernel page-table isolation is a kernel feature that mitigates
@@ -3369,10 +3393,13 @@ implementations may be subject to exploitation.
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/boot/grub2/grubenv</tt>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether
@@ -3501,7 +3528,10 @@ disallows the use of user namespaces.
   <td xml:lang="en-US">
 The <tt>tmux</tt> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<tt>/etc/bashrc</tt>.
+<tt>/etc/bashrc</tt> or drop-in files within <tt>/etc/profile.d/</tt>.
+Additionally it must be ensured that the <tt>tmux</tt> process is running
+and it can be verified with the following command:
+<pre>ps all | grep tmux | grep -v grep</pre>
   </td>
   <td xml:lang="en-US">
 Unlike <tt>bash</tt> itself, the <tt>tmux</tt> terminal multiplexer
@@ -3536,8 +3566,13 @@ compilation, e.g. the option <tt>CONFIG_RANDOM_TRUST_CPU</tt> is set to
 <tt>Y</tt>, make sure that it is not overridden with the boot parameter.
 There must not exist the boot parameter <tt>random.trust_cpu=off</tt>. If
 the option is not compiled in, make sure that <tt>random.trust_cpu=on</tt>
-is configured as a boot parameter by running the following command:
-<pre>sudo grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) random.trust_cpu=on"</pre>
+is configured as a boot parameter.
+To ensure that <tt>random.trust_cpu=on</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>random.trust_cpu=on</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... random.trust_cpu=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="random.trust_cpu=on"</pre>
   </td>
   <td xml:lang="en-US">
 The Linux kernel offers an option which signifies if the kernel should trust
@@ -4112,7 +4147,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_ssh_client_rekey_limit_time=1hour<br/>var_ssh_client_rekey_limit_size=1G</td>
+  <td>var_ssh_client_rekey_limit_size=1G<br/>var_ssh_client_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
@@ -4162,8 +4197,13 @@ the random number generator used by SSH would be known to potential attackers.
 The <tt>RekeyLimit</tt> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<tt>RekeyLimit <tt>1G</tt> <tt>1hour</tt></tt> to file <tt>/etc/ssh/sshd_config</tt>.
+elapsed.<br/>
+To decrease the default limits, add or correct the following line in
+
+
+<tt>/etc/ssh/sshd_config</tt>:
+
+<pre>RekeyLimit <tt>1G</tt> <tt>1hour</tt></pre>
   </td>
   <td xml:lang="en-US">
 By decreasing the limit based on the amount of data and enabling

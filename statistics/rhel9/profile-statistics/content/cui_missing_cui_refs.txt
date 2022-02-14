@@ -28,10 +28,8 @@ audit_owner_change_success
 audit_perm_change_failed
 audit_perm_change_success
 auditd_freq
-auditd_local_events
 auditd_log_format
 auditd_name_format
-auditd_write_logs
 chronyd_client_only
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy

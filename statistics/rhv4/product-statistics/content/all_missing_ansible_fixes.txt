@@ -46,6 +46,7 @@ avahi_disable_publishing
 banner_etc_issue
 chronyd_or_ntpd_set_maxpoll
 chronyd_or_ntpd_specify_remote_server
+chronyd_server_directive
 configure_bind_crypto_policy
 configure_firewalld_ports
 configure_user_data_backups

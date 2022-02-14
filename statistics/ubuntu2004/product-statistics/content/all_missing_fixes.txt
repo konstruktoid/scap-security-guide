@@ -29,6 +29,7 @@ auditd_overflow_action
 avahi_disable_publishing
 bios_enable_execution_restrictions
 chronyd_or_ntpd_set_maxpoll
+chronyd_server_directive
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info

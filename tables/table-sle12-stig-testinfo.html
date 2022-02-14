@@ -2713,7 +2713,9 @@ configured acceptable allowance (drift) may be inaccurate.</td>
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td></td>
 <td>SRG-OS-000355-GPOS-00143<br>SRG-OS-000356-GPOS-00144<br>
 </td>

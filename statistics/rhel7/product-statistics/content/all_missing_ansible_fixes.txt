@@ -60,6 +60,7 @@ bios_assign_password
 bios_disable_usb_boot
 bios_enable_execution_restrictions
 chronyd_or_ntpd_specify_remote_server
+chronyd_server_directive
 configure_etc_hosts_deny
 configure_firewalld_ports
 configure_user_data_backups

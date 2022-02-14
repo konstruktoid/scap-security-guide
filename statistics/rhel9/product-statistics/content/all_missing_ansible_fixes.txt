@@ -65,6 +65,7 @@ bios_enable_execution_restrictions
 chronyd_client_only
 chronyd_no_chronyc_network
 chronyd_run_as_chrony_user
+chronyd_server_directive
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy
 configure_firewalld_ports

@@ -188,6 +188,7 @@ general_default_namespace_use
 general_default_seccomp_profile
 general_namespaces_in_use
 idp_is_configured
+ingress_controller_certificate
 kubeadmin_removed
 kubelet_anonymous_auth
 kubelet_authorization_mode

@@ -626,7 +626,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3</td>
+  <td>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=never</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>
@@ -719,9 +719,13 @@ only for developers trying to debug problems.
   <td xml:lang="en-US">
 To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
   </td>
   <td xml:lang="en-US">
 audit_backlog_limit sets the queue length for audit events awaiting transfer
@@ -738,9 +742,13 @@ defined by audit failure flag is taken.
   <td xml:lang="en-US">
 To enable poisoning of free pages,
 add the argument <tt>page_poison=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>page_poison=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>page_poison=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed pages, so any modification or
@@ -758,9 +766,13 @@ Also prevents leak of data and detection of corrupted memory.
   <td xml:lang="en-US">
 To enable poisoning of SLUB/SLAB objects,
 add the argument <tt>slub_debug=P</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>slub_debug=P</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed objects, so any modification or
@@ -1124,9 +1136,13 @@ direct attack attempts on root's password.
   <td xml:lang="en-US">
 To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
   </td>
   <td xml:lang="en-US">
 Virtual Syscalls provide an opportunity of attack for a user who has control
@@ -2017,11 +2033,13 @@ in the event of misconfiguration elsewhere.
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/etc/default/grub</tt>, so that the line looks similar to
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
-In case the <tt>GRUB_DISABLE_RECOVERY</tt> is set to true, then the parameter should be added to the <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> instead.
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether

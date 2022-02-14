@@ -84,11 +84,13 @@ The auditd service is an access monitoring and accounting daemon, watching syste
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/etc/default/grub</tt>, so that the line looks similar to
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
-In case the <tt>GRUB_DISABLE_RECOVERY</tt> is set to true, then the parameter should be added to the <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> instead.
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether
@@ -2557,9 +2559,13 @@ not be written to the disk.
   <td xml:lang="en-US">
 To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
   </td>
   <td xml:lang="en-US">
 audit_backlog_limit sets the queue length for audit events awaiting transfer
@@ -2601,8 +2607,13 @@ The Common Criteria requirements specify that certain parameters for OpenSSH Ser
 The <tt>RekeyLimit</tt> parameter specifies how often
 the session key of the is renegotiated, both in terms of
 amount of data that may be transmitted and the time
-elapsed. To decrease the default limits, put line
-<tt>RekeyLimit <abbr title="$var_rekey_limit_size"><tt>512M</tt></abbr> <abbr title="$var_rekey_limit_time"><tt>1h</tt></abbr></tt> to file <tt>/etc/ssh/sshd_config</tt>.
+elapsed.<br/>
+To decrease the default limits, add or correct the following line in
+
+
+<tt>/etc/ssh/sshd_config</tt>:
+
+<pre>RekeyLimit <abbr title="$var_rekey_limit_size"><tt>512M</tt></abbr> <abbr title="$var_rekey_limit_time"><tt>1h</tt></abbr></pre>
   </td>
   <td xml:lang="en-US">
 By decreasing the limit based on the amount of data and enabling
@@ -3551,9 +3562,11 @@ session lock. As such, users should not be allowed to change session settings.
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<abbr title="$var_password_pam_retry"><tt>3</tt></abbr></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -3860,9 +3873,13 @@ development or testing, there is little need to run the kdump service.
   <td xml:lang="en-US">
 To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
   </td>
   <td xml:lang="en-US">
 Virtual Syscalls provide an opportunity of attack for a user who has control

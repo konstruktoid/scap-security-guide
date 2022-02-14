@@ -82,6 +82,7 @@ auditd_name_format
 auditd_overflow_action
 auditd_write_logs
 avahi_disable_publishing
+chronyd_server_directive
 chronyd_specify_remote_server
 configure_user_data_backups
 coredump_disable_backtraces

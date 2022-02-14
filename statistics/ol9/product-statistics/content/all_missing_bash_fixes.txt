@@ -4,6 +4,7 @@ accounts_password_all_shadowed
 accounts_root_gid_zero
 accounts_root_path_dirs_no_write
 avahi_disable_publishing
+chronyd_server_directive
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info

@@ -14245,9 +14245,11 @@ Both the holders of a digital certificate and the issuing authority must protect
 
 Password complexity is one factor of several that determines how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
+
 Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  to show
+<code>/etc/pam.d/system-auth</code> to show
+
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -14256,7 +14258,9 @@ per session.</td>
 <td>Verify the operating system enforces password complexity by requiring that at least one upper-case character be used. If it does not, this is a finding.</td>
 <td>To check how many retry attempts are permitted on a per-session basis, run the following command:
 
-$ grep pam_pwquality /etc/pam.d/system-auth 
+
+$ grep pam_pwquality /etc/pam.d/system-auth
+
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
@@ -14265,9 +14269,11 @@ This would appear as retry=3, or a lower value.
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3750r557600_fix">Configure the operating system to enforce password complexity by requiring that at least one upper-case character be used.</fixtext></td>
 <td>To configure the number of retry prompts that are permitted per-session:
+
 Edit the pam_pwquality.so statement in
 
-/etc/pam.d/system-auth  to show
+/etc/pam.d/system-auth to show
+
 
 retry=, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -14433,7 +14439,7 @@ to prevent a run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
 $ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4.
+For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
       Is it the case that that is not the case?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
@@ -21905,7 +21911,9 @@ Organizations should consider endpoints that may not have regular access to the 
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system, for networked systems, compares internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS). If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -21922,7 +21930,9 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -21946,7 +21956,9 @@ Organizations should also consider endpoints that may not have regular access to
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system synchronizes internal information system clocks to the authoritative time source when the time difference is greater than one second. If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -21963,7 +21975,9 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -22083,7 +22097,9 @@ Time stamps generated by the operating system include date and time. Time is com
 add the following:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.</td>
+should be configured too.
+If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
+to pass.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system records time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT). If it does not, this is a finding.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
@@ -22100,7 +22116,9 @@ maxpoll in /etc/ntp.conf or /etc/chrony.conf
 add the following:
 maxpoll 
 to server directives. If using chrony any pool directives
-should be configured too.</td>
+should be configured too.
+If no server or pool directives are configured, the rule evaluates
+to pass.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -22877,6 +22895,7 @@ when using the "sudo" command to elevate privileges, run the following command:
 sudo grep -ri '^Defaults.*timestamp_timeout' /etc/sudoers /etc/sudoers.d
 The output should be:
 /etc/sudoers:Defaults timestamp_timeout=0 or "timestamp_timeout" is set to a positive number.
+If results are returned from more than one file location, this is a finding.
       Is it the case that timestamp_timeout is not set with the appropriate value for sudo?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3848r375177_fix">Configure the operating system to require users to re-authenticate for privilege escalation.</fixtext></td>
@@ -39689,9 +39708,11 @@ There must be a resolvable DNS CNAME or Alias record set to "" for logs to be se
 <td>CCE-27160-1:Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
 <td>If the operating system allows the user to select passwords based on dictionary words, then this increases the chances of password compromise by increasing the opportunity for successful guesses and brute-force attacks.</td>
 <td xml:lang="en-US">To configure the number of retry prompts that are permitted per-session:
+
 Edit the <code>pam_pwquality.so</code> statement in
 
-<code>/etc/pam.d/system-auth</code>  to show
+<code>/etc/pam.d/system-auth</code> to show
+
 
 <code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -39700,7 +39721,9 @@ per session.</td>
 <td>Verify the operating system prevents the use of dictionary words for passwords. If it does not, this is a finding.</td>
 <td>To check how many retry attempts are permitted on a per-session basis, run the following command:
 
-$ grep pam_pwquality /etc/pam.d/system-auth 
+
+$ grep pam_pwquality /etc/pam.d/system-auth
+
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
@@ -39709,9 +39732,11 @@ This would appear as retry=3, or a lower value.
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3903r375726_fix">Configure the operating system to prevent the use of dictionary words for passwords.</fixtext></td>
 <td>To configure the number of retry prompts that are permitted per-session:
+
 Edit the pam_pwquality.so statement in
 
-/etc/pam.d/system-auth  to show
+/etc/pam.d/system-auth to show
+
 
 retry=, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -40388,7 +40413,8 @@ The expected output for:
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Run the following command to Verify that the sudoers security policy is configured to use the invoking user's password for privilege escalation:
  sudo egrep -i '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/* | grep -v '#'
-If no results are returned, this is a finding
+If no results are returned, this is a finding.
+If results are returned from more than one file location, this is a finding.
 If "Defaults !targetpw" is not defined, this is a finding.
 If "Defaults !rootpw" is not defined, this is a finding.
 If "Defaults !runaspw" is not defined, this is a finding.

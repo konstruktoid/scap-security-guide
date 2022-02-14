@@ -1580,8 +1580,8 @@ Ensure that successful attempts to access a file are audited.
 The following rules configure audit as described above:
 <pre>## Successful file access (any other opens) This has to go last.
 ## These next two are likely to result in a whole lot of events
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F success=1 -F auid&gt;=1000 -F auid!=unset -F key=successful-access    </pre>
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F success=1 -F auid>=1000 -F auid!=unset -F key=successful-access    </pre>
 
 The <tt>Audit</tt> package provides pre-configured  rules in <tt>/usr/share/audit/sample-rules</tt>. The above content can be found in <tt>/usr/share/audit/sample-rules/30-ospp-v42-3-access-success.rules</tt>.
 To deploy this configuration, it is recommended to copy it over to the <tt>/etc/audit/rules.d/</tt> directory:
@@ -1957,10 +1957,10 @@ Ensure that unsuccessful attempts to access a file are audited.
 
 The following rules configure audit as described above:
 <pre>## Unsuccessful file access (any other opens) This has to go last.
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b32 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access
--a always,exit -F arch=b64 -S open,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b32 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access
+-a always,exit -F arch=b64 -S open,openat,openat2,open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=unset -F key=unsuccessful-access    </pre>    
 
 Load new Audit rules into kernel by running:
 <pre>augenrules --load</pre>
@@ -2492,6 +2492,10 @@ The following rules configure audit as described above:
 -a always,exit -F path=/usr/bin/at -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=special-config-changes
 
 ## Privilege escalation via su or sudo. This is entirely handled by pam.
+
+## Watch for configuration changes to privilege escalation.
+-a always,exit -F path=/etc/sudoers -F perm=wa -F key=special-config-changes
+-a always,exit -F dir=/etc/sudoers.d/ -F perm=wa -F key=special-config-changes
 
 ## Audit log access
 -a always,exit -F dir=/var/log/audit/ -F perm=r -F auid&gt;=1000 -F auid!=unset -F key=access-audit-trail
@@ -6287,6 +6291,8 @@ add the following:
 <pre>maxpoll <abbr title="$var_time_service_set_maxpoll"><tt>10</tt></abbr></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
+If no <tt>server</tt> or <tt>pool</tt> directives are configured, the rule evaluates
+to pass.
   </td>
   <td xml:lang="en-US">
 Inaccurate time stamps make it more difficult to correlate
@@ -7239,9 +7245,13 @@ deprecated.
   <td xml:lang="en-US">
 To enable poisoning of free pages,
 add the argument <tt>page_poison=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>page_poison=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>page_poison=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed pages, so any modification or
@@ -7272,9 +7282,13 @@ is critical for system security.
   <td xml:lang="en-US">
 To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
   </td>
   <td xml:lang="en-US">
 audit_backlog_limit sets the queue length for audit events awaiting transfer
@@ -7791,9 +7805,13 @@ remotely.
   <td xml:lang="en-US">
 To enable poisoning of SLUB/SLAB objects,
 add the argument <tt>slub_debug=P</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>slub_debug=P</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed objects, so any modification or
@@ -8316,9 +8334,11 @@ If users can write to audit logs, audit trails can be modified or destroyed.
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<abbr title="$var_password_pam_retry"><tt>3</tt></abbr></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -10293,9 +10313,13 @@ networks.
   <td xml:lang="en-US">
 To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
   </td>
   <td xml:lang="en-US">
 Virtual Syscalls provide an opportunity of attack for a user who has control
@@ -11675,9 +11699,13 @@ and makes system configuration more fragmented.
   <td xml:lang="en-US">
 To enable Kernel page-table isolation,
 add the argument <tt>pti=on</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="pti=on"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>pti=on</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>pti=on</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
   </td>
   <td xml:lang="en-US">
 Kernel page-table isolation is a kernel feature that mitigates
@@ -12021,10 +12049,13 @@ in the event of misconfiguration elsewhere.
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/boot/grub2/grubenv</tt>, in the manner below:
-<pre># grub2-editenv - set "$(grub2-editenv - list | grep kernelopts) audit=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether

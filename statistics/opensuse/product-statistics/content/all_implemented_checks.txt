@@ -61,6 +61,7 @@ auditd_log_format
 auditd_name_format
 auditd_overflow_action
 auditd_write_logs
+chronyd_server_directive
 chronyd_specify_remote_server
 coredump_disable_backtraces
 coredump_disable_storage

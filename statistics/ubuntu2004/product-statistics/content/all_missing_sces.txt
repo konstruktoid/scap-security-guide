@@ -157,6 +157,7 @@ banner_etc_issue_net
 bios_enable_execution_restrictions
 chronyd_or_ntpd_set_maxpoll
 chronyd_run_as_chrony_user
+chronyd_server_directive
 chronyd_specify_remote_server
 clean_components_post_updating
 configure_user_data_backups

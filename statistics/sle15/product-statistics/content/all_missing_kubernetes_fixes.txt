@@ -178,6 +178,7 @@ bios_enable_execution_restrictions
 chronyd_or_ntpd_set_maxpoll
 chronyd_or_ntpd_specify_multiple_servers
 chronyd_run_as_chrony_user
+chronyd_server_directive
 chronyd_specify_remote_server
 clean_components_post_updating
 configure_crypto_policy

@@ -45,6 +45,7 @@ auditd_audispd_network_failure_action
 auditd_audispd_syslog_plugin_activated
 auditd_overflow_action
 avahi_disable_publishing
+chronyd_server_directive
 chronyd_specify_remote_server
 configure_bashrc_exec_tmux
 configure_ssh_crypto_policy

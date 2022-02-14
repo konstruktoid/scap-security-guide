@@ -5616,6 +5616,8 @@ add the following:
 <pre>maxpoll <abbr title="$var_time_service_set_maxpoll"><tt>10</tt></abbr></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
+If no <tt>server</tt> or <tt>pool</tt> directives are configured, the rule evaluates
+to pass.
   </td>
   <td xml:lang="en-US">
 Inaccurate time stamps make it more difficult to correlate
@@ -6556,9 +6558,13 @@ deprecated.
   <td xml:lang="en-US">
 To enable poisoning of free pages,
 add the argument <tt>page_poison=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="page_poison=1"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>page_poison=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>page_poison=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed pages, so any modification or
@@ -6589,9 +6595,13 @@ is critical for system security.
   <td xml:lang="en-US">
 To improve the kernel capacity to queue all log events, even those which occurred
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=VolGroup/LogVol06 rd.lvm.lv=VolGroup/lv_swap rhgb quiet rd.shell=0 audit=1 audit_backlog_limit=8192"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
   </td>
   <td xml:lang="en-US">
 audit_backlog_limit sets the queue length for audit events awaiting transfer
@@ -7095,9 +7105,13 @@ remotely.
   <td xml:lang="en-US">
 To enable poisoning of SLUB/SLAB objects,
 add the argument <tt>slub_debug=P</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="slub_debug=P"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>slub_debug=P</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
   </td>
   <td xml:lang="en-US">
 Poisoning writes an arbitrary value to freed objects, so any modification or
@@ -7587,9 +7601,11 @@ If users can write to audit logs, audit trails can be modified or destroyed.
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<abbr title="$var_password_pam_retry"><tt>3</tt></abbr></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -9518,9 +9534,13 @@ networks.
   <td xml:lang="en-US">
 To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
-GRUB 2 command line for the Linux operating system in
-<tt>/etc/default/grub</tt>, in the manner below:
-<pre>GRUB_CMDLINE_LINUX="vsyscall=none"</pre>
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
   </td>
   <td xml:lang="en-US">
 Virtual Syscalls provide an opportunity of attack for a user who has control
@@ -10971,11 +10991,13 @@ in the event of misconfiguration elsewhere.
   <td xml:lang="en-US">
 To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
-GRUB 2 command line for the Linux operating system in
-
-<tt>/etc/default/grub</tt>, so that the line looks similar to
+GRUB 2 command line for the Linux operating system.
+To ensure that <tt>audit=1</tt> is added as a kernel command line
+argument to newly installed kernels, ad <tt>audit=1</tt> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
-In case the <tt>GRUB_DISABLE_RECOVERY</tt> is set to true, then the parameter should be added to the <tt>GRUB_CMDLINE_LINUX_DEFAULT</tt> instead.
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
   </td>
   <td xml:lang="en-US">
 Each process on the system carries an "auditable" flag which indicates whether

@@ -171,6 +171,7 @@ fips_mode_enabled
 fips_mode_enabled_on_all_nodes
 gcp_disk_encryption_enabled
 idp_is_configured
+ingress_controller_certificate
 kubeadmin_removed
 kubelet_anonymous_auth
 kubelet_authorization_mode

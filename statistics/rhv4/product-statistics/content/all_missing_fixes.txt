@@ -31,6 +31,7 @@ auditd_audispd_disk_full_action
 auditd_audispd_network_failure_action
 auditd_overflow_action
 avahi_disable_publishing
+chronyd_server_directive
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 dhcp_client_restrict_options

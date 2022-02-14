@@ -23,6 +23,7 @@ auditd_overflow_action
 avahi_disable_publishing
 banner_etc_motd
 bios_enable_execution_restrictions
+chronyd_server_directive
 configure_etc_hosts_deny
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument

@@ -142,6 +142,7 @@ avahi_disable_publishing
 banner_etc_issue
 banner_etc_motd
 chronyd_or_ntpd_set_maxpoll
+chronyd_server_directive
 chronyd_specify_remote_server
 configure_firewalld_ports
 configure_firewalld_rate_limiting

@@ -111,6 +111,7 @@ auditd_overflow_action
 avahi_disable_publishing
 banner_etc_issue
 chronyd_or_ntpd_set_maxpoll
+chronyd_server_directive
 configure_firewalld_ports
 configure_firewalld_rate_limiting
 configure_user_data_backups

@@ -26,6 +26,7 @@ avahi_disable_publishing
 banner_etc_motd
 bios_enable_execution_restrictions
 chronyd_run_as_chrony_user
+chronyd_server_directive
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info

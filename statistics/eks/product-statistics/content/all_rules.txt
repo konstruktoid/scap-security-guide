@@ -1,3 +1,4 @@
+audit_logging
 configure_network_policies_namespaces
 file_groupowner_kubelet_conf
 file_groupowner_worker_kubeconfig

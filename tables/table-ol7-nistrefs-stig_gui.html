@@ -2877,9 +2877,11 @@ approved Certificate Authority (CA).
   <td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
   <td xml:lang="en-US">
 To configure the number of retry prompts that are permitted per-session:
+
 Edit the <tt>pam_pwquality.so</tt> statement in
 
-<tt>/etc/pam.d/system-auth</tt>  to show
+<tt>/etc/pam.d/system-auth</tt> to show
+
 
 <tt>retry=<tt>3</tt></tt>, or a lower value if site
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
@@ -3040,6 +3042,8 @@ add the following:
 <pre>maxpoll <tt>18_hours</tt></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
+If no <tt>server</tt> or <tt>pool</tt> directives are configured, the rule evaluates
+to pass.
   </td>
   <td xml:lang="en-US">
 Inaccurate time stamps make it more difficult to correlate

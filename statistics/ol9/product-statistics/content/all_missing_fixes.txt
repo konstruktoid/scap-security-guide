@@ -3,6 +3,7 @@ account_use_centralized_automated_auth
 accounts_password_all_shadowed
 accounts_root_gid_zero
 avahi_disable_publishing
+chronyd_server_directive
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
