@@ -40397,6 +40397,44 @@ ALL ALL=(ALL:ALL) ALL</td>
 <td>SRG-OS-000480-GPOS-00227</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
+<td>CCE-86277-1:Ensure sudo only includes the default configuration directory</td>
+<td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
+
+Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
+<td xml:lang="en-US">Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
+<td>To determine whether sudo command includes configuration files from the appropriate directory,
+run the following command:
+$ sudo grep -rP '^#include(dir)?' /etc/sudoers /etc/sudoers.d
+If only the line /etc/sudoers:#includedir /etc/sudoers.d is returned, then the drop-in include configuration is set correctly.
+Any other line returned is a finding.
+      Is it the case that the /etc/sudoers doesn't include /etc/sudores.d or includes other directories??
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
+<td>Administrators can configure authorized sudo users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that /etc/sudoers only includes drop-in configuration files from /etc/sudoers.d.
+The /etc/sudoers should contain only one #includedir directive pointing to
+/etc/sudoers.d, and no file in /etc/sudoers.d/ should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-70851</td>
+<td>SRG-OS-000480-GPOS-00227</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
 <td>CCE-83421-8:Ensure invoking users password for privilege escalation when using sudo</td>
 <td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
 

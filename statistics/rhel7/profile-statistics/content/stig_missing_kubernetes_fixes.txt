@@ -227,6 +227,7 @@ sudo_remove_no_authenticate
 sudo_remove_nopasswd
 sudo_require_reauthentication
 sudo_restrict_privilege_elevation_to_authorized
+sudoers_default_includedir
 sudoers_validate_passwd
 sysctl_net_ipv4_ip_forward
 tftpd_uses_secure_mode

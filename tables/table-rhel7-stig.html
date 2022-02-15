@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>236</td>
-<td>11</td>
-<td>225</td>
-<td>95.34%</td>
-<td>RHEL-07-010118RHEL-07-010291RHEL-07-010339RHEL-07-010344RHEL-07-020021RHEL-07-020023RHEL-07-020029RHEL-07-020111RHEL-07-030201RHEL-07-030819RHEL-07-030840</td>
+<td>9</td>
+<td>227</td>
+<td>96.19%</td>
+<td>RHEL-07-010118RHEL-07-010291RHEL-07-010344RHEL-07-020021RHEL-07-020023RHEL-07-020111RHEL-07-030201RHEL-07-030819RHEL-07-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1220,14 +1220,28 @@ depending on the OS version.</td>
 </tr>
 <tr>
 <td>V-251703</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must specify the default "include" directory for the /etc/sudoers file.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Some <code>sudo</code> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.</td>
+<td>To determine whether sudo command includes configuration files from the appropriate directory,
+run the following command:
+$ sudo grep -rP '^#include(dir)?' /etc/sudoers /etc/sudoers.d
+If only the line /etc/sudoers:#includedir /etc/sudoers.d is returned, then the drop-in include configuration is set correctly.
+Any other line returned is a finding.
+      Is it the case that the /etc/sudoers doesn't include /etc/sudores.d or includes other directories??
+      </td>
+<td>Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
 <td>RHEL-07-010339</td>
-<td>Missing Rule</td>
+<td>sudoers_default_includedir</td>
 </tr>
 <tr>
 <td>V-204429</td>
@@ -1884,14 +1898,19 @@ To disable the <code>ssh_sysadm_login</code> SELinux boolean, run the following 
 </tr>
 <tr>
 <td>V-251705</td>
-<td></td>
+<td>2696</td>
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must use a file integrity tool to verify correct operation of all security functions.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>The AIDE package must be installed if it is to be available for integrity checking.</td>
+<td>Run the following command to determine if the aide package is installed: $ rpm -q aide
+      Is it the case that the package is not installed?
+      </td>
+<td>The <code>aide</code> package can be installed with the following command:
+<pre>
+$ sudo yum install aide</pre>
+</td>
 <td>RHEL-07-020029</td>
-<td>Missing Rule</td>
+<td>package_aide_installed</td>
 </tr>
 <tr>
 <td>V-204445</td>
@@ -3744,29 +3763,29 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</td>
 <td>To determine if the system is configured to audit calls to the
-chown system call, run the following command:
-$ sudo grep "chown" /etc/audit/audit.*
+lchown system call, run the following command:
+$ sudo grep "lchown" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
       </td>
 <td>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+changes for all users and root. If the <code>auditd</code> daemon is configured
+to use the <code>augenrules</code> program to read audit rules during daemon
+startup (the default), add the following line to a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
+<pre>-a always,exit -F arch=b32 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td>RHEL-07-030370</td>
-<td>audit_rules_dac_modification_chown</td>
+<td>audit_rules_dac_modification_lchown</td>
 </tr>
 <tr>
 <td>V-204521</td>
@@ -3778,8 +3797,8 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</td>
 <td>To determine if the system is configured to audit calls to the
-chmod system call, run the following command:
-$ sudo grep "chmod" /etc/audit/audit.*
+fchmodat system call, run the following command:
+$ sudo grep "fchmodat" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
@@ -3789,18 +3808,18 @@ changes for all users and root. If the <code>auditd</code> daemon is configured 
 use the <code>augenrules</code> program to read audit rules during daemon startup
 (the default), add the following line to a file with suffix <code>.rules</code> in
 the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b32 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
+<pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td>RHEL-07-030410</td>
-<td>audit_rules_dac_modification_chmod</td>
+<td>audit_rules_dac_modification_fchmodat</td>
 </tr>
 <tr>
 <td>V-204524</td>
@@ -3844,8 +3863,8 @@ If the system is 64 bit then also add the following line:
 <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing
 these events could serve as evidence of potential system compromise.</td>
 <td>To determine if the system is configured to audit calls to the
-open system call, run the following command:
-$ sudo grep "open" /etc/audit/audit.*
+truncate system call, run the following command:
+$ sudo grep "truncate" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
@@ -3855,27 +3874,27 @@ accesses for all users and root. If the <code>auditd</code> daemon is configured
 to use the <code>augenrules</code> program to read audit rules during daemon
 startup (the default), add the following lines to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
+<pre>-a always,exit -F arch=b32 -S truncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 
 If the system is 64 bit then also add the following lines:
 <pre>
--a always,exit -F arch=b64 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
+-a always,exit -F arch=b64 -S truncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following lines to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b32 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
+<pre>-a always,exit -F arch=b32 -S truncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b32 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 
 If the system is 64 bit then also add the following lines:
 <pre>
--a always,exit -F arch=b64 -S open -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
--a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
+-a always,exit -F arch=b64 -S truncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=unset -F key=access
+-a always,exit -F arch=b64 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td>RHEL-07-030510</td>
-<td>audit_rules_unsuccessful_file_modification_open</td>
+<td>audit_rules_unsuccessful_file_modification_truncate</td>
 </tr>
 <tr>
 <td>V-204536</td>
@@ -4922,8 +4941,8 @@ account changes:
 from the system. The audit trail could aid in system troubleshooting, as well as, detecting
 malicious processes that attempt to delete log files to conceal their presence.</td>
 <td>To determine if the system is configured to audit calls to the
-unlink system call, run the following command:
-$ sudo grep "unlink" /etc/audit/audit.*
+unlinkat system call, run the following command:
+$ sudo grep "unlinkat" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
@@ -4934,15 +4953,15 @@ for all users and root. If the <code>auditd</code> daemon is configured to use t
 default), add the following line to a file with suffix <code>.rules</code> in the
 directory <code>/etc/audit/rules.d</code>, setting ARCH to either b32 or b64 as
 appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S unlink -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
+<pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to
 <code>/etc/audit/audit.rules</code> file, setting ARCH to either b32 or b64 as
 appropriate for your system:
-<pre>-a always,exit -F arch=ARCH -S unlink -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
+<pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td>RHEL-07-030910</td>
-<td>audit_rules_file_deletion_events_unlink</td>
+<td>audit_rules_file_deletion_events_unlinkat</td>
 </tr>
 <tr>
 <td>V-204574</td>

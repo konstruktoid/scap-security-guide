@@ -2015,12 +2015,12 @@ accepted.
 To specify the number of days after a password expires (which
 signifies inactivity) until an account is permanently disabled, add or correct
 the following line in <tt>/etc/default/useradd</tt>:
-<pre>INACTIVE=<i><tt>0</tt></i></pre>
+<pre>INACTIVE=<i><tt>35</tt></i></pre>
 If a password is currently on the verge of expiration, then
-<tt><tt>0</tt></tt>
+<tt><tt>35</tt></tt>
 day(s) remain(s) until the account is automatically
 disabled. However, if the password will not expire for another 60 days, then 60
-days plus <tt><tt>0</tt></tt> day(s) could
+days plus <tt><tt>35</tt></tt> day(s) could
 elapse until the account would be automatically disabled. See the
 <tt>useradd</tt> man page for more information.
   </td>
@@ -2029,7 +2029,7 @@ Disabling inactive accounts ensures that accounts which may not
 have been responsibly removed are not available to attackers
 who may have compromised their credentials.
   </td>
-  <td>var_account_disable_post_pw_expiration=0</td>
+  <td>var_account_disable_post_pw_expiration=35</td>
 </tr>
 <tr>
   <td>AC-4<br/>CM-7(b)<br/>CA-3(5)<br/>SC-7(21)<br/>CM-6(a)</td>
@@ -2860,7 +2860,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_fail_interval=900</td>
+  <td>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_deny=3</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>
@@ -2932,11 +2932,11 @@ to distinguish.
   <td>Configure Time Service Maxpoll Interval</td>
   <td xml:lang="en-US">
 The <tt>maxpoll</tt> should be configured to
-<tt>system_default</tt> in <tt>/etc/ntp.conf</tt> or
+<tt>18_hours</tt> in <tt>/etc/ntp.conf</tt> or
 <tt>/etc/chrony.conf</tt> to continuously poll time servers. To configure
 <tt>maxpoll</tt> in <tt>/etc/ntp.conf</tt> or <tt>/etc/chrony.conf</tt>
 add the following:
-<pre>maxpoll <tt>system_default</tt></pre>
+<pre>maxpoll <tt>18_hours</tt></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
 If no <tt>server</tt> or <tt>pool</tt> directives are configured, the rule evaluates
@@ -2949,7 +2949,7 @@ time a particular event occurred on a system is critical when conducting
 forensic analysis and investigating system events. Sources outside the
 configured acceptable allowance (drift) may be inaccurate.
   </td>
-  <td>var_time_service_set_maxpoll=system_default</td>
+  <td>var_time_service_set_maxpoll=18_hours</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-6(1)<br/>CM-7(b)</td>
@@ -6120,6 +6120,26 @@ above (or their subset), keeping the given order of algorithms.
   <td xml:lang="en-US">
 DoD Information Systems are required to use FIPS-approved cryptographic hash
 functions. The only SSHv2 hash algorithms meeting this requirement is SHA2.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>CCE-86277-1</td>
+  <td>Ensure sudo only includes the default configuration directory</td>
+  <td xml:lang="en-US">
+Administrators can configure authorized <tt>sudo</tt> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <tt>/etc/sudoers</tt> only includes drop-in configuration files from <tt>/etc/sudoers.d</tt>.
+The <tt>/etc/sudoers</tt> should contain only one <tt>#includedir</tt> directive pointing to
+<tt>/etc/sudoers.d</tt>, and no file in <tt>/etc/sudoers.d/</tt> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.
+  </td>
+  <td xml:lang="en-US">
+Some <tt>sudo</tt> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.
   </td>
   <td></td>
 </tr>
