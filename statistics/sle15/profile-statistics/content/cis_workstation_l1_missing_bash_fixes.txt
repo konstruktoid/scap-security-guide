@@ -1,6 +1,5 @@
 account_unique_id
 account_unique_name
-accounts_maximum_age_login_defs
 accounts_password_all_shadowed
 accounts_password_all_shadowed_sha512
 accounts_root_gid_zero

@@ -1,7 +1,6 @@
 account_emergency_admin
 account_temp_expire_date
 account_unique_id
-accounts_maximum_age_login_defs
 accounts_password_all_shadowed_sha512
 accounts_user_home_paths_only
 auditd_audispd_configure_sufficiently_large_partition

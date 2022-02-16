@@ -1,5 +1,4 @@
 account_unique_name
-accounts_maximum_age_login_defs
 accounts_password_all_shadowed
 aide_build_database
 audit_rules_file_deletion_events_rename
