@@ -16,6 +16,7 @@ disable_ctrlaltdel_burstaction
 disable_ctrlaltdel_reboot
 disable_users_coredumps
 grub2_init_on_alloc_argument
+grub2_page_alloc_shuffle_argument
 kernel_module_bluetooth_disabled
 kernel_module_sctp_disabled
 mount_option_boot_nodev
@@ -95,3 +96,4 @@ sysctl_net_ipv6_conf_default_accept_source_route
 zipl_bls_entries_only
 zipl_bootmap_is_up_to_date
 zipl_init_on_alloc_argument
+zipl_page_alloc_shuffle_argument

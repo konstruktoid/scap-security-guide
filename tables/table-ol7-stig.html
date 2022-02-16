@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>237</td>
-<td>8</td>
-<td>229</td>
-<td>96.62%</td>
-<td>OL07-00-010118OL07-00-010291OL07-00-010339OL07-00-010344OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
+<td>7</td>
+<td>230</td>
+<td>97.05%</td>
+<td>OL07-00-010118OL07-00-010291OL07-00-010344OL07-00-020111OL07-00-030201OL07-00-030819OL07-00-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1218,14 +1218,28 @@ depending on the OS version.</td>
 </tr>
 <tr>
 <td>V-251699</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>The Oracle Linux operating system must specify the default "include" directory for the /etc/sudoers file.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Some <code>sudo</code> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.</td>
+<td>To determine whether sudo command includes configuration files from the appropriate directory,
+run the following command:
+$ sudo grep -rP '^#include(dir)?' /etc/sudoers /etc/sudoers.d
+If only the line /etc/sudoers:#includedir /etc/sudoers.d is returned, then the drop-in include configuration is set correctly.
+Any other line returned is a finding.
+      Is it the case that the /etc/sudoers doesn't include /etc/sudores.d or includes other directories??
+      </td>
+<td>Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
 <td>OL07-00-010339</td>
-<td>Missing Rule</td>
+<td>sudoers_default_includedir</td>
 </tr>
 <tr>
 <td>V-221692</td>

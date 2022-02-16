@@ -413,6 +413,7 @@ grub2_enable_selinux
 grub2_init_on_alloc_argument
 grub2_ipv6_disable_argument
 grub2_kernel_trust_cpu_rng
+grub2_page_alloc_shuffle_argument
 grub2_page_poison_argument
 grub2_password
 grub2_pti_argument
@@ -1030,6 +1031,7 @@ zipl_bls_entries_only
 zipl_bootmap_is_up_to_date
 zipl_enable_selinux
 zipl_init_on_alloc_argument
+zipl_page_alloc_shuffle_argument
 zipl_page_poison_argument
 zipl_slub_debug_argument
 zipl_vsyscall_argument

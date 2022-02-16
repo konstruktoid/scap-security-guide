@@ -6765,6 +6765,19 @@ Run the following command to update command line for already installed kernels:<
 </td>
 </tr>
 <tr>
+<td>CCE-85879-5</td>
+<td>Enable randomization of the page allocator</td>
+<td xml:lang="en-US">To enable randomization of the page allocator in the kernel, add the
+<code>page_alloc.shuffle=1</code> argument to the default GRUB 2 command line.
+To ensure that <code>page_alloc.shuffle=1</code> is added as a kernel command line
+argument to newly installed kernels, ad <code>page_alloc.shuffle=1</code> to the
+default Grub2 command line for Linux operating systems.  Modify the line within
+<code>/etc/default/grub</code> as shown below:
+<pre>GRUB_CMDLINE_LINUX="... page_alloc.shuffle=1 ..."</pre>
+Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_alloc.shuffle=1"</pre>
+</td>
+</tr>
+<tr>
 <td>CCE-83843-3</td>
 <td>Enable Kernel Page-Table Isolation (KPTI)</td>
 <td xml:lang="en-US">To enable Kernel page-table isolation,
@@ -6955,6 +6968,16 @@ included in its options.<br>
 
 To ensure that new kernels and boot entries continue to zero out memory
 before allocation, add <code>init_on_alloc=1</code> to <code>/etc/kernel/cmdline</code>.</td>
+</tr>
+<tr>
+<td>CCE-85880-3</td>
+<td>Enable randomization of the page allocator in zIPL</td>
+<td xml:lang="en-US">To enable the randomization of the page allocator in the kernel, check that
+all boot entries in <code>/boot/loader/entries/*.conf</code> have
+<code>page_alloc.shuffle=1</code> included in its options.<br>
+
+To enable randomization of the page allocator also for  newly installed
+kernels, add <code>page_alloc.shuffle=1</code> to <code>/etc/kernel/cmdline</code>.</td>
 </tr>
 <tr>
 <td>CCE-84101-5</td>

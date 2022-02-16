@@ -216,6 +216,7 @@ sssd_ldap_start_tls
 sudo_remove_no_authenticate
 sudo_remove_nopasswd
 sudo_require_reauthentication
+sudoers_default_includedir
 sudoers_validate_passwd
 sysctl_kernel_randomize_va_space
 sysctl_net_ipv4_conf_all_accept_redirects

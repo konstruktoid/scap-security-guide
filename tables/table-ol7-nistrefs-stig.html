@@ -6222,6 +6222,26 @@ functions. The only SSHv2 hash algorithms meeting this requirement is SHA2.
 <tr>
   <td></td>
   <td>N/A</td>
+  <td>Ensure sudo only includes the default configuration directory</td>
+  <td xml:lang="en-US">
+Administrators can configure authorized <tt>sudo</tt> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <tt>/etc/sudoers</tt> only includes drop-in configuration files from <tt>/etc/sudoers.d</tt>.
+The <tt>/etc/sudoers</tt> should contain only one <tt>#includedir</tt> directive pointing to
+<tt>/etc/sudoers.d</tt>, and no file in <tt>/etc/sudoers.d/</tt> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.
+  </td>
+  <td xml:lang="en-US">
+Some <tt>sudo</tt> configurtion options allow users to run programs without re-authenticating.
+Use of these configuration options makes it easier for one compromised accound to be used to
+compromise other accounts.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>N/A</td>
   <td>UEFI Boot Loader Is Not Installed On Removeable Media</td>
   <td xml:lang="en-US">
 The system must not allow removable media to be used as the boot loader.

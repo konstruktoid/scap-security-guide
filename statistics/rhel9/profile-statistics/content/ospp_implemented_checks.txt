@@ -64,6 +64,7 @@ grub2_audit_argument
 grub2_audit_backlog_limit_argument
 grub2_disable_interactive_boot
 grub2_init_on_alloc_argument
+grub2_page_alloc_shuffle_argument
 grub2_uefi_password
 grub2_vsyscall_argument
 kerberos_disable_no_keytab
@@ -188,4 +189,5 @@ zipl_audit_backlog_limit_argument
 zipl_bls_entries_only
 zipl_bootmap_is_up_to_date
 zipl_init_on_alloc_argument
+zipl_page_alloc_shuffle_argument
 zipl_vsyscall_argument
