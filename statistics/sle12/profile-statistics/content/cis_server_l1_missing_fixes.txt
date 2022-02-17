@@ -17,4 +17,3 @@ ntpd_specify_remote_server
 partition_for_tmp
 postfix_network_listening_disabled
 sshd_allow_only_protocol2
-use_pam_wheel_for_su

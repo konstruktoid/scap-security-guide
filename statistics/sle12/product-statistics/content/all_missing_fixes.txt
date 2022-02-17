@@ -86,4 +86,3 @@ sudoers_no_command_negation
 sudoers_no_root_target
 susefirewall2_ddos_protection
 susefirewall2_only_required_services
-use_pam_wheel_for_su

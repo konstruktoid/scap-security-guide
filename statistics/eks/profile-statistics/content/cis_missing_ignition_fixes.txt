@@ -1,2 +1,6 @@
+approved_registries
 audit_logging
 configure_network_policies_namespaces
+image_scanning
+read_only_registry_access
+registry_access

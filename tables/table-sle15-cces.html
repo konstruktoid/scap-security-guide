@@ -1772,15 +1772,6 @@ vc/4</pre>
 </td>
 </tr>
 <tr>
-<td></td>
-<td>Enforce usage of pam_wheel for su authentication</td>
-<td xml:lang="en-US">To ensure that only users who are members of the <code>wheel</code> group can
-run commands with altered privileges through the <code>su</code> command, make
-sure that the following line exists in the file <code>/etc/pam.d/su</code>:
-<pre>auth             required        pam_wheel.so use_uid</pre>
-</td>
-</tr>
-<tr>
 <td>CCE-85562-7</td>
 <td>Ensure Home Directories are Created for New Users</td>
 <td xml:lang="en-US">All local interactive user accounts, upon creation, should be assigned a home directory.

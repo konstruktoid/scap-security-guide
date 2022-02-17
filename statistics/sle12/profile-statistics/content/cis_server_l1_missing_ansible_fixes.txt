@@ -23,5 +23,4 @@ postfix_network_listening_disabled
 sshd_allow_only_protocol2
 sshd_set_keepalive
 sshd_set_max_auth_tries
-use_pam_wheel_for_su
 xwindows_remove_packages

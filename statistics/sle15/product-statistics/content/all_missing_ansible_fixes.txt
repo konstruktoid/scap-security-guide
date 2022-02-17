@@ -125,5 +125,4 @@ sudo_vdsm_nopasswd
 sudoers_explicit_command_args
 sudoers_no_command_negation
 sudoers_no_root_target
-use_pam_wheel_for_su
 xwindows_remove_packages

@@ -35,5 +35,4 @@ set_iptables_default_rule
 set_iptables_default_rule_forward
 sshd_set_keepalive
 sshd_set_max_auth_tries
-use_pam_wheel_for_su
 xwindows_remove_packages
