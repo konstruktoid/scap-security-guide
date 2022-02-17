@@ -75,6 +75,7 @@ package_nss-tools_installed
 package_ntp_installed
 package_ntpdate_removed
 package_openssh-server_removed
+package_pam_pwquality_installed
 package_syslogng_installed
 package_telnetd-ssl_removed
 partition_for_web_content

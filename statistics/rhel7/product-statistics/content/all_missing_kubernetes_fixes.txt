@@ -638,6 +638,7 @@ package_opensc_installed
 package_openscap-scanner_installed
 package_openssh-server_installed
 package_openssh-server_removed
+package_pam_pwquality_installed
 package_pcsc-lite_installed
 package_policycoreutils_installed
 package_psacct_installed

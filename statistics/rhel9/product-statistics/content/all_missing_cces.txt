@@ -140,6 +140,7 @@ package_ntp_installed
 package_ntpdate_removed
 package_openldap-servers_removed
 package_openssh-server_removed
+package_pam_pwquality_installed
 package_samba-common_installed
 package_samba_removed
 package_syslogng_installed
