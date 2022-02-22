@@ -4108,19 +4108,11 @@ if [ "$PS1" ]; then
   name=$(ps -o comm= -p $parent)
   case "$name" in sshd|login) exec tmux ;; esac
 fi
-To verify that the tmux process is running,
-run the following command:
-ps all | grep tmux | grep -v grep
-If the command does not produce output, this is a finding.
-      Is it the case that exec tmux is not present at the end of bashrc or tmux process is not running?
+      Is it the case that exec tmux is not present at the end of bashrc?
       </td>
 <td>The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
-<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.
-Additionally it must be ensured that the <code>tmux</code> process is running
-and it can be verified with the following command:
-<pre>ps all | grep tmux | grep -v grep</pre>
-</td>
+<code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.</td>
 <td>RHEL-08-020041</td>
 <td>configure_bashrc_exec_tmux</td>
 </tr>

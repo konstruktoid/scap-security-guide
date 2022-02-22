@@ -3166,9 +3166,6 @@ disallows the use of user namespaces.
 The <tt>tmux</tt> terminal multiplexer is used to implement
 automatic session locking. It should be started from
 <tt>/etc/bashrc</tt> or drop-in files within <tt>/etc/profile.d/</tt>.
-Additionally it must be ensured that the <tt>tmux</tt> process is running
-and it can be verified with the following command:
-<pre>ps all | grep tmux | grep -v grep</pre>
   </td>
   <td xml:lang="en-US">
 Unlike <tt>bash</tt> itself, the <tt>tmux</tt> terminal multiplexer
@@ -3331,7 +3328,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
