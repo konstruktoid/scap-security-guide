@@ -5498,6 +5498,7 @@
     <li><div class="tooltip">file_permissions_sshd_private_key<span class="tooltiptext">Verify Permissions on SSH Server Private *_key Key Files</span></div></li>
     <li><div class="tooltip">file_permissions_sshd_pub_key<span class="tooltiptext">Verify Permissions on SSH Server Public *.pub Key Files</span></div></li>
     <li><div class="tooltip">no_empty_passwords<span class="tooltiptext">Prevent Login to Accounts With Empty Password</span></div></li>
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">package_MFEhiplsm_installed<span class="tooltiptext">Install the Host Intrusion Prevention System (HIPS) Module</span></div></li>
     <li><div class="tooltip">package_bind_removed<span class="tooltiptext">Uninstall bind Package</span></div></li>
     <li><div class="tooltip">package_rsyslog_installed<span class="tooltiptext">Ensure rsyslog is Installed</span></div></li>
@@ -5859,6 +5860,7 @@
     </ul>
   <li class="collapsible">CCI-002038</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
@@ -16208,6 +16210,7 @@
     </ul>
   <li class="collapsible">CM-6(b)</li>
     <ul class="content">
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">sshd_disable_x11_forwarding<span class="tooltiptext">Disable X11 Forwarding</span></div></li>
     </ul>
   <li class="collapsible">CM-6(c)</li>
@@ -16219,6 +16222,10 @@
     <ul class="content">
     <li><div class="tooltip">rpm_verify_hashes<span class="tooltiptext">Verify File Hashes with RPM</span></div></li>
     <li><div class="tooltip">rpm_verify_permissions<span class="tooltiptext">Verify and Correct File Permissions with RPM</span></div></li>
+    </ul>
+  <li class="collapsible">CM-6.1(iv)</li>
+    <ul class="content">
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     </ul>
   <li class="collapsible">CM-7(a)</li>
     <ul class="content">
@@ -16294,6 +16301,7 @@
     </ul>
   <li class="collapsible">IA-11</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
@@ -18520,17 +18528,20 @@
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00156</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00157</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00158</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     </ul>
@@ -18887,6 +18898,7 @@
     <li><div class="tooltip">file_permissions_sshd_private_key<span class="tooltiptext">Verify Permissions on SSH Server Private *_key Key Files</span></div></li>
     <li><div class="tooltip">file_permissions_sshd_pub_key<span class="tooltiptext">Verify Permissions on SSH Server Public *.pub Key Files</span></div></li>
     <li><div class="tooltip">no_empty_passwords<span class="tooltiptext">Prevent Login to Accounts With Empty Password</span></div></li>
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">package_MFEhiplsm_installed<span class="tooltiptext">Install the Host Intrusion Prevention System (HIPS) Module</span></div></li>
     <li><div class="tooltip">package_audit_installed<span class="tooltiptext">Ensure the audit Subsystem is Installed</span></div></li>
     <li><div class="tooltip">package_gnutls-utils_installed<span class="tooltiptext">Ensure gnutls-utils is installed</span></div></li>

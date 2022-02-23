@@ -16,6 +16,7 @@ configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 ensure_oracle_gpgkey_installed
 file_ownership_var_log_audit
 file_permissions_home_dirs
@@ -31,6 +32,7 @@ iptables_sshd_disabled
 kerberos_disable_no_keytab
 kernel_disable_entropy_contribution_for_solid_state_drives
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
 ntpd_specify_multiple_servers

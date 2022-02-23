@@ -28,6 +28,7 @@ dconf_db_up_to_date
 directory_group_ownership_var_log_audit
 directory_ownership_var_log_audit
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 ensure_oracle_gpgkey_installed
 file_group_ownership_var_log_audit
 file_ownership_var_log_audit
@@ -39,6 +40,7 @@ harden_sshd_crypto_policy
 install_smartcard_packages
 kerberos_disable_no_keytab
 network_ipv6_privacy_extensions
+no_empty_passwords_etc_shadow
 no_host_based_files
 no_tmux_in_shells
 no_user_host_based_files

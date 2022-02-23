@@ -91,6 +91,7 @@ dhcp_server_minimize_served_info
 dir_ownership_binary_dirs
 dir_permissions_binary_dirs
 directory_access_var_log_audit
+disallow_bypass_password_sudo
 etc_system_fips_exists
 file_groupowner_var_log_syslog
 file_groupownership_audit_configuration
@@ -119,6 +120,7 @@ mount_option_krb_sec_remote_filesystems
 mount_option_smb_client_signing
 mount_option_var_tmp_bind
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_password_auth_for_systemaccounts
 ntpd_specify_multiple_servers
 ntpd_specify_remote_server

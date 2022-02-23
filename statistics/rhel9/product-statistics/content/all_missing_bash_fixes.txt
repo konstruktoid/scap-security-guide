@@ -52,6 +52,7 @@ coreos_enable_selinux_kernel_argument
 dconf_gnome_disable_power_settings
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
+disallow_bypass_password_sudo
 enable_dconf_user_profile
 enable_dracut_fips_module
 encrypt_partitions
@@ -85,6 +86,7 @@ mount_option_smb_client_signing
 network_configure_name_resolution
 network_sniffer_disabled
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_netrc_files
 no_password_auth_for_systemaccounts

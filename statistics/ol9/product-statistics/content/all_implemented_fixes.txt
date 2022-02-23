@@ -106,6 +106,7 @@ dir_perms_world_writable_sticky_bits
 directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_host_auth
+disallow_bypass_password_sudo
 display_login_attempts
 ensure_gpgcheck_globally_activated
 ensure_logrotate_activated
@@ -164,6 +165,7 @@ mount_option_dev_shm_nodev
 mount_option_dev_shm_nosuid
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_rsh_trust_files
 package_audit-audispd-plugins_installed
 package_audit_installed

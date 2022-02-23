@@ -27,6 +27,7 @@ dir_ownership_library_dirs
 dir_permissions_binary_dirs
 dir_permissions_library_dirs
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 etc_system_fips_exists
 file_groupowner_var_log
 file_groupowner_var_log_messages
@@ -62,6 +63,7 @@ iptables_sshd_disabled
 kerberos_disable_no_keytab
 kernel_disable_entropy_contribution_for_solid_state_drives
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 ntpd_specify_multiple_servers
 package_audit-audispd-plugins_installed
 package_cron_installed

@@ -14,6 +14,7 @@ configure_firewalld_ports
 dconf_db_up_to_date
 dir_perms_world_writable_system_owned
 dir_perms_world_writable_system_owned_group
+disallow_bypass_password_sudo
 file_ownership_var_log_audit
 file_permission_user_init_files
 file_permissions_ungroupowned
@@ -30,6 +31,7 @@ installed_OS_is_vendor_supported
 libreswan_approved_tunnels
 network_configure_name_resolution
 network_sniffer_disabled
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_user_host_based_files

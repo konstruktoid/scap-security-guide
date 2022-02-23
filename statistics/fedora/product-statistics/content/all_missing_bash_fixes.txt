@@ -74,6 +74,7 @@ directory_permissions_var_log_audit
 disable_anacron
 disable_logwatch_for_logserver
 disable_users_coredumps
+disallow_bypass_password_sudo
 enable_dconf_user_profile
 enable_dracut_fips_module
 etc_system_fips_exists
@@ -121,6 +122,7 @@ nfs_fixed_mountd_port
 nfs_fixed_statd_port
 nfs_no_anonymous
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_insecure_locks_exports
 no_netrc_files

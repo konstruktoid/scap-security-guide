@@ -271,6 +271,7 @@ disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 docker_selinux_enabled
 docker_storage_configured
@@ -499,6 +500,7 @@ network_nmcli_permissions
 network_sniffer_disabled
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_insecure_locks_exports

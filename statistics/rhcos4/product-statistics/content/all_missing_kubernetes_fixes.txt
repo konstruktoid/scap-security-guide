@@ -69,6 +69,7 @@ dir_permissions_library_dirs
 dir_perms_world_writable_sticky_bits
 directory_permissions_var_log_audit
 disable_prelink
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dracut_fips_module
 enable_fips_mode
@@ -175,6 +176,7 @@ mount_option_var_tmp_noexec
 mount_option_var_tmp_nosuid
 network_nmcli_permissions
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow

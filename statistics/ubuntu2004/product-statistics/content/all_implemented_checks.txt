@@ -176,6 +176,7 @@ disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dconf_user_profile
 ensure_logrotate_activated
@@ -300,6 +301,7 @@ mount_option_dev_shm_nosuid
 no_direct_root_logins
 no_duplicate_uids
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_netrc_files
 no_rsh_trust_files

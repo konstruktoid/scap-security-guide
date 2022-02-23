@@ -133,6 +133,7 @@ dir_perms_world_writable_system_owned
 dir_perms_world_writable_system_owned_group
 disable_ctrlaltdel_reboot
 disable_host_auth
+disallow_bypass_password_sudo
 display_login_attempts
 ensure_gpgcheck_globally_activated
 ensure_gpgcheck_local_packages
@@ -173,6 +174,7 @@ mount_option_nosuid_removable_partitions
 network_configure_name_resolution
 network_sniffer_disabled
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_user_host_based_files

@@ -294,6 +294,7 @@ disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dconf_user_profile
 enable_pam_namespace
@@ -468,6 +469,7 @@ network_sniffer_disabled
 no_all_squash_exports
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_legacy_plus_entries_etc_group

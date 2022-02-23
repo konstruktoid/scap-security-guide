@@ -1524,6 +1524,14 @@ $ sudo dnf install libpwquality</pre>
 </td>
 </tr>
 <tr>
+<td></td>
+<td>Disallow Configuration to Bypass Password Requirements for Privilege Escalation</td>
+<td xml:lang="en-US">Verify the operating system is not configured to bypass password requirements for privilege
+escalation. Check the configuration of the "/etc/pam.d/sudo" file with the following command:
+<pre>$ sudo grep pam_succeed_if /etc/pam.d/sudo</pre>
+If any occurrences of "pam_succeed_if" is returned from the command, this is a finding.</td>
+</tr>
+<tr>
 <td>CCE-83560-3</td>
 <td>Ensure PAM Displays Last Logon/Access Notification</td>
 <td xml:lang="en-US">To configure the system to notify users of last logon/access
@@ -2268,6 +2276,21 @@ Note that this rule is not applicable for systems running within a
 container. Having user with empty password within a container is not
 considered a risk, because it should not be possible to directly login into
 a container anyway.</td>
+</tr>
+<tr>
+<td></td>
+<td>Ensure There Are No Accounts With Blank or Null Passwords</td>
+<td xml:lang="en-US">Check the "/etc/shadow" file for blank passwords with the
+following command:
+<pre>$ sudo awk -F: '!$2 {print $1}' /etc/shadow</pre>
+If the command returns any results, this is a finding.
+Configure all accounts on the system to have a password or lock
+the account with the following commands:
+Perform a password reset:
+<pre>$ sudo passwd [username]</pre>
+Lock an account:
+<pre>$ sudo passwd -l [username]</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-83616-3</td>

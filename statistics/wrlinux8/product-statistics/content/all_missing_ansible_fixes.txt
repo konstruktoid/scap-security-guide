@@ -55,6 +55,7 @@ dhcp_server_minimize_served_info
 dir_perms_world_writable_sticky_bits
 directory_access_var_log_audit
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 file_ownership_binary_dirs
 file_ownership_var_log_audit
 file_permissions_binary_dirs
@@ -78,6 +79,7 @@ kernel_module_tipc_disabled
 no_all_squash_exports
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
 no_rsh_trust_files

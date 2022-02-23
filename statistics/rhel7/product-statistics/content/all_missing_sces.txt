@@ -321,6 +321,7 @@ disable_host_auth
 disable_logwatch_for_logserver
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 dns_server_authenticate_zone_transfers
 dns_server_disable_dynamic_updates
@@ -622,6 +623,7 @@ nfs_no_anonymous
 no_all_squash_exports
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_insecure_locks_exports

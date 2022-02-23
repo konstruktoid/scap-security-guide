@@ -89,6 +89,7 @@ dir_perms_world_writable_sticky_bits
 dir_perms_world_writable_system_owned
 dir_perms_world_writable_system_owned_group
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 etc_system_fips_exists
 file_ownership_binary_dirs
 file_permission_user_init_files
@@ -119,6 +120,7 @@ kernel_module_usb-storage_disabled
 network_configure_name_resolution
 network_sniffer_disabled
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_netrc_files
 no_password_auth_for_systemaccounts

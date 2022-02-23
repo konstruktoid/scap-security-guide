@@ -216,6 +216,7 @@ disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dconf_user_profile
 ensure_gpgcheck_globally_activated
@@ -375,6 +376,7 @@ mount_option_var_tmp_nosuid
 network_sniffer_disabled
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_legacy_plus_entries_etc_group

@@ -39,6 +39,7 @@ dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 dir_perms_world_writable_system_owned
 dir_perms_world_writable_system_owned_group
+disallow_bypass_password_sudo
 enable_dracut_fips_module
 enable_ldap_client
 encrypt_partitions
@@ -68,6 +69,7 @@ libreswan_approved_tunnels
 network_configure_name_resolution
 network_sniffer_disabled
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_netrc_files
 no_password_auth_for_systemaccounts

@@ -51,6 +51,7 @@ directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 file_cron_deny_not_exist
 file_groupowner_at_allow
 file_groupowner_backup_etc_group
@@ -160,6 +161,7 @@ mount_option_var_tmp_nodev
 mount_option_var_tmp_noexec
 mount_option_var_tmp_nosuid
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow

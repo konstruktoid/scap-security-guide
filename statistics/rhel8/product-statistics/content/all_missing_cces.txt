@@ -39,6 +39,7 @@ dir_perms_world_writable_system_owned
 dir_perms_world_writable_system_owned_group
 disable_anacron
 disable_logwatch_for_logserver
+disallow_bypass_password_sudo
 dns_server_disable_dynamic_updates
 dns_server_disable_zone_transfers
 dovecot_configure_ssl_cert
@@ -144,6 +145,7 @@ nfs_fixed_mountd_port
 nfs_fixed_statd_port
 nfs_no_anonymous
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_insecure_locks_exports
 no_password_auth_for_systemaccounts
 no_root_webbrowsing

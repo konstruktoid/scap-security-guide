@@ -39,6 +39,7 @@ dir_perms_world_writable_system_owned_group
 directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_prelink
+disallow_bypass_password_sudo
 encrypt_partitions
 file_ownership_var_log_audit
 file_permission_user_init_files
@@ -71,6 +72,7 @@ libreswan_approved_tunnels
 network_sniffer_disabled
 no_all_squash_exports
 no_direct_root_logins
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd

@@ -7399,6 +7399,7 @@
     <li><div class="tooltip">network_configure_name_resolution<span class="tooltiptext">Configure Multiple DNS Servers in /etc/resolv.conf</span></div></li>
     <li><div class="tooltip">network_sniffer_disabled<span class="tooltiptext">Ensure System is Not Acting as a Network Sniffer</span></div></li>
     <li><div class="tooltip">no_empty_passwords<span class="tooltiptext">Prevent Login to Accounts With Empty Password</span></div></li>
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">no_files_unowned_by_user<span class="tooltiptext">Ensure All Files Are Owned by a User</span></div></li>
     <li><div class="tooltip">no_host_based_files<span class="tooltiptext">Remove Host-Based Authentication Files</span></div></li>
     <li><div class="tooltip">no_user_host_based_files<span class="tooltiptext">Remove User Host-Based Authentication Files</span></div></li>
@@ -7884,6 +7885,7 @@
     </ul>
   <li class="collapsible">CCI-002038</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
@@ -22622,6 +22624,7 @@
     <ul class="content">
     <li><div class="tooltip">firewalld_sshd_port_enabled<span class="tooltiptext">Enable SSH Server firewalld Firewall Exception</span></div></li>
     <li><div class="tooltip">mount_option_home_noexec<span class="tooltiptext">Add noexec Option to /home</span></div></li>
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">sshd_disable_x11_forwarding<span class="tooltiptext">Disable X11 Forwarding</span></div></li>
     <li><div class="tooltip">tftpd_uses_secure_mode<span class="tooltiptext">Ensure tftp Daemon Uses Secure Mode</span></div></li>
     </ul>
@@ -22634,6 +22637,10 @@
     <ul class="content">
     <li><div class="tooltip">rpm_verify_hashes<span class="tooltiptext">Verify File Hashes with RPM</span></div></li>
     <li><div class="tooltip">rpm_verify_permissions<span class="tooltiptext">Verify and Correct File Permissions with RPM</span></div></li>
+    </ul>
+  <li class="collapsible">CM-6.1(iv)</li>
+    <ul class="content">
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     </ul>
   <li class="collapsible">CM-7</li>
     <ul class="content">
@@ -22763,6 +22770,7 @@
     </ul>
   <li class="collapsible">IA-11</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
@@ -25757,17 +25765,20 @@
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00156</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     <li><div class="tooltip">sudo_require_authentication<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo</span></div></li>
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00157</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     </ul>
   <li class="collapsible">SRG-OS-000373-GPOS-00158</li>
     <ul class="content">
+    <li><div class="tooltip">disallow_bypass_password_sudo<span class="tooltiptext">Disallow Configuration to Bypass Password Requirements for Privilege Escalation</span></div></li>
     <li><div class="tooltip">sudo_remove_no_authenticate<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo !authenticate</span></div></li>
     <li><div class="tooltip">sudo_remove_nopasswd<span class="tooltiptext">Ensure Users Re-Authenticate for Privilege Escalation - sudo NOPASSWD</span></div></li>
     </ul>
@@ -26259,6 +26270,7 @@
     <li><div class="tooltip">network_configure_name_resolution<span class="tooltiptext">Configure Multiple DNS Servers in /etc/resolv.conf</span></div></li>
     <li><div class="tooltip">network_sniffer_disabled<span class="tooltiptext">Ensure System is Not Acting as a Network Sniffer</span></div></li>
     <li><div class="tooltip">no_empty_passwords<span class="tooltiptext">Prevent Login to Accounts With Empty Password</span></div></li>
+    <li><div class="tooltip">no_empty_passwords_etc_shadow<span class="tooltiptext">Ensure There Are No Accounts With Blank or Null Passwords</span></div></li>
     <li><div class="tooltip">no_files_unowned_by_user<span class="tooltiptext">Ensure All Files Are Owned by a User</span></div></li>
     <li><div class="tooltip">no_host_based_files<span class="tooltiptext">Remove Host-Based Authentication Files</span></div></li>
     <li><div class="tooltip">no_user_host_based_files<span class="tooltiptext">Remove User Host-Based Authentication Files</span></div></li>

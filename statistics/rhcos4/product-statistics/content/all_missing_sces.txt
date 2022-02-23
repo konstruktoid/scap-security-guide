@@ -223,6 +223,7 @@ disable_ctrlaltdel_reboot
 disable_host_auth
 disable_prelink
 disable_users_coredumps
+disallow_bypass_password_sudo
 display_login_attempts
 enable_dracut_fips_module
 enable_fips_mode
@@ -347,6 +348,7 @@ network_nmcli_permissions
 no_all_squash_exports
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow

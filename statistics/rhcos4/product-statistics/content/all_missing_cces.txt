@@ -60,6 +60,7 @@ dir_permissions_binary_dirs
 dir_permissions_library_dirs
 disable_host_auth
 disable_prelink
+disallow_bypass_password_sudo
 display_login_attempts
 encrypt_partitions
 etc_system_fips_exists
@@ -142,6 +143,7 @@ mount_option_var_log_nosuid
 mount_option_var_nodev
 mount_option_var_nosuid
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow

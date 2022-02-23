@@ -46,6 +46,7 @@ dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 dir_perms_world_writable_sticky_bits
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 file_ownership_binary_dirs
 file_permissions_binary_dirs
 file_permissions_home_dirs
@@ -62,6 +63,7 @@ kernel_disable_entropy_contribution_for_solid_state_drives
 kernel_module_rds_disabled
 kernel_module_tipc_disabled
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
 no_rsh_trust_files

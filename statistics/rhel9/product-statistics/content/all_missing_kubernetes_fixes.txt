@@ -291,6 +291,7 @@ directory_access_var_log_audit
 directory_group_ownership_var_log_audit
 directory_ownership_var_log_audit
 directory_permissions_var_log_audit
+disallow_bypass_password_sudo
 display_login_attempts
 dnf-automatic_apply_updates
 dnf-automatic_security_updates_only
@@ -481,6 +482,7 @@ network_configure_name_resolution
 network_nmcli_permissions
 network_sniffer_disabled
 no_all_squash_exports
+no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_legacy_plus_entries_etc_group
