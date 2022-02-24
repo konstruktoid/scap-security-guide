@@ -1,2 +1,0 @@
-cinder_file_perms
-keystone_max_request_body_size

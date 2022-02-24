@@ -1,2 +1,0 @@
-cinder_conf_file_perms
-horizon_csrf_cookie_secure
