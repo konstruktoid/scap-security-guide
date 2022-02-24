@@ -1837,7 +1837,7 @@ forensic analysis and investigating system events. Sources outside the
 configured acceptable allowance (drift) may be inaccurate.</td>
 <td>To verify that maxpoll has been set properly, perform the following:
 $ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
-The output should return
+The output should return:
 maxpoll .
       Is it the case that it does not exist or maxpoll has not been set to the expected value?
       </td>
@@ -1845,7 +1845,7 @@ maxpoll .
 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
 <code>/etc/chrony.conf</code> to continuously poll time servers. To configure
 <code>maxpoll</code> in <code>/etc/ntp.conf</code> or <code>/etc/chrony.conf</code>
-add the following:
+add the following after each `server`, `pool` or `peer` entry:
 <pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.

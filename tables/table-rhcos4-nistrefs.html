@@ -5139,7 +5139,7 @@ The <tt>maxpoll</tt> should be configured to
 <abbr title="$var_time_service_set_maxpoll"><tt>10</tt></abbr> in <tt>/etc/ntp.conf</tt> or
 <tt>/etc/chrony.conf</tt> to continuously poll time servers. To configure
 <tt>maxpoll</tt> in <tt>/etc/ntp.conf</tt> or <tt>/etc/chrony.conf</tt>
-add the following:
+add the following after each `server`, `pool` or `peer` entry:
 <pre>maxpoll <abbr title="$var_time_service_set_maxpoll"><tt>10</tt></abbr></pre>
 to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
 should be configured too.
