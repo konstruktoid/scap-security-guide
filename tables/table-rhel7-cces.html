@@ -6268,6 +6268,38 @@ Run the following command to update command line for already installed kernels:<
 </td>
 </tr>
 <tr>
+<td></td>
+<td>Ensure SMAP is not disabled during boot</td>
+<td xml:lang="en-US">The SMAP is used to prevent the supervisor mode from unintentionally reading/writing into
+memory pages in the user space, it is enabled by default since Linux kernel 3.7.
+But it could be disabled through kernel boot parameters.
+
+Ensure that Supervisor Mode Access Prevention (SMAP) is not disabled by
+the <code>nosmap</code> boot paramenter option.
+
+Check that the line <pre>GRUB_CMDLINE_LINUX="..."</pre> within <code>/etc/default/grub</code>
+doesn't contain the argument <code>nosmap</code>.
+Run the following command to update command line for already installed kernels:
+<pre># grubby --update-kernel=ALL --remove-args="nosmap"</pre>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>Ensure SMEP is not disabled during boot</td>
+<td xml:lang="en-US">The SMEP is used to prevent the supervisor mode from executing user space code,
+it is enabled by default since Linux kernel 3.0. But it could be disabled through
+kernel boot parameters.
+
+Ensure that Supervisor Mode Execution Prevention (SMEP) is not disabled by
+the <code>nosmep</code> boot paramenter option.
+
+Check that the line <pre>GRUB_CMDLINE_LINUX="..."</pre> within <code>/etc/default/grub</code>
+doesn't contain the argument <code>nosmep</code>.
+Run the following command to update command line for already installed kernels:
+<pre># grubby --update-kernel=ALL --remove-args="nosmep"</pre>
+</td>
+</tr>
+<tr>
 <td>CCE-82159-5</td>
 <td>Disable vsyscalls</td>
 <td xml:lang="en-US">To disable use of virtual syscalls,

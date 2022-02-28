@@ -150,6 +150,8 @@ ftp_limit_users
 gid_passwd_group_same
 gnome_gdm_disable_xdmcp
 grub2_enable_iommu_force
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 harden_ssh_client_crypto_policy
 iptables_sshd_disabled
 kerberos_disable_no_keytab

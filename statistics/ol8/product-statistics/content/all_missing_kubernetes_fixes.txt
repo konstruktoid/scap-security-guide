@@ -441,6 +441,8 @@ grub2_enable_selinux
 grub2_ipv6_disable_argument
 grub2_kernel_trust_cpu_rng
 grub2_no_removeable_media
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 grub2_page_poison_argument
 grub2_password
 grub2_pti_argument

@@ -57,6 +57,8 @@ ftp_configure_firewall
 ftp_limit_users
 gid_passwd_group_same
 grub2_enable_iommu_force
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 installed_OS_is_FIPS_certified
 iptables_sshd_disabled
 kernel_disable_entropy_contribution_for_solid_state_drives

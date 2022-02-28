@@ -329,6 +329,8 @@ grub2_disable_interactive_boot
 grub2_enable_iommu_force
 grub2_enable_selinux
 grub2_ipv6_disable_argument
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 grub2_password
 grub2_uefi_password
 gui_login_dod_acknowledgement

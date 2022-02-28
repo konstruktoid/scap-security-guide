@@ -267,6 +267,8 @@ grub2_disable_interactive_boot
 grub2_enable_iommu_force
 grub2_enable_selinux
 grub2_ipv6_disable_argument
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
 kerberos_disable_no_keytab

@@ -42,6 +42,8 @@ file_permissions_var_log_messages
 file_permissions_var_log_syslog
 ftp_configure_firewall
 ftp_limit_users
+grub2_nosmap_argument_absent
+grub2_nosmep_argument_absent
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
 httpd_configure_banner_page
