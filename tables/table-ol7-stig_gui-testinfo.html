@@ -72,8 +72,7 @@ days plus <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf
 elapse until the account would be automatically disabled. See the
 <code>useradd</code> man page for more information.</td>
 <td></td>
-<td>SRG-OS-000118-GPOS-00060<br>
-</td>
+<td></td>
 <td>CCI-000017<br>CCI-000795<br>
 </td>
 <td></td>
@@ -99,8 +98,7 @@ To remove unauthorized system accounts, use the following command:
 <pre>$ sudo userdel <i>unauthorized_user</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -119,8 +117,7 @@ parameter in <code>/etc/login.defs</code> to <code>yes</code> as follows:
 <pre>CREATE_HOME yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -136,8 +133,7 @@ add or correct the <code>FAIL_DELAY</code> setting in <code>/etc/login.defs</cod
 <pre>FAIL_DELAY <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_fail_delay"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -157,8 +153,7 @@ a file under <code>/etc/security/limits.d/</code>:
 <pre>* hard maxlogins <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_max_concurrent_login_sessions"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000027-GPOS-00008<br>
-</td>
+<td></td>
 <td>CCI-000054<br>
 </td>
 <td></td>
@@ -184,8 +179,7 @@ A value of 180 days is sufficient for many environments.
 The DoD requirement is 60.
 The profile requirement is <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub></code>.</td>
 <td></td>
-<td>SRG-OS-000076-GPOS-00044<br>
-</td>
+<td></td>
 <td>CCI-000199<br>
 </td>
 <td></td>
@@ -210,8 +204,7 @@ A value of 1 day is considered sufficient for many
 environments. The DoD requirement is 1.
 The profile requirement is <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_minimum_age_login_defs"></xccdf-1.1:sub></code>.</td>
 <td></td>
-<td>SRG-OS-000075-GPOS-00043<br>
-</td>
+<td></td>
 <td>CCI-000198<br>
 </td>
 <td></td>
@@ -234,8 +227,7 @@ should be changed to one greater than "0" but less than "1000."
 Otherwise assign a UID greater than "1000" that has not already been
 assigned.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -260,8 +252,7 @@ contain that many digits. When set to a positive number, pam_pwquality will gran
 length credit for each digit. Modify the <code>dcredit</code> setting in
 <code>/etc/security/pwquality.conf</code> to require the use of a digit in passwords.</td>
 <td></td>
-<td>SRG-OS-000071-GPOS-00039<br>
-</td>
+<td></td>
 <td>CCI-000194<br>
 </td>
 <td></td>
@@ -290,8 +281,7 @@ Modify the <code>difok</code> setting in <code>/etc/security/pwquality.conf</cod
 to equal <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_difok"></xccdf-1.1:sub> to require differing characters
 when changing passwords.</td>
 <td></td>
-<td>SRG-OS-000072-GPOS-00040<br>
-</td>
+<td></td>
 <td>CCI-000195<br>
 </td>
 <td></td>
@@ -316,8 +306,7 @@ contain that many lowercase characters. When set to a positive number, pam_pwqua
 length credit for each lowercase character. Modify the <code>lcredit</code> setting in
 <code>/etc/security/pwquality.conf</code> to require the use of a lowercase character in passwords.</td>
 <td></td>
-<td>SRG-OS-000070-GPOS-00038<br>
-</td>
+<td></td>
 <td>CCI-000193<br>
 </td>
 <td></td>
@@ -339,8 +328,7 @@ which contain more than that number of consecutive characters from the same char
 <code>maxclassrepeat</code> setting in <code>/etc/security/pwquality.conf</code> to equal <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_maxclassrepeat"></xccdf-1.1:sub>
 to prevent a run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_maxclassrepeat"></xccdf-1.1:sub> + 1) or more identical characters.</td>
 <td></td>
-<td>SRG-OS-000072-GPOS-00040<br>
-</td>
+<td></td>
 <td>CCI-000195<br>
 </td>
 <td></td>
@@ -364,8 +352,7 @@ which contain more than that number of consecutive characters. Modify the <code>
 in <code>/etc/security/pwquality.conf</code> to equal <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_maxrepeat"></xccdf-1.1:sub> to prevent a
 run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_maxrepeat"></xccdf-1.1:sub> + 1) or more identical characters.</td>
 <td></td>
-<td>SRG-OS-000072-GPOS-00040<br>
-</td>
+<td></td>
 <td>CCI-000195<br>
 </td>
 <td></td>
@@ -401,8 +388,7 @@ Modify the <code>minclass</code> setting in <code>/etc/security/pwquality.conf</
 to require <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_minclass"></xccdf-1.1:sub>
 differing categories of characters when changing passwords.</td>
 <td></td>
-<td>SRG-OS-000072-GPOS-00040<br>
-</td>
+<td></td>
 <td>CCI-000195<br>
 </td>
 <td></td>
@@ -424,8 +410,7 @@ compromose the password.</td>
 minimum characters required in a password. Add <code>minlen=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_minlen"></xccdf-1.1:sub></code>
 after pam_pwquality to set minimum password length requirements.</td>
 <td></td>
-<td>SRG-OS-000078-GPOS-00046<br>
-</td>
+<td></td>
 <td>CCI-000205<br>
 </td>
 <td></td>
@@ -452,8 +437,7 @@ additional length credit for each special character. Modify the <code>ocredit</c
 in <code>/etc/security/pwquality.conf</code> to equal <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_ocredit"></xccdf-1.1:sub>
 to require use of a special character in passwords.</td>
 <td></td>
-<td>SRG-OS-000266-GPOS-00101<br>
-</td>
+<td></td>
 <td>CCI-001619<br>
 </td>
 <td></td>
@@ -473,8 +457,7 @@ for the <code>remember</code> parameter is <xccdf-1.1:sub xmlns:xccdf-1.1="http:
 <pre>password <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember_control_flag"></xccdf-1.1:sub> pam_pwhistory.so <i>...existing_options...</i> remember=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> use_authtok</pre>
 The DoD STIG requirement is 5 passwords.</td>
 <td></td>
-<td>SRG-OS-000077-GPOS-00045<br>
-</td>
+<td></td>
 <td>CCI-000200<br>
 </td>
 <td></td>
@@ -494,8 +477,7 @@ for the <code>remember</code> parameter is <xccdf-1.1:sub xmlns:xccdf-1.1="http:
 <pre>password <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember_control_flag"></xccdf-1.1:sub> pam_pwhistory.so <i>...existing_options...</i> remember=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> use_authtok</pre>
 The DoD STIG requirement is 5 passwords.</td>
 <td></td>
-<td>SRG-OS-000077-GPOS-00045<br>
-</td>
+<td></td>
 <td>CCI-000200<br>
 </td>
 <td></td>
@@ -519,8 +501,7 @@ Edit the <code>pam_pwquality.so</code> statement in
 policy is more restrictive. The DoD requirement is a maximum of 3 prompts
 per session.</td>
 <td></td>
-<td>SRG-OS-000069-GPOS-00037<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000192<br>CCI-000366<br>
 </td>
 <td></td>
@@ -542,8 +523,7 @@ contain that many uppercase characters. When set to a positive number, pam_pwqua
 length credit for each uppercase character. Modify the <code>ucredit</code> setting in
 <code>/etc/security/pwquality.conf</code> to require the use of an uppercase character in passwords.</td>
 <td></td>
-<td>SRG-OS-000069-GPOS-00037<br>
-</td>
+<td></td>
 <td>CCI-000192<br>
 </td>
 <td></td>
@@ -562,8 +542,7 @@ restriction by running the following command:
 <pre>$ sudo chage -M 60 <i>USER</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000076-GPOS-00044<br>
-</td>
+<td></td>
 <td>CCI-000199<br>
 </td>
 <td></td>
@@ -582,8 +561,7 @@ lifetime by running the following command:
 <pre>$ sudo chage -m 1 <i>USER</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000075-GPOS-00043<br>
-</td>
+<td></td>
 <td>CCI-000198<br>
 </td>
 <td></td>
@@ -603,8 +581,7 @@ defined to work as expected. In order to avoid any errors when manually editing 
 it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
 depending on the OS version.</td>
 <td></td>
-<td>SRG-OS-000021-GPOS-00005<br>SRG-OS-000329-GPOS-00128<br>
-</td>
+<td></td>
 <td>CCI-000044<br>CCI-002236<br>CCI-002237<br>CCI-002238<br>
 </td>
 <td></td>
@@ -624,8 +601,7 @@ defined to work as expected. In order to avoid any errors when manually editing 
 it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
 depending on the OS version.</td>
 <td></td>
-<td>SRG-OS-000329-GPOS-00128<br>SRG-OS-000021-GPOS-00005<br>
-</td>
+<td></td>
 <td>CCI-002238<br>CCI-000044<br>
 </td>
 <td></td>
@@ -656,8 +632,7 @@ Then edit the <code>/etc/security/faillock.conf</code> file as follows:
 </ul>
 </td>
 <td></td>
-<td>SRG-OS-000021-GPOS-00005<br>SRG-OS-000329-GPOS-00128<br>
-</td>
+<td></td>
 <td>CCI-000044<br>CCI-002236<br>CCI-002237<br>CCI-002238<br>
 </td>
 <td></td>
@@ -677,8 +652,7 @@ defined to work as expected. In order to avoid any errors when manually editing 
 it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
 depending on the OS version.</td>
 <td></td>
-<td>SRG-OS-000021-GPOS-00005<br>SRG-OS-000329-GPOS-00128<br>
-</td>
+<td></td>
 <td>CCI-000044<br>CCI-002236<br>CCI-002237<br>CCI-002238<br>
 </td>
 <td></td>
@@ -699,8 +673,7 @@ setting in a file loaded by <code>/etc/profile</code>, e.g.
 <pre>TMOUT=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_tmout"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>SRG-OS-000163-GPOS-00072<br>SRG-OS-000279-GPOS-00109<br>
-</td>
+<td></td>
 <td>CCI-000057<br>CCI-001133<br>CCI-002361<br>
 </td>
 <td></td>
@@ -717,8 +690,7 @@ add or correct the <code>UMASK</code> setting in <code>/etc/login.defs</code> to
 <pre>UMASK <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_user_umask"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -735,8 +707,7 @@ applies to the globally configured system defaults and the local interactive
 user defaults for each account on the system.</td>
 <td xml:lang="en-US">Remove the <code>UMASK</code> environment variable from all interactive users initialization files.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001814<br>
 </td>
 <td></td>
@@ -756,8 +727,7 @@ interactive user home directory, use the following command:
 This rule ensures every initialization file related to an interactive user
 is group-owned by an interactive user.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -776,8 +746,7 @@ following command:
 <pre>$ sudo chmod 0755 <i>FILE</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -796,8 +765,7 @@ the primary owner with the following command:
 This rule ensures every initialization file related to an interactive user
 is owned by an interactive user.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -819,8 +787,7 @@ must be documented with the Information System Security Officer (ISSO).</td>
 path statements do not contain statements that will reference a working
 directory other than the users home directory.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -840,8 +807,7 @@ home directory assigned in <code>/etc/passwd</code>:
 <pre>$ sudo mkdir /home/<i>USER</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -860,8 +826,7 @@ local interactive users files and directories, use the following command:
 This rule ensures every file or directory under the home directory related
 to an interactive user is group-owned by an interactive user.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -882,8 +847,7 @@ interactive user's files and directories, use the following command:
 This rule ensures every file or directory under the home directory related
 to an interactive user is owned by an interactive user.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -899,8 +863,7 @@ directory with the following command:
 <pre>$ sudo chmod 0750 /home/<i>USER</i>/<i>FILE_DIR</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -915,8 +878,7 @@ computer viruses, as well as to limit their spread to other systems.</td>
 which is provided for DoD systems and uses signatures to search for the
 presence of viruses on the filesystem.</td>
 <td></td>
-<td>SRG-OS-000191-GPOS-00080<br>
-</td>
+<td></td>
 <td>CCI-001233<br>
 </td>
 <td></td>
@@ -947,8 +909,7 @@ AIDE can be executed periodically through other means; this is merely one exampl
 The usage of cron's special time codes, such as  <code>@daily</code> and
 <code>@weekly</code> is acceptable.</td>
 <td></td>
-<td>SRG-OS-000363-GPOS-00150<br>SRG-OS-000446-GPOS-00200<br>SRG-OS-000447-GPOS-00201<br>
-</td>
+<td></td>
 <td>CCI-001744<br>CCI-002699<br>CCI-002702<br>
 </td>
 <td></td>
@@ -975,8 +936,7 @@ Otherwise, add the following line to <code>/etc/crontab</code>:
 <pre>05 4 * * * root /usr/sbin/aide --check | /bin/mail -s "$(hostname) - AIDE Integrity Check" root@localhost</pre>
 AIDE can be executed periodically through other means; this is merely one example.</td>
 <td></td>
-<td>SRG-OS-000363-GPOS-00150<br>SRG-OS-000447-GPOS-00201<br>
-</td>
+<td></td>
 <td>CCI-001744<br>CCI-002702<br>
 </td>
 <td></td>
@@ -995,8 +955,7 @@ For example, add <code>sha512</code> to the following line in <code>/etc/aide.co
 AIDE rules can be configured in multiple ways; this is merely one example that is already
 configured by default.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -1019,8 +978,7 @@ The remediation provided with this rule adds <code>acl</code> to all rule sets a
 <code>/etc/aide.conf</code>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -1043,8 +1001,7 @@ The remediation provided with this rule adds <code>xattrs</code> to all rule set
 <code>/etc/aide.conf</code>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -1073,8 +1030,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S chmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1103,8 +1059,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1133,8 +1088,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fchmod -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1163,8 +1117,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fchmodat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1196,8 +1149,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1226,8 +1178,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1261,8 +1212,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1291,8 +1241,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1321,8 +1270,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1356,8 +1304,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1386,8 +1333,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1420,8 +1366,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1450,8 +1395,7 @@ If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1482,8 +1426,7 @@ utility to read audit rules during daemon startup, add the following lines to
 <pre>-a always,exit -F path=/usr/bin/chcon -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1514,8 +1457,7 @@ utility to read audit rules during daemon startup, add the following lines to
 <pre>-a always,exit -F path=/usr/sbin/semanage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1546,8 +1488,7 @@ utility to read audit rules during daemon startup, add the following lines to
 <pre>-a always,exit -F path=/usr/sbin/setfiles -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1578,8 +1519,7 @@ utility to read audit rules during daemon startup, add the following lines to
 <pre>-a always,exit -F path=/usr/sbin/setsebool -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1605,8 +1545,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S rename -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-000366<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1632,8 +1571,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S renameat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-000366<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1659,8 +1597,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S rmdir -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-000366<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1686,8 +1623,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S unlink -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-000366<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1713,8 +1649,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S unlinkat -F auid&gt;=1000 -F auid!=unset -F key=delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-000366<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1737,8 +1672,7 @@ to use the <code>augenrules</code> program (the default), add the line to a file
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code> utility,
 add the line to file <code>/etc/audit/audit.rules</code>.</td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1762,8 +1696,7 @@ b64 as appropriate for your system:
 <pre>-a always,exit -F arch=<i>ARCH</i> -S finit_module -F key=modules</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1786,8 +1719,7 @@ to use the <code>augenrules</code> program (the default), add the line to a file
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code> utility,
 add the line to file <code>/etc/audit/audit.rules</code>.</td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1812,8 +1744,7 @@ edits of files involved in storing logon events:
 <pre>-w /var/run/faillock -p wa -k logins</pre>
 </td>
 <td></td>
-<td>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1838,8 +1769,7 @@ edits of files involved in storing logon events:
 <pre>-w /var/log/lastlog -p wa -k logins</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1866,8 +1796,7 @@ appropriate for your system:
 <pre>-a always,exit -F arch=ARCH -S mount -F auid&gt;=1000 -F auid!=unset -F key=export</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1898,8 +1827,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/chage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1930,8 +1858,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/chsh -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1962,8 +1889,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/crontab -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -1994,8 +1920,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/gpasswd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2026,8 +1951,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/mount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2058,8 +1982,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/newgrp -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000135<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2092,8 +2015,7 @@ form to <code>/etc/audit/audit.rules</code>:
 -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2124,8 +2046,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/passwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2156,8 +2077,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/sbin/postdrop -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2188,8 +2108,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/sbin/postqueue -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2220,8 +2139,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/libexec/openssh/ssh-keysign -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2252,8 +2170,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/su -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2284,8 +2201,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/sudo -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2316,8 +2232,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/bin/umount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2348,8 +2263,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/sbin/unix_chkpwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2380,8 +2294,7 @@ form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/sbin/userhelper -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
-<td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2407,8 +2320,7 @@ risk from insider threats and the advanced persistent threat.</td>
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
 <td></td>
-<td>SRG-OS-000365-GPOS-00152<br>SRG-OS-000354-GPOS-00142<br>SRG-OS-000358-GPOS-00145<br>SRG-OS-000352-GPOS-00140<br>SRG-OS-000353-GPOS-00141<br>SRG-OS-000350-GPOS-00138<br>SRG-OS-000351-GPOS-00139<br>SRG-OS-000348-GPOS-00136<br>SRG-OS-000349-GPOS-00137<br>SRG-OS-000337-GPOS-00129<br>SRG-OS-000327-GPOS-00127<br>
-</td>
+<td></td>
 <td>CCI-001814<br>CCI-001882<br>CCI-001889<br>CCI-001880<br>CCI-001881<br>CCI-001878<br>CCI-001879<br>CCI-001875<br>CCI-001877<br>CCI-001914<br>CCI-002234<br>
 </td>
 <td></td>
@@ -2433,8 +2345,7 @@ utility to read audit rules during daemon startup, add the following line to
 -w /etc/sudoers.d/ -p wa -k actions</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000135<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2462,8 +2373,7 @@ top of the <code>/etc/audit/audit.rules</code> file:
 <pre>-f 2</pre>
 </td>
 <td></td>
-<td>SRG-OS-000046-GPOS-00022<br>SRG-OS-000047-GPOS-00023<br>
-</td>
+<td></td>
 <td>CCI-000139<br>CCI-000140<br>
 </td>
 <td></td>
@@ -2496,8 +2406,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S creat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2533,8 +2442,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2570,8 +2478,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S open -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2604,8 +2511,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S open_by_handle_at,truncate,ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2641,8 +2547,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S openat -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000130<br>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2678,8 +2583,7 @@ If the system is 64 bit then also add the following lines:
 -a always,exit -F arch=b64 -S truncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=unset -F key=access</pre>
 </td>
 <td></td>
-<td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000169<br>CCI-000172<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2707,8 +2611,7 @@ account changes:
 <pre>-w /etc/group -p wa -k audit_rules_usergroup_modification</pre>
 </td>
 <td></td>
-<td>SRG-OS-000004-GPOS-00004<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000239-GPOS-00089<br>SRG-OS-000240-GPOS-00090<br>SRG-OS-000241-GPOS-00091<br>SRG-OS-000274-GPOS-00104<br>SRG-OS-000275-GPOS-00105<br>SRG-OS-000276-GPOS-00106<br>SRG-OS-000277-GPOS-00107<br>SRG-OS-000303-GPOS-00120<br>SRG-OS-000304-GPOS-00121<br>SRG-OS-000392-GPOS-00172<br>
-</td>
+<td></td>
 <td>CCI-000018<br>CCI-000169<br>CCI-000172<br>CCI-001403<br>CCI-001404<br>CCI-001405<br>CCI-001683<br>CCI-001684<br>CCI-001685<br>CCI-001686<br>CCI-002130<br>CCI-002132<br>CCI-002884<br>
 </td>
 <td></td>
@@ -2736,8 +2639,7 @@ account changes:
 <pre>-w /etc/gshadow -p wa -k audit_rules_usergroup_modification</pre>
 </td>
 <td></td>
-<td>SRG-OS-000004-GPOS-00004<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000239-GPOS-00089<br>SRG-OS-000240-GPOS-00090<br>SRG-OS-000241-GPOS-00091<br>SRG-OS-000274-GPOS-00104<br>SRG-OS-000275-GPOS-00105<br>SRG-OS-000276-GPOS-00106<br>SRG-OS-000277-GPOS-00107<br>SRG-OS-000303-GPOS-00120<br>SRG-OS-000304-GPOS-00121<br>
-</td>
+<td></td>
 <td>CCI-000018<br>CCI-000169<br>CCI-000172<br>CCI-001403<br>CCI-001404<br>CCI-001405<br>CCI-001683<br>CCI-001684<br>CCI-001685<br>CCI-001686<br>CCI-002130<br>CCI-002132<br>
 </td>
 <td></td>
@@ -2765,8 +2667,7 @@ account changes:
 <pre>-w /etc/security/opasswd -p wa -k audit_rules_usergroup_modification</pre>
 </td>
 <td></td>
-<td>SRG-OS-000004-GPOS-00004<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000239-GPOS-00089<br>SRG-OS-000240-GPOS-00090<br>SRG-OS-000241-GPOS-00091<br>SRG-OS-000274-GPOS-00104<br>SRG-OS-000275-GPOS-00105<br>SRG-OS-000276-GPOS-00106<br>SRG-OS-000277-GPOS-00107<br>SRG-OS-000303-GPOS-00120<br>SRG-OS-000304-GPOS-00121<br>
-</td>
+<td></td>
 <td>CCI-000018<br>CCI-000169<br>CCI-000172<br>CCI-001403<br>CCI-001404<br>CCI-001405<br>CCI-001683<br>CCI-001684<br>CCI-001685<br>CCI-001686<br>CCI-002130<br>CCI-002132<br>
 </td>
 <td></td>
@@ -2794,8 +2695,7 @@ account changes:
 <pre>-w /etc/passwd -p wa -k audit_rules_usergroup_modification</pre>
 </td>
 <td></td>
-<td>SRG-OS-000004-GPOS-00004<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000239-GPOS-00089<br>SRG-OS-000240-GPOS-00090<br>SRG-OS-000241-GPOS-00091<br>SRG-OS-000274-GPOS-00104<br>SRG-OS-000275-GPOS-00105<br>SRG-OS-000276-GPOS-00106<br>SRG-OS-000277-GPOS-00107<br>SRG-OS-000303-GPOS-00120<br>SRG-OS-000304-GPOS-00121<br>
-</td>
+<td></td>
 <td>CCI-000018<br>CCI-000169<br>CCI-000172<br>CCI-001403<br>CCI-001404<br>CCI-001405<br>CCI-001683<br>CCI-001684<br>CCI-001685<br>CCI-001686<br>CCI-002130<br>CCI-002132<br>
 </td>
 <td></td>
@@ -2823,8 +2723,7 @@ account changes:
 <pre>-w /etc/shadow -p wa -k audit_rules_usergroup_modification</pre>
 </td>
 <td></td>
-<td>SRG-OS-000004-GPOS-00004<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000239-GPOS-00089<br>SRG-OS-000240-GPOS-00090<br>SRG-OS-000241-GPOS-00091<br>SRG-OS-000274-GPOS-00104<br>SRG-OS-000275-GPOS-00105<br>SRG-OS-000276-GPOS-00106<br>SRG-OS-000277-GPOS-00107<br>SRG-OS-000303-GPOS-00120<br>SRG-OS-000304-GPOS-00121<br>
-</td>
+<td></td>
 <td>CCI-000018<br>CCI-000169<br>CCI-000172<br>CCI-001403<br>CCI-001404<br>CCI-001405<br>CCI-001683<br>CCI-001684<br>CCI-001685<br>CCI-001686<br>CCI-002130<br>CCI-002132<br>
 </td>
 <td></td>
@@ -2845,8 +2744,7 @@ send audit records to. For example
 <pre>remote_server = <i><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_audispd_remote_server"></xccdf-1.1:sub></i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -2867,8 +2765,7 @@ mode for corrective action. Acceptable values also include <code>syslog</code> a
 outweighs the need to log all actions, and a different setting should be
 determined.</td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -2888,8 +2785,7 @@ and set it with the following line:
 <pre>enable_krb5 = yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -2911,8 +2807,7 @@ outweighs the need to log all actions, and a different setting should be
 determined.
 This profile configures the <i>action</i> to be <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_audispd_network_failure_action"></xccdf-1.1:sub></code>.</td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -2930,8 +2825,7 @@ via email for those situations:
 <pre>action_mail_acct = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_auditd_action_mail_acct"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000046-GPOS-00022<br>SRG-OS-000343-GPOS-00134<br>
-</td>
+<td></td>
 <td>CCI-000139<br>CCI-001855<br>
 </td>
 <td></td>
@@ -2950,8 +2844,7 @@ substituting <i>SIZE_in_MB</i> appropriately:
 Set this value to the appropriate size in Megabytes cause the system to
 notify the user of an issue.</td>
 <td></td>
-<td>SRG-OS-000343-GPOS-00134<br>
-</td>
+<td></td>
 <td>CCI-001855<br>
 </td>
 <td></td>
@@ -2981,8 +2874,7 @@ Set this to <code>email</code> (instead of the default,
 which is <code>suspend</code>) as it is more likely to get prompt attention. Acceptable values
 also include <code>suspend</code>, <code>single</code>, and <code>halt</code>.</td>
 <td></td>
-<td>SRG-OS-000343-GPOS-00134<br>
-</td>
+<td></td>
 <td>CCI-001855<br>
 </td>
 <td></td>
@@ -2999,8 +2891,7 @@ syscall as computer node name in the audit events,
 set <code>name_format</code> to <code>hostname</code>
 in <code>/etc/audit/auditd.conf</code>.</td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -3015,8 +2906,7 @@ so that no data is lost.</td>
 To setup an overflow action edit <code>/etc/audisp/audispd.conf</code>. Set <code>overflow_action</code>
 to one of the following values: <code>syslog</code>, <code>single</code>, <code>halt</code>.</td>
 <td></td>
-<td>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-001851<br>
 </td>
 <td></td>
@@ -3067,8 +2957,7 @@ OR:
 <code>I've read &amp; consent to terms in IS user agreem't.</code>
 </td>
 <td></td>
-<td>SRG-OS-000023-GPOS-00006<br>SRG-OS-000024-GPOS-00007<br>
-</td>
+<td></td>
 <td>CCI-000048<br>CCI-000050<br>
 </td>
 <td></td>
@@ -3093,8 +2982,7 @@ should be configured too.
 If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
 to pass.</td>
 <td></td>
-<td>SRG-OS-000355-GPOS-00143<br>SRG-OS-000356-GPOS-00144<br>
-</td>
+<td></td>
 <td>CCI-001891<br>CCI-002046<br>
 </td>
 <td></td>
@@ -3114,8 +3002,7 @@ previous software components after updating, set the <code>clean_requirements_on
 
 to <code>1</code> in <code>/etc/yum.conf</code>.</td>
 <td></td>
-<td>SRG-OS-000437-GPOS-00194<br>
-</td>
+<td></td>
 <td>CCI-002617<br>
 </td>
 <td></td>
@@ -3155,8 +3042,7 @@ To configure <code>firewalld</code> to allow access, run the following command(s
 <code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 <td></td>
-<td>SRG-OS-000096-GPOS-00050<br>SRG-OS-000297-GPOS-00115<br>
-</td>
+<td></td>
 <td>CCI-000382<br>CCI-002314<br>
 </td>
 <td></td>
@@ -3182,8 +3068,7 @@ command:
 <pre>$ sudo firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT_direct 0 -p tcp -m limit --limit 25/minute --limit-burst 100  -j INPUT_ZONES</pre>
 </td>
 <td></td>
-<td>SRG-OS-000420-GPOS-00186<br>
-</td>
+<td></td>
 <td>CCI-002385<br>
 </td>
 <td></td>
@@ -3233,8 +3118,7 @@ For example:
 After the settings have been set, run <code>dconf update</code>.
 The banner text must also be set.</td>
 <td></td>
-<td>SRG-OS-000023-GPOS-00006<br>SRG-OS-000024-GPOS-00007<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>
-</td>
+<td></td>
 <td>CCI-000048<br>CCI-000050<br>CCI-001384<br>CCI-001385<br>CCI-001386<br>CCI-001387<br>CCI-001388<br>
 </td>
 <td></td>
@@ -3285,8 +3169,7 @@ For example:
 <pre>/org/gnome/desktop/media-handling/automount-open</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000378-GPOS-00163<br>
-</td>
+<td></td>
 <td>CCI-001958<br>
 </td>
 <td></td>
@@ -3312,8 +3195,7 @@ For example:
 <pre>/org/gnome/desktop/media-handling/autorun-never</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000378-GPOS-00163<br>
-</td>
+<td></td>
 <td>CCI-001958<br>
 </td>
 <td></td>
@@ -3341,8 +3223,7 @@ user modification. For example:
 <pre>/org/gnome/settings-daemon/plugins/media-keys/logout</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3368,8 +3249,7 @@ For example:
 <pre>/org/gnome/login-screen/enable-smartcard-authentication</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000105-GPOS-00052<br>SRG-OS-000106-GPOS-00053<br>SRG-OS-000107-GPOS-00054<br>SRG-OS-000108-GPOS-00055<br>SRG-OS-000375-GPOS-00160<br>SRG-OS-000377-GPOS-00162<br>
-</td>
+<td></td>
 <td>CCI-000765<br>CCI-000766<br>CCI-000767<br>CCI-000768<br>CCI-000771<br>CCI-000772<br>CCI-000884<br>CCI-001948<br>CCI-001954<br>
 </td>
 <td></td>
@@ -3399,8 +3279,7 @@ After the settings have been set, run <code>dconf update</code>.
 When entering a warning banner that spans several lines, remember
 to begin and end the string with <code>'</code> and use <code>\n</code> for new lines.</td>
 <td></td>
-<td>SRG-OS-000023-GPOS-00006<br>
-</td>
+<td></td>
 <td>CCI-000048<br>
 </td>
 <td></td>
@@ -3431,8 +3310,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/idle-activation-enabled</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000057<br>
 </td>
 <td></td>
@@ -3450,8 +3328,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/idle-activation-enabled</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000057<br>
 </td>
 <td></td>
@@ -3479,8 +3356,7 @@ For example:
 <pre>/org/gnome/desktop/session/idle-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000057<br>
 </td>
 <td></td>
@@ -3503,8 +3379,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000056<br>CCI-000057<br>
 </td>
 <td></td>
@@ -3528,8 +3403,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/lock-enabled</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000030-GPOS-00011<br>SRG-OS-000031-GPOS-00012<br>
-</td>
+<td></td>
 <td>CCI-000056<br>CCI-000058<br>CCI-000060<br>
 </td>
 <td></td>
@@ -3547,8 +3421,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/lock-enabled</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000056<br>CCI-000057<br>
 </td>
 <td></td>
@@ -3569,8 +3442,7 @@ For example:
 <pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000057<br>
 </td>
 <td></td>
@@ -3591,8 +3463,7 @@ For example:
 <pre>/org/gnome/desktop/session/idle-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
-<td>SRG-OS-000029-GPOS-00010<br>
-</td>
+<td></td>
 <td>CCI-000057<br>
 </td>
 <td></td>
@@ -3612,8 +3483,7 @@ owned by a system account, this should be investigated.
 Following this, the files should be deleted or assigned to an
 appropriate owner.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3633,8 +3503,7 @@ group owned by a system account, this should be investigated.
 Following this, the files should be deleted or assigned to an
 appropriate group.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3660,8 +3529,7 @@ or
 Do not simply delete the <code>/usr/lib/systemd/system/ctrl-alt-del.service</code> file,
 as this file may be restored during future system updates.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3689,8 +3557,7 @@ following line in
 <pre>HostbasedAuthentication no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3707,8 +3574,7 @@ escalation. Check the configuration of the "/etc/pam.d/sudo" file with the follo
 <pre>$ sudo grep pam_succeed_if /etc/pam.d/sudo</pre>
 If any occurrences of "pam_succeed_if" is returned from the command, this is a finding.</td>
 <td></td>
-<td>SRG-OS-000373-GPOS-00156<br>SRG-OS-000373-GPOS-00157<br>SRG-OS-000373-GPOS-00158<br>
-</td>
+<td></td>
 <td>CCI-002038<br>
 </td>
 <td></td>
@@ -3729,8 +3595,7 @@ settings in
 <pre>session     required pam_lastlog.so showfailed</pre>
 And make sure that the <code>silent</code> option is not set.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3761,8 +3626,7 @@ the <code>[main]</code> section:
 <pre>gpgcheck=1</pre>
 </td>
 <td></td>
-<td>SRG-OS-000366-GPOS-00153<br>
-</td>
+<td></td>
 <td>CCI-001749<br>
 </td>
 <td></td>
@@ -3782,8 +3646,7 @@ be signed with a certificate recognized and approved by the organization.</td>
 prior to installation. To configure <code>yum</code> to verify signatures of local
 packages, set the <code>localpkg_gpgcheck</code> to <code>1</code> in <code>/etc/yum.conf</code>.</td>
 <td></td>
-<td>SRG-OS-000366-GPOS-00153<br>
-</td>
+<td></td>
 <td>CCI-001749<br>
 </td>
 <td></td>
@@ -3800,8 +3663,7 @@ To properly set the group owner of <code>/etc/cron.allow</code>, run the command
 <pre>$ sudo chgrp root /etc/cron.allow</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3823,8 +3685,7 @@ This rule ensures every home directory related to an interactive user is
 group-owned by an interactive user. It also ensures that interactive users
 are group-owners of one and only one home directory.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3841,8 +3702,7 @@ To properly set the owner of <code>/etc/cron.allow</code>, run the command:
 <pre>$ sudo chown root /etc/cron.allow </pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3863,8 +3723,7 @@ This rule ensures every home directory related to an interactive user is
 owned by an interactive user. It also ensures that interactive users are
 owners of one and only one home directory.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3884,8 +3743,7 @@ To properly set the owner of <code>/var/log/audit/*</code>, run the command:
 <pre>$ sudo chown root /var/log/audit/* </pre>
 </td>
 <td></td>
-<td>SRG-OS-000057-GPOS-00027<br>SRG-OS-000058-GPOS-00028<br>SRG-OS-000059-GPOS-00029<br>SRG-OS-000206-GPOS-00084<br>
-</td>
+<td></td>
 <td>CCI-000162<br>CCI-000163<br>CCI-000164<br>CCI-001314<br>
 </td>
 <td></td>
@@ -3902,8 +3760,7 @@ following command:
 <pre>$ sudo chmod 0740 /home/<i>USER</i>/.<i>INIT_FILE</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3920,8 +3777,7 @@ following command:
 <pre>$ sudo chmod 0750 /home/<i>USER</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3937,8 +3793,7 @@ To properly set the permissions of <code>/etc/ssh/*_key</code>, run the command:
 <pre>$ sudo chmod 0600 /etc/ssh/*_key</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3952,8 +3807,7 @@ may be compromised.</td>
 <td xml:lang="en-US"> To properly set the permissions of <code>/etc/ssh/*.pub</code>, run the command: <pre>$ sudo chmod 0644 /etc/ssh/*.pub</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -3980,8 +3834,7 @@ filesystems the following command can be run manually for each partition:
 <pre>$ sudo find PARTITION -xdev -nogroup</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-002165<br>
 </td>
 <td></td>
@@ -3999,8 +3852,7 @@ Otherwise, change the mode of the audit log files with the following command:
 <pre>$ sudo chmod 0600 <i>audit_file</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000057-GPOS-00027<br>SRG-OS-000058-GPOS-00028<br>SRG-OS-000059-GPOS-00029<br>SRG-OS-000206-GPOS-00084<br>
-</td>
+<td></td>
 <td>CCI-000162<br>CCI-000163<br>CCI-000164<br>CCI-001314<br>
 </td>
 <td></td>
@@ -4014,8 +3866,7 @@ with the Group Identifier (GID) is subsequently created, the user may have unint
 any files associated with the group.</td>
 <td xml:lang="en-US">Add a group to the system for each GID referenced without a corresponding group.</td>
 <td></td>
-<td>SRG-OS-000104-GPOS-00051<br>
-</td>
+<td></td>
 <td>CCI-000764<br>
 </td>
 <td></td>
@@ -4035,8 +3886,7 @@ login to the system, set the <code>AutomaticLoginEnable</code> to <code>false</c
 AutomaticLoginEnable=false</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4056,8 +3906,7 @@ the <code>[daemon]</code> section in <code>/etc/gdm/custom.conf</code>. For exam
 TimedLoginEnable=false</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4085,8 +3934,7 @@ update the
 <pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
 </td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -4119,8 +3967,7 @@ Finally, rebuild the <code>grub.cfg</code> file by using the
 </ul>
 </td>
 <td></td>
-<td>SRG-OS-000033-GPOS-00014<br>SRG-OS-000120-GPOS-00061<br>SRG-OS-000185-GPOS-00079<br>SRG-OS-000396-GPOS-00176<br>SRG-OS-000478-GPOS-00223<br>SRG-OS-000405-GPOS-00184<br>
-</td>
+<td></td>
 <td>CCI-000068<br>CCI-000803<br>CCI-001199<br>CCI-002450<br>CCI-002476<br>
 </td>
 <td></td>
@@ -4138,8 +3985,7 @@ media which should not exist in the line:
 <pre>set root='hd0,msdos1'</pre>
 </td>
 <td></td>
-<td>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-001813<br>CCI-001814<br>
 </td>
 <td></td>
@@ -4164,8 +4010,7 @@ When prompted, enter the password that was selected.
 <br><br>
 </td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -4193,8 +4038,7 @@ update the
 <pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
 </td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -4219,8 +4063,7 @@ When prompted, enter the password that was selected.
 <br><br>
 </td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -4242,8 +4085,7 @@ basis.
 If the system processes inbound SMTP mail, the virus scanner must be configured
 to scan all received mail.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001239<br>CCI-001668<br>
 </td>
 <td></td>
@@ -4270,8 +4112,7 @@ The <code>pam_pkcs11</code> package can be installed with the following command:
 $ sudo yum install pam_pkcs11</pre>
 </td>
 <td></td>
-<td>SRG-OS-000105-GPOS-00052<br>SRG-OS-000375-GPOS-00160<br>SRG-OS-000376-GPOS-00161<br>SRG-OS-000377-GPOS-00162<br>
-</td>
+<td></td>
 <td>CCI-000765<br>CCI-001948<br>CCI-001953<br>CCI-001954<br>
 </td>
 <td></td>
@@ -4289,8 +4130,7 @@ software.</td>
 Oracle Linux is supported by Oracle Corporation. As the Oracle
 Linux vendor, Oracle Corporation is responsible for providing security patches.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4310,8 +4150,7 @@ kernel module from being loaded, add the following line to a file in the directo
 <pre>install dccp /bin/true</pre>
 </td>
 <td></td>
-<td>SRG-OS-000378-GPOS-00163<br>
-</td>
+<td></td>
 <td>CCI-001958<br>
 </td>
 <td></td>
@@ -4332,8 +4171,7 @@ This will prevent the <code>modprobe</code> program from loading the <code>usb-s
 module, but will not prevent an administrator (or another program) from using the
 <code>insmod</code> program to load the module manually.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000114-GPOS-00059<br>SRG-OS-000378-GPOS-00163<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-000778<br>CCI-001958<br>
 </td>
 <td></td>
@@ -4368,8 +4206,7 @@ Add the <code>nodev</code> option to the fourth column of
 <code>/etc/fstab</code> for the line which controls mounting of
 <code>/dev/shm</code>.</td>
 <td></td>
-<td>SRG-OS-000368-GPOS-00154<br>
-</td>
+<td></td>
 <td>CCI-001764<br>
 </td>
 <td></td>
@@ -4388,8 +4225,7 @@ Add the <code>noexec</code> option to the fourth column of
 <code>/etc/fstab</code> for the line which controls mounting of
 <code>/dev/shm</code>.</td>
 <td></td>
-<td>SRG-OS-000368-GPOS-00154<br>
-</td>
+<td></td>
 <td>CCI-001764<br>
 </td>
 <td></td>
@@ -4407,8 +4243,7 @@ Add the <code>nosuid</code> option to the fourth column of
 <code>/etc/fstab</code> for the line which controls mounting of
 <code>/dev/shm</code>.</td>
 <td></td>
-<td>SRG-OS-000368-GPOS-00154<br>
-</td>
+<td></td>
 <td>CCI-001764<br>
 </td>
 <td></td>
@@ -4426,8 +4261,7 @@ Add the <code>nosuid</code> option to the fourth column of
 <code>/etc/fstab</code> for the line which controls mounting of
 <code>/home</code>.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4443,8 +4277,7 @@ systems to more securely authenticate the remote mount request.</td>
 <td xml:lang="en-US">Add the <code>sec=krb5:krb5i:krb5p</code> option to the fourth column of <code>/etc/fstab</code> for the line which controls mounting of
 any NFS mounts.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4460,8 +4293,7 @@ administrative access.</td>
 <td xml:lang="en-US">Add the <code>noexec</code> option to the fourth column of <code>/etc/fstab</code> for the line which controls mounting of
 any NFS mounts.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4475,8 +4307,7 @@ should be installed to their default location on the local filesystem.</td>
 <td xml:lang="en-US">Add the <code>nosuid</code> option to the fourth column of <code>/etc/fstab</code> for the line which controls mounting of
 any NFS mounts.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4498,8 +4329,7 @@ Add the <code>nosuid</code> option to the fourth column of
 
     any removable media partitions.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4524,8 +4354,7 @@ nameserver 192.168.0.1
 nameserver 192.168.0.2</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4550,8 +4379,7 @@ Promiscuous mode of an interface can be disabled with the following command:
 <pre>$ sudo ip link set dev <code>device_name</code> multicast off promisc off</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4576,8 +4404,7 @@ container. Having user with empty password within a container is not
 considered a risk, because it should not be possible to directly login into
 a container anyway.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4601,8 +4428,7 @@ Lock an account:
 <pre>$ sudo passwd -l [username]</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4629,8 +4455,7 @@ filesystems the following command can be run manually for each partition:
 <pre>$ sudo find PARTITION -xdev -nouser</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-002165<br>
 </td>
 <td></td>
@@ -4651,8 +4476,7 @@ location:
 <pre>$ sudo rm /[path]/[to]/[file]/shosts.equiv</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4673,8 +4497,7 @@ to delete them from any location:
 <pre>$ sudo find / -name '.shosts' -type f -delete</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4689,8 +4512,7 @@ to delete them from any location:
 $ sudo yum install aide</pre>
 </td>
 <td></td>
-<td>SRG-OS-000445-GPOS-00199<br>SRG-OS-000446-GPOS-00200<br>SRG-OS-000363-GPOS-00150<br>
-</td>
+<td></td>
 <td>CCI-002696<br>CCI-002699<br>CCI-001744<br>
 </td>
 <td></td>
@@ -4710,8 +4532,7 @@ The <code>mcafeetp</code> package can be installed with the following command:
 $ sudo yum install mcafeetp</pre>
 </td>
 <td></td>
-<td>SRG-OS-000191-GPOS-00080<br>
-</td>
+<td></td>
 <td>CCI-001233<br>
 </td>
 <td></td>
@@ -4729,8 +4550,7 @@ The <code>openssh-server</code> package can be installed with the following comm
 $ sudo yum install openssh-server</pre>
 </td>
 <td></td>
-<td>SRG-OS-000423-GPOS-00187<br>SRG-OS-000481-GPOS-000481<br>SRG-OS-000425-GPOS-00189<br>SRG-OS-000424-GPOS-00188<br>SRG-OS-000426-GPOS-00190<br>
-</td>
+<td></td>
 <td>CCI-002418<br>CCI-002420<br>CCI-002421<br>CCI-002422<br>
 </td>
 <td></td>
@@ -4750,8 +4570,7 @@ activation.</td>
 $ sudo yum erase rsh-server</pre>
 </td>
 <td></td>
-<td>SRG-OS-000095-GPOS-00049<br>
-</td>
+<td></td>
 <td>CCI-000381<br>
 </td>
 <td></td>
@@ -4778,8 +4597,7 @@ telnet service's accidental (or intentional) activation.</td>
 $ sudo yum erase telnet-server</pre>
 </td>
 <td></td>
-<td>SRG-OS-000095-GPOS-00049<br>
-</td>
+<td></td>
 <td>CCI-000381<br>
 </td>
 <td></td>
@@ -4798,8 +4616,7 @@ access control rules established.</td>
 <td xml:lang="en-US">The <code>tftp-server</code> package can be removed with the following command: <pre> $ sudo yum erase tftp-server</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000362-GPOS-00149<br>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-000318<br>CCI-000366<br>CCI-000368<br>CCI-001812<br>CCI-001813<br>CCI-001814<br>
 </td>
 <td></td>
@@ -4813,8 +4630,7 @@ accidental activation.</td>
 <td xml:lang="en-US">The <code>vsftpd</code> package can be removed with the following command: <pre> $ sudo yum erase vsftpd</pre>
 </td>
 <td></td>
-<td>SRG-OS-000074-GPOS-00042<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000095-GPOS-00049<br>
-</td>
+<td></td>
 <td>CCI-000197<br>CCI-000366<br>CCI-000381<br>
 </td>
 <td></td>
@@ -4834,8 +4650,7 @@ Removing the <code>ypserv</code> package decreases the risk of the accidental
 $ sudo yum erase ypserv</pre>
 </td>
 <td></td>
-<td>SRG-OS-000095-GPOS-00049<br>
-</td>
+<td></td>
 <td>CCI-000381<br>
 </td>
 <td></td>
@@ -4853,8 +4668,7 @@ for <code>/home</code> at installation time (or migrate it later using LVM). If
 creating a separate partition is not necessary at installation time, and the
 mountpoint can instead be configured later.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001208<br>
 </td>
 <td></td>
@@ -4870,8 +4684,7 @@ restrictive mount options, which can help protect programs which use it.</td>
 for temporary file storage. Ensure it has its own partition or
 logical volume at installation time, or migrate it using LVM.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4889,8 +4702,7 @@ world-writable directories installed by other software packages.</td>
 services to store frequently-changing data. Ensure that <code>/var</code> has its own partition
 or logical volume at installation time, or migrate it using LVM.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4911,8 +4723,7 @@ volume at installation time, or migrate it using LVM.
 Make absolutely certain that it is large enough to store all
 audit logs that will be created by the auditing daemon.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000341-GPOS-00132<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001849<br>
 </td>
 <td></td>
@@ -4929,8 +4740,7 @@ to the local network with the following command:
 <pre>$ sudo postconf -e 'smtpd_client_restrictions = permit_mynetworks,reject'</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -4949,8 +4759,7 @@ during a failed boot sequence.
 By default, Emergency mode is protected by requiring a password and is set
 in <code>/usr/lib/systemd/system/emergency.service</code>.</td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -4970,8 +4779,7 @@ is performed if single-user mode is selected.
 By default, single-user mode is protected by requiring a password and is set
 in <code>/usr/lib/systemd/system/rescue.service</code>.</td>
 <td></td>
-<td>SRG-OS-000080-GPOS-00048<br>
-</td>
+<td></td>
 <td>CCI-000213<br>
 </td>
 <td></td>
@@ -5005,8 +4813,7 @@ Alternatively, the package can be reinstalled from trusted media using the comma
 <pre>$ sudo rpm -Uvh <i>PACKAGENAME</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000366-GPOS-00153<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001749<br>
 </td>
 <td></td>
@@ -5031,8 +4838,7 @@ the correct values:
 <pre>$ sudo rpm --setugids <i>PACKAGENAME</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000257-GPOS-00098<br>SRG-OS-000278-GPOS-00108<br>
-</td>
+<td></td>
 <td>CCI-001494<br>CCI-001496<br>
 </td>
 <td></td>
@@ -5062,8 +4868,7 @@ the correct values:
 <pre>$ sudo rpm --setperms <i>PACKAGENAME</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000256-GPOS-00097<br>SRG-OS-000257-GPOS-00098<br>SRG-OS-000258-GPOS-00099<br>SRG-OS-000278-GPOS-00108<br>
-</td>
+<td></td>
 <td>CCI-001493<br>CCI-001494<br>CCI-001495<br>CCI-001496<br>
 </td>
 <td></td>
@@ -5082,8 +4887,7 @@ can be implemented by adding the following to the <i>RULES</i> section of
 <pre>cron.*                                                  /var/log/cron</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5107,8 +4911,7 @@ $ModLoad imrelp
 $InputRELPServerRun <i>port</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000362-GPOS-00149<br>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-000318<br>CCI-000366<br>CCI-000368<br>CCI-001812<br>CCI-001813<br>CCI-001814<br>
 </td>
 <td></td>
@@ -5145,8 +4948,7 @@ To use RELP for log message delivery:
 <br>
 There must be a resolvable DNS CNAME or Alias record set to "<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="rsyslog_remote_loghost_address"></xccdf-1.1:sub>" for logs to be sent correctly to the centralized logging utility.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000342-GPOS-00133<br>SRG-OS-000479-GPOS-00224<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001348<br>CCI-000136<br>CCI-001851<br>
 </td>
 <td></td>
@@ -5172,8 +4974,7 @@ To disable the <code>ssh_sysadm_login</code> SELinux boolean, run the following 
 <pre>$ sudo setsebool -P ssh_sysadm_login off</pre>
 </td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000324-GPOS-00125<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002235<br>
 </td>
 <td></td>
@@ -5198,8 +4999,7 @@ can be manually downloaded from the ULN and installed using <code>rpm</code>.
 NOTE: U.S. Defense systems are required to be patched within 30 days or sooner as local policy
 dictates.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001227<br>
 </td>
 <td></td>
@@ -5222,8 +5022,7 @@ To check for incorrectly labeled device files, run following commands:
 <pre>$ sudo find /dev -context *:unlabeled_t:* \( -type c -o -type b \) -printf "%p %Z\n"</pre>
 It should produce no output in a well-configured system.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000362-GPOS-00149<br>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-000022<br>CCI-000032<br>CCI-000318<br>CCI-000366<br>CCI-000368<br>CCI-001812<br>CCI-001813<br>CCI-001814<br>
 </td>
 <td></td>
@@ -5251,8 +5050,7 @@ Use the following command to map the "user_u" SELinux user to the "user_r" role:
 <pre>$ sudo semanage -m user_u -R user_r</pre>
 </td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000324-GPOS-00125<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002235<br>
 </td>
 <td></td>
@@ -5281,8 +5079,7 @@ SELinux context with the use of the sudo command:
 <pre>%wheel ALL=(ALL) TYPE=sysadm_t ROLE=sysadm_r ALL</pre>
 </td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000324-GPOS-00125<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002235<br>
 </td>
 <td></td>
@@ -5309,8 +5106,7 @@ Other policies, such as <code>mls</code>, provide additional security labeling
 and greater confinement but are not compatible with many general-purpose
 use cases.</td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000445-GPOS-00199<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002696<br>
 </td>
 <td></td>
@@ -5329,8 +5125,7 @@ following line to configure the system to boot into enforcing mode:
 <pre>SELINUX=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000445-GPOS-00199<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002696<br>
 </td>
 <td></td>
@@ -5363,8 +5158,7 @@ users must be mapped to the <code>user_u</code> role or the appropriate domain
 <pre>$ sudo semanage login -m -s user_u <i>USER</i></pre>
 </td>
 <td></td>
-<td>SRG-OS-000312-GPOS-00122<br>SRG-OS-000312-GPOS-00123<br>SRG-OS-000312-GPOS-00124<br>SRG-OS-000324-GPOS-00125<br>
-</td>
+<td></td>
 <td>CCI-002165<br>CCI-002235<br>
 </td>
 <td></td>
@@ -5389,8 +5183,7 @@ The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
 <td></td>
-<td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000038-GPOS-00016<br>SRG-OS-000039-GPOS-00017<br>SRG-OS-000040-GPOS-00018<br>SRG-OS-000041-GPOS-00019<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000051-GPOS-00024<br>SRG-OS-000054-GPOS-00025<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000254-GPOS-00095<br>SRG-OS-000255-GPOS-00096<br>SRG-OS-000365-GPOS-00152<br>SRG-OS-000122-GPOS-00063<br>SRG-OS-000392-GPOS-00172<br>SRG-OS-000062-GPOS-00031<br>
-</td>
+<td></td>
 <td>CCI-000126<br>CCI-000130<br>CCI-000131<br>CCI-000132<br>CCI-000133<br>CCI-000134<br>CCI-000135<br>CCI-000154<br>CCI-000158<br>CCI-000366<br>CCI-001464<br>CCI-001487<br>CCI-001814<br>CCI-001876<br>CCI-002884<br>CCI-000169<br>
 </td>
 <td></td>
@@ -5417,8 +5210,7 @@ The <code>autofs</code> service can be disabled with the following command:
 <pre>$ sudo systemctl mask --now autofs.service</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000114-GPOS-00059<br>SRG-OS-000378-GPOS-00163<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-000778<br>CCI-001958<br>
 </td>
 <td></td>
@@ -5435,8 +5227,7 @@ The <code>firewalld</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable firewalld.service</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000096-GPOS-00050<br>SRG-OS-000297-GPOS-00115<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-000382<br>CCI-002314<br>
 </td>
 <td></td>
@@ -5458,8 +5249,7 @@ The <code>kdump</code> service can be disabled with the following command:
 <pre>$ sudo systemctl mask --now kdump.service</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5483,8 +5273,7 @@ The <code>sshd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable sshd.service</pre>
 </td>
 <td></td>
-<td>SRG-OS-000423-GPOS-00187<br>SRG-OS-000481-GPOS-000481<br>SRG-OS-000425-GPOS-00189<br>SRG-OS-000424-GPOS-00188<br>SRG-OS-000426-GPOS-00190<br>
-</td>
+<td></td>
 <td>CCI-002418<br>CCI-002420<br>CCI-002421<br>CCI-002422<br>
 </td>
 <td></td>
@@ -5505,8 +5294,7 @@ modify the following line in
 <pre>DefaultZone=drop</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5532,8 +5320,7 @@ algorithm for password hashing:
 <pre>crypt_style = sha512</pre>
 </td>
 <td></td>
-<td>SRG-OS-000073-GPOS-00041<br>
-</td>
+<td></td>
 <td>CCI-000196<br>
 </td>
 <td></td>
@@ -5552,8 +5339,7 @@ the system will use SHA-512 as the hashing algorithm:
 <pre>ENCRYPT_METHOD SHA512</pre>
 </td>
 <td></td>
-<td>SRG-OS-000073-GPOS-00041<br>
-</td>
+<td></td>
 <td>CCI-000196<br>
 </td>
 <td></td>
@@ -5592,8 +5378,7 @@ This will help ensure when local users change their passwords, hashes for
 the new passwords will be generated using the SHA-512 algorithm. This is
 the default.</td>
 <td></td>
-<td>SRG-OS-000073-GPOS-00041<br>
-</td>
+<td></td>
 <td>CCI-000196<br>
 </td>
 <td></td>
@@ -5609,8 +5394,7 @@ that provided by a username and password combination. Smart cards leverage PKI
 <ul><li><b><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/7/userauth/ol7-auth.html#ol7-s4-auth">https://docs.oracle.com/en/operating-systems/oracle-linux/7/userauth/ol7-auth.html#ol7-s4-auth</a></b></li></ul>
 </td>
 <td></td>
-<td>SRG-OS-000104-GPOS-00051<br>SRG-OS-000105-GPOS-00052<br>SRG-OS-000106-GPOS-00053<br>SRG-OS-000107-GPOS-00054<br>SRG-OS-000108-GPOS-00055<br>SRG-OS-000109-GPOS-00056<br>
-</td>
+<td></td>
 <td>CCI-000764<br>CCI-000765<br>CCI-000766<br>CCI-000767<br>CCI-000768<br>CCI-000770<br>CCI-000771<br>CCI-000772<br>CCI-000884<br>
 </td>
 <td></td>
@@ -5635,8 +5419,7 @@ authentication. Modify all of the <code>cert_policy</code> lines in
 <pre>cert_policy = ca, ocsp_on, signature;</pre>
 </td>
 <td></td>
-<td>SRG-OS-000375-GPOS-00160<br>SRG-OS-000376-GPOS-00161<br>SRG-OS-000377-GPOS-00162<br>
-</td>
+<td></td>
 <td>CCI-001948<br>CCI-001953<br>CCI-001954<br>
 </td>
 <td></td>
@@ -5657,8 +5440,7 @@ Once the default community strings have been changed, restart the SNMP service:
 <pre>$ sudo service snmpd restart</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5678,8 +5460,7 @@ line appears:
 <pre>Protocol 2</pre>
 </td>
 <td></td>
-<td>SRG-OS-000074-GPOS-00042<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000197<br>CCI-000366<br>
 </td>
 <td></td>
@@ -5700,8 +5481,7 @@ a user has successfully authenticated, add or correct the following line in the
 <pre>Compression <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_sshd_disable_compression"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5728,8 +5508,7 @@ add or correct the following line in
 Any accounts with empty passwords should be disabled immediately, and PAM configuration
 should prevent users from being able to assign themselves empty passwords.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000106-GPOS-00053<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-000766<br>
 </td>
 <td></td>
@@ -5755,8 +5534,7 @@ To explicitly disable GSSAPI authentication, add or correct the following line i
 <pre>GSSAPIAuthentication no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000362-GPOS-00149<br>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000318<br>CCI-000368<br>CCI-001812<br>CCI-001813<br>CCI-001814<br>CCI-000366<br>
 </td>
 <td></td>
@@ -5783,8 +5561,7 @@ To explicitly disable Kerberos authentication, add or correct the following line
 <pre>KerberosAuthentication no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000362-GPOS-00149<br>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000318<br>CCI-000368<br>CCI-001812<br>CCI-001813<br>CCI-001814<br>CCI-000366<br>
 </td>
 <td></td>
@@ -5810,8 +5587,7 @@ To explicitly disable support for .rhosts files, add or correct the following li
 <pre>IgnoreRhosts yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5831,8 +5607,7 @@ following line in <code>/etc/ssh/sshd_config</code>:
 <pre>RhostsRSAAuthentication no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5856,8 +5631,7 @@ To disable root login via SSH, add or correct the following line in
 <pre>PermitRootLogin no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000109-GPOS-00056<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-000770<br>
 </td>
 <td></td>
@@ -5880,8 +5654,7 @@ To ensure this behavior is disabled, add or correct the following line in
 <pre>IgnoreUserKnownHosts yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5911,8 +5684,7 @@ To explicitly disable X11 Forwarding, add or correct the following line in
 <pre>X11Forwarding no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5936,8 +5708,7 @@ To explicitly disable Environment options, add or correct the following
 <pre>PermitUserEnvironment no</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5963,8 +5734,7 @@ To explicitly enable <code>StrictModes</code> in SSH, add or correct the followi
 <pre>StrictModes yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -5987,8 +5757,7 @@ across the system, add or correct the following line in
 Another section contains information on how to create an
 appropriate system-wide warning banner.</td>
 <td></td>
-<td>SRG-OS-000023-GPOS-00006<br>SRG-OS-000024-GPOS-00007<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>SRG-OS-000228-GPOS-00088<br>
-</td>
+<td></td>
 <td>CCI-000048<br>CCI-000050<br>CCI-001384<br>CCI-001385<br>CCI-001386<br>CCI-001387<br>CCI-001388<br>
 </td>
 <td></td>
@@ -6012,8 +5781,7 @@ To explicitly enable LastLog in SSH, add or correct the following line in
 <pre>PrintLastLog yes</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6039,8 +5807,7 @@ If a shorter timeout has already been set for the login shell, that value will
 preempt any SSH setting made in <code>/etc/ssh/sshd_config</code>. Keep in mind that
 some processes may stop SSH  from correctly detecting that the user is idle.</td>
 <td></td>
-<td>SRG-OS-000126-GPOS-00066<br>SRG-OS-000163-GPOS-00072<br>SRG-OS-000279-GPOS-00109<br>
-</td>
+<td></td>
 <td>CCI-000879<br>CCI-001133<br>CCI-002361<br>
 </td>
 <td></td>
@@ -6065,8 +5832,7 @@ value of <code>0</code> in
 
 <code>/etc/ssh/sshd_config</code>:</td>
 <td></td>
-<td>SRG-OS-000126-GPOS-00066<br>SRG-OS-000163-GPOS-00072<br>SRG-OS-000279-GPOS-00109<br>
-</td>
+<td></td>
 <td>CCI-000879<br>CCI-001133<br>CCI-002361<br>
 </td>
 <td></td>
@@ -6091,8 +5857,7 @@ demonstrates use of FIPS-approved ciphers:
 This rule ensures that there are configured ciphers mentioned
 above (or their subset), keeping the given order of algorithms.</td>
 <td></td>
-<td>SRG-OS-000033-GPOS-00014<br>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000120-GPOS-00061<br>SRG-OS-000125-GPOS-00065<br>SRG-OS-000393-GPOS-00173<br>SRG-OS-000394-GPOS-00174<br>
-</td>
+<td></td>
 <td>CCI-000068<br>CCI-000366<br>CCI-000803<br>CCI-000877<br>CCI-002890<br>CCI-003123<br>
 </td>
 <td></td>
@@ -6110,8 +5875,7 @@ demonstrates use of FIPS-approved MACs:
 This rule ensures that there are configured MACs mentioned
 above (or their subset), keeping the given order of algorithms.</td>
 <td></td>
-<td>SRG-OS-000033-GPOS-00014<br>SRG-OS-000120-GPOS-00061<br>SRG-OS-000125-GPOS-00065<br>SRG-OS-000250-GPOS-00093<br>SRG-OS-000394-GPOS-00174<br>
-</td>
+<td></td>
 <td>CCI-000068<br>CCI-000803<br>CCI-000877<br>CCI-001453<br>CCI-003123<br>
 </td>
 <td></td>
@@ -6129,8 +5893,7 @@ SSH, add or correct the following line in the <code>/etc/ssh/sshd_config</code> 
 <pre>UsePrivilegeSeparation <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_sshd_priv_separation"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6160,8 +5923,7 @@ the following line in
 <code>X11UseLocalhost yes</code>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6183,8 +5945,7 @@ services = sudo, autofs, pam
 </pre>
 </td>
 <td></td>
-<td>SRG-OS-000375-GPOS-00160<br>SRG-OS-000376-GPOS-00161<br>SRG-OS-000377-GPOS-00162<br>
-</td>
+<td></td>
 <td>CCI-001948<br>CCI-001953<br>CCI-001954<br>
 </td>
 <td></td>
@@ -6208,8 +5969,7 @@ to point to the path for the X.509 certificates used for peer authentication.
 <pre>ldap_tls_cacert /path/to/tls/ca.cert</pre>
 </td>
 <td></td>
-<td>SRG-OS-000250-GPOS-00093<br>
-</td>
+<td></td>
 <td>CCI-001453<br>
 </td>
 <td></td>
@@ -6233,8 +5993,7 @@ to point to the path for the X.509 certificates used for peer authentication.
 <pre>ldap_tls_cacertdir /path/to/tls/cacert</pre>
 </td>
 <td></td>
-<td>SRG-OS-000250-GPOS-00093<br>
-</td>
+<td></td>
 <td>CCI-001453<br>
 </td>
 <td></td>
@@ -6250,8 +6009,7 @@ protect the integrity of LDAP remote access sessions by setting
 the <pre>ldap_tls_reqcert</pre> option in <pre>/etc/sssd/sssd.conf</pre>
 to <code>demand</code>.</td>
 <td></td>
-<td>SRG-OS-000250-GPOS-00093<br>
-</td>
+<td></td>
 <td>CCI-001453<br>
 </td>
 <td></td>
@@ -6275,8 +6033,7 @@ set to <code>ldap</code> or <code>ipa</code>, use the following command:
 <pre>$ sudo grep -i ldap_id_use_start_tls /etc/sssd/sssd.conf</pre>
 </td>
 <td></td>
-<td>SRG-OS-000250-GPOS-00093<br>
-</td>
+<td></td>
 <td>CCI-001453<br>
 </td>
 <td></td>
@@ -6295,8 +6052,7 @@ sudo without having to authenticate. This should be disabled by making sure that
 <code>!authenticate</code> option does not exist in <code>/etc/sudoers</code> configuration file or
 any sudo configuration snippets in <code>/etc/sudoers.d/</code>.</td>
 <td></td>
-<td>SRG-OS-000373-GPOS-00156<br>SRG-OS-000373-GPOS-00157<br>SRG-OS-000373-GPOS-00158<br>
-</td>
+<td></td>
 <td>CCI-002038<br>
 </td>
 <td></td>
@@ -6316,8 +6072,7 @@ by making sure that the <code>NOPASSWD</code> tag does not exist in
 <code>/etc/sudoers</code> configuration file or any sudo configuration snippets
 in <code>/etc/sudoers.d/</code>.</td>
 <td></td>
-<td>SRG-OS-000373-GPOS-00156<br>SRG-OS-000373-GPOS-00157<br>SRG-OS-000373-GPOS-00158<br>
-</td>
+<td></td>
 <td>CCI-002038<br>
 </td>
 <td></td>
@@ -6340,8 +6095,7 @@ in <code>/etc/sudoers.d/</code>.
 If the value is set to an integer less than 0, the user's time stamp will not expire 
 and the user will not have to re-authenticate for privileged actions until the user's session is terminated.</td>
 <td></td>
-<td>SRG-OS-000373-GPOS-00156<br>SRG-OS-000373-GPOS-00157<br>SRG-OS-000373-GPOS-00158<br>
-</td>
+<td></td>
 <td>CCI-002038<br>
 </td>
 <td></td>
@@ -6361,8 +6115,7 @@ Restrict privileged actions by removing the following entries from the sudoers f
 <code>ALL ALL=(ALL:ALL) ALL</code>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6382,8 +6135,7 @@ The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> d
 <code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
 Note that the '#' character doesn't denote a comment in the configuration file.</td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6403,8 +6155,7 @@ The expected output for:
       /etc/sudoers:Defaults !runaspw </pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-002227<br>
 </td>
 <td></td>
@@ -6423,8 +6174,7 @@ existing code in order to re-purpose it using return oriented programming
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.randomize_va_space = 2</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>SRG-OS-000433-GPOS-00192<br>SRG-OS-000433-GPOS-00193<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-002824<br>
 </td>
 <td></td>
@@ -6444,8 +6194,7 @@ disabled unless absolutely required."</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.accept_redirects = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001503<br>CCI-001551<br>
 </td>
 <td></td>
@@ -6466,8 +6215,7 @@ uses. It should be disabled unless it is absolutely required.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.accept_source_route = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6485,8 +6233,7 @@ networks.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.rp_filter = 1</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001551<br>
 </td>
 <td></td>
@@ -6504,8 +6251,7 @@ The ability to send ICMP redirects is only appropriate for systems acting as rou
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.send_redirects = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6524,8 +6270,7 @@ be disabled unless absolutely required.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.accept_redirects = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001551<br>
 </td>
 <td></td>
@@ -6546,8 +6291,7 @@ router.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.accept_source_route = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>CCI-001551<br>
 </td>
 <td></td>
@@ -6565,8 +6309,7 @@ networks.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.rp_filter = 1</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6584,8 +6327,7 @@ The ability to send ICMP redirects is only appropriate for systems acting as rou
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.send_redirects = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6603,8 +6345,7 @@ addresses makes the system slightly more difficult to enumerate on the network.<
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.icmp_echo_ignore_broadcasts = 1</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6621,8 +6362,7 @@ the network.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.ip_forward = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6643,8 +6383,7 @@ uses. It should be disabled unless it is absolutely required.</td>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv6.conf.all.accept_source_route = 0</pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6663,8 +6402,7 @@ the following example:
 <pre>server_args = -s <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_tftpd_secure_directory"></xccdf-1.1:sub></pre>
 </td>
 <td></td>
-<td>SRG-OS-000480-GPOS-00225<br>SRG-OS-000480-GPOS-00226<br>SRG-OS-000480-GPOS-00227<br>SRG-OS-000480-GPOS-00228<br>SRG-OS-000480-GPOS-00229<br>SRG-OS-000480-GPOS-00230<br>SRG-OS-000480-GPOS-00232<br>
-</td>
+<td></td>
 <td>CCI-000366<br>
 </td>
 <td></td>
@@ -6682,8 +6420,7 @@ media which should not exist in the line:
 <pre>set root='hd0,msdos1'</pre>
 </td>
 <td></td>
-<td>SRG-OS-000364-GPOS-00151<br>SRG-OS-000365-GPOS-00152<br>
-</td>
+<td></td>
 <td>CCI-001813<br>CCI-001814<br>
 </td>
 <td></td>
@@ -6708,8 +6445,7 @@ following command:
 <pre>$ sudo nmcli radio wifi off</pre>
 </td>
 <td></td>
-<td>SRG-OS-000423-GPOS-00187<br>SRG-OS-000481-GPOS-000481<br>SRG-OS-000424-GPOS-00188<br>SRG-OS-000299-GPOS-00117<br>
-</td>
+<td></td>
 <td>CCI-000085<br>CCI-002418<br>CCI-002421<br>CCI-001444<br>
 </td>
 <td></td>
