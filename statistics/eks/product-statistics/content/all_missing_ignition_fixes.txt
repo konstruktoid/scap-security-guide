@@ -2,6 +2,7 @@ approved_registries
 audit_logging
 configure_network_policies_namespaces
 dedicated_service_accounts
+fargate
 file_groupowner_kubelet_conf
 file_groupowner_worker_kubeconfig
 file_owner_kubelet_conf

@@ -2,6 +2,7 @@ approved_registries
 audit_logging
 configure_network_policies_namespaces
 dedicated_service_accounts
+fargate
 iam_integration
 image_scanning
 read_only_registry_access

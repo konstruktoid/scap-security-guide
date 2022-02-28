@@ -1,6 +1,7 @@
 approved_registries
 audit_logging
 dedicated_service_accounts
+fargate
 iam_integration
 image_scanning
 read_only_registry_access
