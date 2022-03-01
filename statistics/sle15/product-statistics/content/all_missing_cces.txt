@@ -51,7 +51,6 @@ directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_prelink
 disable_users_coredumps
-disallow_bypass_password_sudo
 file_cron_deny_not_exist
 file_groupowner_at_allow
 file_groupowner_backup_etc_group

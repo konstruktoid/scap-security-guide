@@ -7,7 +7,6 @@ aide_verify_ext_attributes
 chronyd_or_ntpd_set_maxpoll
 configure_firewalld_ports
 dconf_db_up_to_date
-disallow_bypass_password_sudo
 file_ownership_var_log_audit
 file_permissions_var_log_audit
 install_smartcard_packages

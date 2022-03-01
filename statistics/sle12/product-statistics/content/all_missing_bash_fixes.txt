@@ -36,7 +36,6 @@ dhcp_server_minimize_served_info
 dir_perms_world_writable_system_owned_group
 directory_permissions_var_log_audit
 disable_users_coredumps
-disallow_bypass_password_sudo
 encrypt_partitions
 ensure_gpgcheck_never_disabled
 file_etc_security_opasswd

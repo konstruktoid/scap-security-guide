@@ -34,7 +34,6 @@ dir_perms_world_writable_system_owned_group
 directory_access_var_log_audit
 directory_permissions_var_log_audit
 disable_prelink
-disallow_bypass_password_sudo
 encrypt_partitions
 file_ownership_var_log_audit
 file_permission_user_init_files

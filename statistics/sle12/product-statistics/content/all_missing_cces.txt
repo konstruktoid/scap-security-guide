@@ -74,7 +74,6 @@ directory_permissions_var_log_audit
 disable_host_auth
 disable_prelink
 disable_users_coredumps
-disallow_bypass_password_sudo
 ensure_gpgcheck_never_disabled
 ensure_logrotate_activated
 ensure_suse_gpgkey_installed

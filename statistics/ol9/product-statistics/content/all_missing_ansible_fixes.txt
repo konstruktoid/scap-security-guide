@@ -16,7 +16,6 @@ configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 directory_permissions_var_log_audit
-disallow_bypass_password_sudo
 ensure_oracle_gpgkey_installed
 file_ownership_var_log_audit
 file_permissions_home_dirs

@@ -1,2 +1,3 @@
 dconf_db_up_to_date
+disallow_bypass_password_sudo
 enable_dconf_user_profile
