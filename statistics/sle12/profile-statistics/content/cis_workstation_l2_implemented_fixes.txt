@@ -180,7 +180,7 @@ require_singleuser_auth
 service_auditd_enabled
 service_autofs_disabled
 service_avahi-daemon_disabled
-service_crond_enabled
+service_cron_enabled
 service_iptables_enabled
 service_ntpd_enabled
 service_rpcbind_disabled

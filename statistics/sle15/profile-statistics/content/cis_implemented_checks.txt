@@ -218,7 +218,7 @@ securetty_root_login_console_only
 service_auditd_enabled
 service_autofs_disabled
 service_avahi-daemon_disabled
-service_crond_enabled
+service_cron_enabled
 service_firewalld_enabled
 service_ip6tables_enabled
 service_iptables_enabled
