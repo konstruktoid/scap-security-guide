@@ -263,6 +263,7 @@ mount_option_dev_shm_nodev
 mount_option_dev_shm_noexec
 mount_option_dev_shm_nosuid
 no_direct_root_logins
+no_empty_passwords_etc_shadow
 package_aide_installed
 package_apparmor_installed
 package_audit-audispd-plugins_installed

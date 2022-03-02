@@ -65,7 +65,6 @@ kernel_module_rds_disabled
 kernel_module_tipc_disabled
 no_all_squash_exports
 no_empty_passwords
-no_empty_passwords_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
 no_rsh_trust_files

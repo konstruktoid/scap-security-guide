@@ -59,7 +59,6 @@ kernel_disable_entropy_contribution_for_solid_state_drives
 network_sniffer_disabled
 no_all_squash_exports
 no_direct_root_logins
-no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_netrc_files
 no_password_auth_for_systemaccounts

@@ -90,7 +90,6 @@ file_permissions_unauthorized_world_writable
 journald_compress
 journald_storage
 kernel_module_udf_disabled
-kernel_module_vfat_disabled
 mount_option_dev_shm_nodev
 mount_option_dev_shm_noexec
 mount_option_dev_shm_nosuid

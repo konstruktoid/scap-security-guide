@@ -462,6 +462,7 @@ mount_option_var_tmp_nosuid
 network_nmcli_permissions
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 no_host_based_files
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd

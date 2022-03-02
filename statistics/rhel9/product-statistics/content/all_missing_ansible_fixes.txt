@@ -131,7 +131,6 @@ network_configure_name_resolution
 network_nmcli_permissions
 network_sniffer_disabled
 no_all_squash_exports
-no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_legacy_plus_entries_etc_group

@@ -31,7 +31,6 @@ iptables_sshd_disabled
 kerberos_disable_no_keytab
 kernel_disable_entropy_contribution_for_solid_state_drives
 no_all_squash_exports
-no_empty_passwords_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
 ntpd_specify_multiple_servers

@@ -30,7 +30,6 @@ installed_OS_is_vendor_supported
 libreswan_approved_tunnels
 network_configure_name_resolution
 network_sniffer_disabled
-no_empty_passwords_etc_shadow
 no_files_unowned_by_user
 no_host_based_files
 no_user_host_based_files

@@ -126,6 +126,7 @@ mount_option_var_tmp_nodev
 mount_option_var_tmp_noexec
 mount_option_var_tmp_nosuid
 no_direct_root_logins
+no_empty_passwords_etc_shadow
 package_audit-audispd-plugins_installed
 package_audit_installed
 package_chrony_installed

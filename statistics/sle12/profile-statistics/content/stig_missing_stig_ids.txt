@@ -5,5 +5,6 @@ enable_dconf_user_profile
 file_ownership_binary_dirs
 ftp_present_banner
 installed_OS_is_FIPS_certified
+no_empty_passwords_etc_shadow
 policy_temp_passwords_immediate_change
 run_chkstat

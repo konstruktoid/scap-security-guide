@@ -87,6 +87,7 @@ mount_option_dev_shm_nodev
 mount_option_dev_shm_nosuid
 no_direct_root_logins
 no_empty_passwords
+no_empty_passwords_etc_shadow
 package_audit-audispd-plugins_installed
 package_audit_installed
 package_chrony_installed

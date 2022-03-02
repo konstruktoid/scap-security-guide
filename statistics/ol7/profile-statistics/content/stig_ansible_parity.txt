@@ -10,7 +10,6 @@ dconf_db_up_to_date
 file_ownership_var_log_audit
 file_permissions_var_log_audit
 install_smartcard_packages
-no_empty_passwords_etc_shadow
 no_host_based_files
 no_user_host_based_files
 postfix_prevent_unrestricted_relay

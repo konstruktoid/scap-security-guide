@@ -162,7 +162,6 @@ mount_option_var_tmp_nodev
 mount_option_var_tmp_noexec
 mount_option_var_tmp_nosuid
 no_all_squash_exports
-no_empty_passwords_etc_shadow
 no_legacy_plus_entries_etc_group
 no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow

@@ -4353,6 +4353,30 @@ a container anyway.</td>
 <td></td>
 </tr>
 <tr>
+<td>no_empty_passwords_etc_shadow</td>
+<td>high</td>
+<td>Ensure There Are No Accounts With Blank or Null Passwords</td>
+<td xml:lang="en-US">If an account has an empty password, anyone could log in and
+run commands with the privileges of that account. Accounts with
+empty passwords should never be used in operational environments.</td>
+<td xml:lang="en-US">Check the "/etc/shadow" file for blank passwords with the
+following command:
+<pre>$ sudo awk -F: '!$2 {print $1}' /etc/shadow</pre>
+If the command returns any results, this is a finding.
+Configure all accounts on the system to have a password or lock
+the account with the following commands:
+Perform a password reset:
+<pre>$ sudo passwd [username]</pre>
+Lock an account:
+<pre>$ sudo passwd -l [username]</pre>
+</td>
+<td></td>
+<td></td>
+<td>CCI-000366<br>
+</td>
+<td></td>
+</tr>
+<tr>
 <td>no_files_unowned_by_user</td>
 <td>medium</td>
 <td>Ensure All Files Are Owned by a User</td>
