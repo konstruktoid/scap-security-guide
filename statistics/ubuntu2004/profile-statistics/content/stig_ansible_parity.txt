@@ -41,7 +41,6 @@ file_permissions_var_log_audit
 grub2_audit_argument
 install_smartcard_packages
 permissions_local_var_log
-rsyslog_remote_access_monitoring
 smartcard_configure_ca
 smartcard_configure_cert_checking
 smartcard_configure_crl
