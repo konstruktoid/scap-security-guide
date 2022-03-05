@@ -289,9 +289,11 @@ grub2_enable_fips_mode
 grub2_enable_iommu_force
 grub2_enable_selinux
 grub2_ipv6_disable_argument
+grub2_mce_argument
 grub2_nosmap_argument_absent
 grub2_nosmep_argument_absent
 grub2_nousb_argument
+grub2_slab_nomerge_argument
 grub2_uefi_admin_username
 grub2_uefi_password
 harden_openssl_crypto_policy

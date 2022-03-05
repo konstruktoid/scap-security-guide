@@ -410,10 +410,12 @@ grub2_enable_iommu_force
 grub2_enable_selinux
 grub2_ipv6_disable_argument
 grub2_kernel_trust_cpu_rng
+grub2_mce_argument
 grub2_nosmap_argument_absent
 grub2_nosmep_argument_absent
 grub2_page_poison_argument
 grub2_pti_argument
+grub2_slab_nomerge_argument
 grub2_slub_debug_argument
 grub2_vsyscall_argument
 harden_openssl_crypto_policy
