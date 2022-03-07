@@ -623,6 +623,33 @@ not be able to execute SUID or SGID binaries from this directory.
 </tr>
 <tr>
   <td>BP28(R12)</td>
+  <td>CCE-85881-1</td>
+  <td>Add hidepid Option to /proc</td>
+  <td xml:lang="en-US">
+The <tt>hidepid</tt> mount option is applicable to <tt>/proc</tt> and is used to
+control who can access the information in <tt>/proc/[pid]</tt> directories.
+The option can have one of the following values:
+<pre>
+0: Everybody may access all /proc/[pid] directories.
+1: Users may not access files and subdirectories inside any /proc/[pid] directories
+   but their own. The /proc/[pid] directories themselves remain visible.
+2: Same as for mode 1, but in addition the /proc/[pid] directories belonging to other
+   users become invisible.
+</pre>
+For example, if you choose the value 2:
+Add the <code>hidepid=2</code> option to the fourth column of
+<tt>/etc/fstab</tt> for the line which controls mounting of
+<code>/proc</code>.
+  </td>
+  <td xml:lang="en-US">
+Users should not be able to see and access directories within /proc, which are not
+related to their own processes in a system. Otherwise, sensitive information from
+other users could be seem.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td>BP28(R12)</td>
   <td>CCE-83320-2</td>
   <td>Add nosuid Option to /srv</td>
   <td xml:lang="en-US">
@@ -1305,7 +1332,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_unlock_time=900<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3</td>
+  <td>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=900</td>
 </tr>
 <tr>
   <td>BP28(R18)</td>
@@ -2727,16 +2754,26 @@ be forwarded to at least one monitored email address.
   <td>Build and Test AIDE Database</td>
   <td xml:lang="en-US">
 Run the following command to generate a new database:
+
 <pre>$ sudo /usr/sbin/aide --init</pre>
-By default, the database will be written to the file <tt>/var/lib/aide/aide.db.new.gz</tt>.
+
+By default, the database will be written to the file
+
+<tt>/var/lib/aide/aide.db.new.gz</tt>.
+
 Storing the database, the configuration file <tt>/etc/aide.conf</tt>, and the binary
-<tt>/usr/sbin/aide</tt> (or hashes of these files), in a secure location (such as on read-only media) provides additional assurance about their integrity.
+
+<tt>/usr/sbin/aide</tt>
+
+(or hashes of these files), in a secure location (such as on read-only media) provides additional assurance about their integrity.
 The newly-generated database can be installed as follows:
 
 <pre>$ sudo cp /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz</pre>
 
 To initiate a manual check, run the following command:
+
 <pre>$ sudo /usr/sbin/aide --check</pre>
+
 If this check produces any unexpected output, investigate.
   </td>
   <td xml:lang="en-US">

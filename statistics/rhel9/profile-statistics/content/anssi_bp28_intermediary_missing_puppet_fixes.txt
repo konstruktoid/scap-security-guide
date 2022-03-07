@@ -42,6 +42,7 @@ mount_option_home_noexec
 mount_option_home_nosuid
 mount_option_nodev_nonroot_local_partitions
 mount_option_opt_nosuid
+mount_option_proc_hidepid
 mount_option_srv_nosuid
 mount_option_tmp_noexec
 mount_option_tmp_nosuid

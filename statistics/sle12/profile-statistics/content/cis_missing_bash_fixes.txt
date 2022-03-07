@@ -2,7 +2,6 @@ account_unique_id
 account_unique_name
 accounts_password_all_shadowed
 accounts_umask_etc_bashrc
-aide_build_database
 audit_rules_file_deletion_events_rename
 audit_rules_file_deletion_events_renameat
 audit_rules_file_deletion_events_unlink

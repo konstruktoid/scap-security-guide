@@ -128,16 +128,26 @@ $ sudo zypper install aide</pre>
 <td>CCE-85787-0</td>
 <td>Build and Test AIDE Database</td>
 <td xml:lang="en-US">Run the following command to generate a new database:
-<pre>$ sudo /usr/sbin/aide --init</pre>
-By default, the database will be written to the file <code>/var/lib/aide/aide.db.new.gz</code>.
+
+<pre>$ sudo /usr/bin/aide --init</pre>
+
+By default, the database will be written to the file
+
+<code>/var/lib/aide/aide.db.new</code>.
+
 Storing the database, the configuration file <code>/etc/aide.conf</code>, and the binary
-<code>/usr/sbin/aide</code> (or hashes of these files), in a secure location (such as on read-only media) provides additional assurance about their integrity.
+
+<code>/usr/bin/aide</code>
+
+(or hashes of these files), in a secure location (such as on read-only media) provides additional assurance about their integrity.
 The newly-generated database can be installed as follows:
 
-<pre>$ sudo cp /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz</pre>
+<pre>$ sudo cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db</pre>
 
 To initiate a manual check, run the following command:
-<pre>$ sudo /usr/sbin/aide --check</pre>
+
+<pre>$ sudo /usr/bin/aide --check</pre>
+
 If this check produces any unexpected output, investigate.</td>
 </tr>
 <tr>
