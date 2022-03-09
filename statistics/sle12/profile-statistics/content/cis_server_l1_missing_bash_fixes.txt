@@ -1,7 +1,6 @@
 account_unique_id
 account_unique_name
 accounts_password_all_shadowed
-accounts_umask_etc_bashrc
 banner_etc_motd
 bios_enable_execution_restrictions
 disable_users_coredumps
