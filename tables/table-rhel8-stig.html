@@ -5858,7 +5858,10 @@ account changes:
 <td>medium</td>
 <td>RHEL 8 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.</td>
 <td>The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td>To verify that auditing is configured for system administrator actions, run the following command:
 $ sudo auditctl -l | grep "watch=/etc/sudoers\|-w /etc/sudoers\"
       Is it the case that there is not output?
@@ -5883,7 +5886,10 @@ utility to read audit rules during daemon startup, add the following line to
 <td>medium</td>
 <td>RHEL 8 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.d/.</td>
 <td>The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td>To verify that auditing is configured for system administrator actions, run the following command:
 $ sudo auditctl -l | grep "watch=/etc/sudoers.d\|-w /etc/sudoers.d"
       Is it the case that there is not output?

@@ -1,10 +1,10 @@
 <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cdf="http://checklists.nist.gov/xccdf/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DRAFT - DISA STIG for Oracle Linux 8</title>
+<title>DISA STIG for Oracle Linux 8</title>
 </head>
 <body>
-	<br><br><div style="text-align: center; font-size: x-large; font-weight:bold">DRAFT - DISA STIG for Oracle Linux 8</div>
+	<br><br><div style="text-align: center; font-size: x-large; font-weight:bold">DISA STIG for Oracle Linux 8</div>
 <br><br><style type="text/css">
 		table
 		{
@@ -7345,6 +7345,9 @@ utility to read audit rules during daemon startup, add the following line to
   <td xml:lang="en-US">
 The actions taken by system administrators should be audited to keep a record
 of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.
   </td>
   <td></td>
 </tr>
@@ -7367,6 +7370,9 @@ utility to read audit rules during daemon startup, add the following line to
   <td xml:lang="en-US">
 The actions taken by system administrators should be audited to keep a record
 of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.
   </td>
   <td></td>
 </tr>
@@ -8022,7 +8028,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>389</td>
-<td>47</td>
-<td>342</td>
-<td>87.92%</td>
-<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010287OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010710OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020031OL08-00-020032OL08-00-020043OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
+<td>46</td>
+<td>343</td>
+<td>88.17%</td>
+<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010710OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020031OL08-00-020032OL08-00-020043OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -1111,14 +1111,23 @@ root
 </tr>
 <tr>
 <td>V-248560</td>
-<td></td>
+<td>1453</td>
 <td>medium</td>
 <td>The OL 8 SSH daemon must be configured to use system-wide crypto policies.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Overriding the system crypto policy makes the behavior of the SSH service violate expectations,
+and makes system configuration more fragmented.</td>
+<td>Check that the CRYPTO_POLICY variable is not set or is commented in the
+/etc/sysconfig/sshd.
+      Is it the case that the CRYPTO_POLICY variable is not set or is commented in the /etc/sysconfig/sshd?
+      </td>
+<td>Crypto Policies provide a centralized control over crypto algorithms usage of many packages.
+SSH is supported by crypto policy, but the SSH configuration may be
+set up to ignore it.
+To check that Crypto Policies settings are configured correctly, ensure that
+the <code>CRYPTO_POLICY</code> variable is either commented or not set at all
+in the <code>/etc/sysconfig/sshd</code>.</td>
 <td>OL08-00-010287</td>
-<td>Missing Rule</td>
+<td>configure_ssh_crypto_policy</td>
 </tr>
 <tr>
 <td>V-248561</td>
@@ -5704,7 +5713,10 @@ account changes:
 <td>medium</td>
 <td>OL 8 must generate audit records for all account creations, modifications, disabling, and termination events that affect "/etc/sudoers".</td>
 <td>The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td>To verify that auditing is configured for system administrator actions, run the following command:
 $ sudo auditctl -l | grep "watch=/etc/sudoers\|-w /etc/sudoers\"
       Is it the case that there is not output?
@@ -5729,7 +5741,10 @@ utility to read audit rules during daemon startup, add the following line to
 <td>medium</td>
 <td>OL 8 must generate audit records for all account creations, modifications, disabling, and termination events that affect "/etc/sudoers.d/".</td>
 <td>The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td>To verify that auditing is configured for system administrator actions, run the following command:
 $ sudo auditctl -l | grep "watch=/etc/sudoers.d\|-w /etc/sudoers.d"
       Is it the case that there is not output?

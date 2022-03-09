@@ -863,7 +863,7 @@ directory with the following command:
 </tr>
 <tr>
 <td>agent_mfetpd_running</td>
-<td>high</td>
+<td>medium</td>
 <td>Ensure McAfee Endpoint Security for Linux (ENSL) is running</td>
 <td xml:lang="en-US">Virus scanning software can be used to detect if a system has been compromised by
 computer viruses, as well as to limit their spread to other systems.</td>
@@ -3863,7 +3863,7 @@ TimedLoginEnable=false</pre>
 </tr>
 <tr>
 <td>grub2_admin_username</td>
-<td>low</td>
+<td>medium</td>
 <td>Set the Boot Loader Admin Username to a Non-Default Value</td>
 <td xml:lang="en-US">Having a non-default grub superuser username makes password-guessing attacks less effective.</td>
 <td xml:lang="en-US">The grub2 boot loader should have a superuser account and password
@@ -3967,7 +3967,7 @@ When prompted, enter the password that was selected.
 </tr>
 <tr>
 <td>grub2_uefi_admin_username</td>
-<td>low</td>
+<td>medium</td>
 <td>Set the UEFI Boot Loader Admin Username to a Non-Default Value</td>
 <td xml:lang="en-US">Having a non-default grub superuser username makes password-guessing attacks less effective.
 
@@ -4152,7 +4152,7 @@ exists is an approved organizational connection.</td>
 </tr>
 <tr>
 <td>mount_option_dev_shm_nodev</td>
-<td>low</td>
+<td>medium</td>
 <td>Add nodev Option to /dev/shm</td>
 <td xml:lang="en-US">The only legitimate location for device files is the <code>/dev</code> directory
 located on the root partition. The only exception to this is chroot jails.</td>
@@ -4170,7 +4170,7 @@ Add the <code>nodev</code> option to the fourth column of
 </tr>
 <tr>
 <td>mount_option_dev_shm_noexec</td>
-<td>low</td>
+<td>medium</td>
 <td>Add noexec Option to /dev/shm</td>
 <td xml:lang="en-US">Allowing users to execute binaries from world-writable directories
 such as <code>/dev/shm</code> can expose the system to potential compromise.</td>
@@ -4189,7 +4189,7 @@ Add the <code>noexec</code> option to the fourth column of
 </tr>
 <tr>
 <td>mount_option_dev_shm_nosuid</td>
-<td>low</td>
+<td>medium</td>
 <td>Add nosuid Option to /dev/shm</td>
 <td xml:lang="en-US">The presence of SUID and SGID executables should be tightly controlled. Users
 should not be able to execute SUID or SGID binaries from temporary storage partitions.</td>
@@ -4293,7 +4293,7 @@ Add the <code>nosuid</code> option to the fourth column of
 </tr>
 <tr>
 <td>network_configure_name_resolution</td>
-<td>low</td>
+<td>medium</td>
 <td>Configure Multiple DNS Servers in /etc/resolv.conf</td>
 <td xml:lang="en-US">To provide availability for name resolution services, multiple redundant
 name servers are mandated. A failure in name resolution could lead to the
@@ -4895,7 +4895,7 @@ To disable the <code>ssh_sysadm_login</code> SELinux boolean, run the following 
 </tr>
 <tr>
 <td>security_patches_up_to_date</td>
-<td>high</td>
+<td>medium</td>
 <td>Ensure Software Patches Installed</td>
 <td xml:lang="en-US">Installing software updates is a fundamental mitigation against
 the exploitation of publicly-known vulnerabilities. If the most

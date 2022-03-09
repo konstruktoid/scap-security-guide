@@ -1034,7 +1034,7 @@ home directory assigned in <code>/etc/passwd</code>:
 </tr>
 <tr>
 <td>agent_mfetpd_running</td>
-<td>high</td>
+<td>medium</td>
 <td>Ensure McAfee Endpoint Security for Linux (ENSL) is running</td>
 <td xml:lang="en-US">Virus scanning software can be used to detect if a system has been compromised by
 computer viruses, as well as to limit their spread to other systems.</td>
@@ -2673,7 +2673,10 @@ form to <code>/etc/audit/audit.rules</code>:
 <td>medium</td>
 <td>Ensure auditd Collects System Administrator Actions - /etc/sudoers</td>
 <td xml:lang="en-US">The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td xml:lang="en-US">At a minimum, the audit system should collect administrator actions
 for all users and root. If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the default),
@@ -2696,7 +2699,10 @@ utility to read audit rules during daemon startup, add the following line to
 <td>medium</td>
 <td>Ensure auditd Collects System Administrator Actions - /etc/sudoers.d/</td>
 <td xml:lang="en-US">The actions taken by system administrators should be audited to keep a record
-of what was executed on the system, as well as, for accountability purposes.</td>
+of what was executed on the system, as well as, for accountability purposes.
+Editing the sudoers file may be sign of an attacker trying to
+establish persistent methods to a system, auditing the editing of the sudoers
+files mitigates this risk.</td>
 <td xml:lang="en-US">At a minimum, the audit system should collect administrator actions
 for all users and root. If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the default),
@@ -3505,7 +3511,7 @@ automatic session locking. It should be started from
 </tr>
 <tr>
 <td>configure_bind_crypto_policy</td>
-<td>medium</td>
+<td>high</td>
 <td>Configure BIND to use System Crypto Policy</td>
 <td xml:lang="en-US">Overriding the system crypto policy makes the behavior of the BIND service violate expectations,
 and makes system configuration more fragmented.</td>
@@ -3605,7 +3611,7 @@ line and is not commented out:
 </tr>
 <tr>
 <td>configure_kerberos_crypto_policy</td>
-<td>medium</td>
+<td>high</td>
 <td>Configure Kerberos to use System Crypto Policy</td>
 <td xml:lang="en-US">Overriding the system crypto policy makes the behavior of Kerberos violate expectations,
 and makes system configuration more fragmented.</td>
@@ -3622,7 +3628,7 @@ If the symlink exists, kerberos is configured to use the system-wide crypto poli
 </tr>
 <tr>
 <td>configure_libreswan_crypto_policy</td>
-<td>medium</td>
+<td>high</td>
 <td>Configure Libreswan to use System Crypto Policy</td>
 <td xml:lang="en-US">Overriding the system crypto policy makes the behavior of the Libreswan
 service violate expectations, and makes system configuration more
@@ -4245,7 +4251,7 @@ And make sure that the <code>silent</code> option is not set.</td>
 </tr>
 <tr>
 <td>enable_dracut_fips_module</td>
-<td>medium</td>
+<td>high</td>
 <td>Enable Dracut FIPS Module</td>
 <td xml:lang="en-US">Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
 protect data. The operating system must implement cryptographic modules adhering to the higher
@@ -4852,7 +4858,7 @@ AutomaticLoginEnable=false</pre>
 </tr>
 <tr>
 <td>grub2_admin_username</td>
-<td>low</td>
+<td>medium</td>
 <td>Set the Boot Loader Admin Username to a Non-Default Value</td>
 <td xml:lang="en-US">Having a non-default grub superuser username makes password-guessing attacks less effective.</td>
 <td xml:lang="en-US">The grub2 boot loader should have a superuser account and password
@@ -4904,7 +4910,7 @@ Run the following command to update command line for already installed kernels:<
 </tr>
 <tr>
 <td>grub2_audit_backlog_limit_argument</td>
-<td>medium</td>
+<td>low</td>
 <td>Extend Audit Backlog Limit for the Audit Daemon</td>
 <td xml:lang="en-US">audit_backlog_limit sets the queue length for audit events awaiting transfer
 to the audit daemon. Until the audit daemon is up and running, all log messages
@@ -4978,7 +4984,7 @@ When prompted, enter the password that was selected.
 </tr>
 <tr>
 <td>grub2_pti_argument</td>
-<td>high</td>
+<td>low</td>
 <td>Enable Kernel Page-Table Isolation (KPTI)</td>
 <td xml:lang="en-US">Kernel page-table isolation is a kernel feature that mitigates
 the Meltdown security vulnerability and hardens the kernel
@@ -5027,7 +5033,7 @@ Run the following command to update command line for already installed kernels:<
 </tr>
 <tr>
 <td>grub2_uefi_admin_username</td>
-<td>low</td>
+<td>medium</td>
 <td>Set the UEFI Boot Loader Admin Username to a Non-Default Value</td>
 <td xml:lang="en-US">Having a non-default grub superuser username makes password-guessing attacks less effective.</td>
 <td xml:lang="en-US">The grub2 boot loader should have a superuser account and password
@@ -5102,7 +5108,7 @@ Run the following command to update command line for already installed kernels:<
 </tr>
 <tr>
 <td>harden_sshd_ciphers_openssh_conf_crypto_policy</td>
-<td>medium</td>
+<td>high</td>
 <td>Configure SSH Client to Use FIPS 140-2 Validated Ciphers: openssh.config</td>
 <td xml:lang="en-US">Overriding the system crypto policy makes the behavior of the OpenSSH client
 violate expectations, and makes system configuration more fragmented. By
@@ -5150,7 +5156,7 @@ text and is not commented out:
 </tr>
 <tr>
 <td>harden_sshd_macs_openssh_conf_crypto_policy</td>
-<td>medium</td>
+<td>high</td>
 <td>Configure SSH Client to Use FIPS 140-2 Validated MACs: openssh.config</td>
 <td xml:lang="en-US">Overriding the system crypto policy makes the behavior of the OpenSSH
 client violate expectations, and makes system configuration more
@@ -5335,7 +5341,7 @@ decompress the image.</td>
 </tr>
 <tr>
 <td>kernel_module_firewire-core_disabled</td>
-<td>medium</td>
+<td>low</td>
 <td>Disable IEEE 1394 (FireWire) Support</td>
 <td xml:lang="en-US">Disabling FireWire protects the system against exploitation of any
 flaws in its implementation.</td>
@@ -5375,7 +5381,7 @@ kernel module from being loaded, add the following line to a file in the directo
 </tr>
 <tr>
 <td>kernel_module_tipc_disabled</td>
-<td>medium</td>
+<td>low</td>
 <td>Disable TIPC Support</td>
 <td xml:lang="en-US">Disabling TIPC protects
 the system against exploitation of any flaws in its implementation.</td>
@@ -5434,7 +5440,7 @@ Add the <code>nosuid</code> option to the fourth column of
 </tr>
 <tr>
 <td>mount_option_dev_shm_nodev</td>
-<td>low</td>
+<td>medium</td>
 <td>Add nodev Option to /dev/shm</td>
 <td xml:lang="en-US">The only legitimate location for device files is the <code>/dev</code> directory
 located on the root partition. The only exception to this is chroot jails.</td>
@@ -5452,7 +5458,7 @@ Add the <code>nodev</code> option to the fourth column of
 </tr>
 <tr>
 <td>mount_option_dev_shm_noexec</td>
-<td>low</td>
+<td>medium</td>
 <td>Add noexec Option to /dev/shm</td>
 <td xml:lang="en-US">Allowing users to execute binaries from world-writable directories
 such as <code>/dev/shm</code> can expose the system to potential compromise.</td>
@@ -5471,7 +5477,7 @@ Add the <code>noexec</code> option to the fourth column of
 </tr>
 <tr>
 <td>mount_option_dev_shm_nosuid</td>
-<td>low</td>
+<td>medium</td>
 <td>Add nosuid Option to /dev/shm</td>
 <td xml:lang="en-US">The presence of SUID and SGID executables should be tightly controlled. Users
 should not be able to execute SUID or SGID binaries from temporary storage partitions.</td>
@@ -5562,7 +5568,7 @@ any NFS mounts.</td>
 </tr>
 <tr>
 <td>mount_option_nodev_removable_partitions</td>
-<td>low</td>
+<td>medium</td>
 <td>Add nodev Option to Removable Media Partitions</td>
 <td xml:lang="en-US">The only legitimate location for device files is the <code>/dev</code> directory
 located on the root partition. An exception to this is chroot jails, and it is
@@ -5879,7 +5885,7 @@ Add the <code>nosuid</code> option to the fourth column of
 </tr>
 <tr>
 <td>network_configure_name_resolution</td>
-<td>low</td>
+<td>medium</td>
 <td>Configure Multiple DNS Servers in /etc/resolv.conf</td>
 <td xml:lang="en-US">To provide availability for name resolution services, multiple redundant
 name servers are mandated. A failure in name resolution could lead to the
@@ -6002,7 +6008,7 @@ location:
 </tr>
 <tr>
 <td>no_tmux_in_shells</td>
-<td>medium</td>
+<td>low</td>
 <td>Prevent user from disabling the screen lock</td>
 <td xml:lang="en-US">Not listing <code>tmux</code> among permitted shells
 prevents malicious program running as user
@@ -6221,7 +6227,7 @@ $ sudo yum install firewalld</pre>
 </tr>
 <tr>
 <td>package_gssproxy_removed</td>
-<td>low</td>
+<td>medium</td>
 <td>Uninstall gssproxy Package</td>
 <td xml:lang="en-US">
 <code>gssproxy</code> is a proxy for GSS API credential handling.</td>
@@ -6237,7 +6243,7 @@ $ sudo yum erase gssproxy</pre>
 </tr>
 <tr>
 <td>package_iprutils_removed</td>
-<td>low</td>
+<td>medium</td>
 <td>Uninstall iprutils Package</td>
 <td xml:lang="en-US">
 <code>iprutils</code> provides a suite of utlilities to manage and configure SCSI devices
@@ -6336,7 +6342,7 @@ $ sudo yum install openssh-server</pre>
 </tr>
 <tr>
 <td>package_policycoreutils_installed</td>
-<td>high</td>
+<td>low</td>
 <td>Install policycoreutils Package</td>
 <td xml:lang="en-US">Security-enhanced Linux is a feature of the Linux kernel and a number of utilities
 with enhanced security functionality designed to add mandatory access controls to Linux.
@@ -6379,7 +6385,7 @@ $ sudo yum erase python3-abrt-addon</pre>
 </tr>
 <tr>
 <td>package_rng-tools_installed</td>
-<td>medium</td>
+<td>low</td>
 <td>Install rng-tools Package</td>
 <td xml:lang="en-US">
 <code>rng-tools</code> provides hardware random number generator tools,
@@ -6538,7 +6544,7 @@ The console can now be locked with the following key combination:
 </tr>
 <tr>
 <td>package_tuned_removed</td>
-<td>low</td>
+<td>medium</td>
 <td>Uninstall tuned Package</td>
 <td xml:lang="en-US">
 <code>tuned</code> contains a daemon that tunes the system settings dynamically.
@@ -6642,7 +6648,7 @@ or logical volume at installation time, or migrate it using LVM.</td>
 </tr>
 <tr>
 <td>partition_for_var_log</td>
-<td>medium</td>
+<td>low</td>
 <td>Ensure /var/log Located On Separate Partition</td>
 <td xml:lang="en-US">Placing <code>/var/log</code> in its own partition
 enables better separation between log files
@@ -6680,7 +6686,7 @@ audit logs that will be created by the auditing daemon.</td>
 </tr>
 <tr>
 <td>partition_for_var_tmp</td>
-<td>low</td>
+<td>medium</td>
 <td>Ensure /var/tmp Located On Separate Partition</td>
 <td xml:lang="en-US">The <code>/var/tmp</code> partition is used as temporary storage by many programs.
 Placing <code>/var/tmp</code> in its own partition enables the setting of more
@@ -6695,7 +6701,7 @@ logical volume at installation time, or migrate it using LVM.</td>
 </tr>
 <tr>
 <td>postfix_client_configure_mail_alias</td>
-<td>low</td>
+<td>medium</td>
 <td>Configure System to Forward All Mail For The Root Account</td>
 <td xml:lang="en-US">A number of system services utilize email messages sent to the root user to
 notify system administrators of active or impending issues.  These messages must
@@ -6944,7 +6950,7 @@ There must be a resolvable DNS CNAME or Alias record set to "<xccdf-1.1:sub xmln
 </tr>
 <tr>
 <td>security_patches_up_to_date</td>
-<td>high</td>
+<td>medium</td>
 <td>Ensure Software Patches Installed</td>
 <td xml:lang="en-US">Installing software updates is a fundamental mitigation against
 the exploitation of publicly-known vulnerabilities. If the most
@@ -7148,7 +7154,7 @@ The <code>kdump</code> service can be disabled with the following command:
 </tr>
 <tr>
 <td>service_rngd_enabled</td>
-<td>medium</td>
+<td>low</td>
 <td>Enable the Hardware RNG Entropy Gatherer Service</td>
 <td xml:lang="en-US">The <code>rngd</code> service
 feeds random data from hardware device to kernel random device.</td>
@@ -7631,7 +7637,7 @@ To decrease the default limits, add or correct the following line in
 </tr>
 <tr>
 <td>sshd_use_strong_rng</td>
-<td>medium</td>
+<td>low</td>
 <td>SSH server uses strong entropy to seed</td>
 <td xml:lang="en-US">SSH implementation in RHEL8 uses the openssl library, which doesn't use high-entropy sources by default.
 Randomness is needed to generate data-encryption keys, and as plaintext padding and initialization vectors
@@ -7961,7 +7967,7 @@ To make sure that the setting is persistent, add the following line to a file in
 </tr>
 <tr>
 <td>sysctl_kernel_dmesg_restrict</td>
-<td>medium</td>
+<td>low</td>
 <td>Restrict Access to Kernel Message Buffer</td>
 <td xml:lang="en-US">Unprivileged access to the kernel syslog can expose sensitive kernel
 address information.</td>
@@ -8010,7 +8016,7 @@ To make sure that the setting is persistent, add the following line to a file in
 </tr>
 <tr>
 <td>sysctl_kernel_perf_event_paranoid</td>
-<td>medium</td>
+<td>low</td>
 <td>Disallow kernel profiling by unprivileged users</td>
 <td xml:lang="en-US">Kernel profiling can reveal sensitive information about kernel behaviour.</td>
 <td xml:lang="en-US">To set the runtime status of the <code>kernel.perf_event_paranoid</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.perf_event_paranoid=2</pre>
@@ -8360,7 +8366,7 @@ To make sure that the setting is persistent, add the following line to a file in
 </tr>
 <tr>
 <td>sysctl_user_max_user_namespaces</td>
-<td>low</td>
+<td>medium</td>
 <td>Disable the use of user namespaces</td>
 <td xml:lang="en-US">User namespaces are used primarily for Linux containers. The value 0
 disallows the use of user namespaces.</td>

@@ -1729,7 +1729,7 @@ The output should be empty.
 <td>The tmux terminal multiplexer is used to implement
 automatic session locking. It should not be listed in
 /etc/shells.</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -2111,7 +2111,7 @@ includes the appropriate configuration file.
 In /etc/ipsec.conf, make sure that the following line
 is not commented out or superseded by later includes:
 include /etc/crypto-policies/back-ends/libreswan.config</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -9112,7 +9112,7 @@ reachable from the system in question. Use the following command to
 configure the alias:
 $ sudo echo "root: " &gt;&gt; /etc/aliases
 $ sudo newaliases</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18245,7 +18245,7 @@ Once the superuser account has been added,
 update the
 grub.cfg file by running:
 grub2-mkconfig -o /boot/grub2/grub.cfg</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18361,7 +18361,7 @@ Once the superuser account has been added,
 update the
 grub.cfg file by running:
 grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18627,7 +18627,7 @@ $ rpm -q gssproxy
 <td>The gssproxy package can be removed with the following command:
 
 $ sudo yum erase gssproxy</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18657,7 +18657,7 @@ $ rpm -q iprutils
 <td>The iprutils package can be removed with the following command:
 
 $ sudo yum erase iprutils</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18747,7 +18747,7 @@ $ rpm -q tuned
 <td>The tuned package can be removed with the following command:
 
 $ sudo yum erase tuned</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18799,7 +18799,7 @@ default Grub2 command line for Linux operating systems.  Modify the line within
 /etc/default/grub as shown below:
 GRUB_CMDLINE_LINUX="... pti=on ..."
 Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="pti=on"</td>
-<td>high</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -18923,7 +18923,7 @@ high-speed real-time communication.
 To configure the system to prevent the firewire-core
 kernel module from being loaded, add the following line to a file in the directory /etc/modprobe.d:
 install firewire-core /bin/true</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -19009,7 +19009,7 @@ cluster.
 To configure the system to prevent the tipc
 kernel module from being loaded, add the following line to a file in the directory /etc/modprobe.d:
 install tipc /bin/true</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -20034,7 +20034,7 @@ set up to ignore it.
 To check that Crypto Policies settings for Kerberos are configured correctly, examine that there is a symlink at
 /etc/krb5.conf.d/crypto-policies targeting /etc/cypto-policies/back-ends/krb5.config.
 If the symlink exists, kerberos is configured to use the system-wide crypto policy settings.</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -20478,7 +20478,7 @@ is executed.
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3780r557211_fix">Configure the operating system to separate user functionality (including user interface services) from operating system management functionality.</fixtext></td>
 <td>To set the runtime status of the kernel.dmesg_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.dmesg_restrict=1
 To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.dmesg_restrict = 1</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -20526,7 +20526,7 @@ is executed.
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3780r557211_fix">Configure the operating system to separate user functionality (including user interface services) from operating system management functionality.</fixtext></td>
 <td>To set the runtime status of the kernel.perf_event_paranoid kernel parameter, run the following command: $ sudo sysctl -w kernel.perf_event_paranoid=2
 To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.perf_event_paranoid = 2</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -20924,7 +20924,7 @@ is executed.
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3782r557217_fix">Configure operating systems to prevent unauthorized and unintended information transfer via shared system resources.</fixtext></td>
 <td>To set the runtime status of the kernel.dmesg_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.dmesg_restrict=1
 To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.dmesg_restrict = 1</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -20970,7 +20970,7 @@ is executed.
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3782r557217_fix">Configure operating systems to prevent unauthorized and unintended information transfer via shared system resources.</fixtext></td>
 <td>To set the runtime status of the kernel.perf_event_paranoid kernel parameter, run the following command: $ sudo sysctl -w kernel.perf_event_paranoid=2
 To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.perf_event_paranoid = 2</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -21188,7 +21188,7 @@ $ sudo ps -ef | grep -i mfetpd
 <td>Install McAfee Endpoint Security for Linux antivirus software
 which is provided for DoD systems and uses signatures to search for the
 presence of viruses on the filesystem.</td>
-<td>high</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -23183,7 +23183,7 @@ To check that Crypto Policies settings for ciphers are configured correctly, ens
 /etc/crypto-policies/back-ends/openssh.config contains the following
 line and is not commented out:
 Ciphers </td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -23267,7 +23267,7 @@ To check that Crypto Policies settings are configured correctly, ensure that
 /etc/crypto-policies/back-ends/openssh.config contains the following
 line and is not commented out:
 MACs hmac-sha2-512,hmac-sha2-256</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -23441,7 +23441,7 @@ default Grub2 command line for Linux operating systems.  Modify the line within
 /etc/default/grub as shown below:
 GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."
 Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -26084,7 +26084,7 @@ The output should be empty.
 <td>The tmux terminal multiplexer is used to implement
 automatic session locking. It should not be listed in
 /etc/shells.</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -26584,7 +26584,7 @@ default Grub2 command line for Linux operating systems.  Modify the line within
 /etc/default/grub as shown below:
 GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."
 Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -28522,7 +28522,7 @@ not exist within temporary directories like /dev/shm.
 Add the nodev option to the fourth column of
 /etc/fstab for the line which controls mounting of
 /dev/shm.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -28562,7 +28562,7 @@ from world-writable temporary storage directories such as /dev/shm.
 Add the noexec option to the fourth column of
 /etc/fstab for the line which controls mounting of
 /dev/shm.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -28600,7 +28600,7 @@ be required in these world-writable directories.
 Add the nosuid option to the fourth column of
 /etc/fstab for the line which controls mounting of
 /dev/shm.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -34132,7 +34132,7 @@ includes the appropriate configuration:
 In the options section of /etc/named.conf, make sure that the following line
 is not commented out or superseded by later includes:
 include "/etc/crypto-policies/back-ends/bind.config";</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -34394,7 +34394,7 @@ includes the appropriate configuration:
 In the options section of /etc/named.conf, make sure that the following line
 is not commented out or superseded by later includes:
 include "/etc/crypto-policies/back-ends/bind.config";</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -34616,7 +34616,7 @@ default Grub2 command line for Linux operating systems.  Modify the line within
 /etc/default/grub as shown below:
 GRUB_CMDLINE_LINUX="... pti=on ..."
 Run the following command to update command line for already installed kernels:# grubby --update-kernel=ALL --args="pti=on"</td>
-<td>high</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -47662,7 +47662,7 @@ fips-mode-setup --enable
 To enable FIPS, the system requires that the fips module is added in
 dracut configuration.
 Check if /etc/dracut.conf.d/40-fips.conf contain add_dracutmodules+=" fips "</td>
-<td>medium</td>
+<td>high</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48354,7 +48354,7 @@ If /var/log has its own partition or volume group, a line will be returned.
 
 Ensure that /var/log has its own partition or logical
 volume at installation time, or migrate it using LVM.</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48420,7 +48420,7 @@ If /var/tmp has its own partition or volume group, a line will be returned.
 <td>The /var/tmp directory is a world-writable directory used
 for temporary file storage. Ensure it has its own partition or
 logical volume at installation time, or migrate it using LVM.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48619,7 +48619,7 @@ $ sudo yum install rng-tools</pre>
 <td>The rng-tools package can be installed with the following command:
 
 $ sudo yum install rng-tools</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48647,7 +48647,7 @@ $ rpm -q gssproxy
 <td>The gssproxy package can be removed with the following command:
 
 $ sudo yum erase gssproxy</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48675,7 +48675,7 @@ $ rpm -q iprutils
 <td>The iprutils package can be removed with the following command:
 
 $ sudo yum erase iprutils</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48703,7 +48703,7 @@ $ rpm -q tuned
 <td>The tuned package can be removed with the following command:
 
 $ sudo yum erase tuned</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -48741,7 +48741,7 @@ can be manually downloaded from the Red Hat Network and installed using rpm.
 
 NOTE: U.S. Defense systems are required to be patched within 30 days or sooner as local policy
 dictates.</td>
-<td>high</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -49934,7 +49934,7 @@ For example:
 search example.com
 nameserver 192.168.0.1
 nameserver 192.168.0.2</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -51097,7 +51097,7 @@ Add the nodev option to the fourth column of
 /etc/fstab for the line which controls mounting of
 
     any removable media partitions.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -51449,7 +51449,7 @@ add the following line to a file in the directory /etc/sysctl.d:
 user.max_user_namespaces = 0
 When containers are deployed on the machine, the value should be set
 to large non-zero value.</td>
-<td>low</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>
@@ -51742,7 +51742,7 @@ $ sudo yum install policycoreutils</pre>
 <td>The policycoreutils package can be installed with the following command:
 
 $ sudo yum install policycoreutils</td>
-<td>high</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -52133,7 +52133,7 @@ If the service is running, it should return the following: active
 
 The rngd service can be enabled with the following command:
 $ sudo systemctl enable rngd.service</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
@@ -52703,7 +52703,7 @@ then the option is set correctly.
 The SSH_USE_STRONG_RNG configuration value determines how many bytes of entropy to use, so
 make sure that the file contains line
 SSH_USE_STRONG_RNG=32</td>
-<td>medium</td>
+<td>low</td>
 <td></td>
 <td></td>
 <td></td>
