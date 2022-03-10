@@ -291,6 +291,7 @@ sudoers_no_command_negation
 sudoers_no_root_target
 sysctl_crypto_fips_enabled
 sysctl_fs_suid_dumpable
+sysctl_kernel_panic_on_oops
 sysctl_net_ipv4_ip_forward
 sysctl_net_ipv4_tcp_invalid_ratelimit
 sysctl_net_ipv6_conf_all_disable_ipv6

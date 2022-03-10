@@ -332,3 +332,4 @@ sshd_enable_gssapi_auth
 sshd_enable_pubkey_auth
 sshd_enable_warning_banner_net
 sshd_rekey_limit
+sysctl_kernel_panic_on_oops

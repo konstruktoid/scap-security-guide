@@ -40674,11 +40674,7 @@ into the account without authentication. Remove any instances of the
 
 <code>/etc/pam.d/system-auth</code>
 
-to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.</td>
+to prevent logins with empty passwords.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>To verify that null passwords cannot be used, run the following command:
@@ -40698,11 +40694,7 @@ nullok in
 
 /etc/pam.d/system-auth
 
-to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.</td>
+to prevent logins with empty passwords.</td>
 <td>high</td>
 <td></td>
 <td></td>

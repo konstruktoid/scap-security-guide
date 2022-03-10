@@ -2074,8 +2074,8 @@ address information.
   <td>CCE-80915-2</td>
   <td>Restrict Exposed Kernel Pointer Addresses Access</td>
   <td xml:lang="en-US">
-To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=1</pre>
-To make sure that the setting is persistent, add the following line to a file in the directory <tt>/etc/sysctl.d</tt>: <pre>kernel.kptr_restrict = 1</pre>
+To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=<tt>1</tt></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <tt>/etc/sysctl.d</tt>: <pre>kernel.kptr_restrict = <tt>1</tt></pre>
   </td>
   <td xml:lang="en-US">
 Exposing kernel pointers (through procfs or <tt>seq_printf()</tt>) exposes
@@ -2084,7 +2084,7 @@ in the kernel allowing a write access to any of this structure, the kernel can b
 option disallow any program withtout the CAP_SYSLOG capability from getting the kernel pointers addresses,
 replacing them with 0.
   </td>
-  <td></td>
+  <td>sysctl_kernel_kptr_restrict_value=1</td>
 </tr>
 <tr>
   <td>BP28(R23)</td>

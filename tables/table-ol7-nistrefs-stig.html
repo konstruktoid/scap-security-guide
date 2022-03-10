@@ -2771,7 +2771,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
+  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -2829,10 +2829,6 @@ into the account without authentication. Remove any instances of the
 <tt>/etc/pam.d/system-auth</tt>
 
 to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.
   </td>
   <td xml:lang="en-US">
 If an account has an empty password, anyone could log in and

@@ -20640,8 +20640,8 @@ Operating system management functionality includes functions necessary to admini
 The separation of user functionality from information system management functionality is either physical or logical and is accomplished by using different computers, different central processing units, different instances of the operating system, different network addresses, different TCP/UDP ports, virtualization techniques, combinations of these methods, or other methods, as appropriate.
 
 An example of this type of separation is observed in web administrative interfaces that use separate authentication methods for users of any other information system resources. This may include isolating the administrative interface on a different security domain and with additional access controls.</td>
-<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=1</pre>
-To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = 1</pre>
+<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system separates user functionality (including user interface services) from operating system management functionality. If it does not, this is a finding.</td>
@@ -20668,8 +20668,8 @@ is executed.
       Is it the case that the correct value is not returned?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3780r557211_fix">Configure the operating system to separate user functionality (including user interface services) from operating system management functionality.</fixtext></td>
-<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=1
-To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = 1</td>
+<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=
+To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = </td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -34460,8 +34460,8 @@ The behavior will be derived from the organizational and system requirements and
 <td>Some adversaries launch attacks with the intent of executing code in non-executable regions of memory or in memory locations that are prohibited. Security safeguards employed to protect memory include, for example, data execution prevention and address space layout randomization. Data execution prevention safeguards can either be hardware-enforced or software-enforced with hardware providing the greater strength of mechanism.
 
 Examples of attacks are buffer overflow attacks.</td>
-<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=1</pre>
-To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = 1</pre>
+<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system implements non-executable data to protect its memory from unauthorized code execution. If it does not, this is a finding.</td>
@@ -34488,8 +34488,8 @@ is executed.
       Is it the case that the correct value is not returned?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3878r375381_fix">Configure the operating system to implement non-executable data to protect its memory from unauthorized code execution.</fixtext></td>
-<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=1
-To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = 1</td>
+<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=
+To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = </td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -49062,11 +49062,7 @@ into the account without authentication. Remove any instances of the
 
 <code>/etc/pam.d/system-auth</code>
 
-to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.</td>
+to prevent logins with empty passwords.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>To verify that null passwords cannot be used, run the following command:
@@ -49086,11 +49082,7 @@ nullok in
 
 /etc/pam.d/system-auth
 
-to prevent logins with empty passwords.
-Note that this rule is not applicable for systems running within a
-container. Having user with empty password within a container is not
-considered a risk, because it should not be possible to directly login into
-a container anyway.</td>
+to prevent logins with empty passwords.</td>
 <td>high</td>
 <td></td>
 <td></td>
@@ -51591,8 +51583,8 @@ The output should be:
 <td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
 
 Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
-<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=1</pre>
-To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = 1</pre>
+<td xml:lang="en-US">To set the runtime status of the <code>kernel.kptr_restrict</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w kernel.kptr_restrict=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>kernel.kptr_restrict = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_kernel_kptr_restrict_value"></xccdf-1.1:sub></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
@@ -51619,8 +51611,8 @@ is executed.
       Is it the case that the correct value is not returned?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
-<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=1
-To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = 1</td>
+<td>To set the runtime status of the kernel.kptr_restrict kernel parameter, run the following command: $ sudo sysctl -w kernel.kptr_restrict=
+To make sure that the setting is persistent, add the following line to a file in the directory /etc/sysctl.d: kernel.kptr_restrict = </td>
 <td>medium</td>
 <td></td>
 <td></td>
