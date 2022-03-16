@@ -15985,6 +15985,55 @@ Techniques used to address this include protocols using nonces (e.g., numbers ge
 <td>SRG-OS-000114-GPOS-00059</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must uniquely identify peripherals before establishing a connection.</td>
+<td>CCE-80122-5:Disable GNOME3 Automounting</td>
+<td>Without identifying devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
+
+Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers.</td>
+<td xml:lang="en-US">The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+<code>automount</code> to <code>false</code> in <code>/etc/dconf/db/local.d/00-security-settings</code>.
+For example:
+<pre>[org/gnome/desktop/media-handling]
+automount=false</pre>
+Once the settings have been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/media-handling/automount</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system uniquely identifies peripherals before establishing a connection. If it does not, this is a finding.</td>
+<td>These settings can be verified by running the following:
+$ gsettings get org.gnome.desktop.media-handling automount
+If properly configured, the output for automount should be false.
+To ensure that users cannot enable automount in GNOME3, run the following:
+$ grep 'automount' /etc/dconf/db/local.d/locks/*
+If properly configured, the output for automount should be /org/gnome/desktop/media-handling/automount
+      Is it the case that GNOME automounting is not disabled?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3772r557187_fix">Configure the operating system to uniquely identify peripherals before establishing a connection.</fixtext></td>
+<td>The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+automount to false in /etc/dconf/db/local.d/00-security-settings.
+For example:
+[org/gnome/desktop/media-handling]
+automount=false
+Once the settings have been added, add a lock to
+/etc/dconf/db/local.d/locks/00-security-settings-lock to prevent user modification.
+For example:
+/org/gnome/desktop/media-handling/automount
+After the settings have been set, run dconf update.</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-71029</td>
+<td>SRG-OS-000114-GPOS-00059</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must uniquely identify peripherals before establishing a connection.</td>
 <td>CCE-83692-4:Disable GNOME3 Automount Opening</td>
 <td>Without identifying devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
 
@@ -23632,6 +23681,55 @@ to services under the [sssd] section in
 [sssd]
 services = sudo, autofs, pam
 </td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>V-56809</td>
+<td>SRG-OS-000378-GPOS-00163</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must authenticate peripherals before establishing a connection.</td>
+<td>CCE-80122-5:Disable GNOME3 Automounting</td>
+<td>Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity.
+
+Peripherals include, but are not limited to, such devices as flash drives, external storage, and printers.</td>
+<td xml:lang="en-US">The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+<code>automount</code> to <code>false</code> in <code>/etc/dconf/db/local.d/00-security-settings</code>.
+For example:
+<pre>[org/gnome/desktop/media-handling]
+automount=false</pre>
+Once the settings have been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/media-handling/automount</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system authenticates peripherals before establishing a connection. If it does not, this is a finding.</td>
+<td>These settings can be verified by running the following:
+$ gsettings get org.gnome.desktop.media-handling automount
+If properly configured, the output for automount should be false.
+To ensure that users cannot enable automount in GNOME3, run the following:
+$ grep 'automount' /etc/dconf/db/local.d/locks/*
+If properly configured, the output for automount should be /org/gnome/desktop/media-handling/automount
+      Is it the case that GNOME automounting is not disabled?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3855r375198_fix">Configure the operating system to authenticate peripherals before establishing a connection.</fixtext></td>
+<td>The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+automount to false in /etc/dconf/db/local.d/00-security-settings.
+For example:
+[org/gnome/desktop/media-handling]
+automount=false
+Once the settings have been added, add a lock to
+/etc/dconf/db/local.d/locks/00-security-settings-lock to prevent user modification.
+For example:
+/org/gnome/desktop/media-handling/automount
+After the settings have been set, run dconf update.</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -40211,6 +40309,55 @@ in the following directories:
 /etc/dconf/db/gdm.d
 /etc/dconf/db/local.d</td>
 <td>high</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-70851</td>
+<td>SRG-OS-000480-GPOS-00227</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
+<td>CCE-80122-5:Disable GNOME3 Automounting</td>
+<td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.
+
+Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
+<td xml:lang="en-US">The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+<code>automount</code> to <code>false</code> in <code>/etc/dconf/db/local.d/00-security-settings</code>.
+For example:
+<pre>[org/gnome/desktop/media-handling]
+automount=false</pre>
+Once the settings have been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/media-handling/automount</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
+<td>These settings can be verified by running the following:
+$ gsettings get org.gnome.desktop.media-handling automount
+If properly configured, the output for automount should be false.
+To ensure that users cannot enable automount in GNOME3, run the following:
+$ grep 'automount' /etc/dconf/db/local.d/locks/*
+If properly configured, the output for automount should be /org/gnome/desktop/media-handling/automount
+      Is it the case that GNOME automounting is not disabled?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
+<td>The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable automount within GNOME3, add or set
+automount to false in /etc/dconf/db/local.d/00-security-settings.
+For example:
+[org/gnome/desktop/media-handling]
+automount=false
+Once the settings have been added, add a lock to
+/etc/dconf/db/local.d/locks/00-security-settings-lock to prevent user modification.
+For example:
+/org/gnome/desktop/media-handling/automount
+After the settings have been set, run dconf update.</td>
+<td>medium</td>
 <td></td>
 <td></td>
 <td></td>

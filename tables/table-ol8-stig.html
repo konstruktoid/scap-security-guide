@@ -3965,7 +3965,10 @@ The console can now be locked with the following key combination:
 <td>medium</td>
 <td>OL 8 must ensure session control is automatically started at shell initialization.</td>
 <td>Unlike <code>bash</code> itself, the <code>tmux</code> terminal multiplexer
-provides a mechanism to lock sessions after period of inactivity.</td>
+provides a mechanism to lock sessions after period of inactivity.
+A session lock is a temporary action taken when a user stops work and moves away from the
+immediate physical vicinity of the information system but does not want to
+log out because of the temporary nature of the absence.</td>
 <td>To verify that tmux is configured to execute,
 run the following command:
 $ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc /etc/profile.d/*

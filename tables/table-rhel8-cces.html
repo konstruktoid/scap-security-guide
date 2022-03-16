@@ -885,7 +885,7 @@ Enable=false
 </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-89904-7</td>
 <td>Disable GNOME3 Automounting</td>
 <td xml:lang="en-US">The system's default desktop environment, GNOME3, will mount
 devices and removable media (such as DVDs, CDs and USB flash drives) whenever
@@ -2268,6 +2268,17 @@ below:
 This will help ensure when local users change their passwords, hashes for
 the new passwords will be generated using the SHA-512 algorithm. This is
 the default.</td>
+</tr>
+<tr>
+<td>CCE-89707-4</td>
+<td>Set Password Hashing Rounds in /etc/login.defs</td>
+<td xml:lang="en-US">In <code>/etc/login.defs</code>, ensure <code>SHA_CRYPT_MIN_ROUNDS</code> and
+<code>SHA_CRYPT_MAX_ROUNDS</code> has the minimum value of <code>5000</code>.
+For example:
+<pre>SHA_CRYPT_MIN_ROUNDS 5000
+SHA_CRYPT_MAX_ROUNDS 5000</pre>
+Notice that if neither are set, they already have the default value of 5000.
+If either is set, they must have the minimum value of 5000.</td>
 </tr>
 <tr>
 <td>CCE-80876-6</td>

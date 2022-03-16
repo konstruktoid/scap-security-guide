@@ -490,22 +490,27 @@ this is a finding.</td>
 <td>196</td>
 <td>medium</td>
 <td>The RHEL 8 shadow password suite must be configured to use a sufficient number of hashing rounds.</td>
-<td>Using a higher number of rounds makes password cracking attacks more difficult.</td>
-<td>To verify the number of rounds for the password hashing algorithm is compliant, run the following command:
-$ grep rounds /etc/pam.d/password-auth
-The output should show the following match:
-rounds=
-      Is it the case that it does not set the appropriate number of hashing rounds?
-      </td>
-<td>Configure the number or rounds for the password hashing algorithm. This can be
-accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
+<td>Passwords need to be protected at all times, and encryption is the standard
+method for protecting passwords. If passwords are not encrypted, they can
+be plainly read (i.e., clear text) and easily compromised. Passwords
+that are encrypted with a weak algorithm are no more protected than if
+they are kept in plain text.
 <br><br>
-In file <code>/etc/pam.d/password-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
-to the <code>pam_unix.so</code> file, as shown below:
-<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
-The system's default number of rounds is 5000.</td>
+Using more hashing rounds makes password cracking attacks more difficult.</td>
+<td>Inspect /etc/login.defs and ensure that if eihter
+SHA_CRYPT_MIN_ROUNDS or SHA_CRYPT_MAX_ROUNDS
+are set, they must have the minimum value of 5000.
+      Is it the case that it does not?
+      </td>
+<td>In <code>/etc/login.defs</code>, ensure <code>SHA_CRYPT_MIN_ROUNDS</code> and
+<code>SHA_CRYPT_MAX_ROUNDS</code> has the minimum value of <code>5000</code>.
+For example:
+<pre>SHA_CRYPT_MIN_ROUNDS 5000
+SHA_CRYPT_MAX_ROUNDS 5000</pre>
+Notice that if neither are set, they already have the default value of 5000.
+If either is set, they must have the minimum value of 5000.</td>
 <td>RHEL-08-010130</td>
-<td>accounts_password_pam_unix_rounds_password_auth</td>
+<td>set_password_hashing_min_rounds_logindefs</td>
 </tr>
 <tr>
 <td>V-230234</td>
@@ -4115,7 +4120,10 @@ The console can now be locked with the following key combination:
 <td>medium</td>
 <td>RHEL 8 must ensure session control is automatically started at shell initialization.</td>
 <td>Unlike <code>bash</code> itself, the <code>tmux</code> terminal multiplexer
-provides a mechanism to lock sessions after period of inactivity.</td>
+provides a mechanism to lock sessions after period of inactivity.
+A session lock is a temporary action taken when a user stops work and moves away from the
+immediate physical vicinity of the information system but does not want to
+log out because of the temporary nature of the absence.</td>
 <td>To verify that tmux is configured to execute,
 run the following command:
 $ grep -A1 -B3 "case ..name. in sshd|login) exec tmux ;; esac" /etc/bashrc /etc/profile.d/*
@@ -4720,34 +4728,6 @@ restriction by running the following command:
 <td>Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.</td>
 <td>Check that the operating system prohibits the reuse of a password for
 a minimum of  generations with the following command:
-# grep pam_pwhistory.so /etc/pam.d/system-auth
-password  pam_pwhistory.so remember= use_authtok
-If the command does not return a result, or the returned line is commented
-out, has a second column value different from , does not contain
-"remember" value, or the value is less than
-, this is a finding.
-      Is it the case that the value of remember is not set equal to or greater than &lt;sub idref="var_password_pam_remember" /&gt;?
-      </td>
-<td>Do not allow users to reuse recent passwords. This can be
-accomplished by using the <code>remember</code> option for the
-<code>pam_pwhistory</code> PAM modules.
-<br><br>
-In the file <code>/etc/pam.d/system-auth</code>, make sure the parameter
-<code>remember</code> is present, and that the value
-for the <code>remember</code> parameter is <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> or greater. For example:
-<pre>password <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember_control_flag"></xccdf-1.1:sub> pam_pwhistory.so <i>...existing_options...</i> remember=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> use_authtok</pre>
-The DoD STIG requirement is 5 passwords.</td>
-<td>RHEL-08-020220</td>
-<td>accounts_password_pam_pwhistory_remember_system_auth</td>
-</tr>
-<tr>
-<td>V-251717</td>
-<td>200</td>
-<td>medium</td>
-<td>RHEL 8 must be configured in the system-auth file to prohibit password reuse for a minimum of five generations.</td>
-<td>Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.</td>
-<td>Check that the operating system prohibits the reuse of a password for
-a minimum of  generations with the following command:
 # grep pam_pwhistory.so /etc/pam.d/password-auth
 password  pam_pwhistory.so remember= use_authtok
 If the command does not return a result, or the returned line is commented
@@ -4765,8 +4745,36 @@ In the file <code>/etc/pam.d/password-auth</code>, make sure the parameter
 for the <code>remember</code> parameter is <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> or greater. For example:
 <pre>password <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember_control_flag"></xccdf-1.1:sub> pam_pwhistory.so <i>...existing_options...</i> remember=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> use_authtok</pre>
 The DoD STIG requirement is 5 passwords.</td>
-<td>RHEL-08-020221</td>
+<td>RHEL-08-020220</td>
 <td>accounts_password_pam_pwhistory_remember_password_auth</td>
+</tr>
+<tr>
+<td>V-251717</td>
+<td>200</td>
+<td>medium</td>
+<td>RHEL 8 must be configured in the system-auth file to prohibit password reuse for a minimum of five generations.</td>
+<td>Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.</td>
+<td>Check that the operating system prohibits the reuse of a password for
+a minimum of  generations with the following command:
+# grep pam_pwhistory.so /etc/pam.d/system-auth
+password  pam_pwhistory.so remember= use_authtok
+If the command does not return a result, or the returned line is commented
+out, has a second column value different from , does not contain
+"remember" value, or the value is less than
+, this is a finding.
+      Is it the case that the value of remember is not set equal to or greater than &lt;sub idref="var_password_pam_remember" /&gt;?
+      </td>
+<td>Do not allow users to reuse recent passwords. This can be
+accomplished by using the <code>remember</code> option for the
+<code>pam_pwhistory</code> PAM modules.
+<br><br>
+In the file <code>/etc/pam.d/system-auth</code>, make sure the parameter
+<code>remember</code> is present, and that the value
+for the <code>remember</code> parameter is <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> or greater. For example:
+<pre>password <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember_control_flag"></xccdf-1.1:sub> pam_pwhistory.so <i>...existing_options...</i> remember=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_remember"></xccdf-1.1:sub> use_authtok</pre>
+The DoD STIG requirement is 5 passwords.</td>
+<td>RHEL-08-020221</td>
+<td>accounts_password_pam_pwhistory_remember_system_auth</td>
 </tr>
 <tr>
 <td>V-230369</td>

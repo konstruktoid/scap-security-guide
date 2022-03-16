@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>236</td>
-<td>9</td>
-<td>227</td>
-<td>96.19%</td>
-<td>RHEL-07-010118RHEL-07-010291RHEL-07-010344RHEL-07-020021RHEL-07-020023RHEL-07-020111RHEL-07-030201RHEL-07-030819RHEL-07-030840</td>
+<td>8</td>
+<td>228</td>
+<td>96.61%</td>
+<td>RHEL-07-010118RHEL-07-010291RHEL-07-010344RHEL-07-020021RHEL-07-020023RHEL-07-030201RHEL-07-030819RHEL-07-030840</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -2147,14 +2147,35 @@ The <code>autofs</code> service can be disabled with the following command:
 </tr>
 <tr>
 <td>V-219059</td>
-<td></td>
+<td>1958</td>
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must disable the graphical user interface automounter unless required.</td>
-<td></td>
-<td></td>
-<td></td>
+<td>Disabling automatic mount running in GNOME3 can prevent
+the introduction of malware via removable media.
+It will, however, also prevent desktop users from legitimate use
+of removable media.</td>
+<td>These settings can be verified by running the following:
+$ gsettings get org.gnome.desktop.media-handling autorun-never
+If properly configured, the output for autorun-nevershould be true.
+To ensure that users cannot enable autorun in GNOME3, run the following:
+$ grep 'autorun-never' /etc/dconf/db/local.d/locks/*
+If properly configured, the output for autorun-never should be /org/gnome/desktop/media-handling/autorun-never
+      Is it the case that GNOME autorun is not disabled?
+      </td>
+<td>The system's default desktop environment, GNOME3, will mount
+devices and removable media (such as DVDs, CDs and USB flash drives) whenever
+they are inserted into the system. To disable autorun-never within GNOME3, add or set
+<code>autorun-never</code> to <code>true</code> in <code>/etc/dconf/db/local.d/00-security-settings</code>.
+For example:
+<pre>[org/gnome/desktop/media-handling]
+autorun-never=true</pre>
+Once the settings have been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/media-handling/autorun-never</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
 <td>RHEL-07-020111</td>
-<td>Missing Rule</td>
+<td>dconf_gnome_disable_autorun</td>
 </tr>
 <tr>
 <td>V-204452</td>
@@ -2944,24 +2965,23 @@ any NFS mounts.</td>
 <td>1764</td>
 <td>low</td>
 <td>The Red Hat Enterprise Linux operating system must mount /dev/shm with secure options.</td>
-<td>Allowing users to execute binaries from world-writable directories
-such as <code>/dev/shm</code> can expose the system to potential compromise.</td>
-<td>To verify the noexec option is configured for the /dev/shm mount point,
+<td>The presence of SUID and SGID executables should be tightly controlled. Users
+should not be able to execute SUID or SGID binaries from temporary storage partitions.</td>
+<td>To verify the nosuid option is configured for the /dev/shm mount point,
     run the following command:
     $ mount | grep '\s/dev/shm\s'
-    The output should show the corresponding mount point along with the noexec setting in parentheses.
+    The output should show the corresponding mount point along with the nosuid setting in parentheses.
 
       Is it the case that the  is not present in the output line, or there is no output line at all?
       </td>
-<td>The <code>noexec</code> mount option can be used to prevent binaries
-from being executed out of <code>/dev/shm</code>.
-It can be dangerous to allow the execution of binaries
-from world-writable temporary storage directories such as <code>/dev/shm</code>.
-Add the <code>noexec</code> option to the fourth column of
+<td>The <code>nosuid</code> mount option can be used to prevent execution
+of setuid programs in <code>/dev/shm</code>.  The SUID and SGID permissions should not
+be required in these world-writable directories.
+Add the <code>nosuid</code> option to the fourth column of
 <code>/etc/fstab</code> for the line which controls mounting of
 <code>/dev/shm</code>.</td>
 <td>RHEL-07-021024</td>
-<td>mount_option_dev_shm_noexec</td>
+<td>mount_option_dev_shm_nosuid</td>
 </tr>
 <tr>
 <td>V-204487</td>

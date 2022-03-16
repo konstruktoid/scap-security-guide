@@ -2464,7 +2464,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(f)<br/>IA-5(1)(e)</td>
@@ -2484,7 +2484,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(c)<br/>IA-5(1)(a)<br/>CM-6(a)<br/>IA-5(4)</td>
@@ -7434,6 +7434,9 @@ automatic session locking. It should be started from
   <td xml:lang="en-US">
 Unlike <tt>bash</tt> itself, the <tt>tmux</tt> terminal multiplexer
 provides a mechanism to lock sessions after period of inactivity.
+A session lock is a temporary action taken when a user stops work and moves away from the
+immediate physical vicinity of the information system but does not want to
+log out because of the temporary nature of the absence.
   </td>
   <td></td>
 </tr>

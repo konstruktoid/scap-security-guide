@@ -708,42 +708,6 @@ length credit for each uppercase character. Modify the <code>ucredit</code> sett
 <td></td>
 </tr>
 <tr>
-<td>accounts_password_pam_unix_rounds_password_auth</td>
-<td>medium</td>
-<td>Set number of Password Hashing Rounds - password-auth</td>
-<td xml:lang="en-US">Using a higher number of rounds makes password cracking attacks more difficult.</td>
-<td xml:lang="en-US">Configure the number or rounds for the password hashing algorithm. This can be
-accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
-<br><br>
-In file <code>/etc/pam.d/password-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
-to the <code>pam_unix.so</code> file, as shown below:
-<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
-The system's default number of rounds is 5000.</td>
-<td></td>
-<td></td>
-<td>CCI-000196<br>
-</td>
-<td></td>
-</tr>
-<tr>
-<td>accounts_password_pam_unix_rounds_system_auth</td>
-<td>medium</td>
-<td>Set number of Password Hashing Rounds - system-auth</td>
-<td xml:lang="en-US">Using a higher number of rounds makes password cracking attacks more difficult.</td>
-<td xml:lang="en-US">Configure the number or rounds for the password hashing algorithm. This can be
-accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
-<br><br>
-In file <code>/etc/pam.d/system-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
-to the <code>pam_unix.so</code> file, as shown below:
-<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
-The system's default number of rounds is 5000.</td>
-<td></td>
-<td></td>
-<td>CCI-000196<br>
-</td>
-<td></td>
-</tr>
-<tr>
 <td>accounts_password_set_max_life_existing</td>
 <td>medium</td>
 <td>Set Existing Passwords Maximum Age</td>
@@ -3205,36 +3169,6 @@ via email for those situations:
 <td></td>
 </tr>
 <tr>
-<td>auditd_data_retention_max_log_file_action</td>
-<td>medium</td>
-<td>Configure auditd max_log_file_action Upon Reaching Maximum Log Size</td>
-<td xml:lang="en-US">Automatically rotating logs (by setting this to <code>rotate</code>)
-minimizes the chances of the system unexpectedly running out of disk space by
-being overwhelmed with log data. However, for systems that must never discard
-log data, or which use external processes to transfer it and reclaim space,
-<code>keep_logs</code> can be employed.</td>
-<td xml:lang="en-US">The default action to take when the logs reach their maximum size
-is to rotate the log files, discarding the oldest one. To configure the action taken
-by <code>auditd</code>, add or correct the line in <code>/etc/audit/auditd.conf</code>:
-<pre>max_log_file_action = <i>ACTION</i></pre>
-Possible values for <i>ACTION</i> are described in the <code>auditd.conf</code> man
-page. These include:
-<ul>
-<li><code>ignore</code></li>
-<li><code>syslog</code></li>
-<li><code>suspend</code></li>
-<li><code>rotate</code></li>
-<li><code>keep_logs</code></li>
-</ul>
-Set the <code><i>ACTION</i></code> to <code>rotate</code> to ensure log rotation
-occurs. This is the default. The setting is case-insensitive.</td>
-<td></td>
-<td></td>
-<td>CCI-000140<br>
-</td>
-<td></td>
-</tr>
-<tr>
 <td>auditd_data_retention_space_left_action</td>
 <td>medium</td>
 <td>Configure auditd space_left Action on Low Disk Space</td>
@@ -3505,7 +3439,10 @@ to <code>1</code> in <code>/etc/yum.conf</code>.</td>
 <td>medium</td>
 <td>Support session locking with tmux</td>
 <td xml:lang="en-US">Unlike <code>bash</code> itself, the <code>tmux</code> terminal multiplexer
-provides a mechanism to lock sessions after period of inactivity.</td>
+provides a mechanism to lock sessions after period of inactivity.
+A session lock is a temporary action taken when a user stops work and moves away from the
+immediate physical vicinity of the information system but does not want to
+log out because of the temporary nature of the absence.</td>
 <td xml:lang="en-US">The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
 <code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.</td>
@@ -7352,6 +7289,30 @@ the default.</td>
 <td></td>
 <td></td>
 <td>CCI-000196<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>set_password_hashing_min_rounds_logindefs</td>
+<td>medium</td>
+<td>Set Password Hashing Rounds in /etc/login.defs</td>
+<td xml:lang="en-US">Passwords need to be protected at all times, and encryption is the standard
+method for protecting passwords. If passwords are not encrypted, they can
+be plainly read (i.e., clear text) and easily compromised. Passwords
+that are encrypted with a weak algorithm are no more protected than if
+they are kept in plain text.
+<br><br>
+Using more hashing rounds makes password cracking attacks more difficult.</td>
+<td xml:lang="en-US">In <code>/etc/login.defs</code>, ensure <code>SHA_CRYPT_MIN_ROUNDS</code> and
+<code>SHA_CRYPT_MAX_ROUNDS</code> has the minimum value of <code>5000</code>.
+For example:
+<pre>SHA_CRYPT_MIN_ROUNDS 5000
+SHA_CRYPT_MAX_ROUNDS 5000</pre>
+Notice that if neither are set, they already have the default value of 5000.
+If either is set, they must have the minimum value of 5000.</td>
+<td></td>
+<td></td>
+<td>CCI-000803<br>
 </td>
 <td></td>
 </tr>

@@ -3547,6 +3547,9 @@ automatic session locking. It should be started from
   <td xml:lang="en-US">
 Unlike <tt>bash</tt> itself, the <tt>tmux</tt> terminal multiplexer
 provides a mechanism to lock sessions after period of inactivity.
+A session lock is a temporary action taken when a user stops work and moves away from the
+immediate physical vicinity of the information system but does not want to
+log out because of the temporary nature of the absence.
   </td>
   <td></td>
 </tr>
@@ -4207,7 +4210,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_ssh_client_rekey_limit_time=1hour<br/>var_ssh_client_rekey_limit_size=1G</td>
+  <td>var_ssh_client_rekey_limit_size=1G<br/>var_ssh_client_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

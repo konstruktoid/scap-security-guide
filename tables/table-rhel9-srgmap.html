@@ -3158,24 +3158,6 @@ outweighs the need to log all actions, and a different setting should be
 determined. Details regarding all possible values for <i>ACTION</i> are described in the
 <code>auditd.conf</code> man page.</td>
 </tr></table>
-<table><tr>
-<td>Configure auditd max_log_file_action Upon Reaching Maximum Log Size</td>
-<td xml:lang="en-US">The default action to take when the logs reach their maximum size
-is to rotate the log files, discarding the oldest one. To configure the action taken
-by <code>auditd</code>, add or correct the line in <code>/etc/audit/auditd.conf</code>:
-<pre>max_log_file_action = <i>ACTION</i></pre>
-Possible values for <i>ACTION</i> are described in the <code>auditd.conf</code> man
-page. These include:
-<ul>
-<li><code>ignore</code></li>
-<li><code>syslog</code></li>
-<li><code>suspend</code></li>
-<li><code>rotate</code></li>
-<li><code>keep_logs</code></li>
-</ul>
-Set the <code><i>ACTION</i></code> to <code>rotate</code> to ensure log rotation
-occurs. This is the default. The setting is case-insensitive.</td>
-</tr></table>
 </td>
 </tr>
 <tr>
@@ -5350,6 +5332,16 @@ the new passwords will be generated using the SHA-512 algorithm. This is
 the default.</td>
 </tr></table>
 <table><tr>
+<td>Set Password Hashing Rounds in /etc/login.defs</td>
+<td xml:lang="en-US">In <code>/etc/login.defs</code>, ensure <code>SHA_CRYPT_MIN_ROUNDS</code> and
+<code>SHA_CRYPT_MAX_ROUNDS</code> has the minimum value of <code>5000</code>.
+For example:
+<pre>SHA_CRYPT_MIN_ROUNDS 5000
+SHA_CRYPT_MAX_ROUNDS 5000</pre>
+Notice that if neither are set, they already have the default value of 5000.
+If either is set, they must have the minimum value of 5000.</td>
+</tr></table>
+<table><tr>
 <td>Verify All Account Password Hashes are Shadowed with SHA512</td>
 <td xml:lang="en-US">Verify the operating system requires the shadow password suite
 configuration be set to encrypt interactive user passwords using a strong
@@ -5362,26 +5354,6 @@ Password hashes <code>!</code> or <code>*</code> indicate inactive accounts not
 available for logon and are not evaluated.
 If any interactive user password hash does not begin with <code>$6</code>,
 this is a finding.</td>
-</tr></table>
-<table><tr>
-<td>Set number of Password Hashing Rounds - password-auth</td>
-<td xml:lang="en-US">Configure the number or rounds for the password hashing algorithm. This can be
-accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
-<br><br>
-In file <code>/etc/pam.d/password-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
-to the <code>pam_unix.so</code> file, as shown below:
-<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
-The system's default number of rounds is 5000.</td>
-</tr></table>
-<table><tr>
-<td>Set number of Password Hashing Rounds - system-auth</td>
-<td xml:lang="en-US">Configure the number or rounds for the password hashing algorithm. This can be
-accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
-<br><br>
-In file <code>/etc/pam.d/system-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
-to the <code>pam_unix.so</code> file, as shown below:
-<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
-The system's default number of rounds is 5000.</td>
 </tr></table>
 </td>
 </tr>
@@ -6131,6 +6103,16 @@ If the symlink exists, kerberos is configured to use the system-wide crypto poli
 <pre>
 $ sudo dnf erase krb5-workstation</pre>
 </td>
+</tr></table>
+<table><tr>
+<td>Set Password Hashing Rounds in /etc/login.defs</td>
+<td xml:lang="en-US">In <code>/etc/login.defs</code>, ensure <code>SHA_CRYPT_MIN_ROUNDS</code> and
+<code>SHA_CRYPT_MAX_ROUNDS</code> has the minimum value of <code>5000</code>.
+For example:
+<pre>SHA_CRYPT_MIN_ROUNDS 5000
+SHA_CRYPT_MAX_ROUNDS 5000</pre>
+Notice that if neither are set, they already have the default value of 5000.
+If either is set, they must have the minimum value of 5000.</td>
 </tr></table>
 <table><tr>
 <td>Verify All Account Password Hashes are Shadowed with SHA512</td>
