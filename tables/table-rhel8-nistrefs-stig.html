@@ -2463,7 +2463,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(f)<br/>IA-5(1)(e)</td>
@@ -2483,7 +2483,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(c)<br/>IA-5(1)(a)<br/>CM-6(a)<br/>IA-5(4)</td>
@@ -6961,6 +6961,19 @@ service to valid network resources.
   <td>CCE-84049-6</td>
   <td>Configure Multiple DNS Servers in /etc/resolv.conf</td>
   <td xml:lang="en-US">
+
+Determine whether the system is using local or DNS name resolution with the
+following command:
+<pre>$ sudo grep hosts /etc/nsswitch.conf
+hosts: files dns</pre>
+If the DNS entry is missing from the host's line in the "/etc/nsswitch.conf"
+file, the "/etc/resolv.conf" file must be empty.
+Verify the "/etc/resolv.conf" file is empty with the following command:
+<pre>$ sudo ls -al /etc/resolv.conf
+-rw-r--r-- 1 root root 0 Aug 19 08:31 resolv.conf</pre>
+If the DNS entry is found on the host's line of the "/etc/nsswitch.conf" file,
+then verify the following:<br/>
+
 Multiple Domain Name System (DNS) Servers should be configured
 in <tt>/etc/resolv.conf</tt>. This provides redundant name resolution services
 in the event that a domain server crashes. To configure the system to contain
@@ -8132,7 +8145,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
+  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
 </tr>
 <tr>
   <td></td>
