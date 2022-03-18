@@ -2665,7 +2665,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
+  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -2675,10 +2675,12 @@ network(s).
 Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <tt>/etc/audit/audit.rules</tt></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.

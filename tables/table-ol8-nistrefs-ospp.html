@@ -3776,21 +3776,6 @@ over sockets.
 <tr>
   <td></td>
   <td>N/A</td>
-  <td>Uninstall abrt-plugin-logger Package</td>
-  <td xml:lang="en-US">
-The <code>abrt-plugin-logger</code> package can be removed with the following command:
-<pre>
-$ sudo yum erase abrt-plugin-logger</pre>
-  </td>
-  <td xml:lang="en-US">
-<tt>abrt-plugin-logger</tt> is an ABRT plugin which writes a report
-to a specified file.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
-  <td>N/A</td>
   <td>Uninstall abrt-plugin-sosreport Package</td>
   <td xml:lang="en-US">
 The <code>abrt-plugin-sosreport</code> package can be removed with the following command:
@@ -4141,7 +4126,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_ssh_client_rekey_limit_time=1hour<br/>var_ssh_client_rekey_limit_size=1G</td>
+  <td>var_ssh_client_rekey_limit_size=1G<br/>var_ssh_client_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
@@ -4204,7 +4189,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

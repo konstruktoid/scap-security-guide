@@ -3745,10 +3745,12 @@ of privileged functions is one way to detect such misuse and identify the
 risk from insider threats and the advanced persistent threat.</pre></td>
 <td><pre>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -3758,10 +3760,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td><pre>Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</pre></td>

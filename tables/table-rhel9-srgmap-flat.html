@@ -25848,10 +25848,12 @@ Some programs and processes are required to operate at a higher privilege level 
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -25859,10 +25861,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify that the operating system prevents all software from executing at higher privilege levels than users executing the software. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -25873,10 +25877,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -25895,10 +25901,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -25906,10 +25914,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify that the operating system audits the execution of privileged functions. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -25920,10 +25930,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26125,10 +26137,12 @@ This requirement enables organizations to extend or limit auditing as necessary 
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26136,10 +26150,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides the capability for assigned IMOs/ISSOs or designated SAs to change the auditing to be performed on all operating system components, based on all selectable event criteria in near real time. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -26150,10 +26166,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26837,10 +26855,12 @@ Audit reduction is a technique used to reduce the volume of audit records in ord
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26848,10 +26868,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides an audit reduction capability that supports on-demand audit review and analysis. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -26862,10 +26884,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26912,10 +26936,12 @@ This requirement is specific to operating systems with audit reduction capabilit
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26923,10 +26949,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides an audit reduction capability that supports after-the-fact investigations of security incidents. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -26937,10 +26965,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26983,10 +27013,12 @@ Report generation must be capable of generating on-demand (i.e., customizable, a
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -26994,10 +27026,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides a report generation capability that supports on-demand audit review and analysis. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27008,10 +27042,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27054,10 +27090,12 @@ Report generation must be capable of generating on-demand (i.e., customizable, a
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27065,10 +27103,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides a report generation capability that supports on-demand reporting requirements. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27079,10 +27119,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27125,10 +27167,12 @@ The report generation capability must support after-the-fact investigations of s
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27136,10 +27180,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system provides a report generation capability that supports after-the-fact investigations of security incidents. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27150,10 +27196,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27200,10 +27248,12 @@ This requirement is specific to operating systems providing audit reduction capa
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27211,10 +27261,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system does not alter original content or time ordering of audit records when it provides an audit reduction capability. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27225,10 +27277,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27275,10 +27329,12 @@ This requirement is specific to operating systems providing report generation ca
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27286,10 +27342,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system does not alter original content or time ordering of audit records when it provides a report generation capability. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27300,10 +27358,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27488,10 +27548,12 @@ Time stamps generated by the operating system include date and time. Granularity
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27499,10 +27561,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system records time stamps for audit records that meet a minimum granularity of one second for a minimum degree of precision. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27513,10 +27577,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27559,10 +27625,12 @@ Time stamps generated by the operating system include date and time. Time is com
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27570,10 +27638,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system records time stamps for audit records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT). If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27584,10 +27654,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27953,10 +28025,12 @@ Enforcement actions are the methods or mechanisms used to prevent unauthorized c
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
@@ -27964,10 +28038,12 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>Verify the operating system audits the enforcement actions used to restrict access associated with changes to the system. If it does not, this is a finding.</td>
 <td>Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 The audit daemon must be restarted for the changes to take effect.
 
@@ -27978,10 +28054,12 @@ The audit daemon must be restarted for the changes to take effect.
 <td>Verify the system generates an audit record when privileged functions are executed.
 # grep -iw execve /etc/audit/audit.rules
 
+
 -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid
 -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid
 -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>

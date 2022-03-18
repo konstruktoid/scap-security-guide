@@ -46,7 +46,6 @@ grub2_password
 grub2_uefi_password
 install_PAE_kernel_on_x86-32
 mount_option_nodev_nonroot_local_partitions
-mount_option_proc_hidepid
 no_direct_root_logins
 postfix_client_configure_mail_alias
 postfix_network_listening_disabled

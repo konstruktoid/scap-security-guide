@@ -2054,10 +2054,12 @@ risk from insider threats and the advanced persistent threat.</td>
 <td xml:lang="en-US">Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
 
+
 <pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
 <pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
 <pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
+
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
