@@ -250,10 +250,10 @@ Executive Orders, directives, policies, regulations, standards, and guidance.
 For U.S. Government systems, system use notifications are required only for access via login interfaces
 with human users and are not required when such human interfaces do not exist.</pre></td>
 <td><pre>To ensure a login warning banner is enabled, run the following:
-$ grep banner-message-enable /etc/dconf/db/gdm.d/*
+$ grep banner-message-enable /etc/dconf/db/local.d/*
 If properly configured, the output should be true.
 To ensure a login warning banner is locked and cannot be changed by a user, run the following:
-$ grep banner-message-enable /etc/dconf/db/gdm.d/locks/*
+$ grep banner-message-enable /etc/dconf/db/local.d/locks/*
 If properly configured, the output should be /org/gnome/login-screen/banner-message-enable.
       Is it the case that it is not?
       </pre></td>
@@ -262,11 +262,11 @@ in the GNOME Display Manager's login screen can be enabled on the login
 screen by setting <code>banner-message-enable</code> to <code>true</code>.
 <br><br>
 To enable, add or edit <code>banner-message-enable</code> to
-<code>/etc/dconf/db/gdm.d/00-security-settings</code>. For example:
+<code>/etc/dconf/db/local.d/00-security-settings</code>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-enable=true</pre>
 Once the setting has been added, add a lock to
-<code>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</code> to prevent user modification.
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-enable</pre>
 After the settings have been set, run <code>dconf update</code>.
@@ -283,10 +283,10 @@ The banner text must also be set.</pre></td>
 process and facilitates possible legal action against attackers.</pre></td>
 <td><pre>
 To ensure the login warning banner text is properly set, run the following:
-$ grep banner-message-text /etc/dconf/db/gdm.d/*
+$ grep banner-message-text /etc/dconf/db/local.d/*
 If properly configured, the proper banner text will appear.
 To ensure the login warning banner text is locked and cannot be changed by a user, run the following:
-$ grep banner-message-text /etc/dconf/db/gdm.d/locks/*
+$ grep banner-message-text /etc/dconf/db/local.d/locks/*
 If properly configured, the output should be /org/gnome/login-screen/banner-message-text.
       Is it the case that it does not?
       </pre></td>
@@ -297,11 +297,11 @@ where <i>APPROVED_BANNER</i> is the approved banner for your environment.
 <br><br>
 To enable, add or edit <code>banner-message-text</code> to
 
-<code>/etc/dconf/db/gdm.d/00-security-settings</code>. For example:
+<code>/etc/dconf/db/local.d/00-security-settings</code>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-text='<i>APPROVED_BANNER</i>'</pre>
 Once the setting has been added, add a lock to
-<code>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</code> to prevent user modification.
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-text</pre>
 
@@ -7772,13 +7772,14 @@ audit tools by running the following command:
 
 # sudo cat /etc/aide.conf | grep /usr/sbin/au
 
-/usr/sbin/auditctl p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/auditd p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/ausearch p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/aureport p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/autrace p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/audispd p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-/usr/sbin/augenrules p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
+/usr/sbin/auditctl p+i+n+u+g+s+b+acl+xattrs+sha512
+/usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512
+/usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512
+/usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512
+/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512
+
+/usr/sbin/rsyslogd p+i+n+u+g+s+b+acl+xattrs+sha512
+/usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512
 
 If AIDE is configured properly to protect the integrity of the audit tools,
 all lines listed above will be returned from the command.
@@ -8612,7 +8613,7 @@ normal usage of the wireless capability.
 
 Configure the system to disable all wireless network interfaces with the
 following command:
-<pre>$ sudo nmcli radio wifi off</pre></pre></td>
+<pre>$ sudo nmcli radio all off</pre></pre></td>
 <td>OL08-00-040110</td>
 <td>wireless_disable_interfaces</td>
 </tr>

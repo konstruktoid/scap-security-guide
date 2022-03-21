@@ -5893,11 +5893,11 @@ in the GNOME Display Manager's login screen can be enabled on the login
 screen by setting <tt>banner-message-enable</tt> to <tt>true</tt>.
 <br /><br />
 To enable, add or edit <tt>banner-message-enable</tt> to
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-enable=true</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent user modification.
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-enable</pre>
 After the settings have been set, run <tt>dconf update</tt>.
@@ -5925,11 +5925,11 @@ where <i>APPROVED_BANNER</i> is the approved banner for your environment.
 <br /><br />
 To enable, add or edit <tt>banner-message-text</tt> to
 
-<tt>/etc/dconf/db/gdm.d/00-security-settings</tt>. For example:
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
 <pre>[org/gnome/login-screen]
 banner-message-text='<i>APPROVED_BANNER</i>'</pre>
 Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</tt> to prevent user modification.
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
 For example:
 <pre>/org/gnome/login-screen/banner-message-text</pre>
 
@@ -6906,7 +6906,7 @@ normal usage of the wireless capability.
 
 Configure the system to disable all wireless network interfaces with the
 following command:
-<pre>$ sudo nmcli radio wifi off</pre>
+<pre>$ sudo nmcli radio all off</pre>
   </td>
   <td xml:lang="en-US">
 The use of wireless networking can introduce many different attack vectors into
@@ -7747,74 +7747,28 @@ or for the use of two-factor authentication.
 <tr>
   <td></td>
   <td>N/A</td>
-  <td>Uninstall abrt-addon-ccpp Package</td>
+  <td>Uninstall abrt-libs Package</td>
   <td xml:lang="en-US">
-The <code>abrt-addon-ccpp</code> package can be removed with the following command:
+The <code>abrt-libs</code> package can be removed with the following command:
 <pre>
-$ sudo yum erase abrt-addon-ccpp</pre>
+$ sudo yum erase abrt-libs</pre>
   </td>
   <td xml:lang="en-US">
-<tt>abrt-addon-ccpp</tt> contains hooks for C/C++ crashed programs and <tt>abrt</tt>'s
-C/C++ analyzer plugin.
+<tt>abrt-libs</tt> provides libraries for the ABRT package.
   </td>
   <td></td>
 </tr>
 <tr>
   <td></td>
   <td>N/A</td>
-  <td>Uninstall abrt-addon-kerneloops Package</td>
+  <td>Uninstall abrt-server-info-page Package</td>
   <td xml:lang="en-US">
-The <code>abrt-addon-kerneloops</code> package can be removed with the following command:
+The <code>abrt-server-info-page</code> package can be removed with the following command:
 <pre>
-$ sudo yum erase abrt-addon-kerneloops</pre>
+$ sudo yum erase abrt-server-info-page</pre>
   </td>
   <td xml:lang="en-US">
-<tt>abrt-addon-kerneloops</tt> contains plugins for collecting kernel crash information and
-reporter plugin which sends this information to a specified server, usually to kerneloops.org.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
-  <td>N/A</td>
-  <td>Uninstall abrt-addon-python Package</td>
-  <td xml:lang="en-US">
-The <code>abrt-addon-python</code> package can be removed with the following command:
-<pre>
-$ sudo yum erase abrt-addon-python</pre>
-  </td>
-  <td xml:lang="en-US">
-<tt>abrt-addon-python</tt> contains python hook and python analyzer
-plugin for handling uncaught exceptions in python programs.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
-  <td>N/A</td>
-  <td>Uninstall abrt-cli Package</td>
-  <td xml:lang="en-US">
-The <code>abrt-cli</code> package can be removed with the following command:
-<pre>
-$ sudo yum erase abrt-cli</pre>
-  </td>
-  <td xml:lang="en-US">
-<tt>abrt-cli</tt> contains a command line client for controlling abrt daemon
-over sockets.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
-  <td>N/A</td>
-  <td>Uninstall abrt-plugin-sosreport Package</td>
-  <td xml:lang="en-US">
-The <code>abrt-plugin-sosreport</code> package can be removed with the following command:
-<pre>
-$ sudo yum erase abrt-plugin-sosreport</pre>
-  </td>
-  <td xml:lang="en-US">
-<tt>abrt-plugin-sosreport</tt> provides a plugin to include an sosreport in an ABRT report.
+<tt>abrt-server-info-page</tt> provides a web page with summary of ABRT services.
   </td>
   <td></td>
 </tr>

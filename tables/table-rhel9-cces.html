@@ -7748,6 +7748,13 @@ To make sure that the setting is persistent, add the following line to a file in
 </td>
 </tr>
 <tr>
+<td>CCE-89789-2</td>
+<td>Disable Accepting Packets Routed Between Local Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.accept_local</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.accept_local=0</pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.accept_local = 0</pre>
+</td>
+</tr>
+<tr>
 <td>CCE-84011-6</td>
 <td>Disable Accepting ICMP Redirects for All IPv4 Interfaces</td>
 <td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.accept_redirects</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.accept_redirects=0</pre>
@@ -7762,10 +7769,38 @@ To make sure that the setting is persistent, add the following line to a file in
 </td>
 </tr>
 <tr>
+<td>CCE-89555-7</td>
+<td>Configure ARP filtering for All IPv4 Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.arp_filter</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.arp_filter=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_arp_filter_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.arp_filter = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_arp_filter_value"></xccdf-1.1:sub></pre>
+</td>
+</tr>
+<tr>
+<td>CCE-89889-0</td>
+<td>Configure Response Mode of ARP Requests for All IPv4 Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.arp_ignore</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.arp_ignore=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_arp_ignore_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.arp_ignore = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_arp_ignore_value"></xccdf-1.1:sub></pre>
+</td>
+</tr>
+<tr>
+<td>CCE-89001-2</td>
+<td>Drop Gratuitious ARP frames on All IPv4 Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.drop_gratuitous_arp</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.drop_gratuitous_arp=1</pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.drop_gratuitous_arp = 1</pre>
+</td>
+</tr>
+<tr>
 <td>CCE-84000-9</td>
 <td>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces</td>
 <td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.log_martians</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.log_martians=1</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.log_martians = 1</pre>
+</td>
+</tr>
+<tr>
+<td>CCE-89023-6</td>
+<td>Prevent Routing External Traffic to Local Loopback on All IPv4 Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.route_localnet</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.route_localnet=0</pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.route_localnet = 0</pre>
 </td>
 </tr>
 <tr>
@@ -7780,6 +7815,13 @@ To make sure that the setting is persistent, add the following line to a file in
 <td>Disable Kernel Parameter for Accepting Secure ICMP Redirects on all IPv4 Interfaces</td>
 <td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.secure_redirects</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.secure_redirects=0</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.secure_redirects = 0</pre>
+</td>
+</tr>
+<tr>
+<td>CCE-89333-9</td>
+<td>Configure Sending and Accepting Shared Media Redirects for All IPv4 Interfaces</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.all.shared_media</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.all.shared_media=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_shared_media_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.all.shared_media = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_all_shared_media_value"></xccdf-1.1:sub></pre>
 </td>
 </tr>
 <tr>
@@ -7815,6 +7857,13 @@ To make sure that the setting is persistent, add the following line to a file in
 <td>Configure Kernel Parameter for Accepting Secure Redirects By Default</td>
 <td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.default.secure_redirects</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.default.secure_redirects=0</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.secure_redirects = 0</pre>
+</td>
+</tr>
+<tr>
+<td>CCE-89444-4</td>
+<td>Configure Sending and Accepting Shared Media Redirects by Default</td>
+<td xml:lang="en-US">To set the runtime status of the <code>net.ipv4.conf.default.shared_media</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.conf.default.shared_media=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_default_shared_media_value"></xccdf-1.1:sub></pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.conf.default.shared_media = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="sysctl_net_ipv4_conf_default_shared_media_value"></xccdf-1.1:sub></pre>
 </td>
 </tr>
 <tr>
@@ -7994,7 +8043,7 @@ normal usage of the wireless capability.
 
 Configure the system to disable all wireless network interfaces with the
 following command:
-<pre>$ sudo nmcli radio wifi off</pre>
+<pre>$ sudo nmcli radio all off</pre>
 </td>
 </tr>
 <tr>

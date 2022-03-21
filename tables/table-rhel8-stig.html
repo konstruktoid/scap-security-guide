@@ -7239,6 +7239,7 @@ audit tools by running the following command:
 /usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512
 
+
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512
 
 If AIDE is configured properly to protect the integrity of the audit tools,
@@ -8048,7 +8049,7 @@ normal usage of the wireless capability.
 
 Configure the system to disable all wireless network interfaces with the
 following command:
-<pre>$ sudo nmcli radio wifi off</pre></pre></td>
+<pre>$ sudo nmcli radio all off</pre></pre></td>
 <td>RHEL-08-040110</td>
 <td>wireless_disable_interfaces</td>
 </tr>
