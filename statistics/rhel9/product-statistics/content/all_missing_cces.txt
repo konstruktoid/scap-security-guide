@@ -1,6 +1,5 @@
 account_use_centralized_automated_auth
 accounts_password_pam_enforce_local
-accounts_password_pam_enforce_root
 accounts_passwords_pam_faillock_enforce_local
 aide_use_fips_hashes
 audit_rules_dac_modification_umount

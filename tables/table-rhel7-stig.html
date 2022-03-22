@@ -986,11 +986,12 @@ passwords need to be changed periodically. If the operating system does
 not limit the lifetime of passwords and force users to change their
 passwords, there is the risk that the operating system passwords could be
 compromised.</pre></td>
-<td><pre>Check whether the maximum time period for existing passwords is restricted
-to 60 days by running the following command for each user:
-$ sudo chage -l USER | grep Maximum
-The output for each user should return something similary to the following:
-Maximum number of days between password change\t\t: 60
+<td><pre>Check whether the maximum time period for existing passwords is restricted to 60 days with the following commands:
+
+
+$ sudo awk -F: '$5 &gt; 60 {print $1 "" "" $5}' /etc/shadow
+
+$ sudo awk -F: '$5 
       Is it the case that existing passwords are not configured correctly?
       </pre></td>
 <td><pre>Configure non-compliant accounts to enforce a 60-day maximum password lifetime
@@ -1131,16 +1132,16 @@ should prevent users from being able to assign themselves empty passwords.</pre>
 <td>795</td>
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must disable account identifiers (individuals, groups, roles, and devices) if the password expires.</td>
-<td><pre>Disabling inactive accounts ensures that accounts which may not
-have been responsibly removed are not available to attackers
-who may have compromised their credentials.</pre></td>
+<td><pre>Inactive identifiers pose a risk to systems and applications because attackers may exploit an inactive identifier and potentially obtain undetected access to the system.
+Disabling inactive accounts ensures that accounts which may not have been responsibly removed are not available to attackers who may have compromised their credentials.
+Owners of inactive accounts will not notice if unauthorized access to their user account has been obtained.</pre></td>
 <td><pre>To verify the INACTIVE setting, run the following command:
 $ grep "INACTIVE" /etc/default/useradd
 The output should indicate the INACTIVE configuration option is set
 to an appropriate integer as shown in the example below:
 $ grep "INACTIVE" /etc/default/useradd
 INACTIVE=
-      Is it the case that the value of INACTIVE is greater than the expected value?
+      Is it the case that the value of INACTIVE is greater than the expected value or is -1?
       </pre></td>
 <td><pre>To specify the number of days after a password expires (which
 signifies inactivity) until an account is permanently disabled, add or correct

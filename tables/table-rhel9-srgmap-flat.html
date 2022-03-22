@@ -15791,7 +15791,13 @@ To properly set the permissions of <code>/etc/audit/auditd.conf</code>, run the 
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system allows only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited. If it does not, this is a finding.</td>
-<td></td>
+<td>To check the permissions of /etc/audit/auditd.conf,
+run the command:
+$ ls -l /etc/audit/auditd.conf
+If properly configured, the output should indicate the following permissions:
+-rw-r-----
+      Is it the case that /etc/audit/auditd.conf has unix mode -rw-r-----?
+      </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3745r557585_fix">Configure the operating system to allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited.</fixtext></td>
 <td>
 To properly set the permissions of /etc/audit/auditd.conf, run the command:
@@ -15814,7 +15820,13 @@ To properly set the permissions of <code>/etc/audit/rules.d/*.rules</code>, run 
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system allows only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited. If it does not, this is a finding.</td>
-<td></td>
+<td>To check the permissions of /etc/audit/rules.d/*.rules,
+run the command:
+$ ls -l /etc/audit/rules.d/*.rules
+If properly configured, the output should indicate the following permissions:
+-rw-r-----
+      Is it the case that /etc/audit/rules.d/*.rules has unix mode -rw-r-----?
+      </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3745r557585_fix">Configure the operating system to allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited.</fixtext></td>
 <td>
 To properly set the permissions of /etc/audit/rules.d/*.rules, run the command:
@@ -17797,11 +17809,12 @@ restriction by running the following command:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify operating system enforces a 60-day maximum password lifetime restriction. If it does not, this is a finding.</td>
-<td>Check whether the maximum time period for existing passwords is restricted
-to 60 days by running the following command for each user:
-$ sudo chage -l USER | grep Maximum
-The output for each user should return something similary to the following:
-Maximum number of days between password change\t\t: 60
+<td>Check whether the maximum time period for existing passwords is restricted to 60 days with the following commands:
+
+
+$ sudo awk -F: '$5 &gt; 60 {print $1 "" "" $5}' /etc/shadow
+
+$ sudo awk -F: '$5 
       Is it the case that existing passwords are not configured correctly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3757r557621_fix">Configure operating system to enforce a 60-day maximum password lifetime restriction. </fixtext></td>
@@ -19613,7 +19626,7 @@ The output should indicate the INACTIVE configuration option is set
 to an appropriate integer as shown in the example below:
 $ grep "INACTIVE" /etc/default/useradd
 INACTIVE=
-      Is it the case that the value of INACTIVE is greater than the expected value?
+      Is it the case that the value of INACTIVE is greater than the expected value or is -1?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3773r557190_fix">Configure the operating system to disable account identifiers (individuals, groups, roles, and devices) after 35 days of inactivity.</fixtext></td>
 <td>To specify the number of days after a password expires (which
