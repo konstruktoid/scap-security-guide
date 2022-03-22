@@ -619,6 +619,7 @@ sysctl_fs_protected_hardlinks
 sysctl_fs_protected_symlinks
 sysctl_fs_suid_dumpable
 sysctl_kernel_dmesg_restrict
+sysctl_kernel_exec_shield
 sysctl_kernel_kptr_restrict
 sysctl_kernel_panic_on_oops
 sysctl_kernel_randomize_va_space
