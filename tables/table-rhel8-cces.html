@@ -8722,6 +8722,42 @@ to prevent the loading of the Bluetooth module:
 </tr>
 <tr>
 <td></td>
+<td>Disable Kernel cfg80211 Module</td>
+<td xml:lang="en-US">
+To configure the system to prevent the <code>cfg80211</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install cfg80211 /bin/true</pre>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>Disable Kernel iwlmvm Module</td>
+<td xml:lang="en-US">
+To configure the system to prevent the <code>iwlmvm</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install iwlmvm /bin/true</pre>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>Disable Kernel iwlwifi Module</td>
+<td xml:lang="en-US">
+To configure the system to prevent the <code>iwlwifi</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install iwlwifi /bin/true</pre>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>Disable Kernel mac80211 Module</td>
+<td xml:lang="en-US">
+To configure the system to prevent the <code>mac80211</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install mac80211 /bin/true</pre>
+</td>
+</tr>
+<tr>
+<td></td>
 <td>Disable WiFi or Bluetooth in BIOS</td>
 <td xml:lang="en-US">Some machines that include built-in wireless support offer the
 ability to disable the device through the BIOS. This is hardware-specific;

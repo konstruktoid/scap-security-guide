@@ -9717,6 +9717,21 @@ flaws in its implementation.
   </td>
 </tr>
 <tr>
+  <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7<br/>AC-18(4)</td>
+  <td>Disable Kernel iwlmvm Module</td>
+  <td xml:lang="en-US">
+
+To configure the system to prevent the <code>iwlmvm</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install iwlmvm /bin/true</pre>
+  </td>
+  <td xml:lang="en-US">
+If Wireless functionality must be disabled, preventing the kernel
+from loading the kernel module provides an additional safeguard against its
+activation.
+  </td>
+</tr>
+<tr>
   <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7</td>
   <td>Disable Bluetooth Service</td>
   <td xml:lang="en-US">
@@ -9777,6 +9792,36 @@ to reboot the system first.
   </td>
 </tr>
 <tr>
+  <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7<br/>AC-18(4)</td>
+  <td>Disable Kernel mac80211 Module</td>
+  <td xml:lang="en-US">
+
+To configure the system to prevent the <code>mac80211</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install mac80211 /bin/true</pre>
+  </td>
+  <td xml:lang="en-US">
+If Wireless functionality must be disabled, preventing the kernel
+from loading the kernel module provides an additional safeguard against its
+activation.
+  </td>
+</tr>
+<tr>
+  <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7<br/>AC-18(4)</td>
+  <td>Disable Kernel iwlwifi Module</td>
+  <td xml:lang="en-US">
+
+To configure the system to prevent the <code>iwlwifi</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install iwlwifi /bin/true</pre>
+  </td>
+  <td xml:lang="en-US">
+If Wireless functionality must be disabled, preventing the kernel
+from loading the kernel module provides an additional safeguard against its
+activation.
+  </td>
+</tr>
+<tr>
   <td>AC-18</td>
   <td>Disable IEEE 1394 (FireWire) Support</td>
   <td xml:lang="en-US">
@@ -9790,6 +9835,21 @@ kernel module from being loaded, add the following line to a file in the directo
   <td xml:lang="en-US">
 Disabling FireWire protects the system against exploitation of any
 flaws in its implementation.
+  </td>
+</tr>
+<tr>
+  <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7<br/>AC-18(4)</td>
+  <td>Disable Kernel cfg80211 Module</td>
+  <td xml:lang="en-US">
+
+To configure the system to prevent the <code>cfg80211</code>
+kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+<pre>install cfg80211 /bin/true</pre>
+  </td>
+  <td xml:lang="en-US">
+If Wireless functionality must be disabled, preventing the kernel
+from loading the kernel module provides an additional safeguard against its
+activation.
   </td>
 </tr>
 <tr>
