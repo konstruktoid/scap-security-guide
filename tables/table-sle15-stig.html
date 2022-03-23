@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>232</td>
-<td>16</td>
-<td>216</td>
-<td>93.10%</td>
-<td>SLES-15-010001SLES-15-010370SLES-15-020190SLES-15-030160SLES-15-030170SLES-15-030180SLES-15-030300SLES-15-030310SLES-15-030320SLES-15-030610SLES-15-030710SLES-15-030720SLES-15-030730SLES-15-030750SLES-15-040010SLES-15-040061</td>
+<td>19</td>
+<td>213</td>
+<td>91.81%</td>
+<td>SLES-15-010001SLES-15-010370SLES-15-020190SLES-15-030160SLES-15-030170SLES-15-030180SLES-15-030260SLES-15-030270SLES-15-030280SLES-15-030300SLES-15-030310SLES-15-030320SLES-15-030610SLES-15-030710SLES-15-030720SLES-15-030730SLES-15-030750SLES-15-040010SLES-15-040061</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -4118,75 +4118,6 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</pre></td>
 <td><pre>To determine if the system is configured to audit calls to the
-chown system call, run the following command:
-$ sudo grep "chown" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured to
-use the <code>augenrules</code> program to read audit rules during daemon startup
-(the default), add the following line to a file with suffix <code>.rules</code> in
-the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S chown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030250</td>
-<td>audit_rules_dac_modification_chown</td>
-</tr>
-<tr>
-<td>V-234925</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the fchown system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-fchown system call, run the following command:
-$ sudo grep "fchown" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030260</td>
-<td>audit_rules_dac_modification_fchown</td>
-</tr>
-<tr>
-<td>V-234926</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the lchown system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
 lchown system call, run the following command:
 $ sudo grep "lchown" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
@@ -4207,41 +4138,41 @@ utility to read audit rules during daemon startup, add the following line to
 <pre>-a always,exit -F arch=b32 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S lchown -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030270</td>
+<td>SLES-15-030250</td>
 <td>audit_rules_dac_modification_lchown</td>
 </tr>
 <tr>
+<td>V-234925</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the fchown system call.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-15-030260</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
+<td>V-234926</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the lchown system call.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-15-030270</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
 <td>V-234927</td>
-<td>2884</td>
+<td></td>
 <td>medium</td>
 <td>The SUSE operating system must generate audit records for all uses of the fchownat system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-fchownat system call, run the following command:
-$ sudo grep "fchownat" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fchownat -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
 <td>SLES-15-030280</td>
-<td>audit_rules_dac_modification_fchownat</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-234928</td>
