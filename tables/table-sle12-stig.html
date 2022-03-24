@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>221</td>
-<td>16</td>
-<td>205</td>
-<td>92.76%</td>
-<td>SLES-12-010599SLES-12-010611SLES-12-010879SLES-12-010881SLES-12-020430SLES-12-020440SLES-12-020450SLES-12-020470SLES-12-020480SLES-12-020500SLES-12-020510SLES-12-020520SLES-12-020530SLES-12-020540SLES-12-030365SLES-12-030611</td>
+<td>17</td>
+<td>204</td>
+<td>92.31%</td>
+<td>SLES-12-010599SLES-12-010611SLES-12-010879SLES-12-010881SLES-12-020430SLES-12-020440SLES-12-020450SLES-12-020470SLES-12-020480SLES-12-020500SLES-12-020510SLES-12-020520SLES-12-020530SLES-12-020540SLES-12-020750SLES-12-030365SLES-12-030611</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -5022,34 +5022,6 @@ add the line to file <code>/etc/audit/audit.rules</code>.</pre></td>
 <td>2884</td>
 <td>medium</td>
 <td>The SUSE operating system must generate audit records for all uses of the finit_module command.</td>
-<td><pre>The addition/removal of kernel modules can be used to alter the behavior of
-the kernel and potentially introduce malicious code into kernel space. It is important
-to have an audit trail of modules that have been introduced into the kernel.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-finit_module system call, run the following command:
-$ sudo grep "finit_module" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>If the <code>auditd</code> daemon is configured to use the <code>augenrules</code> program
-to read audit rules during daemon startup (the default), add the following lines to a file
-with suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code> to capture kernel module
-loading and unloading events, setting ARCH to either b32 or b64 as appropriate for your system:
-<pre>-a always,exit -F arch=<i>ARCH</i> -S finit_module -F key=modules</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code> utility to read audit
-rules during daemon startup, add the following lines to <code>/etc/audit/audit.rules</code> file
-in order to capture kernel module loading and unloading events, setting ARCH to either b32 or
-b64 as appropriate for your system:
-<pre>-a always,exit -F arch=<i>ARCH</i> -S finit_module -F key=modules</pre></pre></td>
-<td>SLES-12-020740</td>
-<td>audit_rules_kernel_module_loading_finit</td>
-</tr>
-<tr>
-<td>V-217256</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the init_module command.</td>
 <td><pre>The addition of kernel modules can be used to alter the behavior of
 the kernel and potentially introduce malicious code into kernel space. It is important
 to have an audit trail of modules that have been introduced into the kernel.</pre></td>
@@ -5070,8 +5042,19 @@ to use the <code>augenrules</code> program (the default), add the line to a file
 
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code> utility,
 add the line to file <code>/etc/audit/audit.rules</code>.</pre></td>
-<td>SLES-12-020750</td>
+<td>SLES-12-020740</td>
 <td>audit_rules_kernel_module_loading_init</td>
+</tr>
+<tr>
+<td>V-217256</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the init_module command.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-12-020750</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-217257</td>
