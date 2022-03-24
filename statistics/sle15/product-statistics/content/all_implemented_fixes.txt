@@ -521,6 +521,7 @@ sudo_remove_no_authenticate
 sudo_remove_nopasswd
 sudo_require_authentication
 sudo_require_reauthentication
+sudoers_default_includedir
 sudoers_validate_passwd
 sysctl_fs_protected_hardlinks
 sysctl_fs_protected_symlinks

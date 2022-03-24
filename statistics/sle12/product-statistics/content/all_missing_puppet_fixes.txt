@@ -454,6 +454,7 @@ sudo_require_authentication
 sudo_require_reauthentication
 sudo_restrict_privilege_elevation_to_authorized
 sudo_vdsm_nopasswd
+sudoers_default_includedir
 sudoers_explicit_command_args
 sudoers_no_command_negation
 sudoers_no_root_target

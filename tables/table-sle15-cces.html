@@ -640,6 +640,17 @@ Restrict privileged actions by removing the following entries from the sudoers f
 <td xml:lang="en-US">The sudo <code>NOPASSWD</code> tag, when specified, allows a user to execute commands using sudo without having to authenticate. Only the <code>vdsm</code> user should have this capability in any sudo configuration snippets in <code>/etc/sudoers.d/</code>.</td>
 </tr>
 <tr>
+<td>CCE-91151-1</td>
+<td>Ensure sudo only includes the default configuration directory</td>
+<td xml:lang="en-US">Administrators can configure authorized <code>sudo</code> users via drop-in files, and it is possible to include
+other directories and configuration files from the file currently being parsed.
+
+Make sure that <code>/etc/sudoers</code> only includes drop-in configuration files from <code>/etc/sudoers.d</code>.
+The <code>/etc/sudoers</code> should contain only one <code>#includedir</code> directive pointing to
+<code>/etc/sudoers.d</code>, and no file in <code>/etc/sudoers.d/</code> should include other files or directories.
+Note that the '#' character doesn't denote a comment in the configuration file.</td>
+</tr>
+<tr>
 <td></td>
 <td>Explicit arguments in sudo specifications</td>
 <td xml:lang="en-US">All commands in the sudoers file must strictly specify the arguments allowed to be used for a given user.

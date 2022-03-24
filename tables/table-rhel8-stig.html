@@ -7998,7 +7998,14 @@ module, but will not prevent an administrator (or another program) from using th
 <td>2314</td>
 <td>medium</td>
 <td>A firewall must be installed on RHEL 8.</td>
-<td><pre>The firewalld package should be installed to provide access control methods.</pre></td>
+<td><pre>"Firewalld" provides an easy and effective way to block/limit remote access to the system via ports, services, and protocols.
+
+Remote access services, such as those providing remote access to network devices and information systems, which lack automated control capabilities, increase risk and make remote user access management difficult at best.
+
+Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
+
+Red Hat Enterprise Linux 8 functionality (e.g., SSH) must be capable of taking enforcement action if the audit reveals unauthorized activity.
+Automated control of remote access sessions allows organizations to ensure ongoing compliance with remote access policies by enforcing connection rules of remote access applications on a variety of information system components (e.g., servers, workstations, notebook computers, smartphones, and tablets)."</pre></td>
 <td><pre>Run the following command to determine if the firewalld package is installed: $ rpm -q firewalld
       Is it the case that the package is not installed?
       </pre></td>
@@ -8022,7 +8029,7 @@ Run the following command to determine the current status of the
 firewalld service:
 $ systemctl is-active firewalld
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that the service is not enabled?
       </pre></td>
 <td><pre>
 The <code>firewalld</code> service can be enabled with the following command:
