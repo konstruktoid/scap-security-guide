@@ -80,6 +80,8 @@ package_dracut-fips-aesni_installed
 package_gnutls-utils_installed
 package_inetutils-telnetd_removed
 package_krb5-server_removed
+package_libreport-plugin-logger_removed
+package_libreport-plugin-rhtsupport_removed
 package_nis_removed
 package_nss-tools_installed
 package_ntp_installed

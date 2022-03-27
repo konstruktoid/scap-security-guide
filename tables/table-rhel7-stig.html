@@ -5372,14 +5372,14 @@ following line in <code>/etc/ssh/sshd_config</code>:
 <td><pre>This ensures a user login will be terminated as soon as the <code>ClientAliveInterval</code>
 is reached.</pre></td>
 <td><pre>To ensure ClientAliveInterval is set correctly, run the following command:
-
 $ sudo grep ClientAliveCountMax /etc/ssh/sshd_config
-
 If properly configured, the output should be:
-ClientAliveCountMax 0
-
-In this case, the SSH idle timeout occurs precisely when
-the ClientAliveInterval is set.
+ClientAliveCountMax 
+For SSH earlier than v8.2, a ClientAliveCountMax value of 0 causes an idle timeout precisely when
+the ClientAliveInterval is set.  Starting with v8.2, a value of 0 disables the timeout
+functionality completely.
+If the option is set to a number greater than 0, then the idle session will be disconnected after
+ClientAliveInterval * ClientAliveCountMax seconds.
       Is it the case that it is commented out or not configured properly?
       </pre></td>
 <td><pre>The SSH server sends at most <code>ClientAliveCountMax</code> messages
@@ -5388,15 +5388,14 @@ The option <code>ClientAliveInterval</code> configures timeout after
 each <code>ClientAliveCountMax</code> message. If the SSH server does not
 receive a response from the client, then the connection is considered idle
 and terminated.
-
-To ensure the SSH idle timeout occurs precisely when the
-<code>ClientAliveInterval</code> is set, set the <code>ClientAliveCountMax</code> to
-value of <code>0</code> in
-
-
-<code>/etc/ssh/sshd_config</code>:</pre></td>
+For SSH earlier than v8.2, a <code>ClientAliveCountMax</code> value of <code>0</code>
+causes an idle timeout precisely when the <code>ClientAliveInterval</code> is set.
+Starting with v8.2, a value of <code>0</code> disables the timeout functionality
+completely. If the option is set to a number greater than <code>0</code>, then
+the idle session will be disconnected after
+<code>ClientAliveInterval * ClientAliveCountMax</code> seconds.</pre></td>
 <td>RHEL-07-040340</td>
-<td>sshd_set_keepalive_0</td>
+<td>sshd_set_keepalive</td>
 </tr>
 <tr>
 <td>V-204590</td>

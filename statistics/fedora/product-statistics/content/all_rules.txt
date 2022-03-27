@@ -537,6 +537,8 @@ package_iprutils_removed
 package_iptables_installed
 package_krb5-workstation_removed
 package_libcap-ng-utils_installed
+package_libreport-plugin-logger_removed
+package_libreport-plugin-rhtsupport_removed
 package_libreswan_installed
 package_libselinux_installed
 package_mcstrans_removed

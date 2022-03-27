@@ -18562,6 +18562,66 @@ $ sudo yum erase krb5-workstation</td>
 <td>SRG-OS-000095-GPOS-00049</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must be configured to disable non-essential capabilities.</td>
+<td>CCE-89201-8:Uninstall libreport-plugin-logger Package</td>
+<td>It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
+
+Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
+
+Examples of non-essential capabilities include, but are not limited to, games, software packages, tools, and demonstration software, not related to requirements or providing a wide array of functionality not required for every mission, but which cannot be disabled.</td>
+<td xml:lang="en-US">The <code>libreport-plugin-logger</code> package can be removed with the following command:
+<pre>
+$ sudo yum erase libreport-plugin-logger</pre>
+</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured to disable non-essential capabilities. If it does not, this is a finding.</td>
+<td>Run the following command to determine if the libreport-plugin-logger package is installed:
+$ rpm -q libreport-plugin-logger
+      Is it the case that the package is installed?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3762r557637_fix">Configure the operating system to disable non-essential capabilities.</fixtext></td>
+<td>The libreport-plugin-logger package can be removed with the following command:
+
+$ sudo yum erase libreport-plugin-logger</td>
+<td>low</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-71009</td>
+<td>SRG-OS-000095-GPOS-00049</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured to disable non-essential capabilities.</td>
+<td>CCE-88955-0:Uninstall libreport-plugin-rhtsupport Package</td>
+<td>It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
+
+Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services, provided by default, may not be necessary to support essential organizational operations (e.g., key missions, functions).
+
+Examples of non-essential capabilities include, but are not limited to, games, software packages, tools, and demonstration software, not related to requirements or providing a wide array of functionality not required for every mission, but which cannot be disabled.</td>
+<td xml:lang="en-US">The <code>libreport-plugin-rhtsupport</code> package can be removed with the following command:
+<pre>
+$ sudo yum erase libreport-plugin-rhtsupport</pre>
+</td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system is configured to disable non-essential capabilities. If it does not, this is a finding.</td>
+<td>Run the following command to determine if the libreport-plugin-rhtsupport package is installed:
+$ rpm -q libreport-plugin-rhtsupport
+      Is it the case that the package is installed?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3762r557637_fix">Configure the operating system to disable non-essential capabilities.</fixtext></td>
+<td>The libreport-plugin-rhtsupport package can be removed with the following command:
+
+$ sudo yum erase libreport-plugin-rhtsupport</td>
+<td>low</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SV-71009</td>
+<td>SRG-OS-000095-GPOS-00049</td>
+<td><i>TBD - Assigned by DISA after STIG release</i></td>
+<td>The operating system must be configured to disable non-essential capabilities.</td>
 <td>CCE-86084-1:Uninstall python3-abrt-addon Package</td>
 <td>It is detrimental for operating systems to provide, or install by default, functionality exceeding requirements or mission objectives. These unnecessary capabilities or services are often overlooked and therefore may remain unsecured. They increase the risk to the platform by providing additional attack vectors.
 
