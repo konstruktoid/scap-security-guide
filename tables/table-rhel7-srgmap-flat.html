@@ -14803,8 +14803,7 @@ The profile requirement is <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklis
 <td>Verify operating system enforces a 60-day maximum password lifetime restriction. If it does not, this is a finding.</td>
 <td>To check the maximum password age, run the command:
 $ grep PASS_MAX_DAYS /etc/login.defs
-The DoD and FISMA requirement is 60.
-A value of 180 days is sufficient for many environments.
+The profile requirement is .
       Is it the case that PASS_MAX_DAYS is not set equal to or greater than the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3757r557621_fix">Configure operating system to enforce a 60-day maximum password lifetime restriction. </fixtext></td>
@@ -14827,24 +14826,23 @@ The profile requirement is .</td>
 <td>Operating systems must enforce a 60-day maximum password lifetime restriction.</td>
 <td>CCE-80522-6:Set Existing Passwords Maximum Age</td>
 <td>Any password, no matter how complex, can eventually be cracked. Therefore, passwords need to be changed periodically. If the operating system does not limit the lifetime of passwords and force users to change their passwords, there is the risk that the operating system passwords could be compromised.</td>
-<td xml:lang="en-US">Configure non-compliant accounts to enforce a 60-day maximum password lifetime
+<td xml:lang="en-US">Configure non-compliant accounts to enforce a <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub>-day maximum password lifetime
 restriction by running the following command:
-<pre>$ sudo chage -M 60 <i>USER</i></pre>
+<pre>$ sudo chage -M <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub> <i>USER</i></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify operating system enforces a 60-day maximum password lifetime restriction. If it does not, this is a finding.</td>
-<td>Check whether the maximum time period for existing passwords is restricted to 60 days with the following commands:
-
+<td>Check whether the maximum time period for existing passwords is restricted to  days with the following commands:
 
 $ sudo awk -F: '$5 &gt; 60 {print $1 "" "" $5}' /etc/shadow
 
-$ sudo awk -F: '$5 
-      Is it the case that existing passwords are not configured correctly?
+$ sudo awk -F: '$5 &lt;= 0 {print $1 "" "" $5}' /etc/shadow
+      Is it the case that any results are returned that are not associated with a system account?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3757r557621_fix">Configure operating system to enforce a 60-day maximum password lifetime restriction. </fixtext></td>
-<td>Configure non-compliant accounts to enforce a 60-day maximum password lifetime
+<td>Configure non-compliant accounts to enforce a -day maximum password lifetime
 restriction by running the following command:
-$ sudo chage -M 60 USER</td>
+$ sudo chage -M  USER</td>
 <td>medium</td>
 <td></td>
 <td></td>

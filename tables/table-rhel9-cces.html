@@ -2224,9 +2224,9 @@ information about enforcing password quality requirements.</td>
 <tr>
 <td>CCE-86031-2</td>
 <td>Set Existing Passwords Maximum Age</td>
-<td xml:lang="en-US">Configure non-compliant accounts to enforce a 60-day maximum password lifetime
+<td xml:lang="en-US">Configure non-compliant accounts to enforce a <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub>-day maximum password lifetime
 restriction by running the following command:
-<pre>$ sudo chage -M 60 <i>USER</i></pre>
+<pre>$ sudo chage -M <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub> <i>USER</i></pre>
 </td>
 </tr>
 <tr>

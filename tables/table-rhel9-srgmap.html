@@ -5414,9 +5414,9 @@ The profile requirement is <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklis
 </tr></table>
 <table><tr>
 <td>Set Existing Passwords Maximum Age</td>
-<td xml:lang="en-US">Configure non-compliant accounts to enforce a 60-day maximum password lifetime
+<td xml:lang="en-US">Configure non-compliant accounts to enforce a <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub>-day maximum password lifetime
 restriction by running the following command:
-<pre>$ sudo chage -M 60 <i>USER</i></pre>
+<pre>$ sudo chage -M <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub> <i>USER</i></pre>
 </td>
 </tr></table>
 </td>
@@ -6368,6 +6368,13 @@ This requirement generally applies to the design of an information technology pr
 
 There may be shared resources with configurable protections (e.g., files in storage) that may be assessed on specific information system components.</td>
 <td>
+<table><tr>
+<td>Ensure All World-Writable Directories Are Owned by root user</td>
+<td xml:lang="en-US">All directories in local partitions which are world-writable should be owned
+by root. If any world-writable directories are not owned by root, this
+should be investigated. Following this, the files should be deleted or
+assigned to root user.</td>
+</tr></table>
 <table><tr>
 <td>Verify that All World-Writable Directories Have Sticky Bits Set</td>
 <td xml:lang="en-US">When the so-called 'sticky bit' is set on a directory,

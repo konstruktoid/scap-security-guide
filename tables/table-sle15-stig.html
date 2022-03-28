@@ -1017,7 +1017,7 @@ repositories. The setting is normally reserved for directories used by the
 system, by users for temporary file storage (such as <code>/tmp</code>), and
 for directories requiring global read/write access.</pre></td>
 <td><pre>To find world-writable directories that lack the sticky bit, run the following command:
-$ sudo find / -xdev -type d -perm 002 ! -perm 1000
+$ sudo find / -type d \( -perm -0002 -a ! -perm -1000 \) -print 2&gt;/dev/null
       Is it the case that any world-writable directories are missing the sticky bit?
       </pre></td>
 <td><pre>When the so-called 'sticky bit' is set on a directory,
@@ -3127,8 +3127,7 @@ increases the risk of users writing down the password in a convenient
 location subject to physical compromise.</pre></td>
 <td><pre>To check the maximum password age, run the command:
 $ grep PASS_MAX_DAYS /etc/login.defs
-The DoD and FISMA requirement is 60.
-A value of 180 days is sufficient for many environments.
+The profile requirement is .
       Is it the case that PASS_MAX_DAYS is not set equal to or greater than the required value?
       </pre></td>
 <td><pre>To specify password maximum age for new accounts,
@@ -3151,17 +3150,16 @@ passwords need to be changed periodically. If the operating system does
 not limit the lifetime of passwords and force users to change their
 passwords, there is the risk that the operating system passwords could be
 compromised.</pre></td>
-<td><pre>Check whether the maximum time period for existing passwords is restricted to 60 days with the following commands:
-
+<td><pre>Check whether the maximum time period for existing passwords is restricted to  days with the following commands:
 
 $ sudo awk -F: '$5 &gt; 60 {print $1 "" "" $5}' /etc/shadow
 
-$ sudo awk -F: '$5 
-      Is it the case that existing passwords are not configured correctly?
+$ sudo awk -F: '$5 &lt;= 0 {print $1 "" "" $5}' /etc/shadow
+      Is it the case that any results are returned that are not associated with a system account?
       </pre></td>
-<td><pre>Configure non-compliant accounts to enforce a 60-day maximum password lifetime
+<td><pre>Configure non-compliant accounts to enforce a <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub>-day maximum password lifetime
 restriction by running the following command:
-<pre>$ sudo chage -M 60 <i>USER</i></pre></pre></td>
+<pre>$ sudo chage -M <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_maximum_age_login_defs"></xccdf-1.1:sub> <i>USER</i></pre></pre></td>
 <td>SLES-15-020230</td>
 <td>accounts_password_set_max_life_existing</td>
 </tr>
