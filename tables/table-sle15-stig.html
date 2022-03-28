@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>232</td>
-<td>20</td>
-<td>212</td>
-<td>91.38%</td>
-<td>SLES-15-010001SLES-15-010370SLES-15-020190SLES-15-030160SLES-15-030170SLES-15-030180SLES-15-030260SLES-15-030270SLES-15-030280SLES-15-030300SLES-15-030310SLES-15-030320SLES-15-030540SLES-15-030610SLES-15-030710SLES-15-030720SLES-15-030730SLES-15-030750SLES-15-040010SLES-15-040061</td>
+<td>25</td>
+<td>207</td>
+<td>89.22%</td>
+<td>SLES-15-010001SLES-15-010370SLES-15-020190SLES-15-030160SLES-15-030170SLES-15-030180SLES-15-030200SLES-15-030210SLES-15-030220SLES-15-030230SLES-15-030240SLES-15-030260SLES-15-030270SLES-15-030280SLES-15-030300SLES-15-030310SLES-15-030320SLES-15-030540SLES-15-030610SLES-15-030710SLES-15-030720SLES-15-030730SLES-15-030750SLES-15-040010SLES-15-040061</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -3906,119 +3906,6 @@ gain access to information that would otherwise be disallowed. Auditing DAC modi
 can facilitate the identification of patterns of abuse among both authorized and
 unauthorized users.</pre></td>
 <td><pre>To determine if the system is configured to audit calls to the
-removexattr system call, run the following command:
-$ sudo grep "removexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>augenrules</code>
-program to read audit rules during daemon startup (the default), add the
-following line to a file with suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S removexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030190</td>
-<td>audit_rules_dac_modification_removexattr</td>
-</tr>
-<tr>
-<td>V-234919</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the lremovexattr system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-lremovexattr system call, run the following command:
-$ sudo grep "lremovexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030200</td>
-<td>audit_rules_dac_modification_lremovexattr</td>
-</tr>
-<tr>
-<td>V-234920</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the fremovexattr system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-fremovexattr system call, run the following command:
-$ sudo grep "fremovexattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root.
-<br><br>
-If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-<br><br>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fremovexattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030210</td>
-<td>audit_rules_dac_modification_fremovexattr</td>
-</tr>
-<tr>
-<td>V-234921</td>
-<td>2884</td>
-<td>medium</td>
-<td>The SUSE operating system must generate audit records for all uses of the setxattr system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
 setxattr system call, run the following command:
 $ sudo grep "setxattr" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
@@ -4039,74 +3926,63 @@ utility to read audit rules during daemon startup, add the following line to
 <pre>-a always,exit -F arch=b32 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
 If the system is 64 bit then also add the following line:
 <pre>-a always,exit -F arch=b64 -S setxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
-<td>SLES-15-030220</td>
+<td>SLES-15-030190</td>
 <td>audit_rules_dac_modification_setxattr</td>
 </tr>
 <tr>
+<td>V-234919</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the lremovexattr system call.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-15-030200</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
+<td>V-234920</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the fremovexattr system call.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-15-030210</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
+<td>V-234921</td>
+<td></td>
+<td>medium</td>
+<td>The SUSE operating system must generate audit records for all uses of the setxattr system call.</td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td>SLES-15-030220</td>
+<td>Missing Rule</td>
+</tr>
+<tr>
 <td>V-234922</td>
-<td>2884</td>
+<td></td>
 <td>medium</td>
 <td>The SUSE operating system must generate audit records for all uses of the fsetxattr system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-fsetxattr system call, run the following command:
-$ sudo grep "fsetxattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S fsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
 <td>SLES-15-030230</td>
-<td>audit_rules_dac_modification_fsetxattr</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-234923</td>
-<td>2884</td>
+<td></td>
 <td>medium</td>
 <td>The SUSE operating system must generate audit records for all uses of the lsetxattr system call.</td>
-<td><pre>The changing of file permissions could indicate that a user is attempting to
-gain access to information that would otherwise be disallowed. Auditing DAC modifications
-can facilitate the identification of patterns of abuse among both authorized and
-unauthorized users.</pre></td>
-<td><pre>To determine if the system is configured to audit calls to the
-lsetxattr system call, run the following command:
-$ sudo grep "lsetxattr" /etc/audit/audit.*
-If the system is configured to audit this activity, it will return a line.
-
-      Is it the case that no line is returned?
-      </pre></td>
-<td><pre>At a minimum, the audit system should collect file permission
-changes for all users and root. If the <code>auditd</code> daemon is configured
-to use the <code>augenrules</code> program to read audit rules during daemon
-startup (the default), add the following line to a file with suffix
-<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F arch=b32 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
-utility to read audit rules during daemon startup, add the following line to
-<code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F arch=b32 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre>
-If the system is 64 bit then also add the following line:
-<pre>-a always,exit -F arch=b64 -S lsetxattr -F auid&gt;=1000 -F auid!=unset -F key=perm_mod</pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
+<td><pre></pre></td>
 <td>SLES-15-030240</td>
-<td>audit_rules_dac_modification_lsetxattr</td>
+<td>Missing Rule</td>
 </tr>
 <tr>
 <td>V-234924</td>
