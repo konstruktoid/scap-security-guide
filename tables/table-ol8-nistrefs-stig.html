@@ -8036,6 +8036,34 @@ Access Card.
   </td>
   <td></td>
 </tr>
+<tr>
+  <td></td>
+  <td>N/A</td>
+  <td>Check that vlock is installed to allow session locking</td>
+  <td xml:lang="en-US">
+The Oracle Linux 8 operating system must have vlock installed to allow for session locking.
+
+
+The <code>kbd</code> package can be installed with the following command:
+<pre>
+$ sudo yum install kbd</pre>
+  </td>
+  <td xml:lang="en-US">
+A session lock is a temporary action taken when a user stops work and
+moves away from the immediate physical vicinity of the information
+system but does not want to log out because of the temporary nature of
+the absence.
+
+The session lock is implemented at the point where session activity can
+be determined.
+
+Regardless of where the session lock is determined and implemented,
+once invoked, the session lock must remain in place until the user
+reauthenticates. No other activity aside from reauthentication must
+unlock the system.
+  </td>
+  <td></td>
+</tr>
 </table>
 
 </body>
