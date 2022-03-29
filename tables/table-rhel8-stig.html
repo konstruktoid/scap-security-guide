@@ -852,8 +852,12 @@ $ sudo yum erase krb5-workstation</pre></pre></td>
 potentially compromised processes to the security policy, which is designed to
 prevent them from causing damage to the system or further elevating their
 privileges.</pre></td>
-<td><pre>Check the file /etc/selinux/config and ensure the following line appears:
-SELINUX=
+<td><pre>Ensure that Red Hat Enterprise Linux 8 verifies correct operation of security functions.
+
+Check if "SELinux" is active and in "" mode with the following command:
+
+$ sudo getenforce
+
       Is it the case that SELINUX is not set to enforcing?
       </pre></td>
 <td><pre>The SELinux state should be set to <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></code> at
@@ -2348,7 +2352,9 @@ temporarily place non-production systems in <code>permissive</code> mode. In suc
 temporary cases, SELinux policies should be developed, and once work
 is completed, the system should be reconfigured to
 <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_policy_name"></xccdf-1.1:sub></code>.</pre></td>
-<td><pre>Check the file /etc/selinux/config and ensure the following line appears:
+<td><pre>Ensure that Red Hat Enterprise Linux 8 verifies correct operation of security functions.
+
+Check the file /etc/selinux/config and ensure the following line appears:
 SELINUXTYPE=
       Is it the case that SELINUXTYPE is set to the wrong value?
       </pre></td>

@@ -27992,7 +27992,9 @@ and greater confinement but are not compatible with many general-purpose
 use cases.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system verifies correct operation of all security functions. If it does not, this is a finding.</td>
-<td>Check the file /etc/selinux/config and ensure the following line appears:
+<td>Ensure that Red Hat Enterprise Linux 7 verifies correct operation of security functions.
+
+Check the file /etc/selinux/config and ensure the following line appears:
 SELINUXTYPE=
       Is it the case that SELINUXTYPE is set to the wrong value?
       </td>
@@ -28026,8 +28028,12 @@ following line to configure the system to boot into enforcing mode:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system verifies correct operation of all security functions. If it does not, this is a finding.</td>
-<td>Check the file /etc/selinux/config and ensure the following line appears:
-SELINUX=
+<td>Ensure that Red Hat Enterprise Linux 7 verifies correct operation of security functions.
+
+Check if "SELinux" is active and in "" mode with the following command:
+
+$ sudo getenforce
+
       Is it the case that SELINUX is not set to enforcing?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3881r375390_fix">Configure the operating system to verify correct operation of all security functions.</fixtext></td>
