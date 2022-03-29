@@ -27922,7 +27922,9 @@ previous software components after updating, set the <code>clean_requirements_on
 to <code>1</code> in <code>/etc/yum.conf</code>.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system removes all software components after updated versions have been installed. If it does not, this is a finding.</td>
-<td>
+<td>Verify Red Hat Enterprise Linux 7 removes all software components after updated versions have been installed.
+
+
 To verify that clean_requirements_on_remove is configured properly, run the
 following command:
 $ grep clean_requirements_on_remove /etc/yum.conf

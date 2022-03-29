@@ -2110,7 +2110,7 @@ Run the following command to update command line for already installed kernels:<
 <td>OL 8 must implement address space layout randomization (ASLR) to protect its memory from unauthorized code execution.</td>
 <td><pre>Address space layout randomization (ASLR) makes it more difficult for an
 attacker to predict the location of attack code they have introduced into a
-process's address space during an attempt at exploitation.  Additionally,
+process's address space during an attempt at exploitation. Additionally,
 ASLR makes it more difficult for an attacker to know the location of
 existing code in order to re-purpose it using return oriented programming
 (ROP) techniques.</pre></td>
@@ -2148,7 +2148,9 @@ To make sure that the setting is persistent, add the following line to a file in
 <td>YUM must remove all software components after updated versions have been installed on OL 8.</td>
 <td><pre>Previous versions of software components that are not removed from the information
 system after updates have been installed may be exploited by some adversaries.</pre></td>
-<td><pre>
+<td><pre>Verify Oracle Linux 8 removes all software components after updated versions have been installed.
+
+
 To verify that clean_requirements_on_remove is configured properly, run the
 following command:
 $ grep clean_requirements_on_remove /etc/yum.conf
@@ -9987,11 +9989,11 @@ To make sure that the setting is persistent, add the following line to a file in
 <td>366</td>
 <td>medium</td>
 <td>OL 8 must restrict exposed kernel pointer addresses access.</td>
-<td><pre>Exposing kernel pointers (through procfs or <code>seq_printf()</code>) exposes
-kernel writeable structures that can contain functions pointers. If a write vulnereability occurs
-in the kernel allowing a write access to any of this structure, the kernel can be compromise. This
-option disallow any program withtout the CAP_SYSLOG capability from getting the kernel pointers addresses,
-replacing them with 0.</pre></td>
+<td><pre>Exposing kernel pointers (through procfs or <code>seq_printf()</code>) exposes kernel
+writeable structures which may contain functions pointers. If a write vulnerability
+occurs in the kernel, allowing write access to any of this structure, the kernel can
+be compromised. This option disallow any program without the CAP_SYSLOG capability
+to get the addresses of kernel pointers by replacing them with 0.</pre></td>
 <td><pre>The runtime status of the kernel.kptr_restrict kernel parameter can be queried
 by running the following command:
 $ sysctl kernel.kptr_restrict

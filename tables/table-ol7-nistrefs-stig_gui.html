@@ -2771,7 +2771,7 @@ default authenticators, then anyone can gather data about the system and the net
 and use the information to potentially compromise the integrity of the system and
 network(s).
   </td>
-  <td>var_snmpd_ro_string=changemero<br/>var_snmpd_rw_string=changemerw</td>
+  <td>var_snmpd_rw_string=changemerw<br/>var_snmpd_ro_string=changemero</td>
 </tr>
 <tr>
   <td>CM-5(1)<br/>AU-7(a)<br/>AU-7(b)<br/>AU-8(b)<br/>AU-12(3)<br/>AC-6(9)</td>
@@ -5717,7 +5717,7 @@ To make sure that the setting is persistent, add the following line to a file in
   <td xml:lang="en-US">
 Address space layout randomization (ASLR) makes it more difficult for an
 attacker to predict the location of attack code they have introduced into a
-process's address space during an attempt at exploitation.  Additionally,
+process's address space during an attempt at exploitation. Additionally,
 ASLR makes it more difficult for an attacker to know the location of
 existing code in order to re-purpose it using return oriented programming
 (ROP) techniques.

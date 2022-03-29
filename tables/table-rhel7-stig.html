@@ -2154,7 +2154,9 @@ After the settings have been set, run <code>dconf update</code>.</pre></td>
 <td>The Red Hat Enterprise Linux operating system must remove all software components after updated versions have been installed.</td>
 <td><pre>Previous versions of software components that are not removed from the information
 system after updates have been installed may be exploited by some adversaries.</pre></td>
-<td><pre>
+<td><pre>Verify Red Hat Enterprise Linux 7 removes all software components after updated versions have been installed.
+
+
 To verify that clean_requirements_on_remove is configured properly, run the
 following command:
 $ grep clean_requirements_on_remove /etc/yum.conf
@@ -5224,7 +5226,7 @@ to point to the path for the X.509 certificates used for peer authentication.
 <td>The Red Hat Enterprise Linux operating system must implement virtual address space randomization.</td>
 <td><pre>Address space layout randomization (ASLR) makes it more difficult for an
 attacker to predict the location of attack code they have introduced into a
-process's address space during an attempt at exploitation.  Additionally,
+process's address space during an attempt at exploitation. Additionally,
 ASLR makes it more difficult for an attacker to know the location of
 existing code in order to re-purpose it using return oriented programming
 (ROP) techniques.</pre></td>
