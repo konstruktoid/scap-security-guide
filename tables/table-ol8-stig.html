@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>389</td>
-<td>45</td>
-<td>344</td>
-<td>88.43%</td>
-<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010710OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020031OL08-00-020032OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
+<td>44</td>
+<td>345</td>
+<td>88.69%</td>
+<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020031OL08-00-020032OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -3174,14 +3174,27 @@ appropriate owner.</pre></td>
 </tr>
 <tr>
 <td>V-248637</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>All OL 8 world-writable directories must be group-owned by root, sys, bin, or an application group.</td>
-<td><pre></pre></td>
-<td><pre></pre></td>
-<td><pre></pre></td>
+<td><pre>Allowing a user account to group own a world-writable directory is
+undesirable because it allows the owner of that directory to remove
+or replace any files that may be placed in the directory by other
+users.</pre></td>
+<td><pre>The following command will discover and print world-writable directories that
+are not group owned by a system account, given the assumption that only system
+accounts have a gid lower than 1000.  Run it once for each local partition PART:
+$ sudo find PART -xdev -type d -perm -0002 -gid +999 -print
+      Is it the case that there is output?
+      </pre></td>
+<td><pre>All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.</pre></td>
 <td>OL08-00-010710</td>
-<td>Missing Rule</td>
+<td>dir_perms_world_writable_system_owned_group</td>
 </tr>
 <tr>
 <td>V-248638</td>

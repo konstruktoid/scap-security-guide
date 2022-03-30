@@ -3468,6 +3468,26 @@ for directories requiring global read/write access.
   <td></td>
 </tr>
 <tr>
+  <td>CM-6(a)<br/>AC-6(1)</td>
+  <td>CCE-85886-0</td>
+  <td>Ensure All World-Writable Directories Are Group Owned by a System Account</td>
+  <td xml:lang="en-US">
+All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.
+  </td>
+  <td xml:lang="en-US">
+Allowing a user account to group own a world-writable directory is
+undesirable because it allows the owner of that directory to remove
+or replace any files that may be placed in the directory by other
+users.
+  </td>
+  <td></td>
+</tr>
+<tr>
   <td>CM-6(a)<br/>AC-6(1)<br/>AU-9(4)</td>
   <td>CCE-88225-8</td>
   <td>System Audit Directories Must Be Group Owned By Root</td>
@@ -8154,7 +8174,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

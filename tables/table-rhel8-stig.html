@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>371</td>
-<td>40</td>
-<td>331</td>
-<td>89.22%</td>
-<td>RHEL-08-010090RHEL-08-010100RHEL-08-010121RHEL-08-010163RHEL-08-010385RHEL-08-010572RHEL-08-010710RHEL-08-010731RHEL-08-010741RHEL-08-020011RHEL-08-020013RHEL-08-020014RHEL-08-020015RHEL-08-020017RHEL-08-020018RHEL-08-020019RHEL-08-020020RHEL-08-020021RHEL-08-020023RHEL-08-020025RHEL-08-020026RHEL-08-020027RHEL-08-020028RHEL-08-020031RHEL-08-020032RHEL-08-020080RHEL-08-020081RHEL-08-020082RHEL-08-020102RHEL-08-020103RHEL-08-020332RHEL-08-030590RHEL-08-030620RHEL-08-030630RHEL-08-030640RHEL-08-040020RHEL-08-040090RHEL-08-040137RHEL-08-040150RHEL-08-040259</td>
+<td>39</td>
+<td>332</td>
+<td>89.49%</td>
+<td>RHEL-08-010090RHEL-08-010100RHEL-08-010121RHEL-08-010163RHEL-08-010385RHEL-08-010572RHEL-08-010731RHEL-08-010741RHEL-08-020011RHEL-08-020013RHEL-08-020014RHEL-08-020015RHEL-08-020017RHEL-08-020018RHEL-08-020019RHEL-08-020020RHEL-08-020021RHEL-08-020023RHEL-08-020025RHEL-08-020026RHEL-08-020027RHEL-08-020028RHEL-08-020031RHEL-08-020032RHEL-08-020080RHEL-08-020081RHEL-08-020082RHEL-08-020102RHEL-08-020103RHEL-08-020332RHEL-08-030590RHEL-08-030620RHEL-08-030630RHEL-08-030640RHEL-08-040020RHEL-08-040090RHEL-08-040137RHEL-08-040150RHEL-08-040259</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -3325,14 +3325,27 @@ assigned to root user.</pre></td>
 </tr>
 <tr>
 <td>V-230319</td>
-<td></td>
+<td>366</td>
 <td>medium</td>
 <td>All RHEL 8 world-writable directories must be group-owned by root, sys, bin, or an application group.</td>
-<td><pre></pre></td>
-<td><pre></pre></td>
-<td><pre></pre></td>
+<td><pre>Allowing a user account to group own a world-writable directory is
+undesirable because it allows the owner of that directory to remove
+or replace any files that may be placed in the directory by other
+users.</pre></td>
+<td><pre>The following command will discover and print world-writable directories that
+are not group owned by a system account, given the assumption that only system
+accounts have a gid lower than 1000.  Run it once for each local partition PART:
+$ sudo find PART -xdev -type d -perm -0002 -gid +999 -print
+      Is it the case that there is output?
+      </pre></td>
+<td><pre>All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.</pre></td>
 <td>RHEL-08-010710</td>
-<td>Missing Rule</td>
+<td>dir_perms_world_writable_system_owned_group</td>
 </tr>
 <tr>
 <td>V-230320</td>

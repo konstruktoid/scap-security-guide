@@ -16655,6 +16655,15 @@ should be investigated. Following this, the files should be deleted or
 assigned to root user.</td>
 </tr></table>
 <table><tr>
+<td>Ensure All World-Writable Directories Are Group Owned by a System Account</td>
+<td>All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.</td>
+</tr></table>
+<table><tr>
 <td>Ensure All Files Are Owned by a Group</td>
 <td>If any files are not owned by a group, then the
 cause of their lack of group-ownership should be investigated.

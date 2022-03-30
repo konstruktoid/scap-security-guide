@@ -2464,7 +2464,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(f)<br/>IA-5(1)(e)</td>
@@ -2484,7 +2484,7 @@ The DoD STIG requirement is 5 passwords.
   <td xml:lang="en-US">
 Preventing re-use of previous passwords helps ensure that a compromised password is not re-used by a user.
   </td>
-  <td>var_password_pam_remember_control_flag=required<br/>var_password_pam_remember=5</td>
+  <td>var_password_pam_remember=5<br/>var_password_pam_remember_control_flag=required</td>
 </tr>
 <tr>
   <td>IA-5(c)<br/>IA-5(1)(a)<br/>CM-6(a)<br/>IA-5(4)</td>
@@ -3419,6 +3419,26 @@ appropriate owner.
   </td>
   <td xml:lang="en-US">
 Allowing a user account to own a world-writable directory is
+undesirable because it allows the owner of that directory to remove
+or replace any files that may be placed in the directory by other
+users.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td>CM-6(a)<br/>AC-6(1)</td>
+  <td>N/A</td>
+  <td>Ensure All World-Writable Directories Are Group Owned by a System Account</td>
+  <td xml:lang="en-US">
+All directories in local partitions which are
+world-writable should be group owned by root or another
+system account. If any world-writable directories are not
+group owned by a system account, this should be investigated.
+Following this, the files should be deleted or assigned to an
+appropriate group.
+  </td>
+  <td xml:lang="en-US">
+Allowing a user account to group own a world-writable directory is
 undesirable because it allows the owner of that directory to remove
 or replace any files that may be placed in the directory by other
 users.
@@ -7989,7 +8009,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
