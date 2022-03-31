@@ -4050,6 +4050,30 @@ After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
 </tr>
 <tr>
+<td>dconf_gnome_screensaver_lock_delay</td>
+<td>medium</td>
+<td>Set GNOME3 Screensaver Lock Delay After Activation Period</td>
+<td>A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity
+of the information system but does not want to logout because of the temporary nature of the absense.</td>
+<td>To activate the locking delay of the screensaver in the GNOME3 desktop when
+the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub></code> in
+<code>/etc/dconf/db/local.d/00-security-settings</code>. For example:
+<pre>[org/gnome/desktop/screensaver]
+lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
+</pre>
+Once the setting has been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td></td>
+<td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000029-GPOS-00010<br>
+</td>
+<td>CCI-000056<br>CCI-000057<br>
+</td>
+<td></td>
+</tr>
+<tr>
 <td>dconf_gnome_screensaver_lock_enabled</td>
 <td>medium</td>
 <td>Enable GNOME3 Screensaver Lock After Idle Period</td>

@@ -6238,6 +6238,29 @@ a user's session has idled and take action to initiate a session lock.
   <td></td>
 </tr>
 <tr>
+  <td>AC-11(a)<br/>CM-6(a)</td>
+  <td>CCE-80776-8</td>
+  <td>Set GNOME3 Screensaver Lock Delay After Activation Period</td>
+  <td xml:lang="en-US">
+To activate the locking delay of the screensaver in the GNOME3 desktop when
+the screensaver is activated, add or set <tt>lock-delay</tt> to <tt>uint32 <tt>5_seconds</tt></tt> in
+<tt>/etc/dconf/db/local.d/00-security-settings</tt>. For example:
+<pre>[org/gnome/desktop/screensaver]
+lock-delay=uint32 <tt>5_seconds</tt>
+</pre>
+Once the setting has been added, add a lock to
+<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <tt>dconf update</tt>.
+  </td>
+  <td xml:lang="en-US">
+A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity
+of the information system but does not want to logout because of the temporary nature of the absense.
+  </td>
+  <td>var_screensaver_lock_delay=5_seconds</td>
+</tr>
+<tr>
   <td>CM-11(a)<br/>CM-11(b)<br/>CM-6(a)<br/>CM-5(3)<br/>SA-12<br/>SA-12(10)</td>
   <td>CCE-80791-7</td>
   <td>Ensure gpgcheck Enabled for Local Packages</td>
@@ -8174,7 +8197,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
+  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
 </tr>
 <tr>
   <td></td>

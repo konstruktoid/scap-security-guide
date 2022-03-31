@@ -17,10 +17,10 @@
 </tr></thead>
 <tbody><tr>
 <td>389</td>
-<td>44</td>
-<td>345</td>
-<td>88.69%</td>
-<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020031OL08-00-020032OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
+<td>43</td>
+<td>346</td>
+<td>88.95%</td>
+<td>OL08-00-010090OL08-00-010100OL08-00-010159OL08-00-010163OL08-00-010180OL08-00-010424OL08-00-010560OL08-00-010572OL08-00-010731OL08-00-010741OL08-00-020011OL08-00-020013OL08-00-020015OL08-00-020016OL08-00-020017OL08-00-020018OL08-00-020019OL08-00-020020OL08-00-020021OL08-00-020023OL08-00-020025OL08-00-020026OL08-00-020027OL08-00-020028OL08-00-020032OL08-00-020080OL08-00-020081OL08-00-020082OL08-00-020261OL08-00-020262OL08-00-020263OL08-00-020264OL08-00-020332OL08-00-030590OL08-00-030620OL08-00-030630OL08-00-030640OL08-00-040020OL08-00-040081OL08-00-040090OL08-00-040137OL08-00-040150OL08-00-040400</td>
 </tr></tbody>
 </table></div>
 <style type="text/css">
@@ -3846,14 +3846,33 @@ After the settings have been set, run <code>dconf update</code>.</pre></td>
 </tr>
 <tr>
 <td>V-248672</td>
-<td></td>
+<td>60</td>
 <td>medium</td>
 <td>OL 8 must initiate a session lock for graphical user interfaces when the screensaver is activated.</td>
-<td><pre></pre></td>
-<td><pre></pre></td>
-<td><pre></pre></td>
+<td><pre>A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity
+of the information system but does not want to logout because of the temporary nature of the absense.</pre></td>
+<td><pre>To check that the screen locks immediately when activated, run the following command:
+$ gsettings get org.gnome.desktop.screensaver lock-delay
+If properly configured, the output should be 'uint32 '.
+
+To ensure that users cannot change how long until the the screensaver locks, run the following:
+$ grep lock-delay /etc/dconf/db/local.d/locks/*
+If properly configured, the output for lock-delay should be /org/gnome/desktop/screensaver/lock-delay
+      Is it the case that the screensaver lock delay is missing, or is set to a value greater than 5?
+      </pre></td>
+<td><pre>To activate the locking delay of the screensaver in the GNOME3 desktop when
+the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub></code> in
+<code>/etc/dconf/db/local.d/00-security-settings</code>. For example:
+<pre>[org/gnome/desktop/screensaver]
+lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
+</pre>
+Once the setting has been added, add a lock to
+<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</pre></td>
 <td>OL08-00-020031</td>
-<td>Missing Rule</td>
+<td>dconf_gnome_screensaver_lock_delay</td>
 </tr>
 <tr>
 <td>V-248673</td>
