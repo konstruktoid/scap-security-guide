@@ -7274,6 +7274,34 @@ add <code>vsyscall=none</code> to <code>/etc/kernel/cmdline</code>.</td>
 </td>
 </tr>
 <tr>
+<td>CCE-89033-5</td>
+<td>Disable kernel debugfs</td>
+<td>
+<code>debugfs</code> is a virtual file system that kernel developers use to put debugging files
+into. Enable this option to be able to read and write to these files.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_FS</code>, run the following command:
+    <code>grep CONFIG_DEBUG_FS /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-86993-3</td>
+<td>Make the kernel text and rodata read-only</td>
+<td>When set, kernel text and rodata memory will be made read-only, and non-text memory will be made non-executable.
+This configuration is available from kernel 4.11.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_STRICT_KERNEL_RWX</code>, run the following command:
+    <code>grep CONFIG_STRICT_KERNEL_RWX /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
 <td>CCE-83987-8</td>
 <td>Ensure rsyslog-gnutls is installed</td>
 <td>TLS protocol support for rsyslog is installed.

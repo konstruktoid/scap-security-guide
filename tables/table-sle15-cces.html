@@ -4495,6 +4495,21 @@ update the
 </tr>
 <tr>
 <td></td>
+<td>Disable kernel debugfs</td>
+<td>
+<code>debugfs</code> is a virtual file system that kernel developers use to put debugging files
+into. Enable this option to be able to read and write to these files.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEBUG_FS</code>, run the following command:
+    <code>grep CONFIG_DEBUG_FS /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Ensure rsyslog is Installed</td>
 <td>Rsyslog is installed by default. The <code>rsyslog</code> package can be installed with the following command: <pre> $ sudo zypper install rsyslog</pre>
 </td>

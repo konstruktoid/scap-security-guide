@@ -377,6 +377,8 @@ install_smartcard_packages
 installed_OS_is_FIPS_certified
 installed_OS_is_vendor_supported
 kerberos_disable_no_keytab
+kernel_config_debug_fs
+kernel_config_strict_kernel_rwx
 kernel_module_atm_disabled
 kernel_module_bluetooth_disabled
 kernel_module_can_disabled

@@ -63,6 +63,7 @@ installed_OS_is_FIPS_certified
 installed_OS_is_vendor_supported
 iptables_sshd_disabled
 is_fips_mode_enabled
+kernel_config_debug_fs
 kernel_disable_entropy_contribution_for_solid_state_drives
 libreswan_approved_tunnels
 network_sniffer_disabled

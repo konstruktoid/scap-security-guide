@@ -136,6 +136,7 @@ grub2_spectre_v2_argument
 harden_ssh_client_crypto_policy
 installed_OS_is_FIPS_certified
 kerberos_disable_no_keytab
+kernel_config_debug_fs
 kernel_module_ipv6_option_disabled
 kernel_module_rds_disabled
 kernel_module_tipc_disabled

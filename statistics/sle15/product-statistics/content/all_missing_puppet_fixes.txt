@@ -366,6 +366,7 @@ is_fips_mode_enabled
 journald_compress
 journald_storage
 kerberos_disable_no_keytab
+kernel_config_debug_fs
 kernel_disable_entropy_contribution_for_solid_state_drives
 kernel_module_cramfs_disabled
 kernel_module_dccp_disabled

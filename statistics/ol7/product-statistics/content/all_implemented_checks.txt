@@ -381,6 +381,7 @@ install_smartcard_packages
 installed_OS_is_FIPS_certified
 installed_OS_is_vendor_supported
 kerberos_disable_no_keytab
+kernel_config_debug_fs
 kernel_module_bluetooth_disabled
 kernel_module_cramfs_disabled
 kernel_module_dccp_disabled

@@ -16,6 +16,7 @@ ftp_configure_firewall
 ftp_limit_users
 gid_passwd_group_same
 iptables_sshd_disabled
+kernel_config_debug_fs
 kernel_disable_entropy_contribution_for_solid_state_drives
 no_all_squash_exports
 no_netrc_files
