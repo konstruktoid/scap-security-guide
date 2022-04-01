@@ -7287,7 +7287,18 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 Audit reduction capability must support after-the-fact investigations of security incidents either natively or through the use of third-party tools.
 
 This requirement is specific to operating systems with audit reduction capabilities.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+<table><tr>
 <td>Record Events When Privileged Executables Are Run</td>
 <td>Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
@@ -7301,7 +7312,8 @@ This requirement is specific to operating systems with audit reduction capabilit
 
 If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
 If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>SV-71517</td>
