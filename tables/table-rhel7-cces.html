@@ -6632,6 +6632,37 @@ media which should not exist in the line:
 </td>
 </tr>
 <tr>
+<td>CCE-86776-2</td>
+<td>Do not allow ACPI methods to be inserted/replaced at run time</td>
+<td>This debug facility allows ACPI AML methods to be inserted and/or replaced without rebooting
+the system.
+This configuration is available from kernel 3.0.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_ACPI_CUSTOM_METHOD</code>, run the following command:
+    <code>grep CONFIG_ACPI_CUSTOM_METHOD /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87255-6</td>
+<td>Disable the 32-bit vDSO</td>
+<td>Certain buggy versions of glibc (2.3.3) will crash if they are presented with a 32-bit vDSO
+that is not mapped at the address indicated in its segment table.
+Setting <code>CONFIG_COMPAT_VDSO</code> to <code>y</code> turns off the 32-bit VDSO and works
+aroud the glibc bug.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_COMPAT_VDSO</code>, run the following command:
+    <code>grep CONFIG_COMPAT_VDSO /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
 <td>CCE-87033-7</td>
 <td>Disable kernel debugfs</td>
 <td>
@@ -6641,6 +6672,108 @@ into. Enable this option to be able to read and write to these files.
 The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
     To check the configuration value for <code>CONFIG_DEBUG_FS</code>, run the following command:
     <code>grep CONFIG_DEBUG_FS /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-86943-8</td>
+<td>Disable /dev/kmem virtual device support</td>
+<td>Disable support for the /dev/kmem device.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEVKMEM</code>, run the following command:
+    <code>grep CONFIG_DEVKMEM /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87299-4</td>
+<td>Harden memory copies between kernel and userspace</td>
+<td>This option checks for obviously wrong memory regions when copying memory to/from the kernel
+(via copy_to_user() and copy_from_user() functions) by rejecting memory ranges that are larger
+than the specified heap object, span multiple separately allocated pages, are not on the
+process stack, or are part of the kernel text.
+This configuration is available from kernel 4.8, and may be available if backported by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_HARDENED_USERCOPY</code>, run the following command:
+    <code>grep CONFIG_HARDENED_USERCOPY /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87104-6</td>
+<td>Disable support for /proc/kkcore</td>
+<td>Provides a virtual ELF core file of the live kernel.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PROC_KCORE</code>, run the following command:
+    <code>grep CONFIG_PROC_KCORE /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-86421-5</td>
+<td>Perform full reference count validation</td>
+<td>Enabling this switches the refcounting infrastructure from a fast unchecked atomic_t
+implementation to a fully state checked implementation, which can have a slight
+impact in performance.
+This configuration is available from kernel 4.13, but may be available if backported
+by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_REFCOUNT_FULL</code>, run the following command:
+    <code>grep CONFIG_REFCOUNT_FULL /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87493-3</td>
+<td>Avoid speculative indirect branches in kernel</td>
+<td>Compile kernel with the retpoline compiler options to guard against kernel-to-user data leaks
+by avoiding speculative indirect branches.
+Requires a compiler with -mindirect-branch=thunk-extern support for full protection.
+The kernel may run slower.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_RETPOLINE</code>, run the following command:
+    <code>grep CONFIG_RETPOLINE /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87337-2</td>
+<td>Restrict unprivileged access to the kernel syslog</td>
+<td>Enforce restrictions on unprivileged users reading the kernel syslog via dmesg(8).
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_SECURITY_DMESG_RESTRICT</code>, run the following command:
+    <code>grep CONFIG_SECURITY_DMESG_RESTRICT /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td>CCE-87882-7</td>
+<td>Disable x86 vsyscall emulation</td>
+<td>Disabling it is roughly equivalent to booting with vsyscall=none, except that it will also
+disable the helpful warning if a program tries to use a vsyscall. With this option set to N,
+offending programs will just segfault, citing addresses of the form 0xffffffffff600?00.
+This configuration is available from kernel 3.19.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_X86_VSYSCALL_EMULATION</code>, run the following command:
+    <code>grep CONFIG_X86_VSYSCALL_EMULATION /boot/config-*</code>
     
     Configs with value 'n' are not explicitly set in the file, so either commented lines or no
     lines should be returned.
