@@ -4820,6 +4820,23 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
+<td>Disable compatibility with brk()</td>
+<td>Enabling compatiliby with <code>brk()</code> allows legacy binaries to run (i.e. those linked
+against libc5). But this compatibility comes at the cost of not being able to randomize
+the heap placement (ASLR).
+
+Unless legacy binaries need to run on the system, set <code>CONFIG_COMPAT_BRK</code> to <code>"n"</code>.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_COMPAT_BRK</code>, run the following command:
+    <code>grep CONFIG_COMPAT_BRK /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Disable the 32-bit vDSO</td>
 <td>Certain buggy versions of glibc (2.3.3) will crash if they are presented with a 32-bit vDSO
 that is not mapped at the address indicated in its segment table.
@@ -4864,6 +4881,35 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
+<td>Enable poison without sanity check</td>
+<td>Skip the sanity checking on alloc, only fill the pages with poison on free. This reduces some
+of the overhead of the poisoning feature.
+This configuration is available from kernel 4.6.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PAGE_POISONING_NO_SANITY</code>, run the following command:
+    <code>grep CONFIG_PAGE_POISONING_NO_SANITY /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Use zero for poisoning instead of debugging value</td>
+<td>Instead of using the existing poison value, fill the pages with zeros. This makes it harder to
+detect when errors are occurring due to sanitization but the zeroing at free means that it is
+no longer necessary to write zeros when GFP_ZERO is used on allocation.
+This configuration is available from kernel 4.19.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PAGE_POISONING_ZERO</code>, run the following command:
+    <code>grep CONFIG_PAGE_POISONING_ZERO /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Disable support for /proc/kkcore</td>
 <td>Provides a virtual ELF core file of the live kernel.
 
@@ -4898,6 +4944,20 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
     To check the configuration value for <code>CONFIG_SECURITY_DMESG_RESTRICT</code>, run the following command:
     <code>grep CONFIG_SECURITY_DMESG_RESTRICT /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Enale SLUB debugging support</td>
+<td>SLUB has extensive debug support features and this allows the allocator validation checking to
+be enabled.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_SLUB_DEBUG</code>, run the following command:
+    <code>grep CONFIG_SLUB_DEBUG /boot/config-*</code>
     
     Configs with value 'n' are not explicitly set in the file, so either commented lines or no
     lines should be returned.
