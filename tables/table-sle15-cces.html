@@ -4532,6 +4532,20 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
+<td>Enable support for BUG()</td>
+<td>Disabling this option eliminates support for BUG and WARN, reducing the size of your kernel
+image and potentially quietly ignoring numerous fatal conditions. You should only consider
+disabling this option for embedded systems with no facilities for reporting errors.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_BUG</code>, run the following command:
+    <code>grep CONFIG_BUG /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Disable compatibility with brk()</td>
 <td>Enabling compatiliby with <code>brk()</code> allows legacy binaries to run (i.e. those linked
 against libc5). But this compatibility comes at the cost of not being able to randomize
@@ -4635,6 +4649,20 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
+<td>Configure low address space to protect from user allocation</td>
+<td>This is the portion of low virtual memory which should be protected from userspace allocation.
+This configuration is available from kernel 3.14, but may be available if backported
+by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_DEFAULT_MMAP_MIN_ADDR</code>, run the following command:
+    <code>grep CONFIG_DEFAULT_MMAP_MIN_ADDR /boot/config-*</code>
+    
+    For each kernel installed, a line with value "65536" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Disable /dev/kmem virtual device support</td>
 <td>Disable support for the /dev/kmem device.
 
@@ -4656,6 +4684,19 @@ reboot.
 The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
     To check the configuration value for <code>CONFIG_HIBERNATION</code>, run the following command:
     <code>grep CONFIG_HIBERNATION /boot/config-*</code>
+    
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Disable IA32 emulation</td>
+<td>Disables support for legacy 32-bit programs under a 64-bit kernel.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_IA32_EMULATION</code>, run the following command:
+    <code>grep CONFIG_IA32_EMULATION /boot/config-*</code>
     
     Configs with value 'n' are not explicitly set in the file, so either commented lines or no
     lines should be returned.
@@ -4818,6 +4859,49 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
+<td>Remove the kernel mapping in user mode</td>
+<td>This feature reduces the number of hardware side channels by ensuring that the majority of
+kernel addresses are not mapped into userspace.
+This configuration is available from kernel 4.15, but may be available if backported
+by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PAGE_TABLE_ISOLATION</code>, run the following command:
+    <code>grep CONFIG_PAGE_TABLE_ISOLATION /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Kernel panic oops</td>
+<td>Enable the kernel to panic when it oopses.
+This has the same effect as setting oops=panic on the kernel command line.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PANIC_ON_OOPS</code>, run the following command:
+    <code>grep CONFIG_PANIC_ON_OOPS /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Kernel panic timeout</td>
+<td>Set the timeout value (in seconds) until a reboot occurs when the kernel panics.
+A timeout of 0 configures the system to wait forever. With a timeout value greater than 0,
+the system will wait the specified amount of seconds before rebooting. While a timeout value
+less than 0 makes the system reboot immediately.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_PANIC_TIMEOUT</code>, run the following command:
+    <code>grep CONFIG_PANIC_TIMEOUT /boot/config-*</code>
+    
+    For each kernel installed, a line with value "<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_kernel_config_panic_timeout"></xccdf-1.1:sub>" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
 <td>Disable support for /proc/kkcore</td>
 <td>Provides a virtual ELF core file of the live kernel.
 
@@ -4827,6 +4911,35 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     
     Configs with value 'n' are not explicitly set in the file, so either commented lines or no
     lines should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Randomize the address of the kernel image (KASLR)</td>
+<td>In support of Kernel Address Space Layout Randomization (KASLR), this randomizes the physical
+address at which the kernel image is decompressed and the virtual address where the kernel
+image is mapped.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_RANDOMIZE_BASE</code>, run the following command:
+    <code>grep CONFIG_RANDOMIZE_BASE /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Randomize the kernel memory sections</td>
+<td>Randomizes the base virtual address of kernel memory sections (physical memory mapping,
+vmalloc &amp; vmemmap).
+This configuration is available from kernel 4.8, but may be available if backported
+by distros.
+
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_RANDOMIZE_MEMORY</code>, run the following command:
+    <code>grep CONFIG_RANDOMIZE_MEMORY /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
     </td>
 </tr>
 <tr>
@@ -4950,6 +5063,22 @@ to enable legitimate users to continue to connect, even when your machine is und
 The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
     To check the configuration value for <code>CONFIG_SYN_COOKIES</code>, run the following command:
     <code>grep CONFIG_SYN_COOKIES /boot/config-*</code>
+    
+    For each kernel installed, a line with value "y" should be returned.
+    </td>
+</tr>
+<tr>
+<td></td>
+<td>Unmap kernel when running in userspace (aka KAISER)</td>
+<td>Speculation attacks against some high-performance processors can be used to bypass MMU
+permission checks and leak kernel data to userspace. This can be defended against by unmapping
+the kernel when running in userspace, mapping it back in on exception entry via a trampoline
+page in the vector table.
+This configuration is available from kernel 4.16, but may be available if backported
+by distros.
+The configuration that was used to build kernel is available at <code>/boot/config-*</code>.
+    To check the configuration value for <code>CONFIG_UNMAP_KERNEL_AT_EL0</code>, run the following command:
+    <code>grep CONFIG_UNMAP_KERNEL_AT_EL0 /boot/config-*</code>
     
     For each kernel installed, a line with value "y" should be returned.
     </td>
