@@ -42,7 +42,6 @@ file_permissions_var_log_audit
 force_opensc_card_drivers
 harden_ssh_client_crypto_policy
 install_smartcard_packages
-kerberos_disable_no_keytab
 network_nmcli_permissions
 no_host_based_files
 no_legacy_plus_entries_etc_group

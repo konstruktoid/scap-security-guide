@@ -19,7 +19,6 @@ grub2_nousb_argument
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
 install_smartcard_packages
-kerberos_disable_no_keytab
 no_tmux_in_shells
 rsyslog_cron_logging
 rsyslog_files_permissions

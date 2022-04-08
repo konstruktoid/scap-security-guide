@@ -21,7 +21,6 @@ file_group_ownership_var_log_audit
 file_ownership_var_log_audit_stig
 file_permissions_var_log_audit
 install_smartcard_packages
-kerberos_disable_no_keytab
 no_tmux_in_shells
 postfix_prevent_unrestricted_relay
 rsyslog_cron_logging

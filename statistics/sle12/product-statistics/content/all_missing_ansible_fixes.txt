@@ -54,7 +54,6 @@ installed_OS_is_FIPS_certified
 installed_OS_is_vendor_supported
 iptables_sshd_disabled
 is_fips_mode_enabled
-kerberos_disable_no_keytab
 kernel_config_acpi_custom_method
 kernel_config_binfmt_misc
 kernel_config_bug

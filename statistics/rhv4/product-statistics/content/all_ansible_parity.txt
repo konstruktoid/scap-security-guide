@@ -23,7 +23,6 @@ file_permissions_unauthorized_world_writable
 file_permissions_var_log_audit
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
-kerberos_disable_no_keytab
 ldap_client_start_tls
 network_ipv6_disable_rpc
 network_ipv6_privacy_extensions

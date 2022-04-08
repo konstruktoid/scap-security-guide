@@ -7,7 +7,6 @@ disable_ctrlaltdel_reboot
 dnf-automatic_apply_updates
 dnf-automatic_security_updates_only
 enable_fips_mode
-kerberos_disable_no_keytab
 no_tmux_in_shells
 sshd_use_directory_configuration
 usbguard_allow_hid_and_hub

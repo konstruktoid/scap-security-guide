@@ -38,7 +38,6 @@ file_permissions_unauthorized_world_writable
 gnome_gdm_disable_xdmcp
 grub2_enable_fips_mode
 harden_ssh_client_crypto_policy
-kerberos_disable_no_keytab
 no_direct_root_logins
 no_empty_passwords
 no_host_based_files

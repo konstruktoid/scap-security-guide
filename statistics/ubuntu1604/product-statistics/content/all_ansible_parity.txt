@@ -26,7 +26,6 @@ grub2_slab_nomerge_argument
 grub2_spec_store_bypass_disable_argument
 grub2_spectre_v2_argument
 harden_ssh_client_crypto_policy
-kerberos_disable_no_keytab
 no_direct_root_logins
 restrict_serial_port_logins
 securetty_root_login_console_only

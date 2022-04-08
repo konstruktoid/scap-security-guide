@@ -9,7 +9,6 @@ dnf-automatic_security_updates_only
 enable_dracut_fips_module
 enable_fips_mode
 grub2_uefi_password
-kerberos_disable_no_keytab
 no_tmux_in_shells
 partition_for_home
 partition_for_var

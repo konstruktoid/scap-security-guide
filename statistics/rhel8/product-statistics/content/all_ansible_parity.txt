@@ -32,7 +32,6 @@ file_permissions_var_log_audit
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
 install_smartcard_packages
-kerberos_disable_no_keytab
 ldap_client_start_tls
 network_disable_zeroconf
 network_ipv6_disable_rpc

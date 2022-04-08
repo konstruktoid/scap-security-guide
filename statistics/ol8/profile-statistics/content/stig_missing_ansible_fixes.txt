@@ -38,7 +38,6 @@ grub2_uefi_admin_username
 grub2_uefi_password
 install_smartcard_packages
 installed_OS_is_vendor_supported
-kerberos_disable_no_keytab
 network_configure_name_resolution
 network_sniffer_disabled
 no_files_unowned_by_user

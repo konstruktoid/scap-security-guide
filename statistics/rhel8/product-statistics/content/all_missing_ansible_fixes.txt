@@ -201,7 +201,6 @@ install_smartcard_packages
 installed_OS_is_FIPS_certified
 installed_OS_is_vendor_supported
 iptables_sshd_disabled
-kerberos_disable_no_keytab
 kernel_config_acpi_custom_method
 kernel_config_arm64_sw_ttbr0_pan
 kernel_config_binfmt_misc

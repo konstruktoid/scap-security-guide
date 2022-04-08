@@ -6,7 +6,6 @@ configure_usbguard_auditbackend
 enable_dracut_fips_module
 ensure_oracle_gpgkey_installed
 grub2_uefi_password
-kerberos_disable_no_keytab
 no_tmux_in_shells
 partition_for_home
 partition_for_var

@@ -19695,12 +19695,12 @@ Kerberos is supported by crypto policy, but it's configuration may be
 set up to ignore it.
 To check that Crypto Policies settings for Kerberos are configured correctly, examine that there is a symlink at
 /etc/krb5.conf.d/crypto-policies targeting /etc/cypto-policies/back-ends/krb5.config.
-If the symlink exists, kerberos is configured to use the system-wide crypto policy settings.</td>
+If the symlink exists, Kerberos is configured to use the system-wide crypto policy settings.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system uses mechanisms meeting the requirements of applicable federal laws, Executive orders, directives, policies, regulations, standards, and guidance for authentication to a cryptographic module. If it does not, this is a finding.</td>
-<td>Check that the symlink exists and target the correct kerberos crypto policy, with the following command:
+<td>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
 file /etc/krb5.conf.d/crypto-policies
-If command ouput shows the following line, kerberos is configured to use the system-wide crypto policy.
+If command ouput shows the following line, Kerberos is configured to use the system-wide crypto policy.
 /etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config
       Is it the case that the symlink does not exist or points to a different target?
       </td>
@@ -19710,7 +19710,7 @@ Kerberos is supported by crypto policy, but it's configuration may be
 set up to ignore it.
 To check that Crypto Policies settings for Kerberos are configured correctly, examine that there is a symlink at
 /etc/krb5.conf.d/crypto-policies targeting /etc/cypto-policies/back-ends/krb5.config.
-If the symlink exists, kerberos is configured to use the system-wide crypto policy settings.</td>
+If the symlink exists, Kerberos is configured to use the system-wide crypto policy settings.</td>
 <td>high</td>
 <td></td>
 <td></td>
@@ -19892,7 +19892,7 @@ that would potentially allow the use of Kerberos by system daemons.
 $ ls -la /etc/*.keytab
 The expected result is
 ls: cannot access '/etc/*.keytab': No such file or directory
-      Is it the case that it is present on the system?
+      Is it the case that a keytab file is present on the system?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3774r557193_fix">Configure the operating system to use mechanisms meeting the requirements of applicable federal laws, Executive orders, directives, policies, regulations, standards, and guidance for authentication to a cryptographic module.</fixtext></td>
 <td>Kerberos is not an approved key distribution method for

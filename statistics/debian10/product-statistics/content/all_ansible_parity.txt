@@ -14,7 +14,6 @@ file_ownership_var_log_audit
 file_permissions_unauthorized_world_writable
 gnome_gdm_disable_xdmcp
 harden_ssh_client_crypto_policy
-kerberos_disable_no_keytab
 no_direct_root_logins
 restrict_serial_port_logins
 securetty_root_login_console_only

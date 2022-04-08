@@ -37,7 +37,6 @@ file_permissions_var_log_audit
 harden_ssh_client_crypto_policy
 harden_sshd_crypto_policy
 install_smartcard_packages
-kerberos_disable_no_keytab
 network_ipv6_privacy_extensions
 no_host_based_files
 no_tmux_in_shells
