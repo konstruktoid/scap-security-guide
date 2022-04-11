@@ -91,7 +91,6 @@ package_abrt-cli_removed
 package_abrt-plugin-sosreport_removed
 package_abrt_removed
 package_aide_installed
-package_audispd-plugins_installed
 package_audit_installed
 package_chrony_installed
 package_crypto-policies_installed
@@ -112,7 +111,6 @@ package_openssh-server_installed
 package_policycoreutils-python-utils_installed
 package_policycoreutils_installed
 package_python3-abrt-addon_removed
-package_rsyslog-gnutls_installed
 package_rsyslog_installed
 package_scap-security-guide_installed
 package_sendmail_removed
@@ -124,8 +122,6 @@ partition_for_var
 partition_for_var_log
 partition_for_var_log_audit
 partition_for_var_tmp
-rsyslog_remote_tls
-rsyslog_remote_tls_cacert
 service_fapolicyd_enabled
 service_kdump_disabled
 service_systemd-coredump_disabled

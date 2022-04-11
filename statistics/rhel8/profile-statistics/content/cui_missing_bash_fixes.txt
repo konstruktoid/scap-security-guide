@@ -5,6 +5,4 @@ partition_for_var
 partition_for_var_log
 partition_for_var_log_audit
 partition_for_var_tmp
-rsyslog_remote_tls
-rsyslog_remote_tls_cacert
 zipl_bls_entries_only

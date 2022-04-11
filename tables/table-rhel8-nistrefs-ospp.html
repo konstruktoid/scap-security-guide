@@ -860,25 +860,6 @@ prevents connections from unknown hosts and protocols.
   <td></td>
 </tr>
 <tr>
-  <td>AU-4(1)<br/>CM-6(a)</td>
-  <td>CCE-80677-8</td>
-  <td>Configure auditd to use audispd's syslog plugin</td>
-  <td xml:lang="en-US">
-To configure the <tt>auditd</tt> service to use the
-<tt>syslog</tt> plug-in of the <tt>audispd</tt> audit event multiplexor, set
-the <tt>active</tt> line in <tt>/etc/audit/plugins.d/syslog.conf</tt> to <tt>yes</tt>.
-Restart the <tt>auditd</tt> service:
-<pre>$ sudo service auditd restart</pre>
-  </td>
-  <td xml:lang="en-US">
-The auditd service does not include the ability to send audit
-records to a centralized server for management directly. It does, however,
-include a plug-in for audit event multiplexor (audispd) to pass audit records
-to the local syslog server
-  </td>
-  <td></td>
-</tr>
-<tr>
   <td>IA-5(f)<br/>IA-5(1)(a)<br/>CM-6(a)</td>
   <td>CCE-80652-1</td>
   <td>Set Password Minimum Length in login.defs</td>
@@ -3084,26 +3065,6 @@ USB devices on the system.
   <td></td>
 </tr>
 <tr>
-  <td>AU-9(3)<br/>CM-6(a)</td>
-  <td>CCE-82457-3</td>
-  <td>Configure TLS for rsyslog remote logging</td>
-  <td xml:lang="en-US">
-Configure <tt>rsyslog</tt> to use Transport Layer
-Security (TLS) support for logging to remote server
-for the Forwarding Output Module in <tt>/etc/rsyslog.conf</tt>
-using action. You can use the following command:
-<pre>echo 'action(type="omfwd" protocol="tcp" Target="&lt;remote system>" port="6514"
-    StreamDriver="gtls" StreamDriverMode="1" StreamDriverAuthMode="x509/name" streamdriver.CheckExtendedKeyPurpose="on")' >> /etc/rsyslog.conf
-</pre>
-Replace the <tt>&lt;remote system></tt> in the above command with an IP address or a host name of the remote logging server.
-  </td>
-  <td xml:lang="en-US">
-For protection of data being logged, the connection to the
-remote logging server needs to be authenticated and encrypted.
-  </td>
-  <td></td>
-</tr>
-<tr>
   <td>AC-10<br/>CM-6(a)</td>
   <td>CCE-80955-8</td>
   <td>Limit the Number of Concurrent Login Sessions Allowed Per User</td>
@@ -3822,22 +3783,6 @@ information from within a process's address space or registers.
 </tr>
 <tr>
   <td></td>
-  <td>CCE-82953-1</td>
-  <td>Install audispd-plugins Package</td>
-  <td xml:lang="en-US">
-The <code>audispd-plugins</code> package can be installed with the following command:
-<pre>
-$ sudo yum install audispd-plugins</pre>
-  </td>
-  <td xml:lang="en-US">
-<tt>audispd-plugins</tt> provides plugins for the real-time interface to the
-audit subsystem, <tt>audispd</tt>. These plugins can do things like relay events
-to remote machines or analyze events for suspicious behavior.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
   <td>CCE-82874-9</td>
   <td>The Chrony package is installed</td>
   <td xml:lang="en-US">
@@ -4105,22 +4050,6 @@ plugin for handling uncaught exceptions in python programs.
 </tr>
 <tr>
   <td></td>
-  <td>CCE-82859-0</td>
-  <td>Ensure rsyslog-gnutls is installed</td>
-  <td xml:lang="en-US">
-TLS protocol support for rsyslog is installed.
-The <code>rsyslog-gnutls</code> package can be installed with the following command:
-<pre>
-$ sudo yum install rsyslog-gnutls</pre>
-  </td>
-  <td xml:lang="en-US">
-The rsyslog-gnutls package provides Transport Layer Security (TLS) support
-for the rsyslog daemon, which enables secure remote logging.
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
   <td>CCE-82949-9</td>
   <td>Install scap-security-guide Package</td>
   <td xml:lang="en-US">
@@ -4177,25 +4106,6 @@ restrictive mount options, which can help protect programs which use it.
 </tr>
 <tr>
   <td></td>
-  <td>CCE-82458-1</td>
-  <td>Configure CA certificate for rsyslog remote logging</td>
-  <td xml:lang="en-US">
-Configure CA certificate for <tt>rsyslog</tt> logging
-to remote server using Transport Layer Security (TLS)
-using correct path for the <tt>DefaultNetstreamDriverCAFile</tt>
-global option in <tt>/etc/rsyslog.conf</tt>, for example with the following command:
-<pre>echo 'global(DefaultNetstreamDriverCAFile="/etc/pki/tls/cert.pem")' >> /etc/rsyslog.conf</pre>
-Replace the <tt>/etc/pki/tls/cert.pem</tt> in the above command with the path to the file with CA certificate generated for the purpose of remote logging.
-  </td>
-  <td xml:lang="en-US">
-The CA certificate needs to be set or <tt>rsyslog.service</tt>
-fails to start with
-<pre>error: ca certificate is not set, cannot continue</pre>
-  </td>
-  <td></td>
-</tr>
-<tr>
-  <td></td>
   <td>CCE-82880-6</td>
   <td>Configure session renegotiation for SSH client</td>
   <td xml:lang="en-US">
@@ -4217,7 +4127,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_ssh_client_rekey_limit_time=1hour<br/>var_ssh_client_rekey_limit_size=1G</td>
+  <td>var_ssh_client_rekey_limit_size=1G<br/>var_ssh_client_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>
@@ -4280,7 +4190,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

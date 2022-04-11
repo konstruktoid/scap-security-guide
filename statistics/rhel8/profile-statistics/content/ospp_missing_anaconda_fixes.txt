@@ -31,7 +31,6 @@ audit_owner_change_failed
 audit_owner_change_success
 audit_perm_change_failed
 audit_perm_change_success
-auditd_audispd_syslog_plugin_activated
 auditd_data_retention_flush
 auditd_freq
 auditd_local_events
@@ -90,8 +89,6 @@ no_tmux_in_shells
 openssl_use_strong_entropy
 package_gssproxy_removed
 require_singleuser_auth
-rsyslog_remote_tls
-rsyslog_remote_tls_cacert
 securetty_root_login_console_only
 selinux_policytype
 selinux_state

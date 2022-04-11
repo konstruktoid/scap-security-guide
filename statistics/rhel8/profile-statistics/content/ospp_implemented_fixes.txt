@@ -31,7 +31,6 @@ audit_owner_change_failed
 audit_owner_change_success
 audit_perm_change_failed
 audit_perm_change_success
-auditd_audispd_syslog_plugin_activated
 auditd_data_retention_flush
 auditd_freq
 auditd_local_events
@@ -109,7 +108,6 @@ package_abrt-cli_removed
 package_abrt-plugin-sosreport_removed
 package_abrt_removed
 package_aide_installed
-package_audispd-plugins_installed
 package_audit_installed
 package_chrony_installed
 package_crypto-policies_installed
@@ -130,7 +128,6 @@ package_openssh-server_installed
 package_policycoreutils-python-utils_installed
 package_policycoreutils_installed
 package_python3-abrt-addon_removed
-package_rsyslog-gnutls_installed
 package_rsyslog_installed
 package_scap-security-guide_installed
 package_sendmail_removed
