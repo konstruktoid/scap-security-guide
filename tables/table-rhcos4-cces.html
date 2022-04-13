@@ -5348,7 +5348,7 @@ The configuration that was used to build kernel is available at <code>/boot/conf
 </tr>
 <tr>
 <td></td>
-<td>Enale SLUB debugging support</td>
+<td>Enable SLUB debugging support</td>
 <td>SLUB has extensive debug support features and this allows the allocator validation checking to
 be enabled.
 
@@ -5356,8 +5356,7 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     To check the configuration value for <code>CONFIG_SLUB_DEBUG</code>, run the following command:
     <code>grep CONFIG_SLUB_DEBUG /boot/config-*</code>
     
-    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
-    lines should be returned.
+    For each kernel installed, a line with value "y" should be returned.
     </td>
 </tr>
 <tr>
