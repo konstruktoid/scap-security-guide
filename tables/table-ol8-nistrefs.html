@@ -5967,7 +5967,7 @@ configured to utilize the services of the <tt>chronyd</tt> NTP daemon (the
 default), or services of the <tt>ntpd</tt> NTP daemon. Refer to
 
     
-    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html</a>
+    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime</a>
 
 for more detailed comparison of the features of both of the choices, and for
 further guidance how to choose between the two NTP daemons.
@@ -5999,7 +5999,7 @@ To enable poisoning of free pages,
 add the argument <tt>page_poison=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>page_poison=1</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>page_poison=1</tt> to the
+argument to newly installed kernels, add <tt>page_poison=1</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
@@ -7191,7 +7191,7 @@ in the previous sections in certain environments the <tt>ntpd</tt> daemon might
 be preferred to be used rather than the <tt>chronyd</tt> one. Refer to:
 
     
-    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html</a>
+    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime</a>
 
 for guidance which NTP daemon to choose depending on the environment used.
   </td>
@@ -7355,7 +7355,7 @@ configured to utilize the services of the <tt>chronyd</tt> NTP daemon (the
 default), or services of the <tt>ntpd</tt> NTP daemon. Refer to
 
      
-    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/ol-nettime.html</a>
+    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/network/network-ConfiguringNetworkTime.html#ol-nettime</a>
 
 for more detailed comparison of the features of both of the choices, and for
 further guidance how to choose between the two NTP daemons.
@@ -8001,7 +8001,7 @@ Detailed information on encrypting partitions using LUKS or LUKS ciphers can be 
 the Oracle Linux 8 Documentation web site:<br />
 
     
-    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/ol8-install-basic.html#install-storage-network'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/ol8-install-basic.html#install-storage-network</a>.
+    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>.
   </td>
   <td xml:lang="en-US">
 The risk of a system's physical compromise, particularly mobile systems such as
@@ -8058,7 +8058,7 @@ To improve the kernel capacity to queue all log events, even those which occurre
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+argument to newly installed kernels, add <tt>audit_backlog_limit=8192</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -8644,7 +8644,7 @@ To enable poisoning of SLUB/SLAB objects,
 add the argument <tt>slub_debug=P</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>slub_debug=P</tt> to the
+argument to newly installed kernels, add <tt>slub_debug=P</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
@@ -9761,7 +9761,7 @@ To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+argument to newly installed kernels, add <tt>vsyscall=none</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
@@ -9774,7 +9774,7 @@ of the return instruction pointer.
 </tr>
 <tr>
   <td>CM-7(a)<br/>CM-7(b)<br/>SC-5(1)<br/>SC-5(2)<br/>SC-5(3)(a)<br/>CM-6(a)</td>
-  <td>Enable Kernel Parameter to Use TCP Syncookies on IPv4 Interfaces</td>
+  <td>Enable Kernel Parameter to Use TCP Syncookies on Network Interfaces</td>
   <td xml:lang="en-US">
 To set the runtime status of the <code>net.ipv4.tcp_syncookies</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.tcp_syncookies=1</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <tt>/etc/sysctl.d</tt>: <pre>net.ipv4.tcp_syncookies = 1</pre>
@@ -11776,7 +11776,7 @@ To enable Kernel page-table isolation,
 add the argument <tt>pti=on</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>pti=on</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>pti=on</tt> to the
+argument to newly installed kernels, add <tt>pti=on</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
@@ -12147,7 +12147,7 @@ To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit=1</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>audit=1</tt> to the
+argument to newly installed kernels, add <tt>audit=1</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>

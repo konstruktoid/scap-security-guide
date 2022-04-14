@@ -60,6 +60,7 @@ auditd_data_retention_max_log_file
 auditd_data_retention_max_log_file_action
 auditd_data_retention_space_left_action
 banner_etc_issue
+banner_etc_motd
 chronyd_run_as_chrony_user
 chronyd_specify_remote_server
 coredump_disable_backtraces

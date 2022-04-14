@@ -2682,7 +2682,7 @@ The <code>auditd</code> service can be enabled with the following command:
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -2696,7 +2696,7 @@ Run the following command to update command line for already installed kernels:<
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -6795,7 +6795,7 @@ cp /usr/share/doc/audit*/rules/{10-base-config,11-loginuid,30-ospp-v42,43-module
 <td>On x86 architecture supporting VT-d, the IOMMU manages the access control policy between the hardware devices and some
     of the system critical units such as the memory.
 To ensure that <code>iommu=force</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>iommu=force</code> to the
+argument to newly installed kernels, add <code>iommu=force</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... iommu=force ..."</pre>
@@ -6808,7 +6808,7 @@ Run the following command to update command line for already installed kernels:<
 <td>To configure the kernel to zero out memory before allocating it, add the
 <code>init_on_alloc=1</code> argument to the default GRUB 2 command line.
 To ensure that <code>init_on_alloc=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>init_on_alloc=1</code> to the
+argument to newly installed kernels, add <code>init_on_alloc=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... init_on_alloc=1 ..."</pre>
@@ -6826,7 +6826,7 @@ There must not exist the boot parameter <code>random.trust_cpu=off</code>. If
 the option is not compiled in, make sure that <code>random.trust_cpu=on</code>
 is configured as a boot parameter.
 To ensure that <code>random.trust_cpu=on</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>random.trust_cpu=on</code> to the
+argument to newly installed kernels, add <code>random.trust_cpu=on</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... random.trust_cpu=on ..."</pre>
@@ -6844,7 +6844,7 @@ Select the appropriate mitigation by adding the argument
 <code>l1tf=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref=""></xccdf-1.1:sub></code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>l1tf=xccdf_value(var_l1tf_options)</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>l1tf=xccdf_value(var_l1tf_options)</code> to the
+argument to newly installed kernels, add <code>l1tf=xccdf_value(var_l1tf_options)</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... l1tf=xccdf_value(var_l1tf_options) ..."</pre>
@@ -6867,7 +6867,7 @@ To force the kernel to panic on any uncorrected error reported by Machine Check
 set the MCE tolerance to zero by adding <code>mce=0</code>
 to the default GRUB 2 command line for the Linux operating system.
 To ensure that <code>mce=0</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>mce=0</code> to the
+argument to newly installed kernels, add <code>mce=0</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... mce=0 ..."</pre>
@@ -6892,7 +6892,7 @@ Select the appropriate mitigation by adding the argument
 <code>mds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref=""></xccdf-1.1:sub></code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>mds=xccdf_value(var_mds_options)</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>mds=xccdf_value(var_mds_options)</code> to the
+argument to newly installed kernels, add <code>mds=xccdf_value(var_mds_options)</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... mds=xccdf_value(var_mds_options) ..."</pre>
@@ -6944,7 +6944,7 @@ Run the following command to update command line for already installed kernels:
 <td>To enable randomization of the page allocator in the kernel, add the
 <code>page_alloc.shuffle=1</code> argument to the default GRUB 2 command line.
 To ensure that <code>page_alloc.shuffle=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>page_alloc.shuffle=1</code> to the
+argument to newly installed kernels, add <code>page_alloc.shuffle=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_alloc.shuffle=1 ..."</pre>
@@ -6958,7 +6958,7 @@ Run the following command to update command line for already installed kernels:<
 add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>pti=on</code> to the
+argument to newly installed kernels, add <code>pti=on</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
@@ -6985,7 +6985,7 @@ Select the appropriate confidence by adding the argument
 <code>rng_core.default_quality=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref=""></xccdf-1.1:sub></code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>rng_core.default_quality=xccdf_value(var_rng_core_default_quality)</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>rng_core.default_quality=xccdf_value(var_rng_core_default_quality)</code> to the
+argument to newly installed kernels, add <code>rng_core.default_quality=xccdf_value(var_rng_core_default_quality)</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... rng_core.default_quality=xccdf_value(var_rng_core_default_quality) ..."</pre>
@@ -7003,7 +7003,7 @@ kernel heap overflows overwriting objects in merged caches.
 To disable merging of slabs in the Kernel add the argument <code>slab_nomerge=yes</code>
 to the default GRUB 2 command line for the Linux operating system.
 To ensure that <code>slab_nomerge=yes</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>slab_nomerge=yes</code> to the
+argument to newly installed kernels, add <code>slab_nomerge=yes</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slab_nomerge=yes ..."</pre>
@@ -7028,7 +7028,7 @@ Select the appropriate SSB state by adding the argument
 <code>spec_store_bypass_disable=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref=""></xccdf-1.1:sub></code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)</code> to the
+argument to newly installed kernels, add <code>spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options) ..."</pre>
@@ -7050,7 +7050,7 @@ Enforce the Spectre V2 mitigation by adding the argument
 <code>spectre_v2=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>spectre_v2=on)</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>spectre_v2=on)</code> to the
+argument to newly installed kernels, add <code>spectre_v2=on)</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... spectre_v2=on) ..."</pre>
@@ -7064,7 +7064,7 @@ Run the following command to update command line for already installed kernels:<
 add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+argument to newly installed kernels, add <code>vsyscall=none</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
@@ -8704,7 +8704,7 @@ add or correct the following line in
 add the argument <code>ipv6.disable=1</code> to the default
 GRUB2 command line for the Linux operating system.
 To ensure that <code>ipv6.disable=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>ipv6.disable=1</code> to the
+argument to newly installed kernels, add <code>ipv6.disable=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... ipv6.disable=1 ..."</pre>
@@ -9040,7 +9040,7 @@ To make sure that the setting is persistent, add the following line to a file in
 </tr>
 <tr>
 <td>CCE-84006-6</td>
-<td>Enable Kernel Parameter to Use TCP Syncookies on IPv4 Interfaces</td>
+<td>Enable Kernel Parameter to Use TCP Syncookies on Network Interfaces</td>
 <td>To set the runtime status of the <code>net.ipv4.tcp_syncookies</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.tcp_syncookies=1</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>net.ipv4.tcp_syncookies = 1</pre>
 </td>
@@ -10436,7 +10436,7 @@ on AMD-based systems.</td>
 add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>page_poison=1</code> to the
+argument to newly installed kernels, add <code>page_poison=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
@@ -10450,7 +10450,7 @@ Run the following command to update command line for already installed kernels:<
 add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+argument to newly installed kernels, add <code>slub_debug=P</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>

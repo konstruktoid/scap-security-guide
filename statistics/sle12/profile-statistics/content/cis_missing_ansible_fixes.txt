@@ -2,7 +2,6 @@ account_unique_id
 account_unique_name
 accounts_password_all_shadowed
 accounts_password_warn_age_login_defs
-banner_etc_motd
 bios_enable_execution_restrictions
 chronyd_run_as_chrony_user
 disable_prelink

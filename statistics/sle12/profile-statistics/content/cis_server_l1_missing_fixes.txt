@@ -1,7 +1,6 @@
 account_unique_id
 account_unique_name
 accounts_password_all_shadowed
-banner_etc_motd
 bios_enable_execution_restrictions
 file_permissions_ungroupowned
 gid_passwd_group_same

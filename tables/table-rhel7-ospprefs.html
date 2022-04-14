@@ -81,7 +81,7 @@ To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit=1</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>audit=1</tt> to the
+argument to newly installed kernels, add <tt>audit=1</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -2567,7 +2567,7 @@ To improve the kernel capacity to queue all log events, even those which occurre
 prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>audit_backlog_limit=8192</tt> to the
+argument to newly installed kernels, add <tt>audit_backlog_limit=8192</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -3972,7 +3972,7 @@ To disable use of virtual syscalls,
 add the argument <tt>vsyscall=none</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>vsyscall=none</tt> to the
+argument to newly installed kernels, add <tt>vsyscall=none</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>

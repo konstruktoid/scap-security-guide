@@ -822,7 +822,7 @@ The <code>auditd</code> service can be enabled with the following command:
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -2014,7 +2014,7 @@ At a minimum, the organization must audit the full-text recording of privileged 
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -3613,7 +3613,7 @@ The <code>auditd</code> service can be enabled with the following command:
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -5738,7 +5738,7 @@ $ sudo yum erase tuned</pre>
 add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>pti=on</code> to the
+argument to newly installed kernels, add <code>pti=on</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
@@ -6443,7 +6443,7 @@ Developers and implementers can increase the assurance in security functions by 
 add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+argument to newly installed kernels, add <code>vsyscall=none</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
@@ -6456,7 +6456,7 @@ Run the following command to update command line for already installed kernels:<
 add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>page_poison=1</code> to the
+argument to newly installed kernels, add <code>page_poison=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
@@ -6469,11 +6469,26 @@ Run the following command to update command line for already installed kernels:<
 add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+argument to newly installed kernels, add <code>slub_debug=P</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
+</td>
+</tr></table>
+<table><tr>
+<td>Install policycoreutils Package</td>
+<td>The <code>policycoreutils</code> package can be installed with the following command:
+<pre>
+$ sudo yum install policycoreutils</pre>
+</td>
+</tr></table>
+<table><tr>
+<td>Ensure SELinux State is Enforcing</td>
+<td>The SELinux state should be set to <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></code> at
+system boot time.  In the file <code>/etc/selinux/config</code>, add or correct the
+following line to configure the system to boot into enforcing mode:
+<pre>SELINUX=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></pre>
 </td>
 </tr></table>
 </td>
@@ -7342,7 +7357,7 @@ The <code>auditd</code> service can be enabled with the following command:
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -7355,7 +7370,7 @@ Run the following command to update command line for already installed kernels:<
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -8537,7 +8552,7 @@ audit logs that will be created by the auditing daemon.</td>
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -9832,7 +9847,7 @@ The <code>auditd</code> service can be enabled with the following command:
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -11294,7 +11309,7 @@ on AMD-based systems.</td>
 add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+argument to newly installed kernels, add <code>slub_debug=P</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
@@ -11318,7 +11333,7 @@ Examples of attacks are buffer overflow attacks.</td>
 add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>pti=on</code> to the
+argument to newly installed kernels, add <code>pti=on</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
@@ -12047,7 +12062,7 @@ Audit records can be generated from various components within the information sy
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -14320,7 +14335,7 @@ Audit records can be generated from various components within the information sy
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -15484,7 +15499,7 @@ Audit records can be generated from various components within the information sy
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -16528,7 +16543,7 @@ in <code>/etc/audit/auditd.conf</code>.</td>
 add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+argument to newly installed kernels, add <code>vsyscall=none</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
@@ -16960,7 +16975,7 @@ To make sure that the setting is persistent, add the following line to a file in
 add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>page_poison=1</code> to the
+argument to newly installed kernels, add <code>page_poison=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>

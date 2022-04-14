@@ -26,7 +26,6 @@ auditd_audispd_network_failure_action
 auditd_data_disk_error_action
 auditd_overflow_action
 avahi_disable_publishing
-banner_etc_motd
 bios_enable_execution_restrictions
 chronyd_run_as_chrony_user
 chronyd_server_directive

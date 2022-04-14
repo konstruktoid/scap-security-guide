@@ -16595,23 +16595,36 @@ An example of this type of separation is observed in web administrative interfac
 <td>SRG-OS-000134-GPOS-00068</td>
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must isolate security functions from nonsecurity functions.</td>
-<td></td>
+<td>CCE-27334-2:Ensure SELinux State is Enforcing</td>
 <td>An isolation boundary provides access control and protects the integrity of the hardware, software, and firmware that perform security functions.
 
 Security functions are the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Operating systems implement code separation (i.e., separation of security functions from nonsecurity functions) in a number of ways, including through the provision of security kernels via processor rings or processor modes. For non-kernel code, security function isolation is often achieved through file system protections that serve to protect the code on disk and address space protections that protect executing code.
 
 Developers and implementers can increase the assurance in security functions by employing well-defined security policy models; structured, disciplined, and rigorous hardware and software development techniques; and sound system/security engineering principles. Implementation may include isolation of memory space and libraries. Operating systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities.</td>
-<td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>The SELinux state should be set to <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></code> at
+system boot time.  In the file <code>/etc/selinux/config</code>, add or correct the
+following line to configure the system to boot into enforcing mode:
+<pre>SELINUX=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_selinux_state"></xccdf-1.1:sub></pre>
 </td>
+<td>Applicable - Configurable</td>
+<td>Verify the operating system isolates security functions from nonsecurity functions. If it does not, this is a finding.</td>
+<td>Ensure that Red Hat Enterprise Linux 7 verifies correct operation of security functions.
+
+Check if "SELinux" is active and in "" mode with the following command:
+
+$ sudo getenforce
+
+      Is it the case that SELINUX is not set to enforcing?
+      </td>
+<td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3781r557214_fix">Configure the operating system to isolate security functions from nonsecurity functions.</fixtext></td>
+<td>The SELinux state should be set to  at
+system boot time.  In the file /etc/selinux/config, add or correct the
+following line to configure the system to boot into enforcing mode:
+SELINUX=</td>
+<td>medium</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>V-56853</td>

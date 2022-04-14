@@ -181,7 +181,7 @@ Detailed information on encrypting partitions using LUKS or LUKS ciphers can be 
 the Oracle Linux 8 Documentation web site:<br>
 
     
-    <a href="https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/ol8-install-basic.html#install-storage-network">https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/ol8-install-basic.html#install-storage-network</a>.</pre></td>
+    <a href="https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network">https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>.</pre></td>
 <td>OL08-00-010030</td>
 <td>encrypt_partitions</td>
 </tr>
@@ -1587,7 +1587,7 @@ Also prevents leak of data and detection of corrupted memory.</pre></td>
 add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>page_poison=1</code> to the
+argument to newly installed kernels, add <code>page_poison=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
@@ -1608,7 +1608,7 @@ of the return instruction pointer.</pre></td>
 add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>vsyscall=none</code> to the
+argument to newly installed kernels, add <code>vsyscall=none</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
@@ -1632,7 +1632,7 @@ Also prevents leak of data and detection of corrupted memory.</pre></td>
 add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>slub_debug=P</code> to the
+argument to newly installed kernels, add <code>slub_debug=P</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
@@ -6325,7 +6325,7 @@ ensures it is set for every process during boot.</pre></td>
 prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit=1</code> to the
+argument to newly installed kernels, add <code>audit=1</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
@@ -6348,7 +6348,7 @@ defined by audit failure flag is taken.</pre></td>
 prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>audit_backlog_limit=8192</code> to the
+argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
@@ -6796,7 +6796,7 @@ randomization (KASLR).</pre></td>
 add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
-argument to newly installed kernels, ad <code>pti=on</code> to the
+argument to newly installed kernels, add <code>pti=on</code> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>

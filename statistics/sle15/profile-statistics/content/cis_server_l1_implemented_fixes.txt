@@ -12,6 +12,7 @@ accounts_umask_etc_profile
 aide_build_database
 aide_periodic_cron_checking
 banner_etc_issue
+banner_etc_motd
 chronyd_run_as_chrony_user
 chronyd_specify_remote_server
 coredump_disable_backtraces

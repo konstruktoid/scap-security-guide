@@ -4307,7 +4307,7 @@ the network.
 <tr>
   <td>CM-7(a)<br/>CM-7(b)<br/>SC-5(1)<br/>SC-5(2)<br/>SC-5(3)(a)<br/>CM-6(a)</td>
   <td>CCE-27495-1</td>
-  <td>Enable Kernel Parameter to Use TCP Syncookies on IPv4 Interfaces</td>
+  <td>Enable Kernel Parameter to Use TCP Syncookies on Network Interfaces</td>
   <td xml:lang="en-US">
 To set the runtime status of the <code>net.ipv4.tcp_syncookies</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w net.ipv4.tcp_syncookies=1</pre>
 To make sure that the setting is persistent, add the following line to a file in the directory <tt>/etc/sysctl.d</tt>: <pre>net.ipv4.tcp_syncookies = 1</pre>
@@ -4717,7 +4717,7 @@ To ensure all processes can be audited, even those which start
 prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit=1</tt> is added as a kernel command line
-argument to newly installed kernels, ad <tt>audit=1</tt> to the
+argument to newly installed kernels, add <tt>audit=1</tt> to the
 default Grub2 command line for Linux operating systems.  Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
