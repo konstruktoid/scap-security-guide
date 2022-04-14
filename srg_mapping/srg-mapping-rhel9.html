@@ -83,14 +83,14 @@ thead
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000420-GPOS-00186,SRG-OS-000142-GPOS-00071</td>
       <td></td>
       <td>The operating system must manage excess capacity, bandwidth, or other redundancy to limit the effects of information flooding types of Denial of Service (DoS) attacks.</td>
-      <td>The operating system must manage excess capacity, bandwidth, or other redundancy to limit the effects of information flooding types of Denial of Service (DoS) attacks.</td>
+      <td>Red Hat Enterprise Linux 9 must manage excess capacity, bandwidth, or other redundancy to limit the effects of information flooding types of Denial of Service (DoS) attacks.</td>
       <td>DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity. <br><br>Managing excess capacity ensures that sufficient capacity is available to counter flooding attacks. Employing increased capacity and service redundancy may reduce the susceptibility to some DoS attacks. Managing excess capacity may include, for example, establishing selected usage priorities, quotas, or partitioning.</td>
       <td>A TCP SYN flood attack can cause a denial of service by filling a<br>system's TCP connection table with connections in the SYN_RCVD state.<br>Syncookies can be used to track a connection when a subsequent ACK is received,<br>verifying the initiator is attempting a valid connection and is not a flood<br>source. This feature is activated when a flood condition is detected, and<br>enables the system to continue servicing valid connection requests.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system manages excess capacity, bandwidth, or other redundancy to limit the effects of information flooding types of Denial of Service (DoS) attacks. If it does not, this is a finding.</td>
       <td>The runtime status of the  net.ipv4.tcp_syncookies  kernel parameter can be queried<br>by running the following command:<br> $ sysctl net.ipv4.tcp_syncookies <br>The output of the command should indicate a value of  1 .<br>The preferable way how to assure the runtime compliance is to have<br>correct persistent configuration, and rebooting the system.<br><br>The persistent kernel parameter configuration is performed by specifying the appropriate<br>assignment in any file located in the  /etc/sysctl.d  directory.<br>Verify that there is not any existing incorrect configuration by executing the following command:<br> $ grep -r '^\s*net.ipv4.tcp_syncookies\s*=' /etc/sysctl.conf /etc/sysctl.d <br>If any assignments other than<br> net.ipv4.tcp_syncookies = 1 <br>are found, or the correct assignment is duplicated, remove those offending lines from respective files,<br>and make sure that exactly one file in<br> /etc/sysctl.d  contains  net.ipv4.tcp_syncookies = 1 , and that one assignment<br>is returned when<br> $ grep -r net.ipv4.tcp_syncookies /etc/sysctl.conf /etc/sysctl.d <br>is executed.<br><br><br>If the correct value is not returned then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure Red Hat Enterprise Linux 9 to use TCP syncookies.<br><br>Add or edit the following line in a system configuration file in the "/etc/sysctl.d/" directory:<br><br> net.ipv4.tcp_syncookies = 1<br><br> Load settings from all system configuration files with the following command:<br><br> $ sudo sysctl --system</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -1023,7 +1023,7 @@ thead
       <td>SRG-OS-000109-GPOS-00056,SRG-OS-000480-GPOS-00227</td>
       <td></td>
       <td>The operating system must require individuals to be authenticated with an individual authenticator prior to using a group authenticator.</td>
-      <td>The operating system must require individuals to be authenticated with an individual authenticator prior to using a group authenticator.</td>
+      <td>Red Hat Enterprise Linux 9must require individuals to be authenticated with an individual authenticator prior to using a group authenticator.</td>
       <td>To assure individual accountability and prevent unauthorized access, organizational users must be individually identified and authenticated.<br><br>A group authenticator is a generic account used by multiple individuals. Use of a group authenticator alone does not uniquely identify individual users. Examples of the group authenticator is the UNIX OS "root" user account, the Windows "Administrator" account, the "sa" account, or a "helpdesk" account.<br><br>For example, the UNIX and Windows operating systems offer a 'switch user' capability allowing users to authenticate with their individual credentials and, when needed, 'switch' to the administrator role. This method provides for unique individual authentication prior to using a group authenticator.<br><br>Users (and any processes acting on behalf of users) need to be uniquely identified and authenticated for all accesses other than those accesses explicitly identified and documented by the organization, which outlines specific user actions that can be performed on the operating system without identification or authentication.<br><br>Requiring individuals to be authenticated with an individual authenticator prior to using a group authenticator allows for traceability of actions, as well as adding an additional level of protection of the actions that can be taken with group account knowledge.</td>
       <td>Even though the communications channel may be encrypted, an additional layer of<br>security is gained by extending the policy of not logging directly on as root.<br>In addition, logging in with a user-specific account provides individual<br>accountability of actions performed on the system and also helps to minimize<br>direct attack attempts on root's password.</td>
       <td>Applicable - Configurable</td>
@@ -1323,7 +1323,7 @@ thead
       <td>SRG-OS-000106-GPOS-00053,SRG-OS-000480-GPOS-00229,SRG-OS-000480-GPOS-00227</td>
       <td></td>
       <td>The operating system must use multifactor authentication for network access to non-privileged accounts.</td>
-      <td>The operating system must use multifactor authentication for network access to non-privileged accounts.</td>
+      <td>Red Hat Enterprise Linux 9 must use multifactor authentication for network access to non-privileged accounts.</td>
       <td>To assure accountability and prevent unauthenticated access, non-privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.<br><br>Multifactor authentication uses two or more factors to achieve authentication.<br><br>Factors include: <br>1) Something you know (e.g., password/PIN);<br>2) Something you have (e.g., cryptographic identification device, token); and<br>3) Something you are (e.g., biometric).<br><br>A non-privileged account is any information system account with authorizations of a non-privileged user.<br><br>Network access is any access to an application by a user (or process acting on behalf of a user) where said access is obtained through a network connection.<br><br>The DoD CAC with DoD-approved PKI is an example of multifactor authentication.</td>
       <td>Configuring this setting for the SSH daemon provides additional assurance<br>that remote login via SSH will require a password, even in the event of<br>misconfiguration elsewhere.</td>
       <td>Applicable - Configurable</td>
@@ -1623,14 +1623,14 @@ thead
       <td>SRG-OS-000105-GPOS-00052,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000108-GPOS-00055</td>
       <td></td>
       <td>The operating system must use multifactor authentication for local access to privileged accounts.</td>
-      <td>The operating system must use multifactor authentication for local access to privileged accounts.</td>
+      <td>Red Hat Enterprise Linux 9 must use multifactor authentication for local access to privileged accounts.</td>
       <td>To assure accountability and prevent unauthenticated access, privileged users must utilize multifactor authentication to prevent potential misuse and compromise of the system.<br><br>Multifactor authentication is defined as using two or more factors to achieve authentication.<br><br>Factors include: <br>1) Something you know (e.g., password/PIN); <br>2) Something you have (e.g., cryptographic identification device, token); and<br>3) Something you are (e.g., biometric).<br><br>A privileged account is defined as an operating system account with authorizations of a privileged user.<br><br>Local access is defined as access to an organizational information system by a user (or process acting on behalf of a user) communicating through a direct connection without the use of a network.<br><br>The DoD CAC with DoD-approved PKI is an example of multifactor authentication.</td>
       <td>Without the use of multifactor authentication, the ease of access to<br>privileged functions is greatly increased. Multifactor authentication<br>requires using two or more factors to achieve authentication.<br>A privileged account is defined as an information system account with<br>authorizations of a privileged user. <br>The DoD CAC with DoD-approved PKI is an example of multifactor<br>authentication.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system uses multifactor authentication for local access to privileged accounts. If it does not, this is a finding.</td>
       <td>To determine how the SSH daemon's "PubkeyAuthentication" option is set, run the following command:<br><br> $ sudo grep -i PubkeyAuthentication /etc/ssh/sshd_config.d/00-complianceascode-hardening.conf <br><br><br>If a line indicating "yes" is returned, then the required value is set.<br><br><br>If the required value is not set then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>To configure the system add or modify the following line in "/etc/ssh/sshd_config".<br><br>PubkeyAuthentication yes<br><br>Restart the SSH daemon for the settings to take effect:<br><br>$ sudo systemctl restart sshd.service</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -2603,7 +2603,7 @@ thead
       <td>SRG-OS-000108-GPOS-00055</td>
       <td></td>
       <td>The operating system must use multifactor authentication for local access to non-privileged accounts.</td>
-      <td>The operating system must use multifactor authentication for local access to non-privileged accounts.</td>
+      <td>Red Hat Enterprise Linux 9 must use multifactor authentication for local access to non-privileged accounts.</td>
       <td>To assure accountability, prevent unauthenticated access, and prevent misuse of the system, non-privileged users must utilize multifactor authentication for local access.<br><br>Multifactor authentication is defined as using two or more factors to achieve authentication.<br><br>Factors include: <br>1) Something you know (e.g., password/PIN); <br>2) Something you have (e.g., cryptographic identification device or token); and<br>3) Something you are (e.g., biometric).<br><br>A non-privileged account is defined as an operating system account with authorizations of a regular or non-privileged user.<br><br>Local access is defined as access to an organizational information system by a user (or process acting on behalf of a user) communicating through a direct connection without the use of a network.<br><br>The DoD CAC with DoD-approved PKI is an example of multifactor authentication.</td>
       <td></td>
       <td>Applicable - Configurable</td>
@@ -3043,7 +3043,7 @@ thead
       <td>SRG-OS-000105-GPOS-00052</td>
       <td></td>
       <td>The operating system must use multifactor authentication for network access to privileged accounts.</td>
-      <td>The operating system must use multifactor authentication for network access to privileged accounts.</td>
+      <td>Red Hat Enterprise Linux 9 must use multifactor authentication for network access to privileged accounts.</td>
       <td>Without the use of multifactor authentication, the ease of access to privileged functions is greatly increased.<br><br>Multifactor authentication requires using two or more factors to achieve authentication.<br><br>Factors include: <br>1) something a user knows (e.g., password/PIN);<br>2) something a user has (e.g., cryptographic identification device, token); and<br>3) something a user is (e.g., biometric).<br><br>A privileged account is defined as an information system account with authorizations of a privileged user.<br><br>Network access is defined as access to an information system by a user (or a process acting on behalf of a user) communicating through a network (e.g., local area network, wide area network, or the Internet).<br><br>The DoD CAC with DoD-approved PKI is an example of multifactor authentication.</td>
       <td></td>
       <td>Applicable - Configurable</td>
@@ -3643,14 +3643,14 @@ thead
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td></td>
       <td>The operating system must isolate security functions from nonsecurity functions.</td>
-      <td>The operating system must isolate security functions from nonsecurity functions.</td>
+      <td>Red Hat Enterprise Linux 9 must isolate security functions from nonsecurity functions.</td>
       <td>An isolation boundary provides access control and protects the integrity of the hardware, software, and firmware that perform security functions.<br><br>Security functions are the hardware, software, and/or firmware of the information system responsible for enforcing the system security policy and supporting the isolation of code and data on which the protection is based. Operating systems implement code separation (i.e., separation of security functions from nonsecurity functions) in a number of ways, including through the provision of security kernels via processor rings or processor modes. For non-kernel code, security function isolation is often achieved through file system protections that serve to protect the code on disk and address space protections that protect executing code.<br><br>Developers and implementers can increase the assurance in security functions by employing well-defined security policy models; structured, disciplined, and rigorous hardware and software development techniques; and sound system/security engineering principles. Implementation may include isolation of memory space and libraries. Operating systems restrict access to security functions through the use of access control mechanisms and by implementing least privilege capabilities.</td>
       <td>Virtual Syscalls provide an opportunity of attack for a user who has control<br>of the return instruction pointer.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system isolates security functions from nonsecurity functions. If it does not, this is a finding.</td>
       <td>Inspect the form of default GRUB 2 command line for the Linux operating system<br>in "/etc/default/grub". If it includes "vsyscall=none",<br>then the parameter will be configured for newly installed kernels.<br>First check if the GRUB recovery is enabled:<br> $ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub <br>If this option is set to true, then check that a line is output by the following command:<br> $ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*vsyscall=none.*' /etc/default/grub <br>If the recovery is disabled, check the line with<br> $ grep 'GRUB_CMDLINE_LINUX.*vsyscall=none.*' /etc/default/grub .Moreover, command line parameters for currently installed kernels should be checked as well.<br>Run the following command:<br> # grubby --info=ALL | grep args | grep -v 'vsyscall=none' <br>The command should not return any output.<br><br>If vsyscalls are enabled then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>To ensure that "vsyscall=none" is added as a kernel command line<br>argument to newly installed kernels, add "vsyscall=none" to the<br>default Grub2 command line for Linux operating systems.  Modify the line within<br>"/etc/default/grub" as shown below:<br> GRUB_CMDLINE_LINUX="... vsyscall=none ..." <br>Run the following command to update command line for already installed kernels: # grubby --update-kernel=ALL --args="vsyscall=none"</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
