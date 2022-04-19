@@ -8,7 +8,6 @@ auditd_audispd_disk_full_action
 auditd_audispd_network_failure_action
 dir_perms_world_writable_system_owned_group
 encrypt_partitions
-file_etc_security_opasswd
 file_permission_user_init_files
 file_permissions_ungroupowned
 grub2_password

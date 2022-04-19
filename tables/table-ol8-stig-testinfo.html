@@ -4410,7 +4410,8 @@ Detailed information on encrypting partitions using LUKS or LUKS ciphers can be 
 the Oracle Linux 8 Documentation web site:<br>
 
     
-    <a href="https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network">https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>.</td>
+    <a href="https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network">https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>
+.</td>
 <td></td>
 <td>SRG-OS-000185-GPOS-00079<br>SRG-OS-000404-GPOS-00183<br>SRG-OS-000405-GPOS-00184<br>
 </td>
@@ -5161,7 +5162,7 @@ Change the superuser to a different username (The default is 'root').
 Once the superuser account has been added,
 update the
 <code>grub.cfg</code> file by running:
-<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<pre>grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</pre>
 </td>
 <td></td>
 <td>SRG-OS-000080-GPOS-00048<br>

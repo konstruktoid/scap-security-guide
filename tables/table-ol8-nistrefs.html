@@ -6081,7 +6081,7 @@ Change the superuser to a different username (The default is 'root').
 Once the superuser account has been added,
 update the
 <tt>grub.cfg</tt> file by running:
-<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<pre>grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
 Having a non-default grub superuser username makes password-guessing attacks less effective.
@@ -8001,7 +8001,8 @@ Detailed information on encrypting partitions using LUKS or LUKS ciphers can be 
 the Oracle Linux 8 Documentation web site:<br />
 
     
-    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>.
+    <a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network'>https://docs.oracle.com/en/operating-systems/oracle-linux/8/install/install-InstallingOracleLinuxManually.html#install-storage-network</a>
+.
   </td>
   <td xml:lang="en-US">
 The risk of a system's physical compromise, particularly mobile systems such as

@@ -301,6 +301,7 @@ enable_dconf_user_profile
 enable_dracut_fips_module
 enable_fips_mode
 enable_pam_namespace
+encrypt_partitions
 ensure_fedora_gpgkey_installed
 ensure_gpgcheck_globally_activated
 ensure_gpgcheck_local_packages

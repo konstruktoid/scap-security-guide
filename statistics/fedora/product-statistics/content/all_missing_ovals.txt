@@ -38,6 +38,7 @@ dhcp_client_restrict_options
 dhcp_server_minimize_served_info
 disable_anacron
 disable_logwatch_for_logserver
+encrypt_partitions
 ftp_configure_firewall
 ftp_disable_uploads
 ftp_home_partition

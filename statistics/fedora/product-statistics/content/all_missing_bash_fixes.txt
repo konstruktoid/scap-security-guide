@@ -77,6 +77,7 @@ disable_users_coredumps
 disallow_bypass_password_sudo
 enable_dconf_user_profile
 enable_dracut_fips_module
+encrypt_partitions
 etc_system_fips_exists
 file_ownership_binary_dirs
 file_permissions_binary_dirs
