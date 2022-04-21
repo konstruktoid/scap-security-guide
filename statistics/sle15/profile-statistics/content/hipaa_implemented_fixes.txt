@@ -86,6 +86,7 @@ grub2_enable_selinux
 kernel_module_usb-storage_disabled
 no_direct_root_logins
 no_empty_passwords
+no_rsh_trust_files
 package_rsh-server_removed
 package_talk-server_removed
 package_talk_removed

@@ -1,4 +1,3 @@
-accounts_logon_fail_delay
 accounts_password_minlen_login_defs
 audit_rules_file_deletion_events
 audit_rules_successful_file_modification_chmod

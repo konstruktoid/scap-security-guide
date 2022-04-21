@@ -307,6 +307,7 @@ no_direct_root_logins
 no_empty_passwords
 no_empty_passwords_etc_shadow
 no_host_based_files
+no_rsh_trust_files
 no_user_host_based_files
 package_SuSEfirewall2_installed
 package_aide_installed

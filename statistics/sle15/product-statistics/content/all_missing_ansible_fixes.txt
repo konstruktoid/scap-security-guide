@@ -117,7 +117,6 @@ no_legacy_plus_entries_etc_passwd
 no_legacy_plus_entries_etc_shadow
 no_netrc_files
 no_password_auth_for_systemaccounts
-no_rsh_trust_files
 no_shelllogin_for_systemaccounts
 ntpd_specify_multiple_servers
 ntpd_specify_remote_server

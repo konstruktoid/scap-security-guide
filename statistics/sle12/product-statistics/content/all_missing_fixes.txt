@@ -90,7 +90,6 @@ no_all_squash_exports
 no_files_unowned_by_user
 no_netrc_files
 no_password_auth_for_systemaccounts
-no_rsh_trust_files
 no_shelllogin_for_systemaccounts
 ntpd_configure_restrictions
 ntpd_run_as_ntp_user
