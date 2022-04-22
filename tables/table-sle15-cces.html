@@ -5741,13 +5741,12 @@ kernel module from being loaded, add the following line to a file in the directo
 <tr>
 <td>CCE-83286-5</td>
 <td>Deactivate Wireless Network Interfaces</td>
-<td>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable wireless network interfaces by issuing the
-following command for every active <code>&lt;WIFI-INTERFACE&gt;</code> in the
-system:
+Configure the system to disable wireless network interfaces by issuing the following
+command for every active <code>&lt;WIFI-INTERFACE&gt;</code> in the system:
 <pre>$ sudo wicked ifdown &lt;WIFI-INTERFACE&gt;</pre>
 Also remove the configuration files for every wifi adapter from
 <code>/etc/wicked/ifconfig/&lt;WIFI-INTERFACE&gt;.xml</code> to prevent future

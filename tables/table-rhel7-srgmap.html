@@ -376,94 +376,7 @@ appropriate system-wide warning banner.</td>
 <td>The banner must be acknowledged by the user prior to allowing the user access to the operating system. This provides assurance that the user has seen the message and accepted the conditions for access. If the consent banner is not acknowledged by the user, DoD will not be in compliance with system use notifications required by law.
 
 To establish acceptance of the application usage policy, a click-through banner at system logon is required. The system must prevent further activity until the user executes a positive action to manifest agreement by clicking on a box indicating "OK".</td>
-<td>
-<table><tr>
-<td>Modify the System Login Banner</td>
-<td>
-To configure the system login banner edit <code>/etc/issue</code>. Replace the
-default text with a message compliant with the local site policy or a legal
-disclaimer.
-
-
-The DoD required text is either:
-<br><br>
-<code>You are accessing a U.S. Government (USG) Information System (IS) that
-is provided for USG-authorized use only. By using this IS (which includes
-any device attached to this IS), you consent to the following conditions:
-<br>-The USG routinely intercepts and monitors communications on this IS
-for purposes including, but not limited to, penetration testing, COMSEC
-monitoring, network operations and defense, personnel misconduct (PM), law
-enforcement (LE), and counterintelligence (CI) investigations.
-<br>-At any time, the USG may inspect and seize data stored on this IS.
-<br>-Communications using, or data stored on, this IS are not private,
-are subject to routine monitoring, interception, and search, and may be
-disclosed or used for any USG-authorized purpose.
-<br>-This IS includes security measures (e.g., authentication and access
-controls) to protect USG interests -- not for your personal benefit or
-privacy.
-<br>-Notwithstanding the above, using this IS does not constitute consent
-to PM, LE or CI investigative searching or monitoring of the content of
-privileged communications, or work product, related to personal
-representation or services by attorneys, psychotherapists, or clergy, and
-their assistants. Such communications and work product are private and
-confidential. See User Agreement for details.</code>
-<br><br>
-OR:
-<br><br>
-<code>I've read &amp; consent to terms in IS user agreem't.</code>
-</td>
-</tr></table>
-<table><tr>
-<td>Enable GNOME3 Login Warning Banner</td>
-<td>In the default graphical environment, displaying a login warning banner
-in the GNOME Display Manager's login screen can be enabled on the login
-screen by setting <code>banner-message-enable</code> to <code>true</code>.
-<br><br>
-To enable, add or edit <code>banner-message-enable</code> to
-<code>/etc/dconf/db/gdm.d/00-security-settings</code>. For example:
-<pre>[org/gnome/login-screen]
-banner-message-enable=true</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/login-screen/banner-message-enable</pre>
-After the settings have been set, run <code>dconf update</code>.
-The banner text must also be set.</td>
-</tr></table>
-<table><tr>
-<td>Set the GNOME3 Login Warning Banner Text</td>
-<td>In the default graphical environment, configuring the login warning banner text
-in the GNOME Display Manager's login screen can be configured on the login
-screen by setting <code>banner-message-text</code> to <code>'<i>APPROVED_BANNER</i>'</code>
-where <i>APPROVED_BANNER</i> is the approved banner for your environment.
-<br><br>
-To enable, add or edit <code>banner-message-text</code> to
-
-<code>/etc/dconf/db/gdm.d/00-security-settings</code>. For example:
-<pre>[org/gnome/login-screen]
-banner-message-text='<i>APPROVED_BANNER</i>'</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/gdm.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/login-screen/banner-message-text</pre>
-
-After the settings have been set, run <code>dconf update</code>.
-When entering a warning banner that spans several lines, remember
-to begin and end the string with <code>'</code> and use <code>\n</code> for new lines.</td>
-</tr></table>
-<table><tr>
-<td>Enable SSH Warning Banner</td>
-<td>To enable the warning banner and ensure it is consistent
-across the system, add or correct the following line in
-
-
-<code>/etc/ssh/sshd_config</code>:
-
-<pre>Banner /etc/issue</pre>
-Another section contains information on how to create an
-appropriate system-wide warning banner.</td>
-</tr></table>
-</td>
+<td></td>
 </tr>
 <tr>
 <td>V-56629</td>
@@ -5567,6 +5480,42 @@ Use the following verbiage for operating systems that have severe limitations on
 "I've read &amp; consent to terms in IS user agreem't."</td>
 <td>
 <table><tr>
+<td>Modify the System Login Banner</td>
+<td>
+To configure the system login banner edit <code>/etc/issue</code>. Replace the
+default text with a message compliant with the local site policy or a legal
+disclaimer.
+
+
+The DoD required text is either:
+<br><br>
+<code>You are accessing a U.S. Government (USG) Information System (IS) that
+is provided for USG-authorized use only. By using this IS (which includes
+any device attached to this IS), you consent to the following conditions:
+<br>-The USG routinely intercepts and monitors communications on this IS
+for purposes including, but not limited to, penetration testing, COMSEC
+monitoring, network operations and defense, personnel misconduct (PM), law
+enforcement (LE), and counterintelligence (CI) investigations.
+<br>-At any time, the USG may inspect and seize data stored on this IS.
+<br>-Communications using, or data stored on, this IS are not private,
+are subject to routine monitoring, interception, and search, and may be
+disclosed or used for any USG-authorized purpose.
+<br>-This IS includes security measures (e.g., authentication and access
+controls) to protect USG interests -- not for your personal benefit or
+privacy.
+<br>-Notwithstanding the above, using this IS does not constitute consent
+to PM, LE or CI investigative searching or monitoring of the content of
+privileged communications, or work product, related to personal
+representation or services by attorneys, psychotherapists, or clergy, and
+their assistants. Such communications and work product are private and
+confidential. See User Agreement for details.</code>
+<br><br>
+OR:
+<br><br>
+<code>I've read &amp; consent to terms in IS user agreem't.</code>
+</td>
+</tr></table>
+<table><tr>
 <td>Enable GNOME3 Login Warning Banner</td>
 <td>In the default graphical environment, displaying a login warning banner
 in the GNOME Display Manager's login screen can be enabled on the login
@@ -6518,12 +6467,11 @@ Wireless technologies include, for example, microwave, packet radio (UHF/VHF), 8
 This requirement applies to those operating systems that control wireless devices.</td>
 <td><table><tr>
 <td>Deactivate Wireless Network Interfaces</td>
-<td>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre>
 </td>
 </tr></table></td>
@@ -6540,12 +6488,11 @@ Wireless technologies include, for example, microwave, packet radio (UHF/VHF), 8
 This requirement applies to those operating systems that control wireless devices.</td>
 <td><table><tr>
 <td>Deactivate Wireless Network Interfaces</td>
-<td>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre>
 </td>
 </tr></table></td>
@@ -9459,12 +9406,11 @@ Alternative physical protection measures include PDS. PDSs are used to transmit 
 <td>
 <table><tr>
 <td>Deactivate Wireless Network Interfaces</td>
-<td>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre>
 </td>
 </tr></table>
@@ -15039,12 +14985,11 @@ This requirement applies to wireless peripheral technologies (e.g., wireless mic
 Protecting the confidentiality and integrity of communications with wireless peripherals can be accomplished by physical means (e.g., employing physical barriers to wireless radio frequencies) or by logical means (e.g., employing cryptographic techniques). If physical means of protection are employed, then logical means (cryptography) do not have to be employed, and vice versa. If the wireless peripheral is only passing telemetry data, encryption of the data may not be required.</td>
 <td><table><tr>
 <td>Deactivate Wireless Network Interfaces</td>
-<td>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre>
 </td>
 </tr></table></td>

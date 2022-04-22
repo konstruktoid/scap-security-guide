@@ -128,7 +128,6 @@ rsyslog_files_groupownership
 rsyslog_files_ownership
 rsyslog_nolisten
 selinux_confinement_of_daemons
-selinux_policytype
 selinux_state
 set_firewalld_default_zone
 set_password_hashing_algorithm_libuserconf

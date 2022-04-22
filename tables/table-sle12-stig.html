@@ -5019,13 +5019,12 @@ attacker to monitor and record network traffic. These malicious APs can also
 serve to create a man-in-the-middle attack or be used to create a denial of
 service to valid network resources.</pre></td>
 <td><pre></pre></td>
-<td><pre>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td><pre>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable wireless network interfaces by issuing the
-following command for every active <code>&lt;WIFI-INTERFACE&gt;</code> in the
-system:
+Configure the system to disable wireless network interfaces by issuing the following
+command for every active <code>&lt;WIFI-INTERFACE&gt;</code> in the system:
 <pre>$ sudo wicked ifdown &lt;WIFI-INTERFACE&gt;</pre>
 Also remove the configuration files for every wifi adapter from
 <code>/etc/wicked/ifconfig/&lt;WIFI-INTERFACE&gt;.xml</code> to prevent future

@@ -6,6 +6,5 @@ libreswan_approved_tunnels
 rpm_verify_hashes
 rpm_verify_permissions
 selinux_confinement_of_daemons
-selinux_policytype
 selinux_state
 sshd_allow_only_protocol2

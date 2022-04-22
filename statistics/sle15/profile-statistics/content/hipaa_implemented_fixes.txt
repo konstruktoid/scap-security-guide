@@ -102,6 +102,7 @@ sebool_selinuxuser_execheap
 sebool_selinuxuser_execmod
 sebool_selinuxuser_execstack
 securetty_root_login_console_only
+selinux_policytype
 service_auditd_enabled
 service_autofs_disabled
 service_cron_enabled

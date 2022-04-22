@@ -5189,7 +5189,7 @@ problems caused by excessive logins. Automated login processes operating imprope
 maliciously may result in an exceptional number of simultaneous login sessions.</pre></td>
 <td><pre>Run the following command to ensure the maxlogins value is
 configured for all users on the system:
-# grep "maxlogins" /etc/security/limits.conf
+# grep "maxlogins" /etc/security/limits.conf /etc/security/limits.d/*.conf
 You should receive output similar to the following:
 *\t\thard\tmaxlogins\t
       Is it the case that maxlogins is not equal to or less than the expected value?
@@ -5967,11 +5967,13 @@ events and can lead to an inaccurate analysis. Determining the correct
 time a particular event occurred on a system is critical when conducting
 forensic analysis and investigating system events. Sources outside the
 configured acceptable allowance (drift) may be inaccurate.</pre></td>
-<td><pre>To verify that maxpoll has been set properly, perform the following:
+<td><pre>Verify Red Hat Enterprise Linux 7 is securely comparing internal information system clocks at a regular interval with an NTP server with the following commands:
+
+To verify that maxpoll has been set properly, perform the following:
 $ sudo grep maxpoll /etc/ntp.conf /etc/chrony.conf
 The output should return:
 maxpoll .
-      Is it the case that it does not exist or maxpoll has not been set to the expected value?
+      Is it the case that maxpoll does not exist or maxpoll has not been set to the expected value of &lt;sub idref="var_time_service_set_maxpoll" /&gt;?
       </pre></td>
 <td><pre>The <code>maxpoll</code> should be configured to
 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
@@ -6967,16 +6969,16 @@ service to valid network resources.</pre></td>
 with the following command:
 
 $ sudo nmcli device
-The output should contain the following:
-wifi disconnected
-      Is it the case that it is not?
+The output should only contain wireless devices in unavailable state, like in the
+following example:
+wlp0s20f3          wifi      unavailable             -- 
+      Is it the case that wireless interfaces are not active?
       </pre></td>
-<td><pre>Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+<td><pre>Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br><br>
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre></pre></td>
 <td>RHEL-07-041010</td>
 <td>wireless_disable_interfaces</td>

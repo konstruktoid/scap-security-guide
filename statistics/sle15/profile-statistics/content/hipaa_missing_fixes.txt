@@ -3,6 +3,5 @@ grub2_password
 grub2_uefi_password
 libreswan_approved_tunnels
 selinux_confinement_of_daemons
-selinux_policytype
 selinux_state
 sshd_allow_only_protocol2

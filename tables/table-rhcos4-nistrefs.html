@@ -7059,8 +7059,7 @@ The aforementioned remediation does include the directory <tt>/etc/chrony.d</tt>
 which would allow the creation of configuration files to set these servers.
 </p>
 
-If we'd like to set a configuration like the following:
-
+If we'd like to set a configuration like the following:linux_os/guide/services/ntp/chronyd_or_ntpd_set_maxpoll/rule.yml
 <pre>
 pool 2.rhel.pool.ntp.org iburst
 
@@ -9710,12 +9709,11 @@ activation.
   <td>AC-18(a)<br/>AC-18(3)<br/>CM-7(a)<br/>CM-7(b)<br/>CM-6(a)<br/>MP-7</td>
   <td>Deactivate Wireless Network Interfaces</td>
   <td xml:lang="en-US">
-Deactivating wireless network interfaces should prevent
-normal usage of the wireless capability.
+Deactivating wireless network interfaces should prevent normal usage of the wireless
+capability.
 <br /><br />
 
-Configure the system to disable all wireless network interfaces with the
-following command:
+Configure the system to disable all wireless network interfaces with the following command:
 <pre>$ sudo nmcli radio all off</pre>
   </td>
   <td xml:lang="en-US">
