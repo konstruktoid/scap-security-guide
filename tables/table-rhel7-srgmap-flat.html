@@ -22361,7 +22361,9 @@ The usage of cron's special time codes, such as  <code>@daily</code> and
 <code>@weekly</code> is acceptable.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system notifies designated personnel if baseline configurations are changed in an unauthorized manner. If it does not, this is a finding.</td>
-<td>To determine that periodic AIDE execution has been scheduled, run the following command:
+<td>Verify the operating system routinely checks the baseline configuration for unauthorized changes.
+
+To determine that periodic AIDE execution has been scheduled, run the following command:
 $ grep aide /etc/crontab
 The output should return something similar to the following:
 
@@ -22369,7 +22371,7 @@ The output should return something similar to the following:
 
 
 NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.
-      Is it the case that there is no output?
+      Is it the case that AIDE is not configured to periodicly scan?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3842r375159_fix">Configure the operating system to notify designated personnel if baseline configurations are changed in an unauthorized manner.</fixtext></td>
 <td>At a minimum, AIDE should be configured to run a weekly scan.
@@ -28095,7 +28097,9 @@ The usage of cron's special time codes, such as  <code>@daily</code> and
 <code>@weekly</code> is acceptable.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system performs verification of the correct operation of security functions: upon system start-up and/or restart; upon command by a user with privileged access; and/or every 30 days. If it does not, this is a finding.</td>
-<td>To determine that periodic AIDE execution has been scheduled, run the following command:
+<td>Verify the operating system routinely checks the baseline configuration for unauthorized changes.
+
+To determine that periodic AIDE execution has been scheduled, run the following command:
 $ grep aide /etc/crontab
 The output should return something similar to the following:
 
@@ -28103,7 +28107,7 @@ The output should return something similar to the following:
 
 
 NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.
-      Is it the case that there is no output?
+      Is it the case that AIDE is not configured to periodicly scan?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3882r375393_fix">Configure the operating system to perform verification of the correct operation of security functions: upon system start-up and/or restart; upon command by a user with privileged access; and/or every 30 days.</fixtext></td>
 <td>At a minimum, AIDE should be configured to run a weekly scan.
@@ -28142,7 +28146,9 @@ The usage of cron's special time codes, such as  <code>@daily</code> and
 <code>@weekly</code> is acceptable.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system shuts down the information system, restarts the information system, and/or notifies the system administrator when anomalies in the operation of any security functions are discovered. If it does not, this is a finding.</td>
-<td>To determine that periodic AIDE execution has been scheduled, run the following command:
+<td>Verify the operating system routinely checks the baseline configuration for unauthorized changes.
+
+To determine that periodic AIDE execution has been scheduled, run the following command:
 $ grep aide /etc/crontab
 The output should return something similar to the following:
 
@@ -28150,7 +28156,7 @@ The output should return something similar to the following:
 
 
 NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.
-      Is it the case that there is no output?
+      Is it the case that AIDE is not configured to periodicly scan?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3883r375396_fix">Configure the operating system to shut down the information system, restart the information system, and/or notify the system administrator when anomalies in the operation of the security functions are discovered.</fixtext></td>
 <td>At a minimum, AIDE should be configured to run a weekly scan.

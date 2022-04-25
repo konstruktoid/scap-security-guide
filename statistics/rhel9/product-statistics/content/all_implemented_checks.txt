@@ -312,6 +312,9 @@ ensure_logrotate_activated
 ensure_redhat_gpgkey_installed
 etc_system_fips_exists
 file_at_deny_not_exist
+file_audit_tools_group_ownership
+file_audit_tools_ownership
+file_audit_tools_permissions
 file_cron_deny_not_exist
 file_group_ownership_var_log_audit
 file_groupowner_at_allow

@@ -7365,7 +7365,24 @@ in <code>/etc/audit/auditd.conf</code>.</td>
 Operating systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools and the corresponding rights the user enjoys in order to make access decisions regarding the access to audit tools.
 
 Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.</td>
-<td></td>
+<td>
+<table><tr>
+<td>Audit Tools Must Be Group-owned by Root</td>
+<td>Red Hat Enterprise Linux 8 systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools, and the corresponding rights the user enjoys, to make access decisions regarding the access to audit tools.
+
+Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
+
+Audit tools must have the correct group owner.</td>
+</tr></table>
+<table><tr>
+<td>Audit Tools Must Be Owned by Root</td>
+<td>Red Hat Enterprise Linux 8 systems providing tools to interface with audit information will leverage user permissions and roles identifying the user accessing the tools, and the corresponding rights the user enjoys, to make access decisions regarding the access to audit tools.
+
+Audit tools include, but are not limited to, vendor-provided and open source audit tools needed to successfully view and manipulate audit information system activity and records. Audit tools include custom queries and report generators.
+
+Audit tools must have the correct owner.</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>SV-71435</td>
