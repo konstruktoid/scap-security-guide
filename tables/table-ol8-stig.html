@@ -6668,24 +6668,11 @@ also include <code>suspend</code>, <code>single</code>, and <code>halt</code>.</
 <td>medium</td>
 <td>OL 8 must compare internal information system clocks at least every 24 hours with a server synchronized to an authoritative time source, such as the United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</td>
 <td>SRG-OS-ID</td>
-<td><pre>Inaccurate time stamps make it more difficult to correlate
-events and can lead to an inaccurate analysis. Determining the correct
-time a particular event occurred on a system is critical when conducting
-forensic analysis and investigating system events. Sources outside the
-configured acceptable allowance (drift) may be inaccurate.</pre></td>
+<td><pre>Depending on the infrastruture being used the <code>pool</code> directive may not be supported.</pre></td>
 <td><pre></pre></td>
-<td><pre>The <code>maxpoll</code> should be configured to
-<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub> in <code>/etc/ntp.conf</code> or
-<code>/etc/chrony.conf</code> to continuously poll time servers. To configure
-<code>maxpoll</code> in <code>/etc/ntp.conf</code> or <code>/etc/chrony.conf</code>
-add the following after each `server`, `pool` or `peer` entry:
-<pre>maxpoll <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_time_service_set_maxpoll"></xccdf-1.1:sub></pre>
-to <pre>server</pre> directives. If using chrony any <pre>pool</pre> directives
-should be configured too.
-If no <code>server</code> or <code>pool</code> directives are configured, the rule evaluates
-to pass.</pre></td>
+<td><pre>Check that Chrony only has time sources configured with the <code>server</code> directive.</pre></td>
 <td>OL08-00-030740</td>
-<td>chronyd_or_ntpd_set_maxpoll</td>
+<td>chronyd_server_directive</td>
 </tr>
 <tr>
 <td>V-248821</td>

@@ -3519,6 +3519,19 @@ to pass.</td>
 <td></td>
 </tr>
 <tr>
+<td>chronyd_server_directive</td>
+<td>medium</td>
+<td>Ensure Chrony is only configured with the server directive</td>
+<td>Depending on the infrastruture being used the <code>pool</code> directive may not be supported.</td>
+<td>Check that Chrony only has time sources configured with the <code>server</code> directive.</td>
+<td></td>
+<td>SRG-OS-000355-GPOS-00143<br>
+</td>
+<td>CCI-001891<br>
+</td>
+<td></td>
+</tr>
+<tr>
 <td>clean_components_post_updating</td>
 <td>low</td>
 <td>Ensure yum Removes Previous Package Versions</td>

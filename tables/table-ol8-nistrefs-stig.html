@@ -7518,6 +7518,18 @@ systems with limited audit storage capacity.
 <tr>
   <td></td>
   <td>N/A</td>
+  <td>Ensure Chrony is only configured with the server directive</td>
+  <td xml:lang="en-US">
+Check that Chrony only has time sources configured with the <tt>server</tt> directive.
+  </td>
+  <td xml:lang="en-US">
+Depending on the infrastruture being used the <tt>pool</tt> directive may not be supported.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td></td>
+  <td>N/A</td>
   <td>Support session locking with tmux</td>
   <td xml:lang="en-US">
 The <tt>tmux</tt> terminal multiplexer is used to implement
@@ -8060,7 +8072,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
+  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
 </tr>
 <tr>
   <td></td>

@@ -5,7 +5,6 @@ aide_verify_acls
 aide_verify_ext_attributes
 chronyd_client_only
 chronyd_no_chronyc_network
-chronyd_or_ntpd_set_maxpoll
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy
 configure_firewalld_ports

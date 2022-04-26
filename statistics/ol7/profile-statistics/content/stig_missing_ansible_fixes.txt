@@ -9,7 +9,6 @@ aide_verify_acls
 aide_verify_ext_attributes
 auditd_audispd_disk_full_action
 auditd_audispd_network_failure_action
-chronyd_or_ntpd_set_maxpoll
 configure_firewalld_ports
 dconf_db_up_to_date
 dir_perms_world_writable_system_owned

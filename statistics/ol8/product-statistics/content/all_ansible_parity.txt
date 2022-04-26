@@ -18,7 +18,6 @@ audit_rules_usergroup_modification
 auditd_audispd_encrypt_sent_records
 chronyd_client_only
 chronyd_no_chronyc_network
-chronyd_or_ntpd_set_maxpoll
 chronyd_or_ntpd_specify_remote_server
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy
