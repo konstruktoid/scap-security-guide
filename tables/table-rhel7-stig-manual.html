@@ -1570,7 +1570,7 @@ If "smartcard removal action" is blank, this is a finding.
 
 # authconfig --test | grep "smartcard module"
 
-If "smartcard module" is blank, ask the administrator to indicate the AO-approved multifactor authentication in use and the configuration to support it. If there is no evidence of multifactor authentication, this is a finding.</pre></td>
+If any of the above checks are not configured, ask the administrator to indicate the AO-approved multifactor authentication in use and the configuration to support it. If there is no evidence of multifactor authentication, this is a finding.</pre></td>
 <td><pre>Configure the operating system to require individuals to be authenticated with a multifactor authenticator.
 
 Enable smartcard logons with the following commands:
@@ -1584,7 +1584,7 @@ Modify the "/etc/pam_pkcs11/pkcs11_eventmgr.conf" file to uncomment the followin
 
 Modify the "/etc/pam_pkcs11/pam_pkcs11.conf" file to use the cackey module if required.</pre></td>
 <td>RHEL-07-010500</td>
-<td>SV-204441r792823_rule</td>
+<td>SV-204441r818813_rule</td>
 </tr>
 <tr>
 <td>V-204442</td>

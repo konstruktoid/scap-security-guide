@@ -1977,7 +1977,7 @@ The output should return something similar to the following:
 
 
 NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.
-      Is it the case that AIDE is not configured to periodicly scan?
+      Is it the case that AIDE is not configured to scan periodically?
       </pre></td>
 <td><pre>At a minimum, AIDE should be configured to run a weekly scan.
 To implement a daily execution of AIDE at 4:05am using cron, add the following line to <code>/etc/crontab</code>:
@@ -4156,7 +4156,7 @@ utility to read audit rules during daemon startup, add the following lines to
 as an attacker attempting to remove evidence of an intrusion.</pre></td>
 <td><pre>To verify that auditing is configured for system administrator actions, run the following command:
 $ sudo auditctl -l | grep "watch=/var/run/faillock\|-w /var/run/faillock"
-      Is it the case that there is not output?
+      Is it the case that there is no output?
       </pre></td>
 <td><pre>The audit system already collects login information for all users
 and root. If the <code>auditd</code> daemon is configured to use the
