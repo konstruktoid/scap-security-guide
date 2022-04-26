@@ -58,7 +58,7 @@ thead
   <tbody>
     <tr>
       <th>0</th>
-      <td>AU-4,AU-4 (1)</td>
+      <td>AU-4 (1),AU-4</td>
       <td>CCI-001849</td>
       <td>SRG-OS-000341-GPOS-00132,SRG-OS-000342-GPOS-00133</td>
       <td>CCE-88173-0</td>
@@ -78,7 +78,7 @@ thead
     </tr>
     <tr>
       <th>1</th>
-      <td>AU-4,AU-14 (1)</td>
+      <td>AU-14 (1),AU-4</td>
       <td>CCI-001849</td>
       <td>SRG-OS-000254-GPOS-00095,SRG-OS-000341-GPOS-00132</td>
       <td>CCE-83652-8</td>
@@ -98,7 +98,7 @@ thead
     </tr>
     <tr>
       <th>2</th>
-      <td>AU-4,CM-6 b</td>
+      <td>CM-6 b,AU-4</td>
       <td>CCI-000366,CCI-001849</td>
       <td>SRG-OS-000341-GPOS-00132,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90847-5</td>
@@ -118,7 +118,7 @@ thead
     </tr>
     <tr>
       <th>3</th>
-      <td>SC-5,CM-6 b,SC-5 (2)</td>
+      <td>SC-5,SC-5 (2),CM-6 b</td>
       <td>CCI-000366,CCI-001095</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000420-GPOS-00186,SRG-OS-000142-GPOS-00071</td>
       <td>CCE-84006-6</td>
@@ -138,9 +138,9 @@ thead
     </tr>
     <tr>
       <th>4</th>
-      <td>AC-6 (9),AU-8 b,AU-7 a,AU-12 (3),CM-5 (1),AC-6 (8),AU-7 b</td>
+      <td>CM-5 (1),AU-7 b,AU-8 b,AU-12 (3),AC-6 (8),AU-7 a,AC-6 (9)</td>
       <td>CCI-001814,CCI-001882,CCI-001889,CCI-001880,CCI-001881,CCI-001878,CCI-001879,CCI-001875,CCI-001877,CCI-001914,CCI-002234</td>
-      <td>SRG-OS-000326-GPOS-00126,SRG-OS-000327-GPOS-00127,SRG-OS-000337-GPOS-00129,SRG-OS-000348-GPOS-00136,SRG-OS-000349-GPOS-00137,SRG-OS-000350-GPOS-00138,SRG-OS-000351-GPOS-00139,SRG-OS-000352-GPOS-00140,SRG-OS-000353-GPOS-00141,SRG-OS-000354-GPOS-00142,SRG-OS-000358-GPOS-00145,SRG-OS-000359-GPOS-00146,SRG-OS-000365-GPOS-00152</td>
+      <td>SRG-OS-000326-GPOS-00126,SRG-OS-000327-GPOS-00127,SRG-OS-000337-GPOS-00129,SRG-OS-000348-GPOS-00136,SRG-OS-000349-GPOS-00137,SRG-OS-000350-GPOS-00138,SRG-OS-000351-GPOS-00139,SRG-OS-000352-GPOS-00140,SRG-OS-000353-GPOS-00141,SRG-OS-000354-GPOS-00142,SRG-OS-000358-GPOS-00145,SRG-OS-000365-GPOS-00152</td>
       <td>CCE-86402-5</td>
       <td>The operating system must provide a report generation capability that supports on-demand audit review and analysis.</td>
       <td>Red Hat Enterprise Linux 9 must provide a report generation capability that supports on-demand audit review and analysis.</td>
@@ -158,7 +158,7 @@ thead
     </tr>
     <tr>
       <th>5</th>
-      <td>AU-8 b,AU-7 a,CM-6 b,AU-12 c,AU-12 a,AU-12 (3),CM-5 (1),AU-7 b</td>
+      <td>AU-12 a,CM-5 (1),AU-12 c,AU-7 b,AU-8 b,CM-6 b,AU-12 (3),AU-7 a</td>
       <td>CCI-000172,CCI-001814,CCI-001875,CCI-001877,CCI-001878,CCI-001879,CCI-001880,CCI-001881,CCI-001882,CCI-001889,CCI-001914,CCI-000169</td>
       <td>SRG-OS-000122-GPOS-00063,SRG-OS-000337-GPOS-00129,SRG-OS-000348-GPOS-00136,SRG-OS-000349-GPOS-00137,SRG-OS-000350-GPOS-00138,SRG-OS-000351-GPOS-00139,SRG-OS-000352-GPOS-00140,SRG-OS-000353-GPOS-00141,SRG-OS-000354-GPOS-00142,SRG-OS-000358-GPOS-00145,SRG-OS-000359-GPOS-00146,SRG-OS-000365-GPOS-00152,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000480-GPOS-00227,SRG-OS-000062-GPOS-00031</td>
       <td>CCE-83649-4</td>
@@ -168,7 +168,7 @@ thead
       <td>The auditd service is an access monitoring and accounting daemon, watching system calls to audit any access, in comparison with potential local access control policy such as SELinux policy.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system provides a report generation capability that supports on-demand audit review and analysis. If it does not, this is a finding.</td>
-      <td>Run the following command to determine if the  audit  package is installed:  $ rpm -q audit <br><br>If the package is not installed then this is a finding.</td>
+      <td>Run the following command to determine if the  audit  package is installed:  $ rpm -q audit <br><br>If the audit package is not installed then this is a finding.</td>
       <td></td>
       <td>Install the audit service (if the audit service is not already installed) with the following command:<br><br><br>$ sudo dnf install audit</td>
       <td>CAT II</td>
@@ -298,7 +298,7 @@ thead
     </tr>
     <tr>
       <th>12</th>
-      <td>CM-7 (2),CM-7 (5) (b)</td>
+      <td>CM-7 (5) (b),CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000370-GPOS-00155,SRG-OS-000368-GPOS-00154</td>
       <td>CCE-84224-5</td>
@@ -318,7 +318,7 @@ thead
     </tr>
     <tr>
       <th>13</th>
-      <td>CM-7 (2),CM-7 (5) (b)</td>
+      <td>CM-7 (5) (b),CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000370-GPOS-00155,SRG-OS-000368-GPOS-00154</td>
       <td>CCE-84227-8</td>
@@ -358,7 +358,7 @@ thead
     </tr>
     <tr>
       <th>15</th>
-      <td>CM-6 b,CM-7 (2)</td>
+      <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83877-1</td>
@@ -458,7 +458,7 @@ thead
     </tr>
     <tr>
       <th>20</th>
-      <td>CM-6 b,CM-7 (2)</td>
+      <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83894-6</td>
@@ -478,7 +478,7 @@ thead
     </tr>
     <tr>
       <th>21</th>
-      <td>CM-6 b,CM-7 (2)</td>
+      <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83873-0</td>
@@ -778,7 +778,7 @@ thead
     </tr>
     <tr>
       <th>36</th>
-      <td>AC-7 b,AC-7 a</td>
+      <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
       <td>CCE-83587-6</td>
@@ -798,7 +798,7 @@ thead
     </tr>
     <tr>
       <th>37</th>
-      <td>AC-7 b,AC-7 a</td>
+      <td>AC-7 a,AC-7 b</td>
       <td>CCI-002238,CCI-000044</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
       <td>CCE-83589-2</td>
@@ -818,7 +818,7 @@ thead
     </tr>
     <tr>
       <th>38</th>
-      <td>AC-7 b,AC-7 a</td>
+      <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
       <td>CCE-83583-5</td>
@@ -838,7 +838,7 @@ thead
     </tr>
     <tr>
       <th>39</th>
-      <td>AC-7 b,AC-7 a</td>
+      <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
       <td>CCE-83588-4</td>
@@ -918,7 +918,7 @@ thead
     </tr>
     <tr>
       <th>43</th>
-      <td>IA-2,IA-8,AU-3 (1)</td>
+      <td>IA-2,AU-3 (1),IA-8</td>
       <td>CCI-000764,CCI-000804</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000121-GPOS-00062,SRG-OS-000042-GPOS-00020</td>
       <td>CCE-88493-2</td>
@@ -938,7 +938,7 @@ thead
     </tr>
     <tr>
       <th>44</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83830-0</td>
@@ -958,7 +958,7 @@ thead
     </tr>
     <tr>
       <th>45</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83812-8</td>
@@ -978,7 +978,7 @@ thead
     </tr>
     <tr>
       <th>46</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83832-6</td>
@@ -998,7 +998,7 @@ thead
     </tr>
     <tr>
       <th>47</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83822-7</td>
@@ -1018,7 +1018,7 @@ thead
     </tr>
     <tr>
       <th>48</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83829-2</td>
@@ -1038,7 +1038,7 @@ thead
     </tr>
     <tr>
       <th>49</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83831-8</td>
@@ -1058,7 +1058,7 @@ thead
     </tr>
     <tr>
       <th>50</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83821-9</td>
@@ -1078,7 +1078,7 @@ thead
     </tr>
     <tr>
       <th>51</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83817-7</td>
@@ -1098,7 +1098,7 @@ thead
     </tr>
     <tr>
       <th>52</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83833-4</td>
@@ -1118,7 +1118,7 @@ thead
     </tr>
     <tr>
       <th>53</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83814-4</td>
@@ -1138,7 +1138,7 @@ thead
     </tr>
     <tr>
       <th>54</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83808-6</td>
@@ -1158,7 +1158,7 @@ thead
     </tr>
     <tr>
       <th>55</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83807-8</td>
@@ -1178,7 +1178,7 @@ thead
     </tr>
     <tr>
       <th>56</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83811-0</td>
@@ -1198,7 +1198,7 @@ thead
     </tr>
     <tr>
       <th>57</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-87685-4</td>
@@ -1218,7 +1218,7 @@ thead
     </tr>
     <tr>
       <th>58</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-90482-1</td>
@@ -1238,7 +1238,7 @@ thead
     </tr>
     <tr>
       <th>59</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83748-4</td>
@@ -1258,7 +1258,7 @@ thead
     </tr>
     <tr>
       <th>60</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83750-0</td>
@@ -1278,7 +1278,7 @@ thead
     </tr>
     <tr>
       <th>61</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83736-9</td>
@@ -1298,7 +1298,7 @@ thead
     </tr>
     <tr>
       <th>62</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83751-8</td>
@@ -1318,7 +1318,7 @@ thead
     </tr>
     <tr>
       <th>63</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83754-2</td>
@@ -1338,7 +1338,7 @@ thead
     </tr>
     <tr>
       <th>64</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83756-7</td>
@@ -1358,7 +1358,7 @@ thead
     </tr>
     <tr>
       <th>65</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83758-3</td>
@@ -1378,7 +1378,7 @@ thead
     </tr>
     <tr>
       <th>66</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83757-5</td>
@@ -1398,7 +1398,7 @@ thead
     </tr>
     <tr>
       <th>67</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83755-9</td>
@@ -1418,7 +1418,7 @@ thead
     </tr>
     <tr>
       <th>68</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83786-4</td>
@@ -1438,7 +1438,7 @@ thead
     </tr>
     <tr>
       <th>69</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83800-3</td>
@@ -1458,7 +1458,7 @@ thead
     </tr>
     <tr>
       <th>70</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83801-1</td>
@@ -1478,7 +1478,7 @@ thead
     </tr>
     <tr>
       <th>71</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83796-3</td>
@@ -1498,7 +1498,7 @@ thead
     </tr>
     <tr>
       <th>72</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83794-8</td>
@@ -1518,7 +1518,7 @@ thead
     </tr>
     <tr>
       <th>73</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83792-2</td>
@@ -1538,7 +1538,7 @@ thead
     </tr>
     <tr>
       <th>74</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-83802-9</td>
@@ -1558,7 +1558,7 @@ thead
     </tr>
     <tr>
       <th>75</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-83803-7</td>
@@ -1578,7 +1578,7 @@ thead
     </tr>
     <tr>
       <th>76</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-90835-0</td>
@@ -1598,7 +1598,7 @@ thead
     </tr>
     <tr>
       <th>77</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000473-GPOS-00218,SRG-OS-000470-GPOS-00214</td>
       <td>CCE-83785-6</td>
@@ -1610,7 +1610,7 @@ thead
       <td>Verify the operating system generates audit records containing the full-text recording of privileged commands. If it does not, this is a finding.</td>
       <td>To verify that auditing is configured for system administrator actions, run the following command:<br> $ sudo auditctl -l | grep "watch=/var/log/lastlog\|-w /var/log/lastlog" <br><br>If there is not output then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure Red Hat Enterprise Linux 9 to generate audit records for all account creations, modifications, disabling, and termination events that affect  /var/log/lastlog .<br><br>Add or update the following file system rule to  /etc/audit/rules.d/audit.rules :<br><br>-w /var/log/lastlog -p wa -k logins<br><br>The audit daemon must be restarted for the changes to take effect.</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -1618,7 +1618,7 @@ thead
     </tr>
     <tr>
       <th>78</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83765-8</td>
@@ -1638,7 +1638,7 @@ thead
     </tr>
     <tr>
       <th>79</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83763-3</td>
@@ -1658,7 +1658,7 @@ thead
     </tr>
     <tr>
       <th>80</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83761-7</td>
@@ -1678,7 +1678,7 @@ thead
     </tr>
     <tr>
       <th>81</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83773-2</td>
@@ -1698,7 +1698,7 @@ thead
     </tr>
     <tr>
       <th>82</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-90262-7</td>
@@ -1718,7 +1718,7 @@ thead
     </tr>
     <tr>
       <th>83</th>
-      <td>AU-3 (1),AU-3,MA-4 (1) (a)</td>
+      <td>AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172</td>
       <td>CCE-89564-9</td>
@@ -1738,7 +1738,7 @@ thead
     </tr>
     <tr>
       <th>84</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83766-6</td>
@@ -1758,7 +1758,7 @@ thead
     </tr>
     <tr>
       <th>85</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83767-4</td>
@@ -1778,7 +1778,7 @@ thead
     </tr>
     <tr>
       <th>86</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83781-5</td>
@@ -1798,7 +1798,7 @@ thead
     </tr>
     <tr>
       <th>87</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83769-0</td>
@@ -1818,7 +1818,7 @@ thead
     </tr>
     <tr>
       <th>88</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83770-8</td>
@@ -1838,7 +1838,7 @@ thead
     </tr>
     <tr>
       <th>89</th>
-      <td>AU-3 (1),AU-12 c,MA-4 (1) (a)</td>
+      <td>AU-12 c,MA-4 (1) (a),AU-3 (1)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -1858,7 +1858,7 @@ thead
     </tr>
     <tr>
       <th>90</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-90388-0</td>
@@ -1878,7 +1878,7 @@ thead
     </tr>
     <tr>
       <th>91</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83776-5</td>
@@ -1898,7 +1898,7 @@ thead
     </tr>
     <tr>
       <th>92</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000064-GPOS-0003,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-83771-6</td>
@@ -1918,7 +1918,7 @@ thead
     </tr>
     <tr>
       <th>93</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-83780-7</td>
@@ -1938,7 +1938,7 @@ thead
     </tr>
     <tr>
       <th>94</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83764-1</td>
@@ -1958,7 +1958,7 @@ thead
     </tr>
     <tr>
       <th>95</th>
-      <td>AU-3 (1),AU-12 c,AU-3,MA-4 (1) (a)</td>
+      <td>AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83762-5</td>
@@ -1978,7 +1978,7 @@ thead
     </tr>
     <tr>
       <th>96</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83768-2</td>
@@ -1998,7 +1998,7 @@ thead
     </tr>
     <tr>
       <th>97</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000169,CCI-000172</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-89481-6</td>
@@ -2018,7 +2018,7 @@ thead
     </tr>
     <tr>
       <th>98</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83760-9</td>
@@ -2038,7 +2038,7 @@ thead
     </tr>
     <tr>
       <th>99</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-87212-7</td>
@@ -2058,7 +2058,7 @@ thead
     </tr>
     <tr>
       <th>100</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000169,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83735-1</td>
@@ -2078,7 +2078,7 @@ thead
     </tr>
     <tr>
       <th>101</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000169,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-90176-9</td>
@@ -2098,7 +2098,7 @@ thead
     </tr>
     <tr>
       <th>102</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000169,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-89498-0</td>
@@ -2118,7 +2118,7 @@ thead
     </tr>
     <tr>
       <th>103</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000126,CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83729-4</td>
@@ -2138,7 +2138,7 @@ thead
     </tr>
     <tr>
       <th>104</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AC-2 (4)</td>
+      <td>AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000130,CCI-000172,CCI-001403,CCI-002130</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000239-GPOS-00089,SRG-OS-000241-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83715-3</td>
@@ -2158,7 +2158,7 @@ thead
     </tr>
     <tr>
       <th>105</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83722-9</td>
@@ -2178,7 +2178,7 @@ thead
     </tr>
     <tr>
       <th>106</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83723-7</td>
@@ -2198,7 +2198,7 @@ thead
     </tr>
     <tr>
       <th>107</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000476-GPOS-00221,SRG-OS-000463-GPOS-00207</td>
       <td>CCE-83712-0</td>
@@ -2218,7 +2218,7 @@ thead
     </tr>
     <tr>
       <th>108</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000276-GPOS-00106,SRG-OS-000277-GPOS-00107</td>
       <td>CCE-83714-6</td>
@@ -2238,7 +2238,7 @@ thead
     </tr>
     <tr>
       <th>109</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AC-2 (4)</td>
+      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83725-2</td>
@@ -2258,7 +2258,7 @@ thead
     </tr>
     <tr>
       <th>110</th>
-      <td>AU-3,AU-3 (1),AU-12 c,MA-4 (1) (a),AU-12 a,AU-14 (1)</td>
+      <td>AU-12 a,AU-14 (1),AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-001464,CCI-000130,CCI-000169</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000473-GPOS-00218,SRG-OS-000254-GPOS-00095</td>
       <td>CCE-83651-0</td>
@@ -2270,7 +2270,7 @@ thead
       <td>Verify the operating system generates audit records containing the full-text recording of privileged commands. If it does not, this is a finding.</td>
       <td>Inspect the form of default GRUB 2 command line for the Linux operating system<br>in  /etc/default/grub . If it includes  audit=1 ,<br>then the parameter will be configured for newly installed kernels.<br>First check if the GRUB recovery is enabled:<br> $ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub <br>If this option is set to true, then check that a line is output by the following command:<br> $ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit=1.*' /etc/default/grub <br>If the recovery is disabled, check the line with<br> $ grep 'GRUB_CMDLINE_LINUX.*audit=1.*' /etc/default/grub .Moreover, command line parameters for currently installed kernels should be checked as well.<br>Run the following command:<br> # grubby --info=ALL | grep args | grep -v 'audit=1' <br>The command should not return any output.<br><br>If auditing is not enabled at boot time then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>To ensure that  audit=1  is added as a kernel command line<br>argument to newly installed kernels, add  audit=1  to the<br>default Grub2 command line for Linux operating systems.  Modify the line within<br> /etc/default/grub  as shown below:<br> GRUB_CMDLINE_LINUX="... audit=1 ..." <br>Run the following command to update command line for already installed kernels: # grubby --update-kernel=ALL --args="audit=1"</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -2278,7 +2278,7 @@ thead
     </tr>
     <tr>
       <th>111</th>
-      <td>CM-6 b,AC-6 (10)</td>
+      <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90308-8</td>
@@ -2298,7 +2298,7 @@ thead
     </tr>
     <tr>
       <th>112</th>
-      <td>CM-6 b,AC-6 (10)</td>
+      <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-86667-3</td>
@@ -2338,7 +2338,7 @@ thead
     </tr>
     <tr>
       <th>114</th>
-      <td>CM-6 b,AC-6 (10)</td>
+      <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90724-6</td>
@@ -2418,7 +2418,7 @@ thead
     </tr>
     <tr>
       <th>118</th>
-      <td>AU-12 c,AU-3,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -2438,7 +2438,7 @@ thead
     </tr>
     <tr>
       <th>119</th>
-      <td>AU-12 c,AU-3,MA-4 (1) (a),AU-12 a</td>
+      <td>AU-12 a,AU-12 c,AU-3,MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -2558,7 +2558,7 @@ thead
     </tr>
     <tr>
       <th>125</th>
-      <td>CM-5 (1),AC-6 (9),AU-12 c,AC-2 (4)</td>
+      <td>AC-2 (4),CM-5 (1),AU-12 c,AC-6 (9)</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000064-GPOS-00033,SRG-OS-000365-GPOS-00152,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000472-GPOS-00217,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000477-GPOS-00222</td>
       <td></td>
@@ -2598,7 +2598,7 @@ thead
     </tr>
     <tr>
       <th>127</th>
-      <td>IA-5 (1) (a),CM-6 b,IA-5 (1) (b)</td>
+      <td>IA-5 (1) (a),IA-5 (1) (b),CM-6 b</td>
       <td>CCI-000194,CCI-000193,CCI-001619,CCI-000205,CCI-000195,CCI-000192,CCI-000366</td>
       <td>SRG-OS-000072-GPOS-00040,SRG-OS-000071-GPOS-00039,SRG-OS-000070-GPOS-00038,SRG-OS-000266-GPOS-00101,SRG-OS-000078-GPOS-00046,SRG-OS-000480-GPOS-00225,SRG-OS-000069-GPOS-00037</td>
       <td>CCE-86356-3</td>
@@ -2678,7 +2678,7 @@ thead
     </tr>
     <tr>
       <th>131</th>
-      <td>AC-17 (2),SC-13,MA-4 c,SC-8</td>
+      <td>SC-13,MA-4 c,AC-17 (2),SC-8</td>
       <td>CCI-000068,CCI-000803,CCI-002450</td>
       <td>SRG-OS-000033-GPOS-00014,SRG-OS-000125-GPOS-00065,SRG-OS-000396-GPOS-00176,SRG-OS-000423-GPOS-00187,SRG-OS-000478-GPOS-00223</td>
       <td>CCE-83441-6</td>
@@ -2698,7 +2698,7 @@ thead
     </tr>
     <tr>
       <th>132</th>
-      <td>MA-4 (7),AC-12,SC-10,MA-4 e</td>
+      <td>AC-12,MA-4 e,MA-4 (7),SC-10</td>
       <td>CCI-000879,CCI-001133,CCI-002361</td>
       <td>SRG-OS-000126-GPOS-00066,SRG-OS-000163-GPOS-00072,SRG-OS-000279-GPOS-00109,SRG-OS-000395-GPOS-00175</td>
       <td>CCE-90811-1</td>
@@ -2778,7 +2778,7 @@ thead
     </tr>
     <tr>
       <th>136</th>
-      <td>AU-3,AU-7 a,CM-5 (1),AU-3 (1),CM-6 b,MA-4 (1) (a),AU-12 a,AU-14 (1),AU-7 (1),AU-6 (4)</td>
+      <td>AU-14 (1),AU-12 a,CM-5 (1),CM-6 b,AU-3,AU-3 (1),AU-7 (1),MA-4 (1) (a),AU-6 (4),AU-7 a</td>
       <td>CCI-000126,CCI-000130,CCI-000131,CCI-000132,CCI-000133,CCI-000134,CCI-000135,CCI-000154,CCI-000158,CCI-000366,CCI-001464,CCI-001487,CCI-001814,CCI-001876,CCI-002884,CCI-000169</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000038-GPOS-00016,SRG-OS-000039-GPOS-00017,SRG-OS-000040-GPOS-00018,SRG-OS-000041-GPOS-00019,SRG-OS-000042-GPOS-00021,SRG-OS-000051-GPOS-00024,SRG-OS-000054-GPOS-00025,SRG-OS-000122-GPOS-00063,SRG-OS-000254-GPOS-00095,SRG-OS-000255-GPOS-00096,SRG-OS-000365-GPOS-00152,SRG-OS-000392-GPOS-00172,SRG-OS-000480-GPOS-00227,SRG-OS-000062-GPOS-00031,SRG-OS-000349-GPOS-00137</td>
       <td>CCE-90829-3</td>
@@ -3338,7 +3338,7 @@ thead
     </tr>
     <tr>
       <th>164</th>
-      <td>SC-8,SC-8 (2),SC-8 (1)</td>
+      <td>SC-8 (2),SC-8 (1),SC-8</td>
       <td>CCI-002418,CCI-002420,CCI-002421,CCI-002422</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000424-GPOS-00188,SRG-OS-000425-GPOS-00189,SRG-OS-000426-GPOS-00190</td>
       <td>CCE-90823-6</td>
@@ -3378,7 +3378,7 @@ thead
     </tr>
     <tr>
       <th>166</th>
-      <td>SC-8,AC-17 (2)</td>
+      <td>AC-17 (2),SC-8</td>
       <td>CCI-000068</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000033-GPOS-00014</td>
       <td>CCE-87522-9</td>
@@ -3398,7 +3398,7 @@ thead
     </tr>
     <tr>
       <th>167</th>
-      <td>SC-8,SC-8 (2)</td>
+      <td>SC-8 (2),SC-8</td>
       <td>CCI-002418</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000426-GPOS-00190</td>
       <td>CCE-83451-5</td>
@@ -3598,7 +3598,7 @@ thead
     </tr>
     <tr>
       <th>177</th>
-      <td>CM-6 b,AU-6 (4),AU-4 (1)</td>
+      <td>AU-4 (1),AU-6 (4),CM-6 b</td>
       <td>CCI-001311,CCI-001312,CCI-000366</td>
       <td>SRG-OS-000479-GPOS-00224,SRG-OS-000051-GPOS-00024,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-84063-7</td>
@@ -3618,7 +3618,7 @@ thead
     </tr>
     <tr>
       <th>178</th>
-      <td>CM-6 b,CM-7 b,AC-17 (9),AC-17 (1)</td>
+      <td>AC-17 (1),CM-7 b,AC-17 (9),CM-6 b</td>
       <td>CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115,SRG-OS-000298-GPOS-00116,SRG-OS-000480-GPOS-00227,SRG-OS-000480-GPOS-00232</td>
       <td>CCE-84021-5</td>
@@ -3638,7 +3638,7 @@ thead
     </tr>
     <tr>
       <th>179</th>
-      <td>CM-6 b,CM-7 b,AC-17 (1)</td>
+      <td>AC-17 (1),CM-7 b,CM-6 b</td>
       <td>CCI-000366,CCI-000382,CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115,SRG-OS-000480-GPOS-00227,SRG-OS-000480-GPOS-00231,SRG-OS-000480-GPOS-00232</td>
       <td>CCE-90833-5</td>
@@ -3898,7 +3898,7 @@ thead
     </tr>
     <tr>
       <th>192</th>
-      <td>CM-6 b,AU-3</td>
+      <td>AU-3,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000255-GPOS-00096,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83696-5</td>
@@ -4158,7 +4158,7 @@ thead
     </tr>
     <tr>
       <th>205</th>
-      <td>CM-6 b,AU-4 (1)</td>
+      <td>AU-4 (1),CM-6 b</td>
       <td>CCI-000366,CCI-001348,CCI-000136,CCI-001851</td>
       <td>SRG-OS-000479-GPOS-00224,SRG-OS-000480-GPOS-00227,SRG-OS-000342-GPOS-00133</td>
       <td>CCE-83990-2</td>
@@ -4258,7 +4258,7 @@ thead
     </tr>
     <tr>
       <th>210</th>
-      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
+      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
       <td>CCI-000048,CCI-000050,CCI-001384,CCI-001385,CCI-001386,CCI-001387,CCI-001388</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-90807-9</td>
@@ -4278,7 +4278,7 @@ thead
     </tr>
     <tr>
       <th>211</th>
-      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
+      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
       <td>CCI-000048,CCI-000050</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-83557-9</td>
@@ -4298,7 +4298,7 @@ thead
     </tr>
     <tr>
       <th>212</th>
-      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
+      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
       <td>CCI-000048,CCI-000050,CCI-001384,CCI-001385,CCI-001386,CCI-001387,CCI-001388</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-87599-7</td>
@@ -4318,7 +4318,7 @@ thead
     </tr>
     <tr>
       <th>213</th>
-      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
+      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
       <td>CCI-000048</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-86529-5</td>
@@ -4338,7 +4338,7 @@ thead
     </tr>
     <tr>
       <th>214</th>
-      <td>AC-6 (9),AU-12 c,AC-2 (4)</td>
+      <td>AC-2 (4),AU-12 c,AC-6 (9)</td>
       <td>CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000241-GPOS-00091,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000475-GPOS-00220,SRG-OS-000239-GPOS-00089,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121</td>
       <td>CCE-83655-1</td>
@@ -4438,7 +4438,7 @@ thead
     </tr>
     <tr>
       <th>219</th>
-      <td>CM-6 b,IA-2 (5)</td>
+      <td>IA-2 (5),CM-6 b</td>
       <td>CCI-000366,CCI-000770</td>
       <td>SRG-OS-000109-GPOS-00056,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90800-4</td>
@@ -4458,7 +4458,7 @@ thead
     </tr>
     <tr>
       <th>220</th>
-      <td>IA-2 (5),IA-2,IA-2 (3),IA-2 (4),IA-2 (2)</td>
+      <td>IA-2,IA-2 (3),IA-2 (2),IA-2 (4),IA-2 (5)</td>
       <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768,CCI-000771,CCI-000772,CCI-000884</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000109-GPOS-00056,SRG-OS-000108-GPOS-00055,SRG-OS-000108-GPOS-00057,SRG-OS-000108-GPOS-00058</td>
       <td>CCE-89122-6</td>
@@ -4478,7 +4478,7 @@ thead
     </tr>
     <tr>
       <th>221</th>
-      <td>IA-2 (5),IA-2,IA-2 (3),IA-2 (4),IA-2 (2)</td>
+      <td>IA-2,IA-2 (3),IA-2 (2),IA-2 (4),IA-2 (5)</td>
       <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768,CCI-000771,CCI-000772,CCI-000884</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000109-GPOS-00056,SRG-OS-000108-GPOS-00055,SRG-OS-000108-GPOS-00057,SRG-OS-000108-GPOS-00058</td>
       <td>CCE-89151-5</td>
@@ -4498,7 +4498,7 @@ thead
     </tr>
     <tr>
       <th>222</th>
-      <td>SC-8,AC-18 (1),SC-8 (1)</td>
+      <td>SC-8 (1),AC-18 (1),SC-8</td>
       <td>CCI-000085,CCI-002418,CCI-002421,CCI-001444</td>
       <td>SRG-OS-000299-GPOS-00117,SRG-OS-000300-GPOS-00118,SRG-OS-000424-GPOS-00188,SRG-OS-000481-GPOS-000481</td>
       <td>CCE-84066-0</td>
@@ -4538,7 +4538,7 @@ thead
     </tr>
     <tr>
       <th>224</th>
-      <td>IA-5 (1) (c),IA-7</td>
+      <td>IA-7,IA-5 (1) (c)</td>
       <td>CCI-000196,CCI-000803</td>
       <td>SRG-OS-000073-GPOS-00041,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-89983-1</td>
@@ -4558,7 +4558,7 @@ thead
     </tr>
     <tr>
       <th>225</th>
-      <td>CM-6 b,IA-7</td>
+      <td>IA-7,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-83987-8</td>
@@ -4578,7 +4578,7 @@ thead
     </tr>
     <tr>
       <th>226</th>
-      <td>CM-6 b,IA-7</td>
+      <td>IA-7,CM-6 b</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-83991-0</td>
@@ -4598,7 +4598,7 @@ thead
     </tr>
     <tr>
       <th>227</th>
-      <td>CM-6 b,IA-7</td>
+      <td>IA-7,CM-6 b</td>
       <td>CCI-001130,CCI-001131</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-84068-6</td>
@@ -4638,7 +4638,7 @@ thead
     </tr>
     <tr>
       <th>229</th>
-      <td>CM-7 a,IA-7</td>
+      <td>IA-7,CM-7 a</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-83520-7</td>
@@ -4658,7 +4658,7 @@ thead
     </tr>
     <tr>
       <th>230</th>
-      <td>MA-4 (6),SC-13</td>
+      <td>SC-13,MA-4 (6)</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000396-GPOS-00176,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
       <td>CCE-83450-7</td>
@@ -4678,7 +4678,7 @@ thead
     </tr>
     <tr>
       <th>231</th>
-      <td>AC-17 (2),MA-4 (6)</td>
+      <td>MA-4 (6),AC-17 (2)</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000033-GPOS-00014,SRG-OS-000250-GPOS-00093,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
       <td></td>
@@ -4698,7 +4698,7 @@ thead
     </tr>
     <tr>
       <th>232</th>
-      <td>MA-4 (6),SC-13</td>
+      <td>SC-13,MA-4 (6)</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000396-GPOS-00176,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
       <td>CCE-83442-4</td>
@@ -4868,9 +4868,9 @@ thead
       <td>Manual editing of these files may indicate nefarious activity, such<br>as an attacker attempting to remove evidence of an intrusion.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful logon attempts occur. If it does not, this is a finding.</td>
-      <td>To verify that auditing is configured for system administrator actions, run the following command:<br> $ sudo auditctl -l | grep "watch=/var/run/faillock\|-w /var/run/faillock" <br><br>If there is not output then this is a finding.</td>
+      <td>To verify that auditing is configured for system administrator actions, run the following command:<br> $ sudo auditctl -l | grep "watch=/var/run/faillock\|-w /var/run/faillock" <br><br>If there is no output then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure Red Hat Enterprise Linux 9 to generate audit records for all account creations, modifications, disabling, and termination events that affect  /var/run/faillock .<br><br>Add or update the following file system rule to  /etc/audit/rules.d/audit.rules :<br><br>-w /var/run/faillock -p wa -k logins<br><br>The audit daemon must be restarted for the changes to take effect.</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -4890,7 +4890,7 @@ thead
       <td>Verify the operating system generates audit records when successful/unsuccessful logon attempts occur. If it does not, this is a finding.</td>
       <td>To verify that auditing is configured for system administrator actions, run the following command:<br> $ sudo auditctl -l | grep "watch=/var/log/tallylog\|-w /var/log/tallylog" <br><br>If there is not output then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure Red Hat Enterprise Linux 9 to generate audit records for all account creations, modifications, disabling, and termination events that affect  /var/log/tallylog .<br><br>Add or update the following file system rule to  /etc/audit/rules.d/audit.rules :<br><br>-w /var/log/tallylog -p wa -k logins<br><br>The audit daemon must be restarted for the changes to take effect.</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -4918,7 +4918,7 @@ thead
     </tr>
     <tr>
       <th>243</th>
-      <td>SC-2,SI-16,CM-6 b</td>
+      <td>SI-16,SC-2,CM-6 b</td>
       <td>CCI-002824,CCI-000366</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000433-GPOS-00192,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83972-0</td>
@@ -5198,7 +5198,7 @@ thead
     </tr>
     <tr>
       <th>257</th>
-      <td>CM-6 b,IA-3</td>
+      <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83851-6</td>
@@ -5218,7 +5218,7 @@ thead
     </tr>
     <tr>
       <th>258</th>
-      <td>CM-6 b,IA-3</td>
+      <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83850-8</td>
@@ -5238,7 +5238,7 @@ thead
     </tr>
     <tr>
       <th>259</th>
-      <td>CM-6 b,IA-3</td>
+      <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90128-0</td>
@@ -5258,7 +5258,7 @@ thead
     </tr>
     <tr>
       <th>260</th>
-      <td>CM-6 b,IA-3</td>
+      <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90257-7</td>
@@ -5418,7 +5418,7 @@ thead
     </tr>
     <tr>
       <th>268</th>
-      <td>CM-6 b,IA-2 (2)</td>
+      <td>IA-2 (2),CM-6 b</td>
       <td>CCI-000366,CCI-000766</td>
       <td>SRG-OS-000106-GPOS-00053,SRG-OS-000480-GPOS-00229,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90799-8</td>
@@ -5538,7 +5538,7 @@ thead
     </tr>
     <tr>
       <th>274</th>
-      <td>CM-6 b,SC-4</td>
+      <td>SC-4,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000138-GPOS-00069</td>
       <td>CCE-83903-5</td>
@@ -5558,7 +5558,7 @@ thead
     </tr>
     <tr>
       <th>275</th>
-      <td>SC-2,SC-4</td>
+      <td>SC-4,SC-2</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000138-GPOS-00069</td>
       <td>CCE-83952-2</td>
@@ -5578,7 +5578,7 @@ thead
     </tr>
     <tr>
       <th>276</th>
-      <td>SC-2,SC-4</td>
+      <td>SC-4,SC-2</td>
       <td>CCI-001090</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000138-GPOS-00069</td>
       <td>CCE-83959-7</td>
@@ -5638,7 +5638,7 @@ thead
     </tr>
     <tr>
       <th>279</th>
-      <td>CM-6 b,AU-12 a</td>
+      <td>AU-12 a,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000062-GPOS-00031,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83682-5</td>
@@ -5698,7 +5698,7 @@ thead
     </tr>
     <tr>
       <th>282</th>
-      <td>CM-6 b,CM-5 (3)</td>
+      <td>CM-5 (3),CM-6 b</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000366-GPOS-00153</td>
       <td>CCE-83954-8</td>
@@ -6218,7 +6218,7 @@ thead
     </tr>
     <tr>
       <th>308</th>
-      <td>AU-8 (1) (b),AU-8 b,AU-8 (1) (a)</td>
+      <td>AU-8 (1) (a),AU-8 b,AU-8 (1) (b)</td>
       <td>CCI-001891,CCI-002046</td>
       <td>SRG-OS-000355-GPOS-00143,SRG-OS-000356-GPOS-00144,SRG-OS-000359-GPOS-00146</td>
       <td>CCE-88648-1</td>
@@ -6578,7 +6578,7 @@ thead
     </tr>
     <tr>
       <th>326</th>
-      <td>CM-5 (1),AU-12 c</td>
+      <td>AU-12 c,CM-5 (1)</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000365-GPOS-00152,SRG-OS-000475-GPOS-00220</td>
       <td>CCE-83670-0</td>
@@ -6858,7 +6858,7 @@ thead
     </tr>
     <tr>
       <th>340</th>
-      <td>CM-7 b,IA-3</td>
+      <td>IA-3,CM-7 b</td>
       <td>CCI-001958</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000378-GPOS-00163</td>
       <td>CCE-84136-1</td>
@@ -6878,7 +6878,7 @@ thead
     </tr>
     <tr>
       <th>341</th>
-      <td>CM-7 a,CM-7 b</td>
+      <td>CM-7 b,CM-7 a</td>
       <td>CCI-000381</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000095-GPOS-00049</td>
       <td>CCE-87543-5</td>
@@ -6898,7 +6898,7 @@ thead
     </tr>
     <tr>
       <th>342</th>
-      <td>CM-7 a,CM-7 b</td>
+      <td>CM-7 b,CM-7 a</td>
       <td>CCI-000381</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000095-GPOS-00049</td>
       <td>CCE-88876-8</td>
@@ -6918,7 +6918,7 @@ thead
     </tr>
     <tr>
       <th>343</th>
-      <td>CM-7 b,AC-17 (1)</td>
+      <td>AC-17 (1),CM-7 b</td>
       <td>CCI-000382,CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115</td>
       <td>CCE-86041-1</td>
@@ -6938,7 +6938,7 @@ thead
     </tr>
     <tr>
       <th>344</th>
-      <td>CM-7 a,AC-18 (1)</td>
+      <td>AC-18 (1),CM-7 a</td>
       <td>CCI-000085,CCI-001551,CCI-001443</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000300-GPOS-00118</td>
       <td>CCE-84067-8</td>
@@ -6958,7 +6958,7 @@ thead
     </tr>
     <tr>
       <th>345</th>
-      <td>IA-5 (1) (c),CM-7 a,CM-6 b</td>
+      <td>CM-7 a,IA-5 (1) (c),CM-6 b</td>
       <td>CCI-000197,CCI-000366,CCI-000381</td>
       <td>SRG-OS-000074-GPOS-00042,SRG-OS-000095-GPOS-00049,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-84159-3</td>
@@ -7238,7 +7238,7 @@ thead
     </tr>
     <tr>
       <th>359</th>
-      <td>SI-6 b,SI-6 d,CM-3 (5)</td>
+      <td>CM-3 (5),SI-6 d,SI-6 b</td>
       <td>CCI-001744,CCI-002699,CCI-002702</td>
       <td>SRG-OS-000363-GPOS-00150,SRG-OS-000446-GPOS-00200,SRG-OS-000447-GPOS-00201</td>
       <td>CCE-83437-4</td>
@@ -7248,7 +7248,7 @@ thead
       <td>By default, AIDE does not install itself for periodic execution. Periodically<br>running AIDE is necessary to reveal unexpected changes in installed files.<br>  <br>Unauthorized changes to the baseline configuration could make the system vulnerable<br>to various attacks or allow unauthorized access to the operating system. Changes to<br>operating system configurations can have unintended side effects, some of which may<br>be relevant to security.<br>  <br>Detecting such changes and providing an automated response can help avoid unintended,<br>negative consequences that could ultimately affect the security state of the operating<br>system. The operating system's Information Management Officer (IMO)/Information System<br>Security Officer (ISSO) and System Administrators (SAs) must be notified via email and/or<br>monitoring system trap when there is an unauthorized modification of a configuration item.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system performs verification of the correct operation of security functions: upon system start-up and/or restart; upon command by a user with privileged access; and/or every 30 days. If it does not, this is a finding.</td>
-      <td>Verify the operating system routinely checks the baseline configuration for unauthorized changes.<br><br>To determine that periodic AIDE execution has been scheduled, run the following command:<br> $ grep aide /etc/crontab <br>The output should return something similar to the following:<br><br> 05 4 * * * root  --check <br><br><br>NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.<br><br>If AIDE is not configured to periodicly scan then this is a finding.</td>
+      <td>Verify the operating system routinely checks the baseline configuration for unauthorized changes.<br><br>To determine that periodic AIDE execution has been scheduled, run the following command:<br> $ grep aide /etc/crontab <br>The output should return something similar to the following:<br><br> 05 4 * * * root  --check <br><br><br>NOTE: The usage of special cron times, such as @daily or @weekly, is acceptable.<br><br>If AIDE is not configured to scan periodically then this is a finding.</td>
       <td></td>
       <td>Configure the file integrity to run at least weekly.<br>Edit "/etc/crontab" and add or edit the following line:<br><br><br> 05 4 * * * root  --check</td>
       <td>CAT II</td>
@@ -7258,7 +7258,7 @@ thead
     </tr>
     <tr>
       <th>360</th>
-      <td>CM-6 b,CM-7 a</td>
+      <td>CM-7 a,CM-6 b</td>
       <td>CCI-000381</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000095-GPOS-00049</td>
       <td>CCE-90830-1</td>
@@ -7370,7 +7370,7 @@ thead
       <td>Verify the operating system is configured to disable non-essential capabilities. If it does not, this is a finding.</td>
       <td>Inspect the form of default GRUB 2 command line for the Linux operating system<br>in  /etc/default/grub . If it includes  pti=on ,<br>then the parameter will be configured for newly installed kernels.<br>First check if the GRUB recovery is enabled:<br> $ grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub <br>If this option is set to true, then check that a line is output by the following command:<br> $ grep 'GRUB_CMDLINE_LINUX_DEFAULT.*pti=on.*' /etc/default/grub <br>If the recovery is disabled, check the line with<br> $ grep 'GRUB_CMDLINE_LINUX.*pti=on.*' /etc/default/grub .Moreover, command line parameters for currently installed kernels should be checked as well.<br>Run the following command:<br> # grubby --info=ALL | grep args | grep -v 'pti=on' <br>The command should not return any output.<br><br>If Kernel page-table isolation is not enabled then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>To ensure that  pti=on  is added as a kernel command line<br>argument to newly installed kernels, add  pti=on  to the<br>default Grub2 command line for Linux operating systems.  Modify the line within<br> /etc/default/grub  as shown below:<br> GRUB_CMDLINE_LINUX="... pti=on ..." <br>Run the following command to update command line for already installed kernels: # grubby --update-kernel=ALL --args="pti=on"</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -7798,7 +7798,7 @@ thead
     </tr>
     <tr>
       <th>387</th>
-      <td>SI-6 a,SC-3</td>
+      <td>SC-3,SI-6 a</td>
       <td>CCI-002165,CCI-002696</td>
       <td>SRG-OS-000445-GPOS-00199,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-84079-3</td>
@@ -7958,7 +7958,7 @@ thead
     </tr>
     <tr>
       <th>395</th>
-      <td>SI-6 d,CM-3 (5)</td>
+      <td>CM-3 (5),SI-6 d</td>
       <td>CCI-001744,CCI-002702</td>
       <td>SRG-OS-000363-GPOS-00150,SRG-OS-000447-GPOS-00201</td>
       <td>CCE-90844-2</td>
@@ -7990,7 +7990,7 @@ thead
       <td>Verify the operating system implements address space layout randomization to protect its memory from unauthorized code execution. If it does not, this is a finding.</td>
       <td>The runtime status of the  kernel.randomize_va_space  kernel parameter can be queried<br>by running the following command:<br> $ sysctl kernel.randomize_va_space <br>The output of the command should indicate a value of  2 .<br>The preferable way how to assure the runtime compliance is to have<br>correct persistent configuration, and rebooting the system.<br><br>The persistent kernel parameter configuration is performed by specifying the appropriate<br>assignment in any file located in the  /etc/sysctl.d  directory.<br>Verify that there is not any existing incorrect configuration by executing the following command:<br> $ grep -r '^\s*kernel.randomize_va_space\s*=' /etc/sysctl.conf /etc/sysctl.d <br>If any assignments other than<br> kernel.randomize_va_space = 2 <br>are found, or the correct assignment is duplicated, remove those offending lines from respective files,<br>and make sure that exactly one file in<br> /etc/sysctl.d  contains  kernel.randomize_va_space = 2 , and that one assignment<br>is returned when<br> $ grep -r kernel.randomize_va_space /etc/sysctl.conf /etc/sysctl.d <br>is executed.<br><br><br>If the correct value is not returned then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Add or edit the following line in a system configuration file in the "/etc/sysctl.d/" directory:<br>kernel.randomize_va_space = 2<br><br>Load settings from all system configuration files with the following command:<br><br>$ sudo sysctl --system</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
@@ -8003,7 +8003,7 @@ thead
       <td>SRG-OS-000355-GPOS-00143</td>
       <td>CCE-84215-3</td>
       <td>The operating system must, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</td>
-      <td>Red Hat Enterprise Linux 9 must, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designat</td>
+      <td>Red Hat Enterprise Linux 9 must, for networked systems, compare internal information system clocks at least every 24 hours with a server which is synchronized to one of the redundant United States Naval Observatory (USNO) time servers, or a time server designated for the appropriate DoD network (NIPRNet/SIPRNet), and/or the Global Positioning System (GPS).</td>
       <td>Inaccurate time stamps make it more difficult to correlate events and can lead to an inaccurate analysis. Determining the correct time a particular event occurred on a system is critical when conducting forensic analysis and investigating system events. Sources outside the configured acceptable allowance (drift) may be inaccurate.<br><br>Synchronizing internal information system clocks provides uniformity of time stamps for information systems with multiple system clocks and systems connected over a network.<br><br>Organizations should consider endpoints that may not have regular access to the authoritative time server (e.g., mobile, teleworking, and tactical endpoints).</td>
       <td>Time synchronization is important to support time sensitive security mechanisms like<br>Kerberos and also ensures log files have consistent time records across the enterprise,<br>which aids in forensic investigations.</td>
       <td>Applicable - Configurable</td>
@@ -8038,7 +8038,7 @@ thead
     </tr>
     <tr>
       <th>399</th>
-      <td>CM-6 b,SC-3</td>
+      <td>SC-3,CM-6 b</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-83842-5</td>
@@ -8058,7 +8058,7 @@ thead
     </tr>
     <tr>
       <th>400</th>
-      <td>CM-6 b,SC-3</td>
+      <td>SC-3,CM-6 b</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-83985-2</td>
@@ -8078,7 +8078,7 @@ thead
     </tr>
     <tr>
       <th>401</th>
-      <td>CM-6 b,SC-3</td>
+      <td>SC-3,CM-6 b</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-84071-0</td>
@@ -10838,7 +10838,7 @@ thead
     </tr>
     <tr>
       <th>539</th>
-      <td>CM-6 b,SI-2 (2)</td>
+      <td>SI-2 (2),CM-6 b</td>
       <td>CCI-000366,CCI-001233,CCI-001263</td>
       <td>SRG-OS-000191-GPOS-00080,SRG-OS-000196,SRG-OS-000480-GPOS-00227</td>
       <td></td>
@@ -11018,7 +11018,7 @@ thead
     </tr>
     <tr>
       <th>548</th>
-      <td>CM-6 b,SI-2 (2)</td>
+      <td>SI-2 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000191-GPOS-00080</td>
       <td>CCE-83502-5</td>
@@ -11178,7 +11178,7 @@ thead
     </tr>
     <tr>
       <th>556</th>
-      <td>SI-6 a,CM-3 (5)</td>
+      <td>CM-3 (5),SI-6 a</td>
       <td>CCI-002696,CCI-002699,CCI-001744</td>
       <td>SRG-OS-000363-GPOS-00150,SRG-OS-000445-GPOS-00199</td>
       <td>CCE-90843-4</td>
