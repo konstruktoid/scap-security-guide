@@ -58,7 +58,7 @@ thead
   <tbody>
     <tr>
       <th>0</th>
-      <td>AU-4 (1),AU-4</td>
+      <td>AU-4,AU-4 (1)</td>
       <td>CCI-001849</td>
       <td>SRG-OS-000341-GPOS-00132,SRG-OS-000342-GPOS-00133</td>
       <td>CCE-88173-0</td>
@@ -98,7 +98,7 @@ thead
     </tr>
     <tr>
       <th>2</th>
-      <td>CM-6 b,AU-4</td>
+      <td>AU-4,CM-6 b</td>
       <td>CCI-000366,CCI-001849</td>
       <td>SRG-OS-000341-GPOS-00132,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90847-5</td>
@@ -118,7 +118,7 @@ thead
     </tr>
     <tr>
       <th>3</th>
-      <td>SC-5,SC-5 (2),CM-6 b</td>
+      <td>SC-5 (2),SC-5,CM-6 b</td>
       <td>CCI-000366,CCI-001095</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000420-GPOS-00186,SRG-OS-000142-GPOS-00071</td>
       <td>CCE-84006-6</td>
@@ -138,7 +138,7 @@ thead
     </tr>
     <tr>
       <th>4</th>
-      <td>CM-5 (1),AU-7 b,AU-8 b,AU-12 (3),AC-6 (8),AU-7 a,AC-6 (9)</td>
+      <td>AC-6 (8),AU-12 (3),CM-5 (1),AU-7 a,AU-7 b,AU-8 b,AC-6 (9)</td>
       <td>CCI-001814,CCI-001882,CCI-001889,CCI-001880,CCI-001881,CCI-001878,CCI-001879,CCI-001875,CCI-001877,CCI-001914,CCI-002234</td>
       <td>SRG-OS-000326-GPOS-00126,SRG-OS-000327-GPOS-00127,SRG-OS-000337-GPOS-00129,SRG-OS-000348-GPOS-00136,SRG-OS-000349-GPOS-00137,SRG-OS-000350-GPOS-00138,SRG-OS-000351-GPOS-00139,SRG-OS-000352-GPOS-00140,SRG-OS-000353-GPOS-00141,SRG-OS-000354-GPOS-00142,SRG-OS-000358-GPOS-00145,SRG-OS-000365-GPOS-00152</td>
       <td>CCE-86402-5</td>
@@ -158,7 +158,7 @@ thead
     </tr>
     <tr>
       <th>5</th>
-      <td>AU-12 a,CM-5 (1),AU-12 c,AU-7 b,AU-8 b,CM-6 b,AU-12 (3),AU-7 a</td>
+      <td>AU-12 c,AU-12 a,AU-12 (3),CM-5 (1),CM-6 b,AU-7 a,AU-7 b,AU-8 b</td>
       <td>CCI-000172,CCI-001814,CCI-001875,CCI-001877,CCI-001878,CCI-001879,CCI-001880,CCI-001881,CCI-001882,CCI-001889,CCI-001914,CCI-000169</td>
       <td>SRG-OS-000122-GPOS-00063,SRG-OS-000337-GPOS-00129,SRG-OS-000348-GPOS-00136,SRG-OS-000349-GPOS-00137,SRG-OS-000350-GPOS-00138,SRG-OS-000351-GPOS-00139,SRG-OS-000352-GPOS-00140,SRG-OS-000353-GPOS-00141,SRG-OS-000354-GPOS-00142,SRG-OS-000358-GPOS-00145,SRG-OS-000359-GPOS-00146,SRG-OS-000365-GPOS-00152,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000480-GPOS-00227,SRG-OS-000062-GPOS-00031</td>
       <td>CCE-83649-4</td>
@@ -238,7 +238,7 @@ thead
     </tr>
     <tr>
       <th>9</th>
-      <td>IA-2 (11),IA-2 (12)</td>
+      <td>IA-2 (12),IA-2 (11)</td>
       <td>CCI-001954,CCI-001953</td>
       <td>SRG-OS-000375-GPOS-00160,SRG-OS-000376-GPOS-00161</td>
       <td>CCE-83595-9</td>
@@ -258,26 +258,6 @@ thead
     </tr>
     <tr>
       <th>10</th>
-      <td>IA-2 (11),IA-2 (12)</td>
-      <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768,CCI-000771,CCI-000772,CCI-000884,CCI-001948,CCI-001954</td>
-      <td>SRG-OS-000375-GPOS-00160,SRG-OS-000376-GPOS-00161,SRG-OS-000377-GPOS-00162</td>
-      <td>CCE-86580-8</td>
-      <td>The operating system must accept Personal Identity Verification (PIV) credentials.</td>
-      <td>Red Hat Enterprise Linux 9 must accept Personal Identity Verification (PIV) credentials.</td>
-      <td>The use of PIV credentials facilitates standardization and reduces the risk of unauthorized access.<br><br>DoD has mandated the use of the CAC to support identity management and personal authentication for systems covered under Homeland Security Presidential Directive (HSPD) 12, as well as making the CAC a primary component of layered protection for national security systems.</td>
-      <td>Smart card login provides two-factor authentication stronger than<br>that provided by a username and password combination. Smart cards leverage PKI<br>(public key infrastructure) in order to provide and verify credentials.</td>
-      <td>Applicable - Configurable</td>
-      <td>Verify the operating system accepts Personal Identity Verification (PIV) credentials. If it does not, this is a finding.</td>
-      <td>To ensure smart card authentication on the login screen is enabled, run the following command:<br> $ grep enable-smartcard-authentication /etc/dconf/db/distro.d/* <br>The output should be  true .<br>To ensure that users cannot disable smart card authentication on the login screen, run the following:<br> $ grep enable-smartcard-authentication /etc/dconf/db/distro.d/locks/* <br>If properly configured, the output should be  /org/gnome/login-screen/enable-smartcard-authentication <br><br>If enable-smartcard-authentication has not been configured or is disabled then this is a finding.</td>
-      <td></td>
-      <td></td>
-      <td>CAT II</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>11</th>
       <td>IA-5 (2) (b)</td>
       <td>CCI-000186</td>
       <td>SRG-OS-000067-GPOS-00035</td>
@@ -297,8 +277,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>CM-7 (5) (b),CM-7 (2)</td>
+      <th>11</th>
+      <td>CM-7 (2),CM-7 (5) (b)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000370-GPOS-00155,SRG-OS-000368-GPOS-00154</td>
       <td>CCE-84224-5</td>
@@ -317,8 +297,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>CM-7 (5) (b),CM-7 (2)</td>
+      <th>12</th>
+      <td>CM-7 (2),CM-7 (5) (b)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000370-GPOS-00155,SRG-OS-000368-GPOS-00154</td>
       <td>CCE-84227-8</td>
@@ -337,7 +317,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>13</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -357,7 +337,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>14</th>
       <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
@@ -377,7 +357,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>15</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -397,7 +377,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>16</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -417,7 +397,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>17</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -437,7 +417,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>18</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -457,7 +437,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>19</th>
       <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
@@ -477,7 +457,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>20</th>
       <td>CM-7 (2),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000368-GPOS-00154,SRG-OS-000480-GPOS-00227</td>
@@ -497,7 +477,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>21</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -517,7 +497,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>22</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -537,7 +517,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>23</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -557,7 +537,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>24</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -577,7 +557,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>25</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -597,7 +577,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>27</th>
+      <th>26</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -617,7 +597,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>27</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -637,7 +617,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>28</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -657,7 +637,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>29</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -677,7 +657,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>30</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -697,7 +677,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>31</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -717,7 +697,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>32</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -737,7 +717,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>33</th>
       <td>CM-7 (2)</td>
       <td>CCI-001764</td>
       <td>SRG-OS-000368-GPOS-00154</td>
@@ -757,7 +737,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>35</th>
+      <th>34</th>
       <td>IA-4 e</td>
       <td>CCI-000017,CCI-000795</td>
       <td>SRG-OS-000118-GPOS-00060</td>
@@ -777,7 +757,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>36</th>
+      <th>35</th>
       <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
@@ -797,7 +777,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>36</th>
       <td>AC-7 a,AC-7 b</td>
       <td>CCI-002238,CCI-000044</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
@@ -817,7 +797,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>38</th>
+      <th>37</th>
       <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
@@ -837,7 +817,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>38</th>
       <td>AC-7 a,AC-7 b</td>
       <td>CCI-000044,CCI-002236,CCI-002237,CCI-002238</td>
       <td>SRG-OS-000329-GPOS-00128,SRG-OS-000021-GPOS-00005</td>
@@ -857,7 +837,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>40</th>
+      <th>39</th>
       <td>IA-5 (1) (d)</td>
       <td>CCI-000199</td>
       <td>SRG-OS-000076-GPOS-00044</td>
@@ -877,7 +857,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>41</th>
+      <th>40</th>
       <td>IA-5 (1) (d)</td>
       <td>CCI-000199</td>
       <td>SRG-OS-000076-GPOS-00044</td>
@@ -897,7 +877,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>41</th>
       <td>AC-3 (4)</td>
       <td>CCI-002165</td>
       <td>SRG-OS-000312-GPOS-00122</td>
@@ -917,8 +897,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>43</th>
-      <td>IA-2,AU-3 (1),IA-8</td>
+      <th>42</th>
+      <td>IA-8,AU-3 (1),IA-2</td>
       <td>CCI-000764,CCI-000804</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000121-GPOS-00062,SRG-OS-000042-GPOS-00020</td>
       <td>CCE-88493-2</td>
@@ -937,8 +917,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>44</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>43</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83830-0</td>
@@ -957,8 +937,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>45</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>44</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83812-8</td>
@@ -977,8 +957,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>46</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>45</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83832-6</td>
@@ -997,8 +977,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>47</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>46</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83822-7</td>
@@ -1017,8 +997,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>48</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>47</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83829-2</td>
@@ -1037,8 +1017,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>48</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83831-8</td>
@@ -1057,8 +1037,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>50</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>49</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83821-9</td>
@@ -1077,8 +1057,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>51</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>50</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83817-7</td>
@@ -1097,8 +1077,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>52</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>51</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000466-GPOS-00210,SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219</td>
       <td>CCE-83833-4</td>
@@ -1117,8 +1097,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>53</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>52</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83814-4</td>
@@ -1137,8 +1117,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>54</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>53</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83808-6</td>
@@ -1157,8 +1137,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>54</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000474-GPOS-00219,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
       <td>CCE-83807-8</td>
@@ -1177,8 +1157,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>56</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>55</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203</td>
       <td>CCE-83811-0</td>
@@ -1197,8 +1177,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>57</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>56</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-87685-4</td>
@@ -1217,8 +1197,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>58</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>57</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-90482-1</td>
@@ -1237,8 +1217,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>58</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83748-4</td>
@@ -1257,8 +1237,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>60</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>59</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83750-0</td>
@@ -1277,8 +1257,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>61</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>60</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83736-9</td>
@@ -1297,8 +1277,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>62</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>61</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
       <td>CCE-83751-8</td>
@@ -1317,8 +1297,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>63</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>62</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83754-2</td>
@@ -1337,8 +1317,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>64</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>63</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83756-7</td>
@@ -1357,8 +1337,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>65</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>64</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83758-3</td>
@@ -1377,8 +1357,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>66</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>65</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83757-5</td>
@@ -1397,8 +1377,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>67</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>66</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-000366,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212</td>
       <td>CCE-83755-9</td>
@@ -1417,8 +1397,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>68</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>67</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83786-4</td>
@@ -1437,8 +1417,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>69</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>68</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83800-3</td>
@@ -1457,8 +1437,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>70</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>69</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83801-1</td>
@@ -1477,8 +1457,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>71</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>70</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83796-3</td>
@@ -1497,8 +1477,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>72</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>71</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83794-8</td>
@@ -1517,8 +1497,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>73</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>72</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205</td>
       <td>CCE-83792-2</td>
@@ -1537,8 +1517,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>74</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>73</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-83802-9</td>
@@ -1557,8 +1537,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>75</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>74</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-83803-7</td>
@@ -1577,8 +1557,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>76</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>75</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-90835-0</td>
@@ -1597,8 +1577,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>77</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>76</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000473-GPOS-00218,SRG-OS-000470-GPOS-00214</td>
       <td>CCE-83785-6</td>
@@ -1617,8 +1597,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>78</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>77</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000468-GPOS-00212,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83765-8</td>
@@ -1637,8 +1617,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>79</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>78</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83763-3</td>
@@ -1657,8 +1637,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>80</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>79</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83761-7</td>
@@ -1677,8 +1657,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>81</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>80</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83773-2</td>
@@ -1697,8 +1677,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>82</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>81</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000477-GPOS-00222</td>
       <td>CCE-90262-7</td>
@@ -1717,8 +1697,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>83</th>
-      <td>AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>82</th>
+      <td>AU-3,MA-4 (1) (a),AU-3 (1)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172</td>
       <td>CCE-89564-9</td>
@@ -1737,8 +1717,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>84</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>83</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83766-6</td>
@@ -1757,8 +1737,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>85</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>84</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83767-4</td>
@@ -1777,8 +1757,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>86</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>85</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83781-5</td>
@@ -1797,8 +1777,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>87</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>86</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83769-0</td>
@@ -1817,8 +1797,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>88</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>87</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83770-8</td>
@@ -1837,8 +1817,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>89</th>
-      <td>AU-12 c,MA-4 (1) (a),AU-3 (1)</td>
+      <th>88</th>
+      <td>AU-12 c,AU-3 (1),MA-4 (1) (a)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -1857,8 +1837,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>90</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>89</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-90388-0</td>
@@ -1877,8 +1857,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>91</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>90</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83776-5</td>
@@ -1897,8 +1877,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>92</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>91</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000064-GPOS-0003,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-83771-6</td>
@@ -1917,8 +1897,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>93</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>92</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-83780-7</td>
@@ -1937,8 +1917,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>94</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>93</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83764-1</td>
@@ -1957,8 +1937,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>94</th>
+      <td>AU-12 c,AU-3,MA-4 (1) (a),AU-3 (1)</td>
       <td>CCI-000135,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000392-GPOS-00172,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83762-5</td>
@@ -1977,8 +1957,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>96</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>95</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83768-2</td>
@@ -1997,8 +1977,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>96</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-000172</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-89481-6</td>
@@ -2017,8 +1997,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>98</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>97</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83760-9</td>
@@ -2037,8 +2017,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>99</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>98</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000466-GPOS-00210</td>
       <td>CCE-87212-7</td>
@@ -2057,8 +2037,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>100</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>99</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-3 (1),AU-3</td>
       <td>CCI-000135,CCI-000169,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td>CCE-83735-1</td>
@@ -2077,8 +2057,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>101</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>100</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-90176-9</td>
@@ -2097,8 +2077,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>102</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>101</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000169,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-89498-0</td>
@@ -2117,8 +2097,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>103</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>102</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000126,CCI-000130,CCI-000135,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83729-4</td>
@@ -2137,8 +2117,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>104</th>
-      <td>AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>103</th>
+      <td>AU-12 c,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000130,CCI-000172,CCI-001403,CCI-002130</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000239-GPOS-00089,SRG-OS-000241-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83715-3</td>
@@ -2157,8 +2137,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>105</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>104</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132,CCI-002884</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83722-9</td>
@@ -2177,8 +2157,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>106</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>105</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83723-7</td>
@@ -2197,8 +2177,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>107</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>106</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000476-GPOS-00221,SRG-OS-000463-GPOS-00207</td>
       <td>CCE-83712-0</td>
@@ -2217,8 +2197,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>108</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>107</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000276-GPOS-00106,SRG-OS-000277-GPOS-00107</td>
       <td>CCE-83714-6</td>
@@ -2237,8 +2217,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>109</th>
-      <td>AU-12 a,AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a),AC-2 (4)</td>
+      <th>108</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AC-2 (4),AU-3 (1),AU-3</td>
       <td>CCI-000018,CCI-000169,CCI-000172,CCI-001403,CCI-001404,CCI-001405,CCI-001683,CCI-001684,CCI-001685,CCI-001686,CCI-002130,CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000304-GPOS-00121,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000239-GPOS-00089,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121,SRG-OS-000466-GPOS-00210,SRG-OS-000476-GPOS-00221</td>
       <td>CCE-83725-2</td>
@@ -2257,8 +2237,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>110</th>
-      <td>AU-12 a,AU-14 (1),AU-12 c,AU-3,AU-3 (1),MA-4 (1) (a)</td>
+      <th>109</th>
+      <td>AU-12 c,AU-12 a,MA-4 (1) (a),AU-14 (1),AU-3 (1),AU-3</td>
       <td>CCI-001464,CCI-000130,CCI-000169</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000042-GPOS-00020,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215,SRG-OS-000473-GPOS-00218,SRG-OS-000254-GPOS-00095</td>
       <td>CCE-83651-0</td>
@@ -2277,7 +2257,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>111</th>
+      <th>110</th>
       <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
@@ -2297,7 +2277,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>112</th>
+      <th>111</th>
       <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
@@ -2317,7 +2297,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>113</th>
+      <th>112</th>
       <td>AC-6 (10),AC-11 b</td>
       <td>CCI-000056</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000028-GPOS-00009</td>
@@ -2337,7 +2317,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>114</th>
+      <th>113</th>
       <td>AC-6 (10),CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000324-GPOS-00125,SRG-OS-000480-GPOS-00227</td>
@@ -2357,7 +2337,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>115</th>
+      <th>114</th>
       <td>AC-6 (10)</td>
       <td>CCI-002165</td>
       <td>SRG-OS-000324-GPOS-00125</td>
@@ -2377,7 +2357,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>116</th>
+      <th>115</th>
       <td>AC-6 (10)</td>
       <td>CCI-002165</td>
       <td>SRG-OS-000324-GPOS-00125</td>
@@ -2397,7 +2377,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>117</th>
+      <th>116</th>
       <td>AC-6 (10)</td>
       <td>CCI-002235</td>
       <td>SRG-OS-000324-GPOS-00125</td>
@@ -2417,8 +2397,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>118</th>
-      <td>AU-12 a,AU-12 c,AU-3,MA-4 (1) (a)</td>
+      <th>117</th>
+      <td>AU-12 c,AU-3,AU-12 a,MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -2437,8 +2417,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>119</th>
-      <td>AU-12 a,AU-12 c,AU-3,MA-4 (1) (a)</td>
+      <th>118</th>
+      <td>AU-12 c,AU-3,AU-12 a,MA-4 (1) (a)</td>
       <td>CCI-000130,CCI-000169,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000062-GPOS-00031,SRG-OS-000392-GPOS-00172,SRG-OS-000462-GPOS-00206,SRG-OS-000471-GPOS-00215</td>
       <td></td>
@@ -2457,7 +2437,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>120</th>
+      <th>119</th>
       <td>AU-12 c,AU-9</td>
       <td>CCI-000162</td>
       <td>SRG-OS-000462-GPOS-00206,SRG-OS-000475-GPOS-00220,SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029</td>
@@ -2477,7 +2457,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>121</th>
+      <th>120</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
@@ -2497,7 +2477,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>122</th>
+      <th>121</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
@@ -2517,7 +2497,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>123</th>
+      <th>122</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
@@ -2537,7 +2517,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>124</th>
+      <th>123</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000466-GPOS-00210,SRG-OS-000064-GPOS-00033</td>
@@ -2557,11 +2537,11 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>125</th>
-      <td>AC-2 (4),CM-5 (1),AU-12 c,AC-6 (9)</td>
+      <th>124</th>
+      <td>AU-12 c,CM-5 (1),AC-6 (9),AC-2 (4)</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000240-GPOS-00090,SRG-OS-000241-GPOS-00091,SRG-OS-000303-GPOS-00120,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000064-GPOS-00033,SRG-OS-000365-GPOS-00152,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000462-GPOS-00206,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000466-GPOS-00210,SRG-OS-000467-GPOS-00211,SRG-OS-000468-GPOS-00212,SRG-OS-000470-GPOS-00214,SRG-OS-000471-GPOS-00215,SRG-OS-000471-GPOS-00216,SRG-OS-000472-GPOS-00217,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000477-GPOS-00222</td>
-      <td></td>
+      <td>CCE-85991-8</td>
       <td>The operating system must generate audit records when successful/unsuccessful attempts to modify privileges occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to modify privileges occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
@@ -2570,14 +2550,14 @@ thead
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to modify privileges occur. If it does not, this is a finding.</td>
       <td>To verify that audit is configured for OSPP v4.2.1, run the following commands:<br> for file in "10-base-config" "11-loginuid" "30-ospp-v42" "43-module-load";do diff /etc/audit/rules.d/$file.rules /usr/share/doc/audit*/rules/$file.rules; done <br><br>If the system is configured properly, no lines should be returned.<br><br>If the files are not there or differ then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure audit to meet requirements for OSPP v4.2.1.<br><br>Run the following commands to copy all audit rules:<br><br>$ sudo cp /usr/share/doc/audit*/rules/10-base-config.rules /etc/audit/rules.d<br>$ sudo cp /usr/share/doc/audit*/rules/11-loginuid.rules /etc/audit/rules.d<br>$ sudo cp /usr/share/doc/audit*/rules/30-ospp-v42.rules /etc/audit/rules.d<br>$ sudo cp /usr/share/doc/audit*/rules/43-module-load.rules /etc/audit/rules.d<br><br>Then, run the following command to load all audit rules:<br><br>$ sudo augenrules --load</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>126</th>
+      <th>125</th>
       <td>SC-24</td>
       <td>CCI-001665</td>
       <td>SRG-OS-000269-GPOS-00103</td>
@@ -2597,8 +2577,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>127</th>
-      <td>IA-5 (1) (a),IA-5 (1) (b),CM-6 b</td>
+      <th>126</th>
+      <td>IA-5 (1) (a),CM-6 b,IA-5 (1) (b)</td>
       <td>CCI-000194,CCI-000193,CCI-001619,CCI-000205,CCI-000195,CCI-000192,CCI-000366</td>
       <td>SRG-OS-000072-GPOS-00040,SRG-OS-000071-GPOS-00039,SRG-OS-000070-GPOS-00038,SRG-OS-000266-GPOS-00101,SRG-OS-000078-GPOS-00046,SRG-OS-000480-GPOS-00225,SRG-OS-000069-GPOS-00037</td>
       <td>CCE-86356-3</td>
@@ -2617,7 +2597,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>128</th>
+      <th>127</th>
       <td>IA-5 (1) (a)</td>
       <td>CCI-000193</td>
       <td>SRG-OS-000070-GPOS-00038</td>
@@ -2637,7 +2617,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>129</th>
+      <th>128</th>
       <td>SC-13</td>
       <td>CCI-000068,CCI-000803,CCI-002450</td>
       <td>SRG-OS-000478-GPOS-00223</td>
@@ -2657,7 +2637,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>130</th>
+      <th>129</th>
       <td>SC-13</td>
       <td>CCI-000068,CCI-000803,CCI-002450</td>
       <td>SRG-OS-000478-GPOS-00223,SRG-OS-000396-GPOS-00176</td>
@@ -2677,8 +2657,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>131</th>
-      <td>SC-13,MA-4 c,AC-17 (2),SC-8</td>
+      <th>130</th>
+      <td>SC-8,SC-13,AC-17 (2),MA-4 c</td>
       <td>CCI-000068,CCI-000803,CCI-002450</td>
       <td>SRG-OS-000033-GPOS-00014,SRG-OS-000125-GPOS-00065,SRG-OS-000396-GPOS-00176,SRG-OS-000423-GPOS-00187,SRG-OS-000478-GPOS-00223</td>
       <td>CCE-83441-6</td>
@@ -2697,8 +2677,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>132</th>
-      <td>AC-12,MA-4 e,MA-4 (7),SC-10</td>
+      <th>131</th>
+      <td>MA-4 (7),AC-12,SC-10,MA-4 e</td>
       <td>CCI-000879,CCI-001133,CCI-002361</td>
       <td>SRG-OS-000126-GPOS-00066,SRG-OS-000163-GPOS-00072,SRG-OS-000279-GPOS-00109,SRG-OS-000395-GPOS-00175</td>
       <td>CCE-90811-1</td>
@@ -2717,8 +2697,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>133</th>
-      <td>AC-12,SC-10</td>
+      <th>132</th>
+      <td>SC-10,AC-12</td>
       <td>CCI-000879,CCI-001133,CCI-002361</td>
       <td>SRG-OS-000163-GPOS-00072,SRG-OS-000279-GPOS-00109</td>
       <td>CCE-90805-3</td>
@@ -2737,8 +2717,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>134</th>
-      <td>AC-12,SC-10</td>
+      <th>133</th>
+      <td>SC-10,AC-12</td>
       <td>CCI-000879,CCI-001133,CCI-002361</td>
       <td>SRG-OS-000163-GPOS-00072,SRG-OS-000279-GPOS-00109</td>
       <td>CCE-90271-8</td>
@@ -2757,7 +2737,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>135</th>
+      <th>134</th>
       <td>AC-11 a,SC-10</td>
       <td>CCI-000057,CCI-001133,CCI-002361</td>
       <td>SRG-OS-000163-GPOS-00072,SRG-OS-000029-GPOS-00010</td>
@@ -2777,8 +2757,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>136</th>
-      <td>AU-14 (1),AU-12 a,CM-5 (1),CM-6 b,AU-3,AU-3 (1),AU-7 (1),MA-4 (1) (a),AU-6 (4),AU-7 a</td>
+      <th>135</th>
+      <td>MA-4 (1) (a),AU-12 a,AU-14 (1),CM-5 (1),CM-6 b,AU-7 a,AU-3 (1),AU-7 (1),AU-3,AU-6 (4)</td>
       <td>CCI-000126,CCI-000130,CCI-000131,CCI-000132,CCI-000133,CCI-000134,CCI-000135,CCI-000154,CCI-000158,CCI-000366,CCI-001464,CCI-001487,CCI-001814,CCI-001876,CCI-002884,CCI-000169</td>
       <td>SRG-OS-000037-GPOS-00015,SRG-OS-000038-GPOS-00016,SRG-OS-000039-GPOS-00017,SRG-OS-000040-GPOS-00018,SRG-OS-000041-GPOS-00019,SRG-OS-000042-GPOS-00021,SRG-OS-000051-GPOS-00024,SRG-OS-000054-GPOS-00025,SRG-OS-000122-GPOS-00063,SRG-OS-000254-GPOS-00095,SRG-OS-000255-GPOS-00096,SRG-OS-000365-GPOS-00152,SRG-OS-000392-GPOS-00172,SRG-OS-000480-GPOS-00227,SRG-OS-000062-GPOS-00031,SRG-OS-000349-GPOS-00137</td>
       <td>CCE-90829-3</td>
@@ -2797,7 +2777,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>137</th>
+      <th>136</th>
       <td>AC-3 (4)</td>
       <td>CCI-002165</td>
       <td>SRG-OS-000312-GPOS-00124</td>
@@ -2817,7 +2797,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>138</th>
+      <th>137</th>
       <td>AU-9 (3)</td>
       <td>CCI-001496</td>
       <td>SRG-OS-000278-GPOS-00108</td>
@@ -2837,7 +2817,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>139</th>
+      <th>138</th>
       <td>AU-9,AU-9 (3)</td>
       <td>CCI-001494,CCI-001496</td>
       <td>SRG-OS-000256-GPOS-00097,SRG-OS-000257-GPOS-00098,SRG-OS-000278-GPOS-00108</td>
@@ -2857,7 +2837,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>140</th>
+      <th>139</th>
       <td>AU-9,AU-9 (3)</td>
       <td>CCI-001493,CCI-001494,CCI-001495,CCI-001496</td>
       <td>SRG-OS-000256-GPOS-00097,SRG-OS-000257-GPOS-00098,SRG-OS-000258-GPOS-00099,SRG-OS-000278-GPOS-00108</td>
@@ -2869,6 +2849,26 @@ thead
       <td>Applicable - Configurable</td>
       <td>Verify the operating system uses cryptographic mechanisms to protect the integrity of audit tools. If it does not, this is a finding.</td>
       <td>The following command will list which files on the system have permissions different from what<br>is expected by the RPM database:<br> $ rpm -Va | awk '{ if (substr($0,2,1)=="M") print $NF }' <br><br>If there is output then this is a finding.</td>
+      <td></td>
+      <td></td>
+      <td>CAT II</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>AU-12 c,MA-4 (1) (a)</td>
+      <td>CCI-000172,CCI-002884</td>
+      <td>SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000392-GPOS-00172</td>
+      <td></td>
+      <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
+      <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
+      <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
+      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
+      <td>Applicable - Configurable</td>
+      <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
+      <td>To determine if the system is configured to audit calls to the<br> open_by_handle_at  system call, run the following command:<br> $ sudo grep "open_by_handle_at" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -2905,7 +2905,7 @@ thead
       <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
-      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
+      <td>The more specific rules cover a subset of events covered by the less specific rules.<br>By ordering them from more specific to less specific, it is assured that the less specific<br>rule will not catch events better recorded by the more specific rule.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
       <td>To determine if the system is configured to audit calls to the<br> open_by_handle_at  system call, run the following command:<br> $ sudo grep "open_by_handle_at" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
@@ -2925,10 +2925,10 @@ thead
       <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
-      <td>The more specific rules cover a subset of events covered by the less specific rules.<br>By ordering them from more specific to less specific, it is assured that the less specific<br>rule will not catch events better recorded by the more specific rule.</td>
+      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
-      <td>To determine if the system is configured to audit calls to the<br> open_by_handle_at  system call, run the following command:<br> $ sudo grep "open_by_handle_at" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
+      <td>To determine if the system is configured to audit calls to the<br> open  system call, run the following command:<br> $ sudo grep "open" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -2965,7 +2965,7 @@ thead
       <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
-      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
+      <td>The more specific rules cover a subset of events covered by the less specific rules.<br>By ordering them from more specific to less specific, it is assured that the less specific<br>rule will not catch events better recorded by the more specific rule.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
       <td>To determine if the system is configured to audit calls to the<br> open  system call, run the following command:<br> $ sudo grep "open" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
@@ -2985,10 +2985,10 @@ thead
       <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
-      <td>The more specific rules cover a subset of events covered by the less specific rules.<br>By ordering them from more specific to less specific, it is assured that the less specific<br>rule will not catch events better recorded by the more specific rule.</td>
+      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
-      <td>To determine if the system is configured to audit calls to the<br> open  system call, run the following command:<br> $ sudo grep "open" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
+      <td>To determine if the system is configured to audit calls to the<br> openat  system call, run the following command:<br> $ sudo grep "openat" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -3025,26 +3025,6 @@ thead
       <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
       <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
-      <td>Unsuccessful attempts to access files could be an indicator of malicious activity on a system. Auditing<br>these events could serve as evidence of potential system compromise.</td>
-      <td>Applicable - Configurable</td>
-      <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
-      <td>To determine if the system is configured to audit calls to the<br> openat  system call, run the following command:<br> $ sudo grep "openat" /etc/audit/audit.* <br>If the system is configured to audit this activity, it will return a line.<br><br><br>If no line is returned then this is a finding.</td>
-      <td></td>
-      <td></td>
-      <td>CAT II</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>AU-12 c,MA-4 (1) (a)</td>
-      <td>CCI-000172,CCI-002884</td>
-      <td>SRG-OS-000064-GPOS-00033,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000392-GPOS-00172</td>
-      <td></td>
-      <td>The operating system must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
-      <td>Red Hat Enterprise Linux 9 must generate audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur.</td>
-      <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
       <td>The more specific rules cover a subset of events covered by the less specific rules.<br>By ordering them from more specific to less specific, it is assured that the less specific<br>rule will not catch events better recorded by the more specific rule.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system generates audit records when successful/unsuccessful attempts to access categories of information (e.g., classification levels) occur. If it does not, this is a finding.</td>
@@ -3057,7 +3037,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>149</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884</td>
       <td>SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212</td>
@@ -3077,7 +3057,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>151</th>
+      <th>150</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884</td>
       <td>SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212</td>
@@ -3097,7 +3077,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>152</th>
+      <th>151</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884</td>
       <td>SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212</td>
@@ -3117,7 +3097,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>153</th>
+      <th>152</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884</td>
       <td>SRG-OS-000064-GPOS-00033,SRG-OS-000392-GPOS-00172,SRG-OS-000458-GPOS-00203,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212</td>
@@ -3137,7 +3117,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>154</th>
+      <th>153</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3157,7 +3137,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>155</th>
+      <th>154</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3177,7 +3157,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>156</th>
+      <th>155</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3197,7 +3177,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>157</th>
+      <th>156</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3217,7 +3197,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>158</th>
+      <th>157</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212,SRG-OS-000467-GPOS-00211</td>
@@ -3237,7 +3217,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>159</th>
+      <th>158</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205,SRG-OS-000468-GPOS-00212,SRG-OS-000467-GPOS-00211</td>
@@ -3257,7 +3237,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>160</th>
+      <th>159</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3277,7 +3257,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>161</th>
+      <th>160</th>
       <td>AU-12 c</td>
       <td>CCI-000172</td>
       <td>SRG-OS-000458-GPOS-00203,SRG-OS-000474-GPOS-00219,SRG-OS-000475-GPOS-00220,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209,SRG-OS-000461-GPOS-00205</td>
@@ -3297,7 +3277,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>162</th>
+      <th>161</th>
       <td>IA-5 (2) (c)</td>
       <td>CCI-000187</td>
       <td>SRG-OS-000068-GPOS-00036</td>
@@ -3317,7 +3297,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>163</th>
+      <th>162</th>
       <td>AC-12</td>
       <td>CCI-002361</td>
       <td>SRG-OS-000279-GPOS-00109</td>
@@ -3337,8 +3317,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>164</th>
-      <td>SC-8 (2),SC-8 (1),SC-8</td>
+      <th>163</th>
+      <td>SC-8,SC-8 (2),SC-8 (1)</td>
       <td>CCI-002418,CCI-002420,CCI-002421,CCI-002422</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000424-GPOS-00188,SRG-OS-000425-GPOS-00189,SRG-OS-000426-GPOS-00190</td>
       <td>CCE-90823-6</td>
@@ -3350,17 +3330,17 @@ thead
       <td>Verify the operating system protects the confidentiality and integrity of transmitted information. If it does not, this is a finding.</td>
       <td>Run the following command to determine if the  openssh-server  package is installed:  $ rpm -q openssh-server <br><br>If the package is not installed then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>The  openssh-server  package can be installed with the following command:<br> <br>$ sudo dnf install openssh-server</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>165</th>
-      <td>SC-8</td>
+      <th>164</th>
+      <td>SC-8,SC-8 (2),SC-8 (1)</td>
       <td>CCI-002418,CCI-002420,CCI-002421,CCI-002422</td>
-      <td>SRG-OS-000423-GPOS-00187,SRG-OS-000423-GPOS-00188,SRG-OS-000423-GPOS-00189,SRG-OS-000423-GPOS-00190</td>
+      <td>SRG-OS-000423-GPOS-00187,SRG-OS-000424-GPOS-00188,SRG-OS-000425-GPOS-00189,SRG-OS-000426-GPOS-00190</td>
       <td>CCE-90822-8</td>
       <td>The operating system must protect the confidentiality and integrity of transmitted information.</td>
       <td>Red Hat Enterprise Linux 9 must protect the confidentiality and integrity of transmitted information.</td>
@@ -3368,17 +3348,17 @@ thead
       <td>Without protection of the transmitted information, confidentiality, and<br>integrity may be compromised because unprotected communications can be<br>intercepted and either read or altered.<br>  <br>This checklist item applies to both internal and external networks and all types<br>of information system components from which information can be transmitted (e.g., servers,<br>mobile devices, notebook computers, printers, copiers, scanners, etc). Communication paths<br>outside the physical protection of a controlled boundary are exposed to the possibility<br>of interception and modification.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system protects the confidentiality and integrity of transmitted information. If it does not, this is a finding.</td>
-      <td><br><br>Run the following command to determine the current status of the<br> sshd  service:<br> $ systemctl is-active sshd <br>If the service is running, it should return the following:  active <br><br>If  then this is a finding.</td>
+      <td><br><br>Run the following command to determine the current status of the<br> sshd  service:<br> $ systemctl is-active sshd <br>If the service is running, it should return the following:  active <br><br>If sshd service is disabled then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>To enable the sshd service run the following command:<br><br>$ systemctl enable --now sshd</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>166</th>
-      <td>AC-17 (2),SC-8</td>
+      <th>165</th>
+      <td>SC-8,AC-17 (2)</td>
       <td>CCI-000068</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000033-GPOS-00014</td>
       <td>CCE-87522-9</td>
@@ -3397,8 +3377,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>167</th>
-      <td>SC-8 (2),SC-8</td>
+      <th>166</th>
+      <td>SC-8,SC-8 (2)</td>
       <td>CCI-002418</td>
       <td>SRG-OS-000423-GPOS-00187,SRG-OS-000426-GPOS-00190</td>
       <td>CCE-83451-5</td>
@@ -3408,17 +3388,17 @@ thead
       <td>Overriding the system crypto policy makes the behavior of the BIND service violate expectations,<br>and makes system configuration more fragmented.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system protects the confidentiality and integrity of transmitted information. If it does not, this is a finding.</td>
-      <td>To verify that BIND uses the system crypto policy, check out that the BIND config file<br> /etc/named.conf  contains the  include "/etc/crypto-policies/back-ends/bind.config"; <br>directive:  grep 'include "/etc/crypto-policies/back-ends/bind.config";' /etc/named.conf ,<br>and verify that the directive is at the bottom of the  options  section of the config file.<br><br>If BIND is installed and the BIND config file doesn't contain the<br> include "/etc/crypto-policies/back-ends/bind.config";  directive then this is a finding.</td>
+      <td>To verify that BIND uses the system crypto policy, check out that the BIND config file<br> /etc/named.conf  contains the  include "/etc/crypto-policies/back-ends/bind.config"; <br>directive:<br> $ sudo grep 'include "/etc/crypto-policies/back-ends/bind.config";' /etc/named.conf <br>Verify that the directive is at the bottom of the  options  section of the config file.<br><br>If BIND is installed and the BIND config file doesn't contain the<br> include "/etc/crypto-policies/back-ends/bind.config";  directive then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure BIND to use the system crypto policy.<br><br>Add the following line to the "options" section in "/etc/named.conf":<br><br>include "/etc/crypto-policies/back-ends/bind.config";</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>168</th>
-      <td>AC-17 (2),SC-8</td>
+      <th>167</th>
+      <td>SC-8,AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093,SRG-OS-000423-GPOS-00187</td>
       <td>CCE-86860-4</td>
@@ -3437,7 +3417,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>169</th>
+      <th>168</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00226</td>
@@ -3457,7 +3437,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>170</th>
+      <th>169</th>
       <td>AC-11 a,AC-11 b</td>
       <td>CCI-000058,CCI-000056</td>
       <td>SRG-OS-000030-GPOS-00011,SRG-OS-000028-GPOS-00009</td>
@@ -3477,7 +3457,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>171</th>
+      <th>170</th>
       <td>AC-11 a,AC-11 b</td>
       <td>CCI-000056</td>
       <td>SRG-OS-000028-GPOS-00009,SRG-OS-000030-GPOS-00011</td>
@@ -3497,7 +3477,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>172</th>
+      <th>171</th>
       <td>AC-11 a,AC-11 b</td>
       <td>CCI-000056,CCI-000058,CCI-000060</td>
       <td>SRG-OS-000028-GPOS-00009,SRG-OS-000030-GPOS-00011</td>
@@ -3517,7 +3497,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>173</th>
+      <th>172</th>
       <td>IA-5 (1) (e)</td>
       <td>CCI-000200</td>
       <td>SRG-OS-000077-GPOS-00045</td>
@@ -3537,7 +3517,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>174</th>
+      <th>173</th>
       <td>IA-5 (1) (e)</td>
       <td>CCI-000200</td>
       <td>SRG-OS-000077-GPOS-00045</td>
@@ -3557,7 +3537,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>175</th>
+      <th>174</th>
       <td>IA-5 (1) (e)</td>
       <td>CCI-000200</td>
       <td>SRG-OS-000077-GPOS-00045</td>
@@ -3577,7 +3557,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>176</th>
+      <th>175</th>
       <td>AU-6 (4)</td>
       <td>CCI-000154</td>
       <td>SRG-OS-000051-GPOS-00024</td>
@@ -3597,8 +3577,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>177</th>
-      <td>AU-4 (1),AU-6 (4),CM-6 b</td>
+      <th>176</th>
+      <td>CM-6 b,AU-6 (4),AU-4 (1)</td>
       <td>CCI-001311,CCI-001312,CCI-000366</td>
       <td>SRG-OS-000479-GPOS-00224,SRG-OS-000051-GPOS-00024,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-84063-7</td>
@@ -3617,8 +3597,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>178</th>
-      <td>AC-17 (1),CM-7 b,AC-17 (9),CM-6 b</td>
+      <th>177</th>
+      <td>CM-7 b,AC-17 (9),CM-6 b,AC-17 (1)</td>
       <td>CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115,SRG-OS-000298-GPOS-00116,SRG-OS-000480-GPOS-00227,SRG-OS-000480-GPOS-00232</td>
       <td>CCE-84021-5</td>
@@ -3637,8 +3617,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>179</th>
-      <td>AC-17 (1),CM-7 b,CM-6 b</td>
+      <th>178</th>
+      <td>CM-7 b,CM-6 b,AC-17 (1)</td>
       <td>CCI-000366,CCI-000382,CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115,SRG-OS-000480-GPOS-00227,SRG-OS-000480-GPOS-00231,SRG-OS-000480-GPOS-00232</td>
       <td>CCE-90833-5</td>
@@ -3657,7 +3637,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>180</th>
+      <th>179</th>
       <td>AU-9,SI-11 b</td>
       <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
@@ -3668,16 +3648,16 @@ thead
       <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td><br>To properly set the group owner of  /var/log/audit , run the command:<br> $ sudo chgrp root /var/log/audit <br><br>If  then this is a finding.</td>
+      <td>Determine the audit log group by running the following command:<br><br>$ sudo grep -P '^[ ]*log_group[ ]+=.*$' /etc/audit/auditd.conf<br><br>Then, check that all directories within the /var/log/audit directory are owned by the group specified as log_group or by root if the log_group is not specified.<br>Run the following command:<br><br>$ sudo find /var/log/audit -type d -printf "%p %g<br>"<br><br>All listed directories must be owned by the log_group or by root if the log_group is not specified.<br><br>If there is a directory owned by different group then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Change the group of the directory of "/var/log/audit" to be owned by a correct group.<br><br>Identify the group that is configured to own audit log:<br><br>$ sudo grep -P '^[ ]*log_group[ ]+=.*$' /etc/audit/auditd.conf<br><br>Change the ownership to that group:<br>$ sudo chgrp ${GROUP} /var/log/audit</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>181</th>
+      <th>180</th>
       <td>AU-9,SI-11 b</td>
       <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
@@ -3688,16 +3668,16 @@ thead
       <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td><br>To properly set the owner of  /var/log/audit , run the command:<br> $ sudo chown root /var/log/audit  <br><br>If  then this is a finding.</td>
+      <td><br>To properly set the owner of  /var/log/audit , run the command:<br> $ sudo chown root /var/log/audit  <br><br>If the directory is not owned by root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Change the owner of the directory /var/log/audit to root.<br>Run the following command:<br><br>$ sudo chown root /var/log/audit</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>182</th>
+      <th>181</th>
       <td>AU-9,SI-11 b</td>
       <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
@@ -3708,36 +3688,16 @@ thead
       <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>Run the following commands to check who owns the system audit logs:<br> $ sudo grep -iw ^log_file /etc/audit/auditd.conf <br> log_file = /var/log/audit/audit.log <br> $ sudo stat -c "%n %G"  log_file  <br>Audit logs must be owned by group root or adm.<br><br>If  then this is a finding.</td>
+      <td>Check group owners of the system audit logs.<br><br>First, determine where the audit log file is located.<br><br> $ sudo grep -iw ^log_file /etc/audit/auditd.conf <br> log_file = /var/log/audit/audit.log <br><br>The log_file option specifies the audit log file path.<br>If the log_file option isn't defined, check all files within /var/log/audit directory.<br><br>Then, determine the audit log group by running the following command:<br> $ sudo grep -P '^[ ]*log_group[ ]+=.*$' /etc/audit/auditd.conf <br><br>Then, check that the audit log file is owned by the correct group.<br>Run the following command to display the owner of the audit log file:<br><br> $ sudo stat -c "%n %G"  log_file  <br><br>The audit log file must be owned by the log_group or by root if the log_group is not specified.<br><br>If audit log files are owned by incorrect group then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Change the group of the audit log file to be owned by a correct group.<br><br>Identify where the audit log file is located:<br><br>$ sudo grep -iw ^log_file /etc/audit/auditd.conf<br><br>Identify the group that is configured to own audit log:<br><br>$ sudo grep -P '^[ ]*log_group[ ]+=.*$' /etc/audit/auditd.conf<br><br>Change the ownership to that group:<br><br>$ sudo chgrp ${log_group} ${log_file}</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>183</th>
-      <td>AU-9,SI-11 b</td>
-      <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
-      <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
-      <td>CCE-83726-0</td>
-      <td>The operating system must reveal error messages only to authorized users.</td>
-      <td>Red Hat Enterprise Linux 9 must reveal error messages only to authorized users.</td>
-      <td>Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the operating system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.<br><br>The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.</td>
-      <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
-      <td>Applicable - Configurable</td>
-      <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td><br>To properly set the owner of  /var/log/audit , run the command:<br> $ sudo chown root /var/log/audit  <br><br>To properly set the owner of  /var/log/audit/* , run the command:<br> $ sudo chown root /var/log/audit/*  <br><br>If  then this is a finding.</td>
-      <td></td>
-      <td></td>
-      <td>CAT II</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>184</th>
+      <th>182</th>
       <td>AU-9,SI-11 b</td>
       <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
@@ -3748,16 +3708,16 @@ thead
       <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>Run the following commands to check who owns the system audit logs:<br> $ sudo grep -iw log_file /etc/audit/auditd.conf <br> log_file = /var/log/audit/audit.log <br> sudo stat -c "%n %U" /var/log/audit/* <br>Audit logs must be owned by user root.<br><br>If  then this is a finding.</td>
+      <td>Verify the audit logs are owned by "root". First, determine where the audit logs are stored with the following command:<br> $ sudo grep -iw log_file /etc/audit/auditd.conf <br> log_file = /var/log/audit/audit.log <br>Using the location of the audit log file, determine if the audit log is owned by "root" using the following command:<br> $ sudo stat -c "%n %U" /var/log/audit/audit.log <br>Audit logs must be owned by user root.<br>If the log_file isn't defined in /etc/audit/auditd.conf, check all files in /var/log/audit/ directory instead.<br><br>If the audit log is not owned by root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure the audit log to be protected from unauthorized read access, by setting the correct owner as "root" with the following command:<br><br>$ sudo chown root [audit_log_file]<br><br>Replace "[audit_log_file]" to the correct audit log path, by default this location is "/var/log/audit/audit.log".</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>185</th>
+      <th>183</th>
       <td>AU-9,SI-11 b</td>
       <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029,SRG-OS-000206-GPOS-00084</td>
@@ -3768,16 +3728,16 @@ thead
       <td>If users can write to audit logs, audit trails can be modified or destroyed.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>Run the following command to check the mode of the system audit logs:<br> $ sudo grep -iw log_file /etc/audit/auditd.conf <br> log_file=/var/log/audit/audit.log <br> $ sudo stat -c "%n %a" /var/log/audit/* <br> $ sudo ls -l /var/log/audit <br>Audit logs must be mode 0640 or less permissive.<br><br>If any are more permissive then this is a finding.</td>
+      <td>Run the following command to check the mode of the system audit logs:<br> $ sudo grep -iw log_file /etc/audit/auditd.conf <br> log_file=/var/log/audit/audit.log <br> $ sudo stat -c "%n %a" /var/log/audit/* <br> $ sudo ls -l /var/log/audit <br>Audit logs must be mode 0640 or less permissive.<br><br>If any permissions are more permissive then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure correct permissions of system audit logs.<br><br>Determine the location of the system audit logs:<br><br>$ sudo grep -iw log_file /etc/audit/auditd.conf<br><br>If log_file is not defined, use /var/log/audit/audit.log.<br><br>Check the group that owns the system audit logs:<br><br>$ sudo grep -m 1 -q ^log_group /etc/audit/auditd.conf<br><br>If the log_group is not defined or it is set to root, configure the permissions the following way:<br><br>$ sudo chmod 0640 $log_file<br>$ sudo chmod 0440 $log_file.*<br><br>Otherwise, configure the permisssions the following way:<br><br>$ sudo chmod 0600 $log_file<br>$ sudo chmod 0400 $log_file.*</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>186</th>
+      <th>184</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3788,16 +3748,16 @@ thead
       <td>The  /var/log  directory contains files with logs of error<br>messages in the system and should only be accessed by authorized<br>personnel.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>To check the group ownership of  /var/log ,<br>run the command:<br> $ ls -lL /var/log <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /var/log has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /var/log ,<br>run the command:<br> $ ls -lL /var/log <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /var/log does not have a group owner of root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the group owner of  /var/log , run the command:<br> $ sudo chgrp root /var/log</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>187</th>
+      <th>185</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3808,16 +3768,16 @@ thead
       <td>The  /var/log/messages  file contains logs of error messages in<br>the system and should only be accessed by authorized personnel.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>To check the group ownership of  /var/log/messages ,<br>run the command:<br> $ ls -lL /var/log/messages <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /var/log/messages has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /var/log/messages ,<br>run the command:<br> $ ls -lL /var/log/messages <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /var/log/messages does not have a group owner of root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the group owner of  /var/log/messages , run the command:<br> $ sudo chgrp root /var/log/messages</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>188</th>
+      <th>186</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3828,16 +3788,16 @@ thead
       <td>The  /var/log  directory contains files with logs of error<br>messages in the system and should only be accessed by authorized<br>personnel.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>To check the ownership of  /var/log ,<br>run the command:<br> $ ls -lL /var/log <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /var/log has owner root then this is a finding.</td>
+      <td>To check the ownership of  /var/log ,<br>run the command:<br> $ ls -lL /var/log <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /var/log does not have an owner of root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the owner of  /var/log , run the command:<br> $ sudo chown root /var/log</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>189</th>
+      <th>187</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3848,16 +3808,16 @@ thead
       <td>The  /var/log/messages  file contains logs of error messages in<br>the system and should only be accessed by authorized personnel.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
-      <td>To check the ownership of  /var/log/messages ,<br>run the command:<br> $ ls -lL /var/log/messages <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /var/log/messages has owner root then this is a finding.</td>
+      <td>To check the ownership of  /var/log/messages ,<br>run the command:<br> $ ls -lL /var/log/messages <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /var/log/messages does not have an owner of root then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the owner of  /var/log/messages , run the command:<br> $ sudo chown root /var/log/messages</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>190</th>
+      <th>188</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3870,14 +3830,14 @@ thead
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
       <td>To check the permissions of  /var/log ,<br>run the command:<br> $ ls -l /var/log <br>If properly configured, the output should indicate the following permissions:<br> drwxr-xr-x <br><br>If /var/log has unix mode drwxr-xr-x then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the permissions of  /var/log , run the command:<br> $ sudo chmod 0755 /var/log</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>191</th>
+      <th>189</th>
       <td>SI-11 b</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000206-GPOS-00084</td>
@@ -3890,14 +3850,14 @@ thead
       <td>Verify the operating system reveals error messages only to authorized users. If it does not, this is a finding.</td>
       <td>To check the permissions of  /var/log/messages ,<br>run the command:<br> $ ls -l /var/log/messages <br>If properly configured, the output should indicate the following permissions:<br> -rw-r----- <br><br>If /var/log/messages has unix mode -rw-r----- then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td><br>To properly set the permissions of  /var/log/messages , run the command:<br> $ sudo chmod 0640 /var/log/messages</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>192</th>
+      <th>190</th>
       <td>AU-3,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000255-GPOS-00096,SRG-OS-000480-GPOS-00227</td>
@@ -3917,7 +3877,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>193</th>
+      <th>191</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -3937,7 +3897,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>194</th>
+      <th>192</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -3957,7 +3917,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>195</th>
+      <th>193</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -3977,7 +3937,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>196</th>
+      <th>194</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -3997,7 +3957,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>197</th>
+      <th>195</th>
       <td>AU-4 (1)</td>
       <td>CCI-000136</td>
       <td>SRG-OS-000479-GPOS-00224,SRG-OS-000342-GPOS-00133</td>
@@ -4017,7 +3977,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>198</th>
+      <th>196</th>
       <td>AU-3,AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000039-GPOS-00017,SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -4037,7 +3997,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>199</th>
+      <th>197</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -4057,7 +4017,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>200</th>
+      <th>198</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133</td>
@@ -4077,7 +4037,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>201</th>
+      <th>199</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133</td>
@@ -4097,7 +4057,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>202</th>
+      <th>200</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -4117,7 +4077,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>203</th>
+      <th>201</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -4137,7 +4097,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>204</th>
+      <th>202</th>
       <td>AU-4 (1)</td>
       <td>CCI-001851</td>
       <td>SRG-OS-000342-GPOS-00133,SRG-OS-000479-GPOS-00224</td>
@@ -4157,8 +4117,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>AU-4 (1),CM-6 b</td>
+      <th>203</th>
+      <td>CM-6 b,AU-4 (1)</td>
       <td>CCI-000366,CCI-001348,CCI-000136,CCI-001851</td>
       <td>SRG-OS-000479-GPOS-00224,SRG-OS-000480-GPOS-00227,SRG-OS-000342-GPOS-00133</td>
       <td>CCE-83990-2</td>
@@ -4177,8 +4137,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>206</th>
-      <td>SC-28 (1),SC-28</td>
+      <th>204</th>
+      <td>SC-28,SC-28 (1)</td>
       <td>CCI-001199,CCI-002475,CCI-002476</td>
       <td>SRG-OS-000405-GPOS-00184,SRG-OS-000185-GPOS-00079,SRG-OS-000404-GPOS-00183</td>
       <td>CCE-90849-1</td>
@@ -4197,7 +4157,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>207</th>
+      <th>205</th>
       <td>AC-10</td>
       <td>CCI-000054</td>
       <td>SRG-OS-000027-GPOS-00008</td>
@@ -4217,7 +4177,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>208</th>
+      <th>206</th>
       <td>IA-11</td>
       <td>CCI-002038</td>
       <td>SRG-OS-000373-GPOS-00156,SRG-OS-000373-GPOS-00157,SRG-OS-000373-GPOS-00158</td>
@@ -4237,7 +4197,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>209</th>
+      <th>207</th>
       <td>IA-11</td>
       <td>CCI-002038</td>
       <td>SRG-OS-000373-GPOS-00156,SRG-OS-000373-GPOS-00157,SRG-OS-000373-GPOS-00158</td>
@@ -4257,8 +4217,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>210</th>
-      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
+      <th>208</th>
+      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
       <td>CCI-000048,CCI-000050,CCI-001384,CCI-001385,CCI-001386,CCI-001387,CCI-001388</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-90807-9</td>
@@ -4277,8 +4237,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
+      <th>209</th>
+      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
       <td>CCI-000048,CCI-000050</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-83557-9</td>
@@ -4297,8 +4257,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>212</th>
-      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
+      <th>210</th>
+      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
       <td>CCI-000048,CCI-000050,CCI-001384,CCI-001385,CCI-001386,CCI-001387,CCI-001388</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-87599-7</td>
@@ -4317,8 +4277,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>213</th>
-      <td>AC-8 a,AC-8 c 1, AC-8 c 2, AC-8 c 3</td>
+      <th>211</th>
+      <td>AC-8 c 1, AC-8 c 2, AC-8 c 3,AC-8 a</td>
       <td>CCI-000048</td>
       <td>SRG-OS-000023-GPOS-00006,SRG-OS-000228-GPOS-00088</td>
       <td>CCE-86529-5</td>
@@ -4337,8 +4297,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>214</th>
-      <td>AC-2 (4),AU-12 c,AC-6 (9)</td>
+      <th>212</th>
+      <td>AU-12 c,AC-6 (9),AC-2 (4)</td>
       <td>CCI-002132</td>
       <td>SRG-OS-000004-GPOS-00004,SRG-OS-000241-GPOS-00091,SRG-OS-000476-GPOS-00221,SRG-OS-000327-GPOS-00127,SRG-OS-000475-GPOS-00220,SRG-OS-000239-GPOS-00089,SRG-OS-000274-GPOS-00104,SRG-OS-000275-GPOS-00105,SRG-OS-000303-GPOS-00120,SRG-OS-000304-GPOS-00121</td>
       <td>CCE-83655-1</td>
@@ -4357,7 +4317,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>215</th>
+      <th>213</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00228,SRG-OS-000480-GPOS-00227</td>
@@ -4377,7 +4337,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>216</th>
+      <th>214</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00228,SRG-OS-000480-GPOS-00227</td>
@@ -4397,7 +4357,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>217</th>
+      <th>215</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00228</td>
@@ -4417,7 +4377,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>218</th>
+      <th>216</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00228,SRG-OS-000480-GPOS-00227</td>
@@ -4437,7 +4397,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>219</th>
+      <th>217</th>
       <td>IA-2 (5),CM-6 b</td>
       <td>CCI-000366,CCI-000770</td>
       <td>SRG-OS-000109-GPOS-00056,SRG-OS-000480-GPOS-00227</td>
@@ -4457,8 +4417,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>220</th>
-      <td>IA-2,IA-2 (3),IA-2 (2),IA-2 (4),IA-2 (5)</td>
+      <th>218</th>
+      <td>IA-2 (5),IA-2 (4),IA-2 (2),IA-2,IA-2 (3)</td>
       <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768,CCI-000771,CCI-000772,CCI-000884</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000109-GPOS-00056,SRG-OS-000108-GPOS-00055,SRG-OS-000108-GPOS-00057,SRG-OS-000108-GPOS-00058</td>
       <td>CCE-89122-6</td>
@@ -4477,8 +4437,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>221</th>
-      <td>IA-2,IA-2 (3),IA-2 (2),IA-2 (4),IA-2 (5)</td>
+      <th>219</th>
+      <td>IA-2 (5),IA-2 (4),IA-2 (2),IA-2,IA-2 (3)</td>
       <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768,CCI-000771,CCI-000772,CCI-000884</td>
       <td>SRG-OS-000104-GPOS-00051,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000109-GPOS-00056,SRG-OS-000108-GPOS-00055,SRG-OS-000108-GPOS-00057,SRG-OS-000108-GPOS-00058</td>
       <td>CCE-89151-5</td>
@@ -4497,8 +4457,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>222</th>
-      <td>SC-8 (1),AC-18 (1),SC-8</td>
+      <th>220</th>
+      <td>SC-8,AC-18 (1),SC-8 (1)</td>
       <td>CCI-000085,CCI-002418,CCI-002421,CCI-001444</td>
       <td>SRG-OS-000299-GPOS-00117,SRG-OS-000300-GPOS-00118,SRG-OS-000424-GPOS-00188,SRG-OS-000481-GPOS-000481</td>
       <td>CCE-84066-0</td>
@@ -4517,7 +4477,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>223</th>
+      <th>221</th>
       <td>IA-7</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000120-GPOS-00061</td>
@@ -4537,7 +4497,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>224</th>
+      <th>222</th>
       <td>IA-7,IA-5 (1) (c)</td>
       <td>CCI-000196,CCI-000803</td>
       <td>SRG-OS-000073-GPOS-00041,SRG-OS-000120-GPOS-00061</td>
@@ -4557,8 +4517,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>225</th>
-      <td>IA-7,CM-6 b</td>
+      <th>223</th>
+      <td>CM-6 b,IA-7</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-83987-8</td>
@@ -4577,8 +4537,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>226</th>
-      <td>IA-7,CM-6 b</td>
+      <th>224</th>
+      <td>CM-6 b,IA-7</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-83991-0</td>
@@ -4597,8 +4557,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>227</th>
-      <td>IA-7,CM-6 b</td>
+      <th>225</th>
+      <td>CM-6 b,IA-7</td>
       <td>CCI-001130,CCI-001131</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000120-GPOS-00061</td>
       <td>CCE-84068-6</td>
@@ -4617,7 +4577,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>228</th>
+      <th>226</th>
       <td>IA-7</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000120-GPOS-00061</td>
@@ -4637,7 +4597,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>229</th>
+      <th>227</th>
       <td>IA-7,CM-7 a</td>
       <td>CCI-000803</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000120-GPOS-00061</td>
@@ -4657,8 +4617,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>230</th>
-      <td>SC-13,MA-4 (6)</td>
+      <th>228</th>
+      <td>MA-4 (6),SC-13</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000396-GPOS-00176,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
       <td>CCE-83450-7</td>
@@ -4677,7 +4637,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>231</th>
+      <th>229</th>
       <td>MA-4 (6),AC-17 (2)</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000033-GPOS-00014,SRG-OS-000250-GPOS-00093,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
@@ -4697,8 +4657,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>232</th>
-      <td>SC-13,MA-4 (6)</td>
+      <th>230</th>
+      <td>MA-4 (6),SC-13</td>
       <td>CCI-002890</td>
       <td>SRG-OS-000396-GPOS-00176,SRG-OS-000393-GPOS-00173,SRG-OS-000394-GPOS-00174</td>
       <td>CCE-83442-4</td>
@@ -4717,7 +4677,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>233</th>
+      <th>231</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4737,7 +4697,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>234</th>
+      <th>232</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4757,7 +4717,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>235</th>
+      <th>233</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4777,7 +4737,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>236</th>
+      <th>234</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4797,7 +4757,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>237</th>
+      <th>235</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4817,7 +4777,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>238</th>
+      <th>236</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4837,7 +4797,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>239</th>
+      <th>237</th>
       <td>AC-17 (2)</td>
       <td>CCI-001453</td>
       <td>SRG-OS-000250-GPOS-00093</td>
@@ -4857,7 +4817,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>240</th>
+      <th>238</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000126,CCI-000172,CCI-002884</td>
       <td>SRG-OS-000392-GPOS-00172,SRG-OS-000470-GPOS-00214,SRG-OS-000473-GPOS-00218</td>
@@ -4877,7 +4837,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>241</th>
+      <th>239</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884,CCI-000126</td>
       <td>SRG-OS-000392-GPOS-00172,SRG-OS-000470-GPOS-00214,SRG-OS-000473-GPOS-00218</td>
@@ -4897,7 +4857,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>242</th>
+      <th>240</th>
       <td>SI-16</td>
       <td>CCI-002530</td>
       <td>SRG-OS-000433-GPOS-00192</td>
@@ -4917,8 +4877,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>243</th>
-      <td>SI-16,SC-2,CM-6 b</td>
+      <th>241</th>
+      <td>SC-2,CM-6 b,SI-16</td>
       <td>CCI-002824,CCI-000366</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000433-GPOS-00192,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83972-0</td>
@@ -4937,7 +4897,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>244</th>
+      <th>242</th>
       <td>SI-16</td>
       <td>CCI-002824</td>
       <td>SRG-OS-000433-GPOS-00192</td>
@@ -4957,7 +4917,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>245</th>
+      <th>243</th>
       <td>SI-16,SC-3</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000433-GPOS-00192,SRG-OS-000134-GPOS-00068</td>
@@ -4977,7 +4937,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>246</th>
+      <th>244</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -4997,7 +4957,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>247</th>
+      <th>245</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5017,7 +4977,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>248</th>
+      <th>246</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5037,7 +4997,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>249</th>
+      <th>247</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5057,7 +5017,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>250</th>
+      <th>248</th>
       <td>AC-11 a</td>
       <td>CCI-000056,CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5077,7 +5037,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>251</th>
+      <th>249</th>
       <td>AC-11 a</td>
       <td>CCI-000056,CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5097,7 +5057,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>252</th>
+      <th>250</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5117,7 +5077,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>253</th>
+      <th>251</th>
       <td>AC-11 a</td>
       <td>CCI-000057</td>
       <td>SRG-OS-000029-GPOS-00010</td>
@@ -5137,7 +5097,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>254</th>
+      <th>252</th>
       <td>IA-3</td>
       <td>CCI-000778</td>
       <td>SRG-OS-000114-GPOS-00059</td>
@@ -5157,7 +5117,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>255</th>
+      <th>253</th>
       <td>IA-3</td>
       <td>CCI-000778</td>
       <td>SRG-OS-000114-GPOS-00059</td>
@@ -5177,7 +5137,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>256</th>
+      <th>254</th>
       <td>IA-3</td>
       <td>CCI-000778</td>
       <td>SRG-OS-000114-GPOS-00059</td>
@@ -5197,7 +5157,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>257</th>
+      <th>255</th>
       <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
@@ -5217,7 +5177,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>258</th>
+      <th>256</th>
       <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
@@ -5237,7 +5197,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>259</th>
+      <th>257</th>
       <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
@@ -5257,7 +5217,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>260</th>
+      <th>258</th>
       <td>IA-3,CM-6 b</td>
       <td>CCI-000366,CCI-000778,CCI-001958</td>
       <td>SRG-OS-000114-GPOS-00059,SRG-OS-000378-GPOS-00163,SRG-OS-000480-GPOS-00227</td>
@@ -5277,7 +5237,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>261</th>
+      <th>259</th>
       <td>AU-8 a</td>
       <td>CCI-000159</td>
       <td>SRG-OS-000055-GPOS-00026</td>
@@ -5297,8 +5257,8 @@ thead
       <td>The default setup of "rsyslogd" uses timestamps and the default setup of "chronyd" uses the system clock.</td>
     </tr>
     <tr>
-      <th>262</th>
-      <td>AU-5 a,AU-5 (1)</td>
+      <th>260</th>
+      <td>AU-5 (1),AU-5 a</td>
       <td>CCI-000139,CCI-001855</td>
       <td>SRG-OS-000046-GPOS-00022,SRG-OS-000343-GPOS-00134</td>
       <td>CCE-83698-1</td>
@@ -5317,7 +5277,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>263</th>
+      <th>261</th>
       <td>AU-5 (1)</td>
       <td>CCI-000140,CCI-001343,CCI-001855</td>
       <td>SRG-OS-000343-GPOS-00134</td>
@@ -5337,7 +5297,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>264</th>
+      <th>262</th>
       <td>AU-5 (1)</td>
       <td>CCI-001855</td>
       <td>SRG-OS-000343-GPOS-00134</td>
@@ -5357,7 +5317,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>265</th>
+      <th>263</th>
       <td>AU-5 (1)</td>
       <td>CCI-001855</td>
       <td>SRG-OS-000343-GPOS-00134</td>
@@ -5377,7 +5337,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>266</th>
+      <th>264</th>
       <td>AU-5 (1)</td>
       <td>CCI-001855</td>
       <td>SRG-OS-000343-GPOS-00134</td>
@@ -5397,7 +5357,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>267</th>
+      <th>265</th>
       <td>IA-6</td>
       <td>CCI-000206</td>
       <td>SRG-OS-000079-GPOS-00047</td>
@@ -5417,8 +5377,8 @@ thead
       <td>The "passwd", "login", and "sudo" commands on the system does not print any characters that are entered as a password.</td>
     </tr>
     <tr>
-      <th>268</th>
-      <td>IA-2 (2),CM-6 b</td>
+      <th>266</th>
+      <td>CM-6 b,IA-2 (2)</td>
       <td>CCI-000366,CCI-000766</td>
       <td>SRG-OS-000106-GPOS-00053,SRG-OS-000480-GPOS-00229,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90799-8</td>
@@ -5437,8 +5397,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>269</th>
-      <td>IA-2 (4),IA-2 (2),IA-2 (3),IA-2 (1)</td>
+      <th>267</th>
+      <td>IA-2 (1),IA-2 (4),IA-2 (2),IA-2 (3)</td>
       <td>CCI-000765,CCI-000766,CCI-000767,CCI-000768</td>
       <td>SRG-OS-000105-GPOS-00052,SRG-OS-000106-GPOS-00053,SRG-OS-000107-GPOS-00054,SRG-OS-000108-GPOS-00055</td>
       <td></td>
@@ -5457,7 +5417,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>270</th>
+      <th>268</th>
       <td>IA-5 (1) (a)</td>
       <td>CCI-001619</td>
       <td>SRG-OS-000266-GPOS-00101</td>
@@ -5477,7 +5437,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>271</th>
+      <th>269</th>
       <td>AU-12 c,MA-4 (1) (a)</td>
       <td>CCI-000172,CCI-002884</td>
       <td>SRG-OS-000392-GPOS-00172,SRG-OS-000463-GPOS-00207,SRG-OS-000465-GPOS-00209</td>
@@ -5497,7 +5457,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>272</th>
+      <th>270</th>
       <td>CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00230</td>
@@ -5517,7 +5477,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>273</th>
+      <th>271</th>
       <td>SC-4</td>
       <td>CCI-001090</td>
       <td>SRG-OS-000138-GPOS-00069</td>
@@ -5537,7 +5497,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>274</th>
+      <th>272</th>
       <td>SC-4,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000138-GPOS-00069</td>
@@ -5557,8 +5517,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>275</th>
-      <td>SC-4,SC-2</td>
+      <th>273</th>
+      <td>SC-2,SC-4</td>
       <td>CCI-001314</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000138-GPOS-00069</td>
       <td>CCE-83952-2</td>
@@ -5577,8 +5537,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>276</th>
-      <td>SC-4,SC-2</td>
+      <th>274</th>
+      <td>SC-2,SC-4</td>
       <td>CCI-001090</td>
       <td>SRG-OS-000132-GPOS-00067,SRG-OS-000138-GPOS-00069</td>
       <td>CCE-83959-7</td>
@@ -5597,7 +5557,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>277</th>
+      <th>275</th>
       <td>AC-8 b</td>
       <td>CCI-000050</td>
       <td>SRG-OS-000024-GPOS-00007</td>
@@ -5617,7 +5577,7 @@ thead
       <td>Red Hat Enterprise Linux 9 does not have configuration options to meet this requirement.</td>
     </tr>
     <tr>
-      <th>278</th>
+      <th>276</th>
       <td>AU-12 a</td>
       <td>CCI-000169</td>
       <td>SRG-OS-000062-GPOS-00031</td>
@@ -5637,7 +5597,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>279</th>
+      <th>277</th>
       <td>AU-12 a,CM-6 b</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000062-GPOS-00031,SRG-OS-000480-GPOS-00227</td>
@@ -5657,7 +5617,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>280</th>
+      <th>278</th>
       <td>IA-5 (2) (d)</td>
       <td>CCI-001991</td>
       <td>SRG-OS-000384-GPOS-00167</td>
@@ -5677,7 +5637,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>281</th>
+      <th>279</th>
       <td>MA-4 c</td>
       <td>CCI-000877</td>
       <td>SRG-OS-000125-GPOS-00065</td>
@@ -5697,8 +5657,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>282</th>
-      <td>CM-5 (3),CM-6 b</td>
+      <th>280</th>
+      <td>CM-6 b,CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000366-GPOS-00153</td>
       <td>CCE-83954-8</td>
@@ -5717,7 +5677,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>283</th>
+      <th>281</th>
       <td>CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000366-GPOS-00153</td>
@@ -5737,7 +5697,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>284</th>
+      <th>282</th>
       <td>CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000366-GPOS-00153</td>
@@ -5757,7 +5717,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>285</th>
+      <th>283</th>
       <td>CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000366-GPOS-00153</td>
@@ -5777,7 +5737,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>286</th>
+      <th>284</th>
       <td>CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000366-GPOS-00153</td>
@@ -5797,7 +5757,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>287</th>
+      <th>285</th>
       <td>CM-5 (3)</td>
       <td>CCI-001749</td>
       <td>SRG-OS-000366-GPOS-00153</td>
@@ -5817,7 +5777,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>288</th>
+      <th>286</th>
       <td>SC-5</td>
       <td>CCI-002385</td>
       <td>SRG-OS-000420-GPOS-00186</td>
@@ -5837,7 +5797,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>289</th>
+      <th>287</th>
       <td>IA-5 (1) (c)</td>
       <td>CCI-000196</td>
       <td>SRG-OS-000073-GPOS-00041</td>
@@ -5857,7 +5817,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>290</th>
+      <th>288</th>
       <td>IA-5 (1) (c)</td>
       <td>CCI-000196</td>
       <td>SRG-OS-000073-GPOS-00041</td>
@@ -5877,7 +5837,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>291</th>
+      <th>289</th>
       <td>IA-5 (1) (c)</td>
       <td>CCI-000196</td>
       <td>SRG-OS-000073-GPOS-00041</td>
@@ -5897,7 +5857,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>292</th>
+      <th>290</th>
       <td>IA-5 (1) (c)</td>
       <td>CCI-000196</td>
       <td>SRG-OS-000073-GPOS-00041</td>
@@ -5917,7 +5877,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>293</th>
+      <th>291</th>
       <td>IA-5 (1) (c)</td>
       <td>CCI-000196</td>
       <td>SRG-OS-000073-GPOS-00041</td>
@@ -5937,7 +5897,27 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>294</th>
+      <th>292</th>
+      <td>AU-12 c</td>
+      <td>CCI-000172</td>
+      <td>SRG-OS-000472-GPOS-00217</td>
+      <td></td>
+      <td>The operating system must generate audit records showing starting and ending time for user access to the system.</td>
+      <td>Red Hat Enterprise Linux 9 must generate audit records showing starting and ending time for user access to the system.</td>
+      <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br><br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
+      <td>Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.<br>Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
+      <td>Applicable - Inherently Met</td>
+      <td>Verify the operating system generates audit records showing starting and ending time for user access to the system. If it does not, this is a finding.</td>
+      <td>Red Hat Enterprise Linux 9 supports this requirement and cannot be configured to be out of compliance.<br>Red Hat Enterprise Linux 9 inherently meets this requirement.</td>
+      <td></td>
+      <td>The technology inherently meets this requirement. No fix is required</td>
+      <td>CAT II</td>
+      <td>Linux kernel audit subsystem always adds a timestamp to each audit buffer used to contain the entire audit log data. Function kernel/audit.c:audit_log_start() calls kernel/audit.c:audit_get_stamp() to fetch the timestamp and formats the message into the audit log buffer.</td>
+      <td></td>
+      <td>Date/time stamps in the audit log are a function of the audit subsystem and cannot be modified or removed short of recompiling the audit packages.</td>
+    </tr>
+    <tr>
+      <th>293</th>
       <td>IA-2</td>
       <td>CCI-000764</td>
       <td>SRG-OS-000104-GPOS-00051</td>
@@ -5957,7 +5937,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>295</th>
+      <th>294</th>
       <td>IA-2</td>
       <td>CCI-000764</td>
       <td>SRG-OS-000104-GPOS-00051</td>
@@ -5977,28 +5957,28 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>296</th>
-      <td>IA-2 (11),IA-2 (12)</td>
+      <th>295</th>
+      <td>IA-2 (12),IA-2 (11)</td>
       <td>CCI-001948</td>
       <td>SRG-OS-000375-GPOS-00160,SRG-OS-000377-GPOS-00162</td>
       <td>CCE-87088-1</td>
       <td>The operating system must implement multifactor authentication for remote access to privileged accounts in such a way that one of the factors is provided by a device separate from the system gaining access.</td>
       <td>Red Hat Enterprise Linux 9 must implement multifactor authentication for remote access to privileged accounts in such a way that one of the factors is provided by a device separate from the system gaining access.</td>
       <td>Using an authentication device, such as a CAC or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.<br><br>Multifactor solutions that require devices separate from information systems gaining access include, for example, hardware tokens providing time-based or challenge-response authenticators and smart cards such as the U.S. Government Personal Identity Verification card and the DoD Common Access Card.<br><br>A privileged account is defined as an information system account with authorizations of a privileged user.<br><br>Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.<br><br>This requirement only applies to components where this is specific to the function of the device or has the concept of an organizational user (e.g., VPN, proxy capability). This does not apply to authentication for the purpose of configuring the device itself (management).<br><br>Requires further clarification from NIST.</td>
-      <td>Enusring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)<br>ensures the security of the system.</td>
+      <td>Ensuring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)<br>ensures the security of the system.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system implements multifactor authentication for remote access to privileged accounts in such a way that one of the factors is provided by a device separate from the system gaining access. If it does not, this is a finding.</td>
-      <td>Check to see if Online Certificate Status Protocol (OCSP)<br>is enabled and using the proper digest value on the system with the following command:<br> $ sudo grep certificate_verification /etc/sssd/sssd.conf /etc/sssd/conf.d/*.conf | grep -v "^#" <br>If configured properly, output should look like<br> <br>    certificate_verification = ocsp_dgst=sha1<br> <br>The "sssd" service must be restarted for the changes to take effect. To restart the "sssd" service, run the following command:<br> $ sudo systemctl restart sssd.service <br><br>If certificate_verification in sssd is not configured then this is a finding.</td>
+      <td>Check to see if Online Certificate Status Protocol (OCSP)<br>is enabled and using the proper digest value on the system with the following command:<br> $ sudo grep certificate_verification /etc/sssd/sssd.conf /etc/sssd/conf.d/*.conf | grep -v "^#" <br>If configured properly, output should look like<br> <br>    certificate_verification = ocsp_dgst=<br> <br><br>If certificate_verification in sssd is not configured then this is a finding.</td>
       <td></td>
-      <td></td>
+      <td>Configure the operating system to implement certificate status checking for multifactor authentication.<br><br>Review the "/etc/sssd/conf.d/certificate_verification.conf" file to determine if the system is configured to prevent OCSP or certificate verification.<br><br>Add the following line to the "/etc/sssd/conf.d/certificate_verification.conf" file:<br><br>certificate_verification = ocsp_dgst=<br><br>Set the correct ownership and permissions on the "/etc/sssd/conf.d/certificate_verification.conf" file by running these commands:<br><br>$ sudo chown root:root "/etc/sssd/conf.d/certificate_verification.conf"<br>$ sudo chmod 600 "/etc/sssd/conf.d/certificate_verification.conf"<br><br>The "sssd" service must be restarted for the changes to take effect. To restart the "sssd" service, run the following command:<br><br>$ sudo systemctl restart sssd.service</td>
       <td>CAT II</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>297</th>
-      <td>IA-2 (11),IA-2 (1)</td>
+      <th>296</th>
+      <td>IA-2 (1),IA-2 (11)</td>
       <td>CCI-001954,CCI-000765</td>
       <td>SRG-OS-000375-GPOS-00160,SRG-OS-000105-GPOS-00052</td>
       <td>CCE-89155-6</td>
@@ -6017,8 +5997,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>298</th>
-      <td>IA-2 (11),IA-2 (12),IA-2 (1)</td>
+      <th>297</th>
+      <td>IA-2 (1),IA-2 (12),IA-2 (11)</td>
       <td>CCI-000765,CCI-001948,CCI-001953,CCI-001954</td>
       <td>SRG-OS-000105-GPOS-00052,SRG-OS-000375-GPOS-00160,SRG-OS-000375-GPOS-00161,SRG-OS-000377-GPOS-00162</td>
       <td>CCE-83596-7</td>
@@ -6037,7 +6017,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>299</th>
+      <th>298</th>
       <td>IA-2 (11)</td>
       <td>CCI-001954</td>
       <td>SRG-OS-000375-GPOS-00160</td>
@@ -6057,7 +6037,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>300</th>
+      <th>299</th>
       <td>IA-2 (11)</td>
       <td>CCI-001954</td>
       <td>SRG-OS-000375-GPOS-00160</td>
@@ -6077,7 +6057,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>301</th>
+      <th>300</th>
       <td>AC-2 (1)</td>
       <td>CCI-000015</td>
       <td>SRG-OS-000001-GPOS-00001</td>
@@ -6097,7 +6077,7 @@ thead
       <td>Mitigate with third-party software.<br><br>As noted in the vulnerability discussion, "The automated mechanisms may reside within the operating system itself or may be offered by another infrastructure providing automated account management capabilities.<br>Automated mechanisms may be composed of differing technologies that, when placed together, contain an overall automated mechanism supporting an organization's automated account management requirements.<br>This is not required to be provided by Red Hat Enterprise Linux 9 and must be implemented via a third party solution.</td>
     </tr>
     <tr>
-      <th>302</th>
+      <th>301</th>
       <td>IA-5 (1) (d)</td>
       <td>CCI-000198</td>
       <td>SRG-OS-000075-GPOS-00043</td>
@@ -6117,7 +6097,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>303</th>
+      <th>302</th>
       <td>IA-5 (1) (d)</td>
       <td>CCI-000198</td>
       <td>SRG-OS-000075-GPOS-00043</td>
@@ -6137,7 +6117,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>304</th>
+      <th>303</th>
       <td>IA-5 (1) (b)</td>
       <td>CCI-000195</td>
       <td>SRG-OS-000072-GPOS-00040</td>
@@ -6157,7 +6137,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>305</th>
+      <th>304</th>
       <td>IA-5 (1) (b)</td>
       <td>CCI-000195</td>
       <td>SRG-OS-000072-GPOS-00040</td>
@@ -6177,7 +6157,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>306</th>
+      <th>305</th>
       <td>IA-5 (1) (b)</td>
       <td>CCI-000195</td>
       <td>SRG-OS-000072-GPOS-00040</td>
@@ -6197,7 +6177,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>307</th>
+      <th>306</th>
       <td>IA-5 (1) (b)</td>
       <td>CCI-000195</td>
       <td>SRG-OS-000072-GPOS-00040</td>
@@ -6217,8 +6197,8 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>308</th>
-      <td>AU-8 (1) (a),AU-8 b,AU-8 (1) (b)</td>
+      <th>307</th>
+      <td>AU-8 b,AU-8 (1) (b),AU-8 (1) (a)</td>
       <td>CCI-001891,CCI-002046</td>
       <td>SRG-OS-000355-GPOS-00143,SRG-OS-000356-GPOS-00144,SRG-OS-000359-GPOS-00146</td>
       <td>CCE-88648-1</td>
@@ -6237,7 +6217,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>309</th>
+      <th>308</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6257,7 +6237,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>310</th>
+      <th>309</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6277,7 +6257,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>311</th>
+      <th>310</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6297,7 +6277,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>312</th>
+      <th>311</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6317,7 +6297,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>313</th>
+      <th>312</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6337,7 +6317,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>314</th>
+      <th>313</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6357,7 +6337,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>315</th>
+      <th>314</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6377,7 +6357,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>316</th>
+      <th>315</th>
       <td>CM-5 (6)</td>
       <td>CCI-001499</td>
       <td>SRG-OS-000259-GPOS-00100</td>
@@ -6397,7 +6377,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>317</th>
+      <th>316</th>
       <td>AU-9</td>
       <td>CCI-000162</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029</td>
@@ -6417,7 +6397,7 @@ thead
       <td></td>
     </tr>
     <tr>
-      <th>318</th>
+      <th>317</th>
       <td>AU-9</td>
       <td>CCI-000162,CCI-000164</td>
       <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029</td>
@@ -6429,6 +6409,26 @@ thead
       <td>Applicable - Configurable</td>
       <td>Verify the operating system protects audit information from unauthorized read access. If it does not, this is a finding.</td>
       <td>Run the following command to check the mode of the system audit logs:<br> $ sudo ls -ld /var/log/audit <br>Audit log directories must be mode 0700 or less permissive.<br><br>If any are more permissive then this is a finding.</td>
+      <td></td>
+      <td></td>
+      <td>CAT II</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>AU-9</td>
+      <td>CCI-000162,CCI-000163,CCI-000164,CCI-001314</td>
+      <td>SRG-OS-000057-GPOS-00027,SRG-OS-000058-GPOS-00028,SRG-OS-000059-GPOS-00029</td>
+      <td>CCE-83726-0</td>
+      <td>The operating system must protect audit information from unauthorized read access.</td>
+      <td>Red Hat Enterprise Linux 9 must protect audit information from unauthorized read access.</td>
+      <td>Unauthorized disclosure of audit records can reveal system and configuration data to attackers, thus compromising its confidentiality.<br><br>Audit information includes all information (e.g., audit records, audit settings, audit reports) needed to successfully audit operating system activity.</td>
+      <td>Unauthorized disclosure of audit records can reveal system and configuration data to<br>attackers, thus compromising its confidentiality.</td>
+      <td>Applicable - Configurable</td>
+      <td>Verify the operating system protects audit information from unauthorized read access. If it does not, this is a finding.</td>
+      <td><br>To properly set the owner of  /var/log/audit , run the command:<br> $ sudo chown root /var/log/audit  <br><br>To properly set the owner of  /var/log/audit/* , run the command:<br> $ sudo chown root /var/log/audit/*  <br><br>If  then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -6858,7 +6858,7 @@ thead
     </tr>
     <tr>
       <th>340</th>
-      <td>IA-3,CM-7 b</td>
+      <td>CM-7 b,IA-3</td>
       <td>CCI-001958</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000378-GPOS-00163</td>
       <td>CCE-84136-1</td>
@@ -6918,7 +6918,7 @@ thead
     </tr>
     <tr>
       <th>343</th>
-      <td>AC-17 (1),CM-7 b</td>
+      <td>CM-7 b,AC-17 (1)</td>
       <td>CCI-000382,CCI-002314</td>
       <td>SRG-OS-000096-GPOS-00050,SRG-OS-000297-GPOS-00115</td>
       <td>CCE-86041-1</td>
@@ -6958,7 +6958,7 @@ thead
     </tr>
     <tr>
       <th>345</th>
-      <td>CM-7 a,IA-5 (1) (c),CM-6 b</td>
+      <td>CM-7 a,CM-6 b,IA-5 (1) (c)</td>
       <td>CCI-000197,CCI-000366,CCI-000381</td>
       <td>SRG-OS-000074-GPOS-00042,SRG-OS-000095-GPOS-00049,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-84159-3</td>
@@ -7258,7 +7258,7 @@ thead
     </tr>
     <tr>
       <th>360</th>
-      <td>CM-7 a,CM-6 b</td>
+      <td>CM-6 b,CM-7 a</td>
       <td>CCI-000381</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000095-GPOS-00049</td>
       <td>CCE-90830-1</td>
@@ -7498,7 +7498,7 @@ thead
     </tr>
     <tr>
       <th>372</th>
-      <td>CM-7 a,CM-6 b</td>
+      <td>CM-6 b,CM-7 a</td>
       <td>CCI-000381,CCI-000366</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83516-5</td>
@@ -7518,7 +7518,7 @@ thead
     </tr>
     <tr>
       <th>373</th>
-      <td>CM-7 a,CM-6 b</td>
+      <td>CM-6 b,CM-7 a</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83519-9</td>
@@ -7538,7 +7538,7 @@ thead
     </tr>
     <tr>
       <th>374</th>
-      <td>CM-7 a,CM-6 b</td>
+      <td>CM-6 b,CM-7 a</td>
       <td>CCI-000366</td>
       <td>SRG-OS-000095-GPOS-00049,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-83521-5</td>
@@ -8038,7 +8038,7 @@ thead
     </tr>
     <tr>
       <th>399</th>
-      <td>SC-3,CM-6 b</td>
+      <td>CM-6 b,SC-3</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-83842-5</td>
@@ -8058,7 +8058,7 @@ thead
     </tr>
     <tr>
       <th>400</th>
-      <td>SC-3,CM-6 b</td>
+      <td>CM-6 b,SC-3</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-83985-2</td>
@@ -8078,7 +8078,7 @@ thead
     </tr>
     <tr>
       <th>401</th>
-      <td>SC-3,CM-6 b</td>
+      <td>CM-6 b,SC-3</td>
       <td>CCI-001084</td>
       <td>SRG-OS-000480-GPOS-00227,SRG-OS-000134-GPOS-00068</td>
       <td>CCE-84071-0</td>
@@ -8228,7 +8228,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.d ,<br>run the command:<br> $ ls -lL /etc/cron.d <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.d has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.d ,<br>run the command:<br> $ ls -lL /etc/cron.d <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.d does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8248,7 +8248,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.daily ,<br>run the command:<br> $ ls -lL /etc/cron.daily <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.daily has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.daily ,<br>run the command:<br> $ ls -lL /etc/cron.daily <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.daily does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8268,7 +8268,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.hourly ,<br>run the command:<br> $ ls -lL /etc/cron.hourly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.hourly has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.hourly ,<br>run the command:<br> $ ls -lL /etc/cron.hourly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.hourly does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8288,7 +8288,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.monthly ,<br>run the command:<br> $ ls -lL /etc/cron.monthly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.monthly has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.monthly ,<br>run the command:<br> $ ls -lL /etc/cron.monthly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.monthly does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8308,7 +8308,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.weekly ,<br>run the command:<br> $ ls -lL /etc/cron.weekly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.weekly has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.weekly ,<br>run the command:<br> $ ls -lL /etc/cron.weekly <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.weekly does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8328,7 +8328,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/crontab ,<br>run the command:<br> $ ls -lL /etc/crontab <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/crontab has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/crontab ,<br>run the command:<br> $ ls -lL /etc/crontab <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/crontab does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8348,7 +8348,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.d ,<br>run the command:<br> $ ls -lL /etc/cron.d <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.d has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.d ,<br>run the command:<br> $ ls -lL /etc/cron.d <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.d does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8368,7 +8368,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.daily ,<br>run the command:<br> $ ls -lL /etc/cron.daily <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.daily has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.daily ,<br>run the command:<br> $ ls -lL /etc/cron.daily <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.daily does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8388,7 +8388,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.hourly ,<br>run the command:<br> $ ls -lL /etc/cron.hourly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.hourly has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.hourly ,<br>run the command:<br> $ ls -lL /etc/cron.hourly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.hourly does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8408,7 +8408,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.monthly ,<br>run the command:<br> $ ls -lL /etc/cron.monthly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.monthly has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.monthly ,<br>run the command:<br> $ ls -lL /etc/cron.monthly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.monthly does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8428,7 +8428,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.weekly ,<br>run the command:<br> $ ls -lL /etc/cron.weekly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.weekly has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.weekly ,<br>run the command:<br> $ ls -lL /etc/cron.weekly <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.weekly does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8448,7 +8448,7 @@ thead
       <td>Service configuration files enable or disable features of their respective services that if configured incorrectly<br>can lead to insecure and vulnerable configurations. Therefore, service configuration files should be owned by the<br>correct user to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/crontab ,<br>run the command:<br> $ ls -lL /etc/crontab <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/crontab has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/crontab ,<br>run the command:<br> $ ls -lL /etc/crontab <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/crontab does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8588,7 +8588,7 @@ thead
       <td>If the owner of the cron.allow file is not set to root, the possibility exists for an<br>unauthorized user to view or edit sensitive information.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/cron.allow ,<br>run the command:<br> $ ls -lL /etc/cron.allow <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.allow has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/cron.allow ,<br>run the command:<br> $ ls -lL /etc/cron.allow <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/cron.allow does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8608,7 +8608,7 @@ thead
       <td>If the owner of the cron.allow file is not set to root, the possibility exists for an<br>unauthorized user to view or edit sensitive information.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/cron.allow ,<br>run the command:<br> $ ls -lL /etc/cron.allow <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.allow has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/cron.allow ,<br>run the command:<br> $ ls -lL /etc/cron.allow <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/cron.allow does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8868,7 +8868,7 @@ thead
       <td>Service configuration files enable or disable features of their respective<br>services that if configured incorrectly can lead to insecure and vulnerable<br>configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the group ownership of  /etc/ssh/sshd_config ,<br>run the command:<br> $ ls -lL /etc/ssh/sshd_config <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/ssh/sshd_config has group owner root then this is a finding.</td>
+      <td>To check the group ownership of  /etc/ssh/sshd_config ,<br>run the command:<br> $ ls -lL /etc/ssh/sshd_config <br>If properly configured, the output should indicate the following group-owner:<br> root <br><br>If /etc/ssh/sshd_config does not have a group owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8888,7 +8888,7 @@ thead
       <td>Service configuration files enable or disable features of their respective<br>services that if configured incorrectly can lead to insecure and vulnerable<br>configurations. Therefore, service configuration files should be owned by the<br>correct group to prevent unauthorized changes.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>To check the ownership of  /etc/ssh/sshd_config ,<br>run the command:<br> $ ls -lL /etc/ssh/sshd_config <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/ssh/sshd_config has owner root then this is a finding.</td>
+      <td>To check the ownership of  /etc/ssh/sshd_config ,<br>run the command:<br> $ ls -lL /etc/ssh/sshd_config <br>If properly configured, the output should indicate the following owner:<br> root <br><br>If /etc/ssh/sshd_config does not have an owner of root then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
@@ -8978,7 +8978,7 @@ thead
     </tr>
     <tr>
       <th>446</th>
-      <td>IA-5 (1) (c),CM-6 b</td>
+      <td>CM-6 b,IA-5 (1) (c)</td>
       <td>CCI-000197,CCI-000366</td>
       <td>SRG-OS-000074-GPOS-00042,SRG-OS-000480-GPOS-00227</td>
       <td>CCE-90812-9</td>
@@ -9345,10 +9345,10 @@ thead
       <td>The operating system must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
       <td>Red Hat Enterprise Linux 9 must be configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</td>
       <td>Configuring the operating system to implement organization-wide security implementation guides and security checklists ensures compliance with federal standards and establishes a common security baseline across DoD that reflects the most restrictive security posture consistent with operational requirements.<br><br>Configuration settings are the set of parameters that can be changed in hardware, software, or firmware components of the system that affect the security posture and/or functionality of the system. Security-related parameters are those parameters impacting the security state of the system, including the parameters required to satisfy other security control requirements. Security-related parameters include, for example: registry settings; account, file, directory permission settings; and settings for functions, ports, protocols, services, and remote connections.</td>
-      <td>Using interactive boot, the console user could disable auditing, firewalls,<br>or other services, weakening system security.</td>
+      <td>Using interactive or recovery boot, the console user could disable auditing, firewalls,<br>or other services, weakening system security.</td>
       <td>Applicable - Configurable</td>
       <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
-      <td>Inspect  /etc/default/grub  for any instances of<br> systemd.confirm_spawn=(1|yes|true|on)  in the kernel boot arguments.<br>Presence of a  systemd.confirm_spawn=(1|yes|true|on)  indicates<br>that interactive boot is enabled at boot time.<br><br>If Interactive boot is enabled at boot time then this is a finding.</td>
+      <td>Inspect  /etc/default/grub  for any instances of<br> systemd.confirm_spawn=(1|yes|true|on)  in the kernel boot arguments.<br>Presence of a  systemd.confirm_spawn=(1|yes|true|on)  indicates<br>that interactive boot is enabled at boot time and verify that<br> GRUB_DISABLE_RECOVERY=true  to disable recovery boot.<br><br>If Interactive boot is enabled at boot time then this is a finding.</td>
       <td></td>
       <td></td>
       <td>CAT II</td>
