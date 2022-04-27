@@ -1903,18 +1903,18 @@ system after updates have been installed may be exploited by some adversaries.
 <tr>
   <td>IA-2(11)</td>
   <td>CCE-86120-3</td>
-  <td>Certificate certificate status checking in SSSD</td>
+  <td>Certificate status checking in SSSD</td>
   <td xml:lang="en-US">
 Multifactor solutions that require devices separate from information systems gaining access include,
 for example, hardware tokens providing time-based or challenge-response authenticators and smart cards.
-By configuring <tt>certificate_verification</tt> to <tt>ocsp_dgst=sha1</tt> sures that certificates for
+Configuring <tt>certificate_verification</tt> to <tt>ocsp_dgst=<tt>sha1</tt></tt> ensures that certificates for
 multifactor solutions are checked via Online Certificate Status Protocol (OCSP).
   </td>
   <td xml:lang="en-US">
-Enusring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)
+Ensuring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)
 ensures the security of the system.
   </td>
-  <td></td>
+  <td>var_sssd_certificate_verification_digest_function=sha1</td>
 </tr>
 <tr>
   <td>AU-3<br/>AU-3.1<br/>AU-12(a)<br/>AU-12.1(ii)<br/>AU-12.1(iv)AU-12(c)<br/>MA-4(1)(a)</td>

@@ -98,12 +98,17 @@ system, interactive boot can be enabled by providing a <tt>1</tt>,
 <tt>yes</tt>, <tt>true</tt>, or <tt>on</tt> value to the
 <tt>systemd.confirm_spawn</tt> kernel argument in <tt>/etc/default/grub</tt>.
 Remove any instance of <pre>systemd.confirm_spawn=(1|yes|true|on)</pre> from
-the kernel arguments in that file to disable interactive boot. It is also
-required to change the runtime configuration, run:
+the kernel arguments in that file to disable interactive boot.
+Recovery booting must also be disabled. Confirm that
+<tt>GRUB_DISABLE_RECOVERY=true</tt> is set in  <tt>/etc/default/grub</tt>.
+It is also required to change the runtime configuration, run:
+
 <pre>/sbin/grubby --update-kernel=ALL --remove-args="systemd.confirm_spawn"</pre>
+
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
-Using interactive boot, the console user could disable auditing, firewalls,
+Using interactive or recovery boot, the console user could disable auditing, firewalls,
 or other services, weakening system security.
   </td>
   <td></td>
@@ -622,7 +627,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_deny=3</td>
+  <td>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=never</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>

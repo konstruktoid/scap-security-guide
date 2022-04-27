@@ -3166,7 +3166,7 @@ run the command:
 $ ls -lL /etc/cron.allow
 If properly configured, the output should indicate the following owner:
 root
-      Is it the case that /etc/cron.allow has owner root?
+      Is it the case that /etc/cron.allow does not have an owner of root?
       </pre></td>
 <td><pre>If <code>/etc/cron.allow</code> exists, it must be owned by <code>root</code>.
 
@@ -3188,7 +3188,7 @@ run the command:
 $ ls -lL /etc/cron.allow
 If properly configured, the output should indicate the following group-owner:
 root
-      Is it the case that /etc/cron.allow has group owner root?
+      Is it the case that /etc/cron.allow does not have a group owner of root?
       </pre></td>
 <td><pre>If <code>/etc/cron.allow</code> exists, it must be group-owned by <code>root</code>.
 
@@ -5494,7 +5494,7 @@ Run the following command to determine the current status of the
 sshd service:
 $ systemctl is-active sshd
 If the service is running, it should return the following: active
-      Is it the case that ?
+      Is it the case that sshd service is disabled?
       </pre></td>
 <td><pre>The SSH server service, sshd, is commonly needed.
 
@@ -6998,7 +6998,7 @@ log_file=/var/log/audit/audit.log
 $ sudo stat -c "%n %a" /var/log/audit/*
 $ sudo ls -l /var/log/audit
 Audit logs must be mode 0640 or less permissive.
-      Is it the case that any are more permissive?
+      Is it the case that any permissions are more permissive?
       </pre></td>
 <td><pre>If <code>log_group</code> in <code>/etc/audit/auditd.conf</code> is set to a group other than the <code>root</code>
 group account, change the mode of the audit log files with the following command:

@@ -2377,9 +2377,14 @@ system, interactive boot can be enabled by providing a <code>1</code>,
 <code>yes</code>, <code>true</code>, or <code>on</code> value to the
 <code>systemd.confirm_spawn</code> kernel argument in <code>/etc/default/grub</code>.
 Remove any instance of <pre>systemd.confirm_spawn=(1|yes|true|on)</pre> from
-the kernel arguments in that file to disable interactive boot. It is also
-required to change the runtime configuration, run:
+the kernel arguments in that file to disable interactive boot.
+Recovery booting must also be disabled. Confirm that
+<code>GRUB_DISABLE_RECOVERY=true</code> is set in  <code>/etc/default/grub</code>.
+It is also required to change the runtime configuration, run:
+
 <pre>/sbin/grubby --update-kernel=ALL --remove-args="systemd.confirm_spawn"</pre>
+
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
 </td>
 </tr>
 <tr>
@@ -17427,10 +17432,10 @@ The <code>sssd</code> service can be enabled with the following command:
 </tr>
 <tr>
 <td>CCE-86120-3</td>
-<td>Certificate certificate status checking in SSSD</td>
+<td>Certificate status checking in SSSD</td>
 <td>Multifactor solutions that require devices separate from information systems gaining access include,
 for example, hardware tokens providing time-based or challenge-response authenticators and smart cards.
-By configuring <code>certificate_verification</code> to <code>ocsp_dgst=sha1</code> sures that certificates for
+Configuring <code>certificate_verification</code> to <code>ocsp_dgst=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_sssd_certificate_verification_digest_function"></xccdf-1.1:sub></code> ensures that certificates for
 multifactor solutions are checked via Online Certificate Status Protocol (OCSP).</td>
 </tr>
 <tr>

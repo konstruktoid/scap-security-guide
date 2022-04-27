@@ -5426,19 +5426,7 @@ Organizations carefully consider the structure/content of error messages. The ex
 <td>Only authorized personnel should be aware of errors and the details of the errors. Error messages are an indicator of an organization's operational state or can identify the operating system or platform. Additionally, Personally Identifiable Information (PII) and operational information must not be revealed through error messages to unauthorized personnel or their designated representatives.
 
 The structure and content of error messages must be carefully considered by the organization and development team. The extent to which the information system is able to identify and handle error conditions is guided by organizational policy and operational requirements.</td>
-<td>
-<table><tr>
-<td>System Audit Logs Must Be Owned By Root</td>
-<td>All audit logs must be owned by root user and group. By default, the path for audit log is <pre>/var/log/audit/</pre>.
-
-To properly set the owner of <code>/var/log/audit</code>, run the command:
-<pre>$ sudo chown root /var/log/audit </pre>
-
-To properly set the owner of <code>/var/log/audit/*</code>, run the command:
-<pre>$ sudo chown root /var/log/audit/* </pre>
-</td>
-</tr></table>
-<table><tr>
+<td><table><tr>
 <td>System Audit Logs Must Have Mode 0640 or Less Permissive</td>
 <td>If <code>log_group</code> in <code>/etc/audit/auditd.conf</code> is set to a group other than the <code>root</code>
 group account, change the mode of the audit log files with the following command:
@@ -5447,8 +5435,7 @@ group account, change the mode of the audit log files with the following command
 Otherwise, change the mode of the audit log files with the following command:
 <pre>$ sudo chmod 0600 <i>audit_file</i></pre>
 </td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-56909</td>
@@ -9405,6 +9392,14 @@ The <code>openssh-server</code> package can be installed with the following comm
 $ sudo yum install openssh-server</pre>
 </td>
 </tr></table>
+<table><tr>
+<td>Enable the OpenSSH Service</td>
+<td>The SSH server service, sshd, is commonly needed.
+
+The <code>sshd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable sshd.service</pre>
+</td>
+</tr></table>
 </td>
 </tr>
 <tr>
@@ -9417,14 +9412,24 @@ $ sudo yum install openssh-server</pre>
 Ensuring the confidentiality of transmitted information requires the operating system to take measures in preparing information for transmission. This can be accomplished via access control and encryption.
 
 Use of this requirement will be limited to situations where the data owner has a strict requirement for ensuring data integrity and confidentiality is maintained at every step of the data transfer and handling process. When transmitting data, operating systems need to support transmission protection mechanisms such as TLS, SSL VPNs, or IPSec.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Install the OpenSSH Server Package</td>
 <td>The <code>openssh-server</code> package should be installed.
 The <code>openssh-server</code> package can be installed with the following command:
 <pre>
 $ sudo yum install openssh-server</pre>
 </td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable the OpenSSH Service</td>
+<td>The SSH server service, sshd, is commonly needed.
+
+The <code>sshd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable sshd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56729</td>
@@ -9436,14 +9441,24 @@ $ sudo yum install openssh-server</pre>
 Ensuring the confidentiality of transmitted information requires the operating system to take measures in preparing information for transmission. This can be accomplished via access control and encryption.
 
 Use of this requirement will be limited to situations where the data owner has a strict requirement for ensuring data integrity and confidentiality is maintained at every step of the data transfer and handling process. When receiving data, operating systems need to leverage protection mechanisms such as TLS, SSL VPNs, or IPSec.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Install the OpenSSH Server Package</td>
 <td>The <code>openssh-server</code> package should be installed.
 The <code>openssh-server</code> package can be installed with the following command:
 <pre>
 $ sudo yum install openssh-server</pre>
 </td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable the OpenSSH Service</td>
+<td>The SSH server service, sshd, is commonly needed.
+
+The <code>sshd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable sshd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56727</td>

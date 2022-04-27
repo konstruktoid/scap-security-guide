@@ -1982,9 +1982,14 @@ system, interactive boot can be enabled by providing a <code>1</code>,
 <code>yes</code>, <code>true</code>, or <code>on</code> value to the
 <code>systemd.confirm_spawn</code> kernel argument in <code>/etc/default/grub</code>.
 Remove any instance of <pre>systemd.confirm_spawn=(1|yes|true|on)</pre> from
-the kernel arguments in that file to disable interactive boot. It is also
-required to change the runtime configuration, run:
+the kernel arguments in that file to disable interactive boot.
+Recovery booting must also be disabled. Confirm that
+<code>GRUB_DISABLE_RECOVERY=true</code> is set in  <code>/etc/default/grub</code>.
+It is also required to change the runtime configuration, run:
+
 <pre>/sbin/grubby --update-kernel=ALL --remove-args="systemd.confirm_spawn"</pre>
+
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
 </td>
 </tr>
 <tr>
@@ -6797,7 +6802,7 @@ Load new Audit rules into kernel by running:
 Note: This rule utilizes a file provided by <code>Audit</code> package to comply with OSPP 4.2.1. You may reuse this rule in different profiles. If you decide to do so, it is recommended that you inspect contents of the file closely and make sure that they are alligned with your needs.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-85991-8</td>
 <td>Configure audit according to OSPP requirements</td>
 <td>Configure audit to meet requirements for Operating System Protection Profile (OSPP) v4.2.1.
 
@@ -7169,10 +7174,10 @@ When prompted, enter the password that was selected.
 <tr>
 <td>CCE-85925-6</td>
 <td>Verify the UEFI Boot Loader grub.cfg Permissions</td>
-<td>File permissions for <code>/boot/efi/EFI/redhat/grub.cfg</code> should be set to 700.
+<td>File permissions for <code>/boot/grub2/grub.cfg</code> should be set to 700.
 
-To properly set the permissions of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chmod 700 /boot/efi/EFI/redhat/grub.cfg</pre>
+To properly set the permissions of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chmod 700 /boot/grub2/grub.cfg</pre>
 </td>
 </tr>
 <tr>
@@ -15439,10 +15444,10 @@ the following line in
 </tr>
 <tr>
 <td>CCE-87088-1</td>
-<td>Certificate certificate status checking in SSSD</td>
+<td>Certificate status checking in SSSD</td>
 <td>Multifactor solutions that require devices separate from information systems gaining access include,
 for example, hardware tokens providing time-based or challenge-response authenticators and smart cards.
-By configuring <code>certificate_verification</code> to <code>ocsp_dgst=sha1</code> sures that certificates for
+Configuring <code>certificate_verification</code> to <code>ocsp_dgst=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_sssd_certificate_verification_digest_function"></xccdf-1.1:sub></code> ensures that certificates for
 multifactor solutions are checked via Online Certificate Status Protocol (OCSP).</td>
 </tr>
 <tr>

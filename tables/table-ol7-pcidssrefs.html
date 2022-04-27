@@ -157,12 +157,12 @@ approved Certificate Authority (CA)."
   <td>Req-7.1</td>
   <td>Verify the UEFI Boot Loader grub.cfg User Ownership</td>
   <td xml:lang="en-US">
-The file <tt>/boot/efi/EFI/redhat/grub.cfg</tt> should
+The file <tt>/boot/grub2/grub.cfg</tt> should
 be owned by the <tt>root</tt> user to prevent destruction
 or modification of the file.
 
-To properly set the owner of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chown root /boot/efi/EFI/redhat/grub.cfg </pre>
+To properly set the owner of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chown root /boot/grub2/grub.cfg </pre>
   </td>
   <td xml:lang="en-US">
 Only root should be able to modify important boot parameters.
@@ -172,12 +172,12 @@ Only root should be able to modify important boot parameters.
   <td>Req-7.1</td>
   <td>Verify the UEFI Boot Loader grub.cfg Group Ownership</td>
   <td xml:lang="en-US">
-The file <tt>/boot/efi/EFI/redhat/grub.cfg</tt> should
+The file <tt>/boot/grub2/grub.cfg</tt> should
 be group-owned by the <tt>root</tt> group to prevent
 destruction or modification of the file.
 
-To properly set the group owner of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chgrp root /boot/efi/EFI/redhat/grub.cfg</pre>
+To properly set the group owner of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chgrp root /boot/grub2/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
 The <tt>root</tt> group is a highly-privileged group. Furthermore, the group-owner of this

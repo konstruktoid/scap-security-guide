@@ -8115,12 +8115,12 @@ the following line in
 <tr>
 <td>sssd_certificate_verification</td>
 <td>medium</td>
-<td>Certificate certificate status checking in SSSD</td>
-<td>Enusring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)
+<td>Certificate status checking in SSSD</td>
+<td>Ensuring that multifactor solutions certificates are checked via Online Certificate Status Protocol (OCSP)
 ensures the security of the system.</td>
 <td>Multifactor solutions that require devices separate from information systems gaining access include,
 for example, hardware tokens providing time-based or challenge-response authenticators and smart cards.
-By configuring <code>certificate_verification</code> to <code>ocsp_dgst=sha1</code> sures that certificates for
+Configuring <code>certificate_verification</code> to <code>ocsp_dgst=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_sssd_certificate_verification_digest_function"></xccdf-1.1:sub></code> ensures that certificates for
 multifactor solutions are checked via Online Certificate Status Protocol (OCSP).</td>
 <td></td>
 <td>SRG-OS-000375-GPOS-00160<br>

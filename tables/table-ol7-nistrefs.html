@@ -2595,12 +2595,17 @@ system, interactive boot can be enabled by providing a <tt>1</tt>,
 <tt>yes</tt>, <tt>true</tt>, or <tt>on</tt> value to the
 <tt>systemd.confirm_spawn</tt> kernel argument in <tt>/etc/default/grub</tt>.
 Remove any instance of <pre>systemd.confirm_spawn=(1|yes|true|on)</pre> from
-the kernel arguments in that file to disable interactive boot. It is also
-required to change the runtime configuration, run:
+the kernel arguments in that file to disable interactive boot.
+Recovery booting must also be disabled. Confirm that
+<tt>GRUB_DISABLE_RECOVERY=true</tt> is set in  <tt>/etc/default/grub</tt>.
+It is also required to change the runtime configuration, run:
+
 <pre>/sbin/grubby --update-kernel=ALL --remove-args="systemd.confirm_spawn"</pre>
+
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
-Using interactive boot, the console user could disable auditing, firewalls,
+Using interactive or recovery boot, the console user could disable auditing, firewalls,
 or other services, weakening system security.
   </td>
 </tr>
@@ -5532,10 +5537,10 @@ not be written to the disk.
   <td>CM-6(a)<br/>AC-6(1)</td>
   <td>Verify the UEFI Boot Loader grub.cfg Permissions</td>
   <td xml:lang="en-US">
-File permissions for <tt>/boot/efi/EFI/redhat/grub.cfg</tt> should be set to 700.
+File permissions for <tt>/boot/grub2/grub.cfg</tt> should be set to 700.
 
-To properly set the permissions of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chmod 700 /boot/efi/EFI/redhat/grub.cfg</pre>
+To properly set the permissions of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chmod 700 /boot/grub2/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
 Proper permissions ensure that only the root user can modify important boot
@@ -5675,12 +5680,12 @@ is different from account lockout, which is provided by the pam_faillock module.
   <td>CM-6(a)<br/>AC-6(1)</td>
   <td>Verify the UEFI Boot Loader grub.cfg User Ownership</td>
   <td xml:lang="en-US">
-The file <tt>/boot/efi/EFI/redhat/grub.cfg</tt> should
+The file <tt>/boot/grub2/grub.cfg</tt> should
 be owned by the <tt>root</tt> user to prevent destruction
 or modification of the file.
 
-To properly set the owner of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chown root /boot/efi/EFI/redhat/grub.cfg </pre>
+To properly set the owner of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chown root /boot/grub2/grub.cfg </pre>
   </td>
   <td xml:lang="en-US">
 Only root should be able to modify important boot parameters.
@@ -6001,12 +6006,12 @@ unauthorized user to view or edit sensitive information.
   <td>CM-6(a)<br/>AC-6(1)</td>
   <td>Verify the UEFI Boot Loader grub.cfg Group Ownership</td>
   <td xml:lang="en-US">
-The file <tt>/boot/efi/EFI/redhat/grub.cfg</tt> should
+The file <tt>/boot/grub2/grub.cfg</tt> should
 be group-owned by the <tt>root</tt> group to prevent
 destruction or modification of the file.
 
-To properly set the group owner of <code>/boot/efi/EFI/redhat/grub.cfg</code>, run the command:
-<pre>$ sudo chgrp root /boot/efi/EFI/redhat/grub.cfg</pre>
+To properly set the group owner of <code>/boot/grub2/grub.cfg</code>, run the command:
+<pre>$ sudo chgrp root /boot/grub2/grub.cfg</pre>
   </td>
   <td xml:lang="en-US">
 The <tt>root</tt> group is a highly-privileged group. Furthermore, the group-owner of this
@@ -10684,7 +10689,7 @@ Finally, rebuild the <tt>grub.cfg</tt> file by using the
 <li>On BIOS-based machines, issue the following command as <tt>root</tt>:
 <pre>~]# grub2-mkconfig -o /boot/grub2/grub.cfg</pre></li>
 <li>On UEFI-based machines, issue the following command as <tt>root</tt>:
-<pre>~]# grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</pre></li>
+<pre>~]# grub2-mkconfig -o /boot/grub2/grub.cfg</pre></li>
 </ul>
   </td>
   <td xml:lang="en-US">
