@@ -22,5 +22,4 @@ partition_for_var
 partition_for_var_log_audit
 permissions_local_var_log_audit
 set_password_hashing_min_rounds_logindefs
-smartcard_pam_enabled
 sudo_restrict_privilege_elevation_to_authorized

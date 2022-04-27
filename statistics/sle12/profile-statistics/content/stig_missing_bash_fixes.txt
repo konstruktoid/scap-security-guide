@@ -26,7 +26,6 @@ policy_temp_passwords_immediate_change
 run_chkstat
 set_password_hashing_min_rounds_logindefs
 smartcard_configure_ca
-smartcard_pam_enabled
 sshd_use_approved_ciphers
 sudo_restrict_privilege_elevation_to_authorized
 susefirewall2_ddos_protection

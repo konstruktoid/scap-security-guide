@@ -119,7 +119,6 @@ run_chkstat
 selinux_state
 set_password_hashing_min_rounds_logindefs
 smartcard_configure_ca
-smartcard_pam_enabled
 sshd_allow_only_protocol2
 sshd_disable_rhosts_rsa
 sshd_limit_user_access
