@@ -1207,7 +1207,7 @@ draws appropriate attention to such situations.</pre></td>
 $ grep pam_faillock /etc/pam.d/system-auth /etc/pam.d/password-auth
 For each file, the output should show unlock_time=&lt;interval-in-seconds&gt; where interval-in-seconds is  or greater.
 
-It can also be 0 for never.
+It can also be 0 or never.
       Is it the case that unlock_time is less than the expected value?
       </pre></td>
 <td><pre>This rule configures the system to lock out accounts during a specified time period after a
