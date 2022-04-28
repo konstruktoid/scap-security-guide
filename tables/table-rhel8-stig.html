@@ -5125,15 +5125,16 @@ attacks.
 <br><br>
 Password complexity is one factor of several that determines how long it takes
 to crack a password. The more complex the password, the greater the number of
-possble combinations that need to be tested before the password is compromised.
+possible combinations that need to be tested before the password is compromised.
 Requiring a minimum number of special characters makes password guessing attacks
 more difficult by ensuring a larger search space.</pre></td>
 <td><pre>To check how many special characters are required in a password, run the following command:
 $ grep ocredit /etc/security/pwquality.conf
-The ocredit parameter (as a negative number) will indicate how many special characters are required.
+The ocredit parameter (as a negative number) will indicate how many special
+characters are required.
 The DoD and FISMA require at least one special character in a password.
 This would appear as ocredit = -1.
-      Is it the case that ocredit is not found or not equal to or less than the required value?
+      Is it the case that value of "ocredit" is a positive number or is commented out?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>ocredit=</code> parameter controls requirements for
 usage of special (or "other") characters in a password. When set to a negative number,

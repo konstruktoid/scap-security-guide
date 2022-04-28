@@ -18847,10 +18847,11 @@ to require use of a special character in passwords.</td>
 <td>Verify the operating system enforces password complexity by requiring that at least one special character be used. If it does not, this is a finding.</td>
 <td>To check how many special characters are required in a password, run the following command:
 $ grep ocredit /etc/security/pwquality.conf
-The ocredit parameter (as a negative number) will indicate how many special characters are required.
+The ocredit parameter (as a negative number) will indicate how many special
+characters are required.
 The DoD and FISMA require at least one special character in a password.
 This would appear as ocredit = -1.
-      Is it the case that ocredit is not found or not equal to or less than the required value?
+      Is it the case that value of "ocredit" is a positive number or is commented out?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3801r374916_fix">Configure the operating system to enforce password complexity by requiring that at least one special character be used.</fixtext></td>
 <td>The pam_pwquality module's ocredit= parameter controls requirements for

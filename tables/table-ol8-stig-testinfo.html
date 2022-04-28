@@ -581,7 +581,7 @@ attacks.
 <br><br>
 Password complexity is one factor of several that determines how long it takes
 to crack a password. The more complex the password, the greater the number of
-possble combinations that need to be tested before the password is compromised.
+possible combinations that need to be tested before the password is compromised.
 Requiring a minimum number of special characters makes password guessing attacks
 more difficult by ensuring a larger search space.</td>
 <td>The pam_pwquality module's <code>ocredit=</code> parameter controls requirements for
@@ -1624,11 +1624,11 @@ of the <code>chcon</code> command for all users and root. If the <code>auditd</c
 daemon is configured to use the <code>augenrules</code> program to read audit rules
 during daemon startup (the default), add the following lines to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/chcon -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chcon -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following lines to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F path=/usr/bin/chcon -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chcon -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -1656,11 +1656,11 @@ of the <code>semanage</code> command for all users and root. If the <code>auditd
 daemon is configured to use the <code>augenrules</code> program to read audit rules
 during daemon startup (the default), add the following lines to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/semanage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/semanage -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following lines to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F path=/usr/sbin/semanage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/semanage -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -1716,11 +1716,11 @@ of the <code>setfiles</code> command for all users and root. If the <code>auditd
 daemon is configured to use the <code>augenrules</code> program to read audit rules
 during daemon startup (the default), add the following lines to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/setfiles -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following lines to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F path=/usr/sbin/setfiles -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/setfiles -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -1748,11 +1748,11 @@ of the <code>setsebool</code> command for all users and root. If the <code>audit
 daemon is configured to use the <code>augenrules</code> program to read audit rules
 during daemon startup (the default), add the following lines to a file with suffix
 <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/setsebool -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/setsebool -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following lines to
 <code>/etc/audit/audit.rules</code> file:
-<pre>-a always,exit -F path=/usr/sbin/setsebool -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/setsebool -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2075,11 +2075,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/chage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chage -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/chage -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chage -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2107,11 +2107,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/chsh -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chsh -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/chsh -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/chsh -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2139,11 +2139,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/crontab -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/crontab -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/crontab -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/crontab -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2171,11 +2171,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/gpasswd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/gpasswd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/gpasswd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/gpasswd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2232,11 +2232,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/mount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/mount -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/mount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/mount -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2264,11 +2264,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/newgrp -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/newgrp -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/newgrp -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/newgrp -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2297,12 +2297,12 @@ configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
 <pre>-a always,exit -F path=/usr/sbin/pam_timestamp_check
--F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+-F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
 <pre>-a always,exit -F path=/usr/sbin/pam_timestamp_check
--F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+-F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2330,11 +2330,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/passwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/passwd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/passwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/passwd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2362,11 +2362,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/postdrop -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/postdrop -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/sbin/postdrop -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/postdrop -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2394,11 +2394,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/postqueue -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/postqueue -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/sbin/postqueue -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/postqueue -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2455,11 +2455,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/libexec/openssh/ssh-keysign -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/libexec/openssh/ssh-keysign -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/libexec/openssh/ssh-keysign -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/libexec/openssh/ssh-keysign -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2487,11 +2487,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/su -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/su -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/su -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/su -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2519,11 +2519,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/sudo -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/sudo -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/sudo -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/sudo -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2551,11 +2551,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/bin/umount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/umount -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/bin/umount -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/bin/umount -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2583,11 +2583,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/unix_chkpwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/unix_chkpwd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/sbin/unix_chkpwd -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/unix_chkpwd -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000037-GPOS-00015<br>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
@@ -2647,11 +2647,11 @@ privileged commands for all users and root. If the <code>auditd</code> daemon is
 configured to use the <code>augenrules</code> program to read audit rules during
 daemon startup (the default), add a line of the following form to a file with
 suffix <code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
-<pre>-a always,exit -F path=/usr/sbin/userhelper -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/userhelper -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add a line of the following
 form to <code>/etc/audit/audit.rules</code>:
-<pre>-a always,exit -F path=/usr/sbin/userhelper -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
+<pre>-a always,exit -F path=/usr/sbin/userhelper -F perm=x -F auid&gt;=1000 -F auid!=unset -F key=privileged</pre>
 </td>
 <td></td>
 <td>SRG-OS-000042-GPOS-00020<br>SRG-OS-000042-GPOS-00021<br>SRG-OS-000062-GPOS-00031<br>SRG-OS-000064-GPOS-00033<br>SRG-OS-000458-GPOS-00203<br>SRG-OS-000461-GPOS-00205<br>SRG-OS-000462-GPOS-00206<br>SRG-OS-000463-GPOS-00207<br>SRG-OS-000465-GPOS-00209<br>SRG-OS-000466-GPOS-00210<br>SRG-OS-000467-GPOS-00211<br>SRG-OS-000468-GPOS-00212<br>SRG-OS-000470-GPOS-00214<br>SRG-OS-000471-GPOS-00215<br>SRG-OS-000471-GPOS-00216<br>SRG-OS-000472-GPOS-00217<br>SRG-OS-000473-GPOS-00218<br>SRG-OS-000474-GPOS-00219<br>SRG-OS-000475-GPOS-00220<br>SRG-OS-000476-GPOS-00221<br>SRG-OS-000477-GPOS-00222<br>SRG-OS-000392-GPOS-00172<br>
