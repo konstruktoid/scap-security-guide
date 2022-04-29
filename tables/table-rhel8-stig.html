@@ -1332,7 +1332,7 @@ DTLS.MinProtocol = DTLSv1.2</pre></pre></td>
 library violate expectations, and makes system configuration more
 fragmented.</pre></td>
 <td><pre>To verify if GnuTLS uses defined DoD-approved TLS Crypto Policy, run:
-$ grep
+$ sudo grep
 '+VERS-ALL:-VERS-DTLS0.9:-VERS-SSL3.0:-VERS-TLS1.0:-VERS-TLS1.1:-VERS-DTLS1.0'
 /etc/crypto-policies/back-ends/gnutls.config and verify that a match exists.
       Is it the case that cryptographic policy for gnutls is not configured or is configured incorrectly?
@@ -5392,11 +5392,10 @@ A misconfigured umask value could result in files with excessive permissions tha
 written to by unauthorized users.</pre></td>
 <td><pre>Verify the UMASK setting is configured correctly in the /etc/login.defs file by
 running the following command:
-# grep -i "UMASK" /etc/login.defs
-All output must show the value of umask set as shown in the below:
-# grep -i "UMASK" /etc/login.defs
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+$ sudo grep "UMASK" /etc/login.defs
+All output must show the value of UMASK set as shown in the below:
+UMASK 
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </pre></td>
 <td><pre>To ensure the default umask controlled by <code>/etc/login.defs</code> is set properly,
 add or correct the <code>UMASK</code> setting in <code>/etc/login.defs</code> to read as follows:
@@ -5437,11 +5436,10 @@ A misconfigured umask value could result in files with excessive permissions tha
 written to by unauthorized users.</pre></td>
 <td><pre>Verify the umask setting is configured correctly in the /etc/profile file by
 running the following command:
-# grep "umask" /etc/profile
+$ sudo grep "umask" /etc/profile
 All output must show the value of umask set as shown in the below:
-# grep "umask" /etc/profile
 umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </pre></td>
 <td><pre>To ensure the default umask controlled by <code>/etc/profile</code> is set properly,
 add or correct the <code>umask</code> setting in <code>/etc/profile</code> to read as follows:

@@ -44041,11 +44041,10 @@ add or correct the <code>UMASK</code> setting in <code>/etc/login.defs</code> to
 <td>Verify the operating system defines default permissions for all authenticated users in such a way that the user can only read and modify their own files. If it does not, this is a finding.</td>
 <td>Verify the UMASK setting is configured correctly in the /etc/login.defs file by
 running the following command:
-# grep -i "UMASK" /etc/login.defs
-All output must show the value of umask set as shown in the below:
-# grep -i "UMASK" /etc/login.defs
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+$ sudo grep "UMASK" /etc/login.defs
+All output must show the value of UMASK set as shown in the below:
+UMASK 
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3906r375735_fix">Configure the operating system to define default permissions for all authenticated users in such a way that the user can only read and modify their own files.</fixtext></td>
 <td>To ensure the default umask controlled by /etc/login.defs is set properly,

@@ -314,6 +314,19 @@ The rule checks if settings for selected crypto policy are configured as expecte
 Crypto policies may be customized by crypto policy modules, in which case it is delimited from the base policy using a colon.</td>
 </tr>
 <tr>
+<td>CCE-86860-4</td>
+<td>Configure GnuTLS library to use DoD-approved TLS Encryption</td>
+<td>Crypto Policies provide a centralized control over crypto algorithms usage of many packages.
+GnuTLS is supported by system crypto policy, but the GnuTLS configuration may be
+set up to ignore it.
+
+To check that Crypto Policies settings are configured correctly, ensure that
+<code>/etc/crypto-policies/back-ends/gnutls.config</code> contains the following
+line and is not commented out:
+<code>+VERS-ALL:-VERS-DTLS0.9:-VERS-SSL3.0:-VERS-TLS1.0:-VERS-TLS1.1:-VERS-DTLS1.0</code>
+</td>
+</tr>
+<tr>
 <td>CCE-83449-9</td>
 <td>Configure Kerberos to use System Crypto Policy</td>
 <td>Crypto Policies provide a centralized control over crypto algorithms usage of many packages.

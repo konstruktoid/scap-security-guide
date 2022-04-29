@@ -2394,11 +2394,10 @@ A misconfigured umask value could result in files with excessive permissions tha
 written to by unauthorized users.</pre></td>
 <td><pre>Verify the UMASK setting is configured correctly in the /etc/login.defs file by
 running the following command:
-# grep -i "UMASK" /etc/login.defs
-All output must show the value of umask set as shown in the below:
-# grep -i "UMASK" /etc/login.defs
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+$ sudo grep "UMASK" /etc/login.defs
+All output must show the value of UMASK set as shown in the below:
+UMASK 
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </pre></td>
 <td><pre>To ensure the default umask controlled by <code>/etc/login.defs</code> is set properly,
 add or correct the <code>UMASK</code> setting in <code>/etc/login.defs</code> to read as follows:

@@ -23211,7 +23211,7 @@ line and is not commented out:
 <td>Applicable - Configurable</td>
 <td>Verify the operating system implements cryptography to protect the integrity of remote access sessions. If it does not, this is a finding.</td>
 <td>To verify if GnuTLS uses defined DoD-approved TLS Crypto Policy, run:
-$ grep
+$ sudo grep
 '+VERS-ALL:-VERS-DTLS0.9:-VERS-SSL3.0:-VERS-TLS1.0:-VERS-TLS1.1:-VERS-DTLS1.0'
 /etc/crypto-policies/back-ends/gnutls.config and verify that a match exists.
       Is it the case that cryptographic policy for gnutls is not configured or is configured incorrectly?
@@ -34548,7 +34548,7 @@ line and is not commented out:
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects the confidentiality and integrity of transmitted information. If it does not, this is a finding.</td>
 <td>To verify if GnuTLS uses defined DoD-approved TLS Crypto Policy, run:
-$ grep
+$ sudo grep
 '+VERS-ALL:-VERS-DTLS0.9:-VERS-SSL3.0:-VERS-TLS1.0:-VERS-TLS1.1:-VERS-DTLS1.0'
 /etc/crypto-policies/back-ends/gnutls.config and verify that a match exists.
       Is it the case that cryptographic policy for gnutls is not configured or is configured incorrectly?
@@ -49971,12 +49971,10 @@ as follows:
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/bashrc file by
 running the following command:
-# grep "umask" /etc/bashrc
+$ sudo grep "umask" /etc/bashrc
 All output must show the value of umask set as shown below:
-# grep "umask" /etc/bashrc
 umask 
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To ensure the default umask for users of the Bash shell is set properly,
@@ -50005,11 +50003,10 @@ add or correct the <code>umask</code> setting in <code>/etc/csh.cshrc</code> to 
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/csh.cshrc file by
 running the following command:
-# grep "umask" /etc/csh.cshrc
+$ sudo grep "umask" /etc/csh.cshrc
 All output must show the value of umask set as shown in the below:
-# grep "umask" /etc/csh.cshrc
 umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To ensure the default umask for users of the C shell is set properly,
@@ -50037,11 +50034,10 @@ add or correct the <code>umask</code> setting in <code>/etc/profile</code> to re
 <td>Verify the operating system is configured in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs. If it is not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/profile file by
 running the following command:
-# grep "umask" /etc/profile
+$ sudo grep "umask" /etc/profile
 All output must show the value of umask set as shown in the below:
-# grep "umask" /etc/profile
 umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>To ensure the default umask controlled by /etc/profile is set properly,
@@ -53466,12 +53462,10 @@ as follows:
 <td>Verify the operating system defines default permissions for all authenticated users in such a way that the user can only read and modify their own files. If it does not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/bashrc file by
 running the following command:
-# grep "umask" /etc/bashrc
+$ sudo grep "umask" /etc/bashrc
 All output must show the value of umask set as shown below:
-# grep "umask" /etc/bashrc
 umask 
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3906r375735_fix">Configure the operating system to define default permissions for all authenticated users in such a way that the user can only read and modify their own files.</fixtext></td>
 <td>To ensure the default umask for users of the Bash shell is set properly,
@@ -53498,11 +53492,10 @@ add or correct the <code>umask</code> setting in <code>/etc/csh.cshrc</code> to 
 <td>Verify the operating system defines default permissions for all authenticated users in such a way that the user can only read and modify their own files. If it does not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/csh.cshrc file by
 running the following command:
-# grep "umask" /etc/csh.cshrc
+$ sudo grep "umask" /etc/csh.cshrc
 All output must show the value of umask set as shown in the below:
-# grep "umask" /etc/csh.cshrc
 umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3906r375735_fix">Configure the operating system to define default permissions for all authenticated users in such a way that the user can only read and modify their own files.</fixtext></td>
 <td>To ensure the default umask for users of the C shell is set properly,
@@ -53528,11 +53521,10 @@ add or correct the <code>UMASK</code> setting in <code>/etc/login.defs</code> to
 <td>Verify the operating system defines default permissions for all authenticated users in such a way that the user can only read and modify their own files. If it does not, this is a finding.</td>
 <td>Verify the UMASK setting is configured correctly in the /etc/login.defs file by
 running the following command:
-# grep -i "UMASK" /etc/login.defs
-All output must show the value of umask set as shown in the below:
-# grep -i "UMASK" /etc/login.defs
-umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+$ sudo grep "UMASK" /etc/login.defs
+All output must show the value of UMASK set as shown in the below:
+UMASK 
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3906r375735_fix">Configure the operating system to define default permissions for all authenticated users in such a way that the user can only read and modify their own files.</fixtext></td>
 <td>To ensure the default umask controlled by /etc/login.defs is set properly,
@@ -53558,11 +53550,10 @@ add or correct the <code>umask</code> setting in <code>/etc/profile</code> to re
 <td>Verify the operating system defines default permissions for all authenticated users in such a way that the user can only read and modify their own files. If it does not, this is a finding.</td>
 <td>Verify the umask setting is configured correctly in the /etc/profile file by
 running the following command:
-# grep "umask" /etc/profile
+$ sudo grep "umask" /etc/profile
 All output must show the value of umask set as shown in the below:
-# grep "umask" /etc/profile
 umask 
-      Is it the case that the above command returns no output, or if the umask is configured incorrectly?
+      Is it the case that the above command returns no output, or the umask is configured incorrectly?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3906r375735_fix">Configure the operating system to define default permissions for all authenticated users in such a way that the user can only read and modify their own files.</fixtext></td>
 <td>To ensure the default umask controlled by /etc/profile is set properly,
