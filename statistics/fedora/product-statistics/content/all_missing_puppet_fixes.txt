@@ -228,6 +228,7 @@ chronyd_or_ntpd_specify_remote_server
 chronyd_run_as_chrony_user
 chronyd_server_directive
 chronyd_specify_remote_server
+clean_components_post_updating
 configure_bashrc_exec_tmux
 configure_bind_crypto_policy
 configure_crypto_policy
@@ -306,6 +307,7 @@ ensure_fedora_gpgkey_installed
 ensure_gpgcheck_globally_activated
 ensure_gpgcheck_local_packages
 ensure_gpgcheck_never_disabled
+ensure_gpgcheck_repo_metadata
 ensure_logrotate_activated
 etc_system_fips_exists
 file_at_deny_not_exist

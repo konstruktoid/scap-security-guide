@@ -8471,27 +8471,10 @@ depending on the OS version.</td>
 <td>If authorized individuals do not have the ability to modify auditing parameters in response to a changing threat environment, the organization may not be able to effectively respond, and important forensic information may be lost.
 
 This requirement enables organizations to extend or limit auditing as necessary to meet organizational requirements. Auditing that is limited to conserve information system resources may be extended to address certain threat situations. In addition, auditing may be limited to a specific set of events to facilitate audit reduction, analysis, and reporting.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>SV-71505</td>
@@ -8722,27 +8705,10 @@ Alerts provide organizations with urgent messages. Real-time alerts provide thes
 <td>The ability to perform on-demand audit review and analysis, including after the audit data has been subjected to audit reduction, greatly facilitates the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Audit reduction is a technique used to reduce the volume of audit records in order to facilitate a manual review. Audit reduction does not alter original audit records. The report generation capability provided by the application must support on-demand (i.e., customizable, ad hoc, and as-needed) reports.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57255</td>
@@ -8769,21 +8735,6 @@ The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
 </tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
 </td>
 </tr>
 <tr>
@@ -8794,27 +8745,10 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>The report generation capability must support on-demand review and analysis in order to facilitate the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Report generation must be capable of generating on-demand (i.e., customizable, ad hoc, and as-needed) reports. On-demand reporting allows personnel to report issues more rapidly to more effectively meet reporting requirements. Collecting log data and aggregating it to present the data in a single, consolidated report achieves this objective.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57259</td>
@@ -8824,27 +8758,10 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>The report generation capability must support on-demand reporting in order to facilitate the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Report generation must be capable of generating on-demand (i.e., customizable, ad hoc, and as-needed) reports. On-demand reporting allows personnel to report issues more rapidly to more effectively meet reporting requirements. Collecting log data and aggregating it to present the data in a single, consolidated report achieves this objective.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57261</td>
@@ -8854,27 +8771,10 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 <td>If the report generation capability does not support after-the-fact investigations, it is difficult to establish, correlate, and investigate the events leading up to an outage or attack or identify those responses for one. This capability is also required to comply with applicable Federal laws and DoD policies.
 
 The report generation capability must support after-the-fact investigations of security incidents either natively or through the use of third-party tools.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57263</td>
@@ -8886,27 +8786,10 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 Audit reduction is a process that manipulates collected audit information and organizes such information in a summary format that is more meaningful to analysts. Time ordering refers to the chronological organization of records based on time stamps. The degree of time stamp precision can affect this.
 
 This requirement is specific to operating systems providing audit reduction capabilities. The audit reduction capability can be met either natively or through the use of third-party tools.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>SV-71525</td>
@@ -8918,27 +8801,10 @@ If both the "b32" and "b64" audit rules for "SGID" files are not defined, this i
 Time ordering refers to the chronological organization of records based on time stamps. The degree of time stamp precision can affect this.
 
 This requirement is specific to operating systems providing report generation capabilities. The report generation capability can be met either natively or through the use of third-party tools.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57267</td>
@@ -9008,27 +8874,10 @@ to pass.</td>
 <td>Without sufficient granularity of time stamps, it is not possible to adequately determine the chronological order of records.
 
 Time stamps generated by the operating system include date and time. Granularity of time measurements refers to the degree of synchronization between information system clocks and reference clocks.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>V-57189</td>
@@ -9181,21 +9030,6 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table>
-<table><tr>
-<td>Record Events When Privileged Executables Are Run</td>
-<td>Verify the system generates an audit record when privileged functions are executed.
-<pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>
-
-
-<pre>-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k setuid</pre>
-<pre>-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-<pre>-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k setgid</pre>
-
-
-If both the "b32" and "b64" audit rules for "SUID" files are not defined, this is a finding.
-If both the "b32" and "b64" audit rules for "SGID" files are not defined, this is a finding.</td>
 </tr></table>
 </td>
 </tr>
@@ -16085,23 +15919,11 @@ There must be a resolvable DNS CNAME or Alias record set to "<xccdf-1.1:sub xmln
 <td><i>TBD - Assigned by DISA after STIG release</i></td>
 <td>The operating system must prevent the use of dictionary words for passwords.</td>
 <td>If the operating system allows the user to select passwords based on dictionary words, then this increases the chances of password compromise by increasing the opportunity for successful guesses and brute-force attacks.</td>
-<td>
-<table><tr>
+<td><table><tr>
 <td>Ensure PAM Enforces Password Requirements - Prevent the Use of Dictionary Words</td>
 <td>The pam_pwquality module's <code>dictcheck</code> check if passwords contains dictionary words. When
 <code>dictcheck</code> is set to <code>1</code> passwords will be checked for dictionary words.</td>
-</tr></table>
-<table><tr>
-<td>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session</td>
-<td>To configure the number of retry prompts that are permitted per-session:
-
-Edit the <code>/etc/security/pwquality.conf</code> to include
-
-<code>retry=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_retry"></xccdf-1.1:sub></code>, or a lower value if site
-policy is more restrictive. The DoD requirement is a maximum of 3 prompts
-per session.</td>
-</tr></table>
-</td>
+</tr></table></td>
 </tr>
 <tr>
 <td>SV-70855</td>

@@ -4544,7 +4544,7 @@ $ grep retry /etc/security/pwquality.conf
 
 The retry parameter will indicate how many attempts are permitted.
 The DoD required value is less than or equal to 3.
-This would appear as retry=3, or a lower value.
+This would appear as retry=, or a lower value.
       Is it the case that it is not the required value?
       </pre></td>
 <td><pre>To configure the number of retry prompts that are permitted per-session:
@@ -5471,7 +5471,7 @@ risk from insider threats and the advanced persistent threat.</pre></td>
 The audit daemon must be restarted for the changes to take effect.
 
 # sudo systemctl restart auditd.service
-      Is it the case that it is not the case?
+      Is it the case that the lines are commented out or do not exist?
       </pre></td>
 <td><pre>Verify the system generates an audit record when privileged functions are executed.
 <pre># grep -iw execve <code>/etc/audit/audit.rules</code></pre>

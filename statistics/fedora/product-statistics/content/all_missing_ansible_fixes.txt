@@ -79,6 +79,7 @@ enable_dconf_user_profile
 enable_dracut_fips_module
 encrypt_partitions
 ensure_fedora_gpgkey_installed
+ensure_gpgcheck_repo_metadata
 etc_system_fips_exists
 file_ownership_var_log_audit
 file_permissions_home_dirs
