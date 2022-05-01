@@ -43,6 +43,7 @@ audit_log_forwarding_enabled
 audit_log_forwarding_uses_tls
 audit_profile_set
 banner_or_login_template_set
+cluster_logging_operator_exist
 cluster_version_operator_exists
 cluster_version_operator_verify_integrity
 cluster_wide_proxy_set

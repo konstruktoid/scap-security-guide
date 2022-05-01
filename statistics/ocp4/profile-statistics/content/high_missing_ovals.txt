@@ -1,5 +1,6 @@
 accounts_restrict_service_account_tokens
 accounts_unique_service_account
+alert_receiver_configured
 api_server_oauth_https_serving_cert
 api_server_openshift_https_serving_cert
 configure_network_policies

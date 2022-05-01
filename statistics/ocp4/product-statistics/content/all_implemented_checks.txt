@@ -45,6 +45,7 @@ audit_profile_set
 azure_disk_encryption_enabled
 banner_or_login_template_set
 classification_banner
+cluster_logging_operator_exist
 cluster_version_operator_exists
 cluster_version_operator_verify_integrity
 cluster_wide_proxy_set
