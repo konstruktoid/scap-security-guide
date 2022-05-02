@@ -47,7 +47,7 @@
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -67,7 +67,7 @@ of the server.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>vfat</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/vfat.conf</code>:
 <pre>install vfat /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -87,7 +87,7 @@ surface of the system.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>squashfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/squashfs.conf</code>:
 <pre>install squashfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -107,7 +107,7 @@ surface of the system.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>udf</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/udf.conf</code>:
 <pre>install udf /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -500,7 +500,7 @@ To prevent USB storage devices from being used, configure the kernel module load
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <tt>modprobe</tt> program from loading the <tt>usb-storage</tt>
 module, but will not prevent an administrator (or another program) from using the
@@ -2268,7 +2268,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -2286,7 +2286,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -2303,7 +2303,7 @@ layer protocol designed to provide reliable high-bandwidth,
 low-latency communications between nodes in a cluster.
 
 To configure the system to prevent the <code>rds</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/rds.conf</code>:
 <pre>install rds /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -2320,7 +2320,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
   </td>
   <td xml:lang="en-US">

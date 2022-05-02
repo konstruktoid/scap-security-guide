@@ -2987,6 +2987,10 @@
     <li><div class="tooltip">ocp_allowed_registries_for_import<span class="tooltiptext">Allowed registries for import are configured</span></div></li>
     <li><div class="tooltip">reject_unsigned_images_by_default<span class="tooltiptext">Ensure the Container Runtime rejects unsigned images by default</span></div></li>
     </ul>
+  <li class="collapsible">CM-3(6)</li>
+    <ul class="content">
+    <li><div class="tooltip">gitops_operator_exists<span class="tooltiptext">Ensure that GitOps Operator is deployed</span></div></li>
+    </ul>
   <li class="collapsible">CM-5(1)</li>
     <ul class="content">
     <li><div class="tooltip">audit_profile_set<span class="tooltiptext">Ensure that the cluster's audit profile is properly set</span></div></li>
@@ -3453,7 +3457,14 @@
     </ul>
   <li class="collapsible">IA-2(8)</li>
     <ul class="content">
+    <li><div class="tooltip">idp_is_configured<span class="tooltiptext">Configure An Identity Provider</span></div></li>
+    <li><div class="tooltip">ocp_idp_no_htpasswd<span class="tooltiptext">Do Not Use htpasswd-based IdP</span></div></li>
     <li><div class="tooltip">ocp_no_ldap_insecure<span class="tooltiptext">Only Use LDAP-based IdPs with TLS</span></div></li>
+    </ul>
+  <li class="collapsible">IA-2(9)</li>
+    <ul class="content">
+    <li><div class="tooltip">idp_is_configured<span class="tooltiptext">Configure An Identity Provider</span></div></li>
+    <li><div class="tooltip">ocp_idp_no_htpasswd<span class="tooltiptext">Do Not Use htpasswd-based IdP</span></div></li>
     </ul>
   <li class="collapsible">IA-5(2)</li>
     <ul class="content">
@@ -3466,6 +3477,10 @@
   <li class="collapsible">IA-7</li>
     <ul class="content">
     <li><div class="tooltip">fips_mode_enabled<span class="tooltiptext">Ensure that the cluster was installed with FIPS mode enabled</span></div></li>
+    </ul>
+  <li class="collapsible">MA-2(2)</li>
+    <ul class="content">
+    <li><div class="tooltip">gitops_operator_exists<span class="tooltiptext">Ensure that GitOps Operator is deployed</span></div></li>
     </ul>
   <li class="collapsible">MA-4</li>
     <ul class="content">

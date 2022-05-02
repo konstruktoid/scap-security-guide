@@ -49,6 +49,7 @@ bios_disable_usb_boot
 bios_enable_execution_restrictions
 chronyd_server_directive
 configure_etc_hosts_deny
+configure_firewalld_ports
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 cups_disable_browsing
@@ -89,7 +90,6 @@ file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid
 file_permissions_ungroupowned
 firewalld_sshd_disabled
-firewalld_sshd_port_enabled
 ftp_configure_firewall
 ftp_disable_uploads
 ftp_home_partition

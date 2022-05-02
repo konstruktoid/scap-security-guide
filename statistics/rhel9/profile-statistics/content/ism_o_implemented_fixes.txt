@@ -41,7 +41,6 @@ auditd_name_format
 auditd_write_logs
 chronyd_specify_remote_server
 configure_crypto_policy
-configure_firewalld_ports
 configure_ssh_crypto_policy
 dir_perms_world_writable_sticky_bits
 disable_host_auth
@@ -58,6 +57,7 @@ file_permissions_binary_dirs
 file_permissions_library_dirs
 file_permissions_sshd_private_key
 file_permissions_unauthorized_world_writable
+firewalld_sshd_port_enabled
 mount_option_dev_shm_nodev
 mount_option_dev_shm_noexec
 mount_option_dev_shm_nosuid

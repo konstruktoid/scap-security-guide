@@ -849,6 +849,31 @@ privileges.
   <td>var_selinux_state=enforcing</td>
 </tr>
 <tr>
+  <td>CM-3(6)<br/>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
+  <td>CCE-80942-6</td>
+  <td>Enable FIPS Mode</td>
+  <td xml:lang="en-US">
+To enable FIPS mode, run the following command:
+<pre>fips-mode-setup --enable</pre>
+<br />
+The <tt>fips-mode-setup</tt> command will configure the system in
+FIPS mode by automatically configuring the following:
+<ul>
+<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
+<li>Creating <tt>/etc/system-fips</tt></li>
+<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><tt>fips_ospp</tt></tt></li>
+<li>Loading the Dracut <tt>fips</tt> module</li>
+</ul>
+  </td>
+  <td xml:lang="en-US">
+Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+protect data. The operating system must implement cryptographic modules adhering to the higher
+standards approved by the federal government since this provides assurance they have been tested
+and validated.
+  </td>
+  <td>var_system_crypto_policy=fips_ospp</td>
+</tr>
+<tr>
   <td>AC-4<br/>CM-7(b)<br/>CA-3(5)<br/>SC-7(21)<br/>CM-6(a)</td>
   <td>CCE-80877-4</td>
   <td>Verify firewalld Enabled</td>
@@ -2101,7 +2126,7 @@ of the return instruction pointer.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -2127,7 +2152,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -2146,7 +2171,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3179,31 +3204,6 @@ and validated.
   <td></td>
 </tr>
 <tr>
-  <td>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
-  <td>CCE-80942-6</td>
-  <td>Enable FIPS Mode</td>
-  <td xml:lang="en-US">
-To enable FIPS mode, run the following command:
-<pre>fips-mode-setup --enable</pre>
-<br />
-The <tt>fips-mode-setup</tt> command will configure the system in
-FIPS mode by automatically configuring the following:
-<ul>
-<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
-<li>Creating <tt>/etc/system-fips</tt></li>
-<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><tt>fips_ospp</tt></tt></li>
-<li>Loading the Dracut <tt>fips</tt> module</li>
-</ul>
-  </td>
-  <td xml:lang="en-US">
-Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
-protect data. The operating system must implement cryptographic modules adhering to the higher
-standards approved by the federal government since this provides assurance they have been tested
-and validated.
-  </td>
-  <td>var_system_crypto_policy=fips_ospp</td>
-</tr>
-<tr>
   <td>SC-13<br/>SC-12(2)<br/>SC-12(3)</td>
   <td>CCE-80934-3</td>
   <td>Configure BIND to use System Crypto Policy</td>
@@ -3406,7 +3406,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3443,7 +3443,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3461,7 +3461,7 @@ The IEEE 1394 (FireWire) is a serial bus standard for
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -4195,7 +4195,7 @@ By decreasing the limit based on the amount of data and enabling
 time-based limit, effects of potential attacks against
 encryption keys are limited.
   </td>
-  <td>var_rekey_limit_size=1G<br/>var_rekey_limit_time=1hour</td>
+  <td>var_rekey_limit_time=1hour<br/>var_rekey_limit_size=1G</td>
 </tr>
 <tr>
   <td></td>

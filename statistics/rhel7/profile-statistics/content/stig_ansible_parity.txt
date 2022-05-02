@@ -3,7 +3,6 @@ accounts_password_set_min_life_existing
 aide_use_fips_hashes
 aide_verify_acls
 aide_verify_ext_attributes
-configure_firewalld_ports
 dconf_db_up_to_date
 file_ownership_var_log_audit
 file_permissions_var_log_audit

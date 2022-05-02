@@ -3656,12 +3656,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 <td></td>
 <td>SRG-OS-000096-GPOS-00050<br>SRG-OS-000297-GPOS-00115<br>
@@ -4043,11 +4037,7 @@ For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</td>
+</td>
 <td></td>
 <td>SRG-OS-000029-GPOS-00010<br>
 </td>
@@ -4067,10 +4057,6 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
 <td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000029-GPOS-00010<br>
@@ -4101,6 +4087,50 @@ After the settings have been set, run <code>dconf update</code>.</td>
 <td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000030-GPOS-00011<br>SRG-OS-000031-GPOS-00012<br>
 </td>
 <td>CCI-000056<br>CCI-000058<br>CCI-000060<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>dconf_gnome_screensaver_user_locks</td>
+<td>medium</td>
+<td>Ensure Users Cannot Change GNOME3 Screensaver Settings</td>
+<td>A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate
+physical vicinity of the information system but does not logout because of the temporary nature of the absence.
+Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity,
+GNOME desktops can be configured to identify when a user's session has idled and take action to initiate the
+session lock. As such, users should not be allowed to change session settings.</td>
+<td>If not already configured, ensure that users cannot change GNOME3 screensaver lock settings
+by adding <code>/org/gnome/desktop/screensaver/lock-delay</code>
+to <code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td></td>
+<td>SRG-OS-000029-GPOS-00010<br>
+</td>
+<td>CCI-000057<br>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>dconf_gnome_session_idle_user_locks</td>
+<td>medium</td>
+<td>Ensure Users Cannot Change GNOME3 Session Idle Settings</td>
+<td>A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate
+physical vicinity of the information system but does not logout because of the temporary nature of the absence.
+Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity,
+GNOME desktops can be configured to identify when a user's session has idled and take action to initiate the
+session lock. As such, users should not be allowed to change session settings.</td>
+<td>If not already configured, ensure that users cannot change GNOME3 session idle settings
+by adding <code>/org/gnome/desktop/session/idle-delay</code>
+to <code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/session/idle-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+<td></td>
+<td>SRG-OS-000029-GPOS-00010<br>
+</td>
+<td>CCI-000057<br>
 </td>
 <td></td>
 </tr>
@@ -5522,7 +5552,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
 </td>
 <td></td>
@@ -5563,7 +5593,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
 </td>
 <td></td>
@@ -5581,7 +5611,7 @@ kernel module from being loaded, add the following line to a file in the directo
 of the server.</td>
 <td>
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -5606,7 +5636,7 @@ flaws in its implementation.</td>
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
 </td>
 <td></td>
@@ -5628,7 +5658,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
 </td>
 <td></td>
@@ -5649,7 +5679,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
 </td>
 <td></td>
@@ -5669,7 +5699,7 @@ malicious software.</td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the

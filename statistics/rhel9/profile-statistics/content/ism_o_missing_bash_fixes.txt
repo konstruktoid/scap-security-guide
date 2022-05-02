@@ -1,7 +1,7 @@
 accounts_password_all_shadowed
+configure_firewalld_ports
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid
-firewalld_sshd_port_enabled
 network_sniffer_disabled
 no_shelllogin_for_systemaccounts
 rsyslog_files_groupownership

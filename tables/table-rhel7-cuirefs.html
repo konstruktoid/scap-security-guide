@@ -1961,6 +1961,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mounting in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -2101,9 +2102,7 @@ to have an audit trail of modules that have been introduced into the kernel.
   <td xml:lang="en-US">
 By default on Red Hat Enterprise Linux 7 64-bit systems, ExecShield is
 enabled and can only be disabled if the hardware does not support
-ExecShield or is disabled in <tt>/etc/default/grub</tt>. For
-Red Hat Enterprise Linux 7  32-bit systems, <tt>sysctl</tt> can be used to enable
-ExecShield.
+ExecShield or is disabled in <tt>/etc/default/grub</tt>.
   </td>
   <td xml:lang="en-US">
 ExecShield uses the segmentation feature on all x86 systems to prevent
@@ -3016,6 +3015,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mount running in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -3281,10 +3281,6 @@ the screensaver is activated, add or set <tt>lock-delay</tt> to <tt>uint32 <abbr
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <abbr title="$var_screensaver_lock_delay"><tt>0</tt></abbr>
 </pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
@@ -3433,11 +3429,6 @@ For example, to configure the system for a 15 minute delay, add the following to
 <tt>/etc/dconf/db/local.d/00-security-settings</tt>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
 A session time-out lock is a temporary action taken when a user stops work and moves away from
@@ -4661,7 +4652,7 @@ To prevent USB storage devices from being used, configure the kernel module load
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <tt>modprobe</tt> program from loading the <tt>usb-storage</tt>
 module, but will not prevent an administrator (or another program) from using the
@@ -5327,7 +5318,7 @@ Only root should be able to modify important boot parameters.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>jffs2</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/jffs2.conf</code>:
 <pre>install jffs2 /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -5370,7 +5361,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -5387,7 +5378,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -5401,7 +5392,7 @@ the system against exploitation of any flaws in its implementation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>hfsplus</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfsplus.conf</code>:
 <pre>install hfsplus /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -5416,7 +5407,7 @@ local system should be disabled.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -5436,7 +5427,7 @@ of the server.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>udf</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/udf.conf</code>:
 <pre>install udf /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -5457,7 +5448,7 @@ attack surface of the system.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>vfat</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/vfat.conf</code>:
 <pre>install vfat /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -5477,7 +5468,7 @@ surface of the system.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>freevxfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/freevxfs.conf</code>:
 <pre>install freevxfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -5492,7 +5483,7 @@ local system should be disabled.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>hfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfs.conf</code>:
 <pre>install hfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -5507,7 +5498,7 @@ local system should be disabled.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>squashfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/squashfs.conf</code>:
 <pre>install squashfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 

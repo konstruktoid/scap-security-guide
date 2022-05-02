@@ -275,7 +275,7 @@ of the information system but does not want to logout because of the temporary n
 
 $ gsettings get org.gnome.desktop.screensaver lock-enabled
 If properly configured, the output should be true.
-To ensure that users cannot change how long until the the screensaver locks, run the following:
+To ensure that users cannot change how long until the screensaver locks, run the following:
 $ grep lock-enabled /etc/dconf/db/local.d/locks/*
 If properly configured, the output for lock-enabled should be /org/gnome/desktop/screensaver/lock-enabled
       Is it the case that screensaver locking is not enabled and/or has not been set or configured correctly?
@@ -336,7 +336,7 @@ After the settings have been set, run <code>dconf update</code>.</pre></td>
 <td>SRG-OS-ID</td>
 <td><pre>A session lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity
 of the information system but does not want to logout because of the temporary nature of the absense.</pre></td>
-<td><pre>To ensure that users cannot change how long until the the screensaver locks, run the following:
+<td><pre>To ensure that users cannot change how long until the screensaver locks, run the following:
 $ grep lock-enabled /etc/dconf/db/local.d/locks/*
 If properly configured, the output for lock-enabled should be /org/gnome/desktop/screensaver/lock-enabled
       Is it the case that screensaver locking is not locked?
@@ -367,7 +367,7 @@ If properly configured, the output should be 'uint32 '.
 To ensure that users cannot change the screensaver inactivity timeout setting, run the following:
 $ grep idle-delay /etc/dconf/db/local.d/locks/*
 If properly configured, the output should be /org/gnome/desktop/session/idle-delay
-      Is it the case that idle-delay is not equal to or less than the expected value?
+      Is it the case that idle-delay is set to 0 or a value greater than &lt;sub idref="inactivity_timeout_value" /&gt;?
       </pre></td>
 <td><pre>The idle time-out value for inactivity in the GNOME3 desktop is configured via the <code>idle-delay</code>
 setting must be set under an appropriate configuration file(s) in the <code>/etc/dconf/db/local.d</code> directory
@@ -376,12 +376,7 @@ and locked in <code>/etc/dconf/db/local.d/locks</code> directory to prevent user
 For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
-idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</pre></td>
+idle-delay=uint32 900</pre></pre></td>
 <td>RHEL-07-010070</td>
 <td>dconf_gnome_screensaver_idle_delay</td>
 </tr>
@@ -426,7 +421,7 @@ session lock. As such, users should not be allowed to change session settings.</
 $ grep 'idle-delay' /etc/dconf/db/local.d/locks/*
 If properly configured, the output should return:
 /org/gnome/desktop/session/idle-delay
-      Is it the case that GNOME3 session settings are not locked or configured properly?
+      Is it the case that idle-delay is not locked?
       </pre></td>
 <td><pre>If not already configured, ensure that users cannot change GNOME3 session idle settings
 by adding <code>/org/gnome/desktop/session/idle-delay</code>
@@ -508,11 +503,7 @@ of the information system but does not want to logout because of the temporary n
 <td><pre>To check that the screen locks immediately when activated, run the following command:
 $ gsettings get org.gnome.desktop.screensaver lock-delay
 If properly configured, the output should be 'uint32 '.
-
-To ensure that users cannot change how long until the the screensaver locks, run the following:
-$ grep lock-delay /etc/dconf/db/local.d/locks/*
-If properly configured, the output for lock-delay should be /org/gnome/desktop/screensaver/lock-delay
-      Is it the case that the screensaver lock delay is missing, or is set to a value greater than 5?
+      Is it the case that the screensaver lock delay is missing, or is set to a value greater than &lt;sub idref="var_screensaver_lock_delay" /&gt;?
       </pre></td>
 <td><pre>To activate the locking delay of the screensaver in the GNOME3 desktop when
 the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub></code> in
@@ -520,10 +511,6 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</pre></td>
 <td>RHEL-07-010110</td>
 <td>dconf_gnome_screensaver_lock_delay</td>
@@ -1142,7 +1129,7 @@ misconfiguration elsewhere.</pre></td>
 
 $ sudo grep -i PermitEmptyPasswords /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -1497,7 +1484,7 @@ access restriction in some configurations.</pre></td>
 
 $ sudo grep -i PermitUserEnvironment /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -1527,7 +1514,7 @@ can allow an attacker to move trivially to other hosts.</pre></td>
 
 $ sudo grep -i HostbasedAuthentication /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -2108,7 +2095,7 @@ $ grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -2137,7 +2124,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre></pre></td>
 <td>RHEL-07-020101</td>
 <td>kernel_module_dccp_disabled</td>
@@ -2175,7 +2162,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the autofs service is not disabled?
       </pre></td>
 <td><pre>The <code>autofs</code> daemon mounts and unmounts filesystems, such as user
 home directories shared via NFS, on demand. In addition, autofs can be used to handle
@@ -2197,7 +2184,8 @@ The <code>autofs</code> service can be disabled with the following command:
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must disable the graphical user interface automounter unless required.</td>
 <td>SRG-OS-ID</td>
-<td><pre>Disabling automatic mount running in GNOME3 can prevent
+<td><pre>Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
+Disabling automatic mount running in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
 of removable media.</pre></td>
@@ -5238,13 +5226,7 @@ services to have access to the system. To configure <code>firewalld</code>
 to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code></pre></td>
+<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre></pre></td>
 <td>RHEL-07-040100</td>
 <td>configure_firewalld_ports</td>
 </tr>
@@ -5320,7 +5302,6 @@ not provide easy attribution.</pre></td>
 <td><pre>To determine how the SSH daemon's Banner option is set, run the following command:
 
 $ sudo grep -i Banner /etc/ssh/sshd_config
-
 
 If a line indicating /etc/issue is returned, then the required value is set.
 
@@ -5552,7 +5533,7 @@ To determine how the SSH daemon's RhostsRSAAuthentication option is set, run the
 
 $ sudo grep -i RhostsRSAAuthentication /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -5611,7 +5592,7 @@ can allow an attacker to move trivially to other hosts.</pre></td>
 
 $ sudo grep -i IgnoreRhosts /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value yes is returned, then the required value is set.
+If a line indicating yes is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -5643,7 +5624,7 @@ recognition and reporting of unauthorized account use.</pre></td>
 
 $ sudo grep -i PrintLastLog /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value yes is returned, then the required value is set.
+If a line indicating yes is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -5676,7 +5657,6 @@ direct attack attempts on root's password.</pre></td>
 
 $ sudo grep -i PermitRootLogin /etc/ssh/sshd_config
 
-
 If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
@@ -5704,7 +5684,6 @@ in the event of misconfiguration elsewhere.</pre></td>
 <td><pre>To determine how the SSH daemon's IgnoreUserKnownHosts option is set, run the following command:
 
 $ sudo grep -i IgnoreUserKnownHosts /etc/ssh/sshd_config
-
 
 If a line indicating yes is returned, then the required value is set.
 
@@ -5827,7 +5806,7 @@ GSSAPI to remote hosts, increasing the attack surface of the system.</pre></td>
 
 $ sudo grep -i GSSAPIAuthentication /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -5860,7 +5839,7 @@ implementations may be subject to exploitation.</pre></td>
 
 $ sudo grep -i KerberosAuthentication /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -5891,7 +5870,7 @@ may be able to log into the system as another user.</pre></td>
 
 $ sudo grep -i StrictModes /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value yes is returned, then the required value is set.
+If a line indicating yes is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -6584,7 +6563,7 @@ users can always install their own forwarders.</pre></td>
 
 $ sudo grep -i X11Forwarding /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value no is returned, then the required value is set.
+If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
       </pre></td>
@@ -6621,7 +6600,7 @@ connecting to the proxy display.  </pre></td>
 
 $ sudo grep -i X11UseLocalhost /etc/ssh/sshd_config
 
-If no line, a commented line, or a line indicating the value yes is returned, then the required value is set.
+If a line indicating yes is returned, then the required value is set.
       Is it the case that the display proxy is listening on wildcard address?
       </pre></td>
 <td><pre>The SSH daemon should prevent remote hosts from connecting to the proxy

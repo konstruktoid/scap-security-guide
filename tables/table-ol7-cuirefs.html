@@ -1961,6 +1961,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mounting in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -2996,6 +2997,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mount running in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -3261,10 +3263,6 @@ the screensaver is activated, add or set <tt>lock-delay</tt> to <tt>uint32 <abbr
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <abbr title="$var_screensaver_lock_delay"><tt>0</tt></abbr>
 </pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
@@ -3413,11 +3411,6 @@ For example, to configure the system for a 15 minute delay, add the following to
 <tt>/etc/dconf/db/local.d/00-security-settings</tt>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
 A session time-out lock is a temporary action taken when a user stops work and moves away from
@@ -4519,7 +4512,7 @@ To prevent USB storage devices from being used, configure the kernel module load
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <tt>modprobe</tt> program from loading the <tt>usb-storage</tt>
 module, but will not prevent an administrator (or another program) from using the
@@ -5206,7 +5199,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -5223,7 +5216,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -5237,7 +5230,7 @@ the system against exploitation of any flaws in its implementation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 

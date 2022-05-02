@@ -3155,12 +3155,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 <td></td>
 <td>SRG-OS-000096-GPOS-00050<br>SRG-OS-000297-GPOS-00115<br>
@@ -3278,7 +3272,8 @@ After the settings have been set, run <code>dconf update</code>.</td>
 <td>dconf_gnome_disable_automount_open</td>
 <td>medium</td>
 <td>Disable GNOME3 Automount Opening</td>
-<td>Disabling automatic mounting in GNOME3 can prevent
+<td>Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
+Disabling automatic mounting in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
 of removable media.</td>
@@ -3305,7 +3300,8 @@ After the settings have been set, run <code>dconf update</code>.</td>
 <td>dconf_gnome_disable_autorun</td>
 <td>medium</td>
 <td>Disable GNOME3 Automount running</td>
-<td>Disabling automatic mount running in GNOME3 can prevent
+<td>Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
+Disabling automatic mount running in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
 of removable media.</td>
@@ -3483,11 +3479,7 @@ For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</td>
+</td>
 <td></td>
 <td>SRG-OS-000029-GPOS-00010<br>
 </td>
@@ -3507,10 +3499,6 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 <td></td>
 <td>SRG-OS-000028-GPOS-00009<br>SRG-OS-000029-GPOS-00010<br>
@@ -4316,7 +4304,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
 </td>
 <td></td>
@@ -4336,7 +4324,7 @@ malicious software.</td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the

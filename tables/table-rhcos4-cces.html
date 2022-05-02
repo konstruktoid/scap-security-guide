@@ -6082,7 +6082,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
 </td>
 </tr>
@@ -6094,7 +6094,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
 </td>
 </tr>
@@ -6105,7 +6105,7 @@ kernel module from being loaded, add the following line to a file in the directo
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
 </td>
 </tr>
@@ -6117,7 +6117,7 @@ layer protocol designed to provide reliable high-bandwidth,
 low-latency communications between nodes in a cluster.
 
 To configure the system to prevent the <code>rds</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/rds.conf</code>:
 <pre>install rds /bin/true</pre>
 </td>
 </tr>
@@ -6130,7 +6130,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
 </td>
 </tr>
@@ -6142,7 +6142,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
 </td>
 </tr>
@@ -6199,7 +6199,7 @@ to prevent the loading of the Bluetooth module:
 <td>Disable Kernel cfg80211 Module</td>
 <td>
 To configure the system to prevent the <code>cfg80211</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cfg80211.conf</code>:
 <pre>install cfg80211 /bin/true</pre>
 </td>
 </tr>
@@ -6208,7 +6208,7 @@ kernel module from being loaded, add the following line to a file in the directo
 <td>Disable Kernel iwlmvm Module</td>
 <td>
 To configure the system to prevent the <code>iwlmvm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/iwlmvm.conf</code>:
 <pre>install iwlmvm /bin/true</pre>
 </td>
 </tr>
@@ -6217,7 +6217,7 @@ kernel module from being loaded, add the following line to a file in the directo
 <td>Disable Kernel iwlwifi Module</td>
 <td>
 To configure the system to prevent the <code>iwlwifi</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/iwlwifi.conf</code>:
 <pre>install iwlwifi /bin/true</pre>
 </td>
 </tr>
@@ -6226,7 +6226,7 @@ kernel module from being loaded, add the following line to a file in the directo
 <td>Disable Kernel mac80211 Module</td>
 <td>
 To configure the system to prevent the <code>mac80211</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/mac80211.conf</code>:
 <pre>install mac80211 /bin/true</pre>
 </td>
 </tr>
@@ -6741,7 +6741,7 @@ append "nousb" to the kernel line in <code>/etc/default/grub</code> as shown:
 <td>Disable Mounting of cramfs</td>
 <td>
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -6755,7 +6755,7 @@ decompress the image.</td>
 <td>Disable Mounting of freevxfs</td>
 <td>
 To configure the system to prevent the <code>freevxfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/freevxfs.conf</code>:
 <pre>install freevxfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -6764,7 +6764,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of hfs</td>
 <td>
 To configure the system to prevent the <code>hfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfs.conf</code>:
 <pre>install hfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -6773,7 +6773,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of hfsplus</td>
 <td>
 To configure the system to prevent the <code>hfsplus</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfsplus.conf</code>:
 <pre>install hfsplus /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -6782,7 +6782,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of jffs2</td>
 <td>
 To configure the system to prevent the <code>jffs2</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/jffs2.conf</code>:
 <pre>install jffs2 /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -6791,7 +6791,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of squashfs</td>
 <td>
 To configure the system to prevent the <code>squashfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/squashfs.conf</code>:
 <pre>install squashfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -6805,7 +6805,7 @@ to first decompress the image.</td>
 <td>Disable Mounting of udf</td>
 <td>
 To configure the system to prevent the <code>udf</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/udf.conf</code>:
 <pre>install udf /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -6822,7 +6822,7 @@ writing DVDs and newer optical disc formats.</td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -6833,7 +6833,7 @@ module, but will not prevent an administrator (or another program) from using th
 <td>Disable Mounting of vFAT filesystems</td>
 <td>
 To configure the system to prevent the <code>vfat</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/vfat.conf</code>:
 <pre>install vfat /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 

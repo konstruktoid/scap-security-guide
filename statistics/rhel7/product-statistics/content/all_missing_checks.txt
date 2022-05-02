@@ -39,6 +39,7 @@ avahi_prevent_port_sharing
 avahi_restrict_published_information
 bios_assign_password
 bios_disable_usb_boot
+configure_firewalld_ports
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_configure_logging

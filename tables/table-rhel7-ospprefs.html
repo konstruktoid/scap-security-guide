@@ -3225,10 +3225,6 @@ the screensaver is activated, add or set <tt>lock-delay</tt> to <tt>uint32 <abbr
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <abbr title="$var_screensaver_lock_delay"><tt>0</tt></abbr>
 </pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
@@ -3740,11 +3736,6 @@ For example, to configure the system for a 15 minute delay, add the following to
 <tt>/etc/dconf/db/local.d/00-security-settings</tt>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
 A session time-out lock is a temporary action taken when a user stops work and moves away from
@@ -3809,7 +3800,7 @@ The IEEE 1394 (FireWire) is a serial bus standard for
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3844,7 +3835,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3861,7 +3852,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -3927,7 +3918,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
   </td>
   <td xml:lang="en-US">

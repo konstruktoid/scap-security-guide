@@ -479,9 +479,7 @@ PAE kernel is required to enable either Execute Disable (XD) or No Execute (NX) 
   <td xml:lang="en-US">
 By default on Red Hat Enterprise Linux 7 64-bit systems, ExecShield is
 enabled and can only be disabled if the hardware does not support
-ExecShield or is disabled in <tt>/etc/default/grub</tt>. For
-Red Hat Enterprise Linux 7  32-bit systems, <tt>sysctl</tt> can be used to enable
-ExecShield.
+ExecShield or is disabled in <tt>/etc/default/grub</tt>.
   </td>
   <td xml:lang="en-US">
 ExecShield uses the segmentation feature on all x86 systems to prevent
@@ -1373,7 +1371,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_unlock_time=900<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3</td>
+  <td>var_accounts_passwords_pam_faillock_unlock_time=900<br/>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_fail_interval=900</td>
 </tr>
 <tr>
   <td>BP28(R18)</td>

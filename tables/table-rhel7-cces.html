@@ -824,11 +824,7 @@ For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</td>
+</td>
 </tr>
 <tr>
 <td>CCE-80370-0</td>
@@ -839,10 +835,6 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 </tr>
 <tr>
@@ -7653,12 +7645,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 </tr>
 <tr>
@@ -8180,7 +8166,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
 </td>
 </tr>
@@ -8192,7 +8178,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
 </td>
 </tr>
@@ -8204,7 +8190,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
 </td>
 </tr>
@@ -8215,7 +8201,7 @@ kernel module from being loaded, add the following line to a file in the directo
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
 </td>
 </tr>
@@ -8227,7 +8213,7 @@ layer protocol designed to provide reliable high-bandwidth,
 low-latency communications between nodes in a cluster.
 
 To configure the system to prevent the <code>rds</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/rds.conf</code>:
 <pre>install rds /bin/true</pre>
 </td>
 </tr>
@@ -8240,7 +8226,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
 </td>
 </tr>
@@ -8252,7 +8238,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
 </td>
 </tr>
@@ -8840,7 +8826,7 @@ append "nousb" to the kernel line in <code>/etc/default/grub</code> as shown:
 <td>Disable Mounting of cramfs</td>
 <td>
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -8854,7 +8840,7 @@ decompress the image.</td>
 <td>Disable Mounting of freevxfs</td>
 <td>
 To configure the system to prevent the <code>freevxfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/freevxfs.conf</code>:
 <pre>install freevxfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -8863,7 +8849,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of hfs</td>
 <td>
 To configure the system to prevent the <code>hfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfs.conf</code>:
 <pre>install hfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -8872,7 +8858,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of hfsplus</td>
 <td>
 To configure the system to prevent the <code>hfsplus</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfsplus.conf</code>:
 <pre>install hfsplus /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -8881,7 +8867,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of jffs2</td>
 <td>
 To configure the system to prevent the <code>jffs2</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/jffs2.conf</code>:
 <pre>install jffs2 /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.</td>
 </tr>
@@ -8890,7 +8876,7 @@ This effectively prevents usage of this uncommon filesystem.</td>
 <td>Disable Mounting of squashfs</td>
 <td>
 To configure the system to prevent the <code>squashfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/squashfs.conf</code>:
 <pre>install squashfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -8904,7 +8890,7 @@ to first decompress the image.</td>
 <td>Disable Mounting of udf</td>
 <td>
 To configure the system to prevent the <code>udf</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/udf.conf</code>:
 <pre>install udf /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -8921,7 +8907,7 @@ writing DVDs and newer optical disc formats.</td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -8932,7 +8918,7 @@ module, but will not prevent an administrator (or another program) from using th
 <td>Disable Mounting of vFAT filesystems</td>
 <td>
 To configure the system to prevent the <code>vfat</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/vfat.conf</code>:
 <pre>install vfat /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -9418,9 +9404,7 @@ To set the umask for daemons expected by the profile, edit the following line:
 <td>Enable ExecShield via sysctl</td>
 <td>By default on Red Hat Enterprise Linux 7 64-bit systems, ExecShield is
 enabled and can only be disabled if the hardware does not support
-ExecShield or is disabled in <code>/etc/default/grub</code>. For
-Red Hat Enterprise Linux 7  32-bit systems, <code>sysctl</code> can be used to enable
-ExecShield.</td>
+ExecShield or is disabled in <code>/etc/default/grub</code>.</td>
 </tr>
 <tr>
 <td>CCE-80659-6</td>
@@ -14117,7 +14101,7 @@ volume at installation time, or migrate it using LVM.</td>
 <tr>
 <td>CCE-80297-5</td>
 <td>Configure Dovecot to Use the SSL Certificate file</td>
-<td>This option tells Dovecot where to find the the mail server's SSL
+<td>This option tells Dovecot where to find the mail server's SSL
 Certificate.
 <br><br>
 Edit <code>/etc/dovecot/conf.d/10-ssl.conf</code> and add or correct the
@@ -14129,7 +14113,7 @@ reference the appropriate file</i>):
 <tr>
 <td>CCE-80298-3</td>
 <td>Configure Dovecot to Use the SSL Key file</td>
-<td>This option tells Dovecot where to find the the mail server's SSL Key.
+<td>This option tells Dovecot where to find the mail server's SSL Key.
 <br><br>
 Edit <code>/etc/dovecot/conf.d/10-ssl.conf</code> and add or correct the
 following line (<i>note: the path below is the default path set by the

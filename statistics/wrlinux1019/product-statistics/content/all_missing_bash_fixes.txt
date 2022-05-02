@@ -89,6 +89,7 @@ auditd_data_retention_space_left_action
 auditd_overflow_action
 avahi_disable_publishing
 chronyd_server_directive
+configure_firewalld_ports
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
@@ -106,7 +107,6 @@ file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid
 file_permissions_ungroupowned
-firewalld_sshd_port_enabled
 ftp_configure_firewall
 ftp_limit_users
 gid_passwd_group_same

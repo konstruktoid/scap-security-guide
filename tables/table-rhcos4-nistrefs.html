@@ -4142,6 +4142,76 @@ accepted.
   </td>
 </tr>
 <tr>
+  <td>CM-3(6)<br/>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
+  <td>Enable FIPS Mode</td>
+  <td xml:lang="en-US">
+To enable FIPS mode, run the following command:
+<pre>fips-mode-setup --enable</pre>
+<br />
+The <tt>fips-mode-setup</tt> command will configure the system in
+FIPS mode by automatically configuring the following:
+<ul>
+<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
+<li>Creating <tt>/etc/system-fips</tt></li>
+<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><abbr title="$var_system_crypto_policy"><tt>DEFAULT</tt></abbr></tt></li>
+<li>Loading the Dracut <tt>fips</tt> module</li>
+</ul>
+  </td>
+  <td xml:lang="en-US">
+Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+protect data. The operating system must implement cryptographic modules adhering to the higher
+standards approved by the federal government since this provides assurance they have been tested
+and validated.
+  </td>
+</tr>
+<tr>
+  <td>CM-3(6)<br/>IA-2(4)</td>
+  <td>Disable SSH Server If Possible (Unusual)</td>
+  <td xml:lang="en-US">
+The SSH server service, sshd, is commonly needed.
+However, if it can be disabled, do so.
+
+
+The <code>sshd</code> service can be disabled with the following manifest:
+<pre>
+---
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 75-master-sshd-disable
+spec:
+  config:
+    ignition:
+      version: 3.1.0
+    systemd:
+      units:
+      - enabled: false
+        name: sshd.service
+</pre>
+<p>
+This will disable the <tt>sshd</tt> service in all the
+nodes labeled with the "master" role.
+</p>
+<p>
+Note that this needs to be done for each <tt>MachineConfigPool</tt>
+</p>
+<p>
+For more information on how to configure nodes with the Machine Config
+Operator see
+<a xmlns='http://www.w3.org/1999/xhtml' href='https://docs.openshift.com/container-platform/4.6/post_installation_configuration/machine-configuration-tasks.html'>the relevant documentation</a>.
+</p>
+
+
+This is unusual, as SSH is a common method for encrypted and authenticated
+remote access.
+  </td>
+  <td xml:lang="en-US">
+
+  </td>
+</tr>
+<tr>
   <td>AC-4<br/>CM-7(b)<br/>CA-3(5)<br/>SC-7(21)<br/>CM-6(a)</td>
   <td>Set Default ip6tables Policy for Incoming Packets</td>
   <td xml:lang="en-US">
@@ -7377,7 +7447,7 @@ to be detected.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>jffs2</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/jffs2.conf</code>:
 <pre>install jffs2 /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -7606,7 +7676,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -7620,7 +7690,7 @@ the system against exploitation of any flaws in its implementation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>hfsplus</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfsplus.conf</code>:
 <pre>install hfsplus /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -7662,7 +7732,7 @@ layer protocol designed to provide reliable high-bandwidth,
 low-latency communications between nodes in a cluster.
 
 To configure the system to prevent the <code>rds</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/rds.conf</code>:
 <pre>install rds /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -7711,7 +7781,7 @@ the vulnerability to exploitation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -7966,7 +8036,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -8004,7 +8074,7 @@ An illicit ICMP redirect message could result in a man-in-the-middle attack.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>udf</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/udf.conf</code>:
 <pre>install udf /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -8100,7 +8170,7 @@ located on the root partition. The only exception to this is chroot jails.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>vfat</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/vfat.conf</code>:
 <pre>install vfat /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -8120,7 +8190,7 @@ surface of the system.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>freevxfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/freevxfs.conf</code>:
 <pre>install freevxfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -8137,7 +8207,7 @@ To prevent USB storage devices from being used, configure the kernel module load
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <tt>modprobe</tt> program from loading the <tt>usb-storage</tt>
 module, but will not prevent an administrator (or another program) from using the
@@ -8255,7 +8325,7 @@ such as <tt>/dev/shm</tt> can expose the system to potential compromise.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>hfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/hfs.conf</code>:
 <pre>install hfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
   </td>
@@ -8475,7 +8545,7 @@ An illicit ICMP redirect message could result in a man-in-the-middle attack.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>squashfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/squashfs.conf</code>:
 <pre>install squashfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -9164,29 +9234,6 @@ and validated.
 </tr>
 <tr>
   <td>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
-  <td>Enable FIPS Mode</td>
-  <td xml:lang="en-US">
-To enable FIPS mode, run the following command:
-<pre>fips-mode-setup --enable</pre>
-<br />
-The <tt>fips-mode-setup</tt> command will configure the system in
-FIPS mode by automatically configuring the following:
-<ul>
-<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
-<li>Creating <tt>/etc/system-fips</tt></li>
-<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><abbr title="$var_system_crypto_policy"><tt>DEFAULT</tt></abbr></tt></li>
-<li>Loading the Dracut <tt>fips</tt> module</li>
-</ul>
-  </td>
-  <td xml:lang="en-US">
-Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
-protect data. The operating system must implement cryptographic modules adhering to the higher
-standards approved by the federal government since this provides assurance they have been tested
-and validated.
-  </td>
-</tr>
-<tr>
-  <td>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
   <td>Enable Dracut FIPS Module</td>
   <td xml:lang="en-US">
 To enable FIPS mode, run the following command:
@@ -9701,7 +9748,7 @@ activation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>iwlmvm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/iwlmvm.conf</code>:
 <pre>install iwlmvm /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9718,7 +9765,7 @@ The IEEE 1394 (FireWire) is a serial bus standard for
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9732,7 +9779,7 @@ flaws in its implementation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>mac80211</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/mac80211.conf</code>:
 <pre>install mac80211 /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9813,7 +9860,7 @@ utility of Bluetooth connectivity and its limited range.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>iwlwifi</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/iwlwifi.conf</code>:
 <pre>install iwlwifi /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9828,7 +9875,7 @@ activation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cfg80211</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cfg80211.conf</code>:
 <pre>install cfg80211 /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9846,7 +9893,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9878,7 +9925,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
   </td>
   <td xml:lang="en-US">

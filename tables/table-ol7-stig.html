@@ -323,12 +323,7 @@ and locked in <code>/etc/dconf/db/local.d/locks</code> directory to prevent user
 For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
-idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</pre></td>
+idle-delay=uint32 900</pre></pre></td>
 <td>OL07-00-010070</td>
 <td>dconf_gnome_screensaver_idle_delay</td>
 </tr>
@@ -438,10 +433,6 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</pre></td>
 <td>OL07-00-010110</td>
 <td>dconf_gnome_screensaver_lock_delay</td>
@@ -1714,7 +1705,7 @@ malicious software.</pre></td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -1736,7 +1727,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre></pre></td>
 <td>OL07-00-020101</td>
 <td>kernel_module_dccp_disabled</td>
@@ -4188,13 +4179,7 @@ services to have access to the system. To configure <code>firewalld</code>
 to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code></pre></td>
+<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre></pre></td>
 <td>OL07-00-040100</td>
 <td>configure_firewalld_ports</td>
 </tr>

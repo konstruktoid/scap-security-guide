@@ -3,7 +3,6 @@ dir_perms_world_writable_system_owned
 enable_dconf_user_profile
 encrypt_partitions
 file_permissions_ungroupowned
-firewalld_sshd_port_enabled
 gid_passwd_group_same
 grub2_password
 grub2_uefi_password

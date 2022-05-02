@@ -64,8 +64,6 @@ avahi_restrict_published_information
 bios_assign_password
 bios_disable_usb_boot
 bios_enable_execution_restrictions
-chronyd_client_only
-chronyd_no_chronyc_network
 chronyd_or_ntpd_specify_remote_server
 chronyd_server_directive
 configure_bashrc_exec_tmux
@@ -359,9 +357,6 @@ sysconfig_networking_bootproto_ifcfg
 sysctl_crypto_fips_enabled
 uefi_no_removeable_media
 umask_for_daemons
-usbguard_allow_hid
-usbguard_allow_hid_and_hub
-usbguard_allow_hub
 use_root_squashing_all_exports
 wireless_disable_in_bios
 zipl_bls_entries_only

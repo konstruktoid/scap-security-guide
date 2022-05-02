@@ -9,6 +9,7 @@ agent_mfetpd_running
 auditd_audispd_configure_sufficiently_large_partition
 bios_enable_execution_restrictions
 chronyd_server_directive
+configure_firewalld_ports
 configure_openssl_tls_crypto_policy
 enable_dracut_fips_module
 encrypt_partitions

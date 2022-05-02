@@ -43,6 +43,7 @@ avahi_disable_publishing
 bios_enable_execution_restrictions
 chronyd_server_directive
 configure_etc_hosts_deny
+configure_firewalld_ports
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 dhcp_client_restrict_options
@@ -59,7 +60,6 @@ file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid
 file_permissions_ungroupowned
-firewalld_sshd_port_enabled
 ftp_configure_firewall
 ftp_limit_users
 gid_passwd_group_same

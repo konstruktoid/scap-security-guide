@@ -60,7 +60,6 @@ banner_etc_issue
 banner_etc_motd
 chronyd_or_ntpd_set_maxpoll
 chronyd_specify_remote_server
-configure_firewalld_ports
 configure_firewalld_rate_limiting
 coredump_disable_backtraces
 coredump_disable_storage
@@ -128,6 +127,7 @@ file_permissions_unauthorized_world_writable
 file_permissions_var_log
 file_permissions_var_log_messages
 file_permissions_var_log_syslog
+firewalld_sshd_port_enabled
 gnome_gdm_disable_xdmcp
 grub2_enable_fips_mode
 harden_ssh_client_crypto_policy

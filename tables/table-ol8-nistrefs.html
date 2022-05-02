@@ -4450,6 +4450,47 @@ accepted.
   </td>
 </tr>
 <tr>
+  <td>CM-3(6)<br/>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
+  <td>Enable FIPS Mode</td>
+  <td xml:lang="en-US">
+To enable FIPS mode, run the following command:
+<pre>fips-mode-setup --enable</pre>
+<br />
+The <tt>fips-mode-setup</tt> command will configure the system in
+FIPS mode by automatically configuring the following:
+<ul>
+<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
+<li>Creating <tt>/etc/system-fips</tt></li>
+<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><abbr title="$var_system_crypto_policy"><tt>DEFAULT</tt></abbr></tt></li>
+<li>Loading the Dracut <tt>fips</tt> module</li>
+</ul>
+  </td>
+  <td xml:lang="en-US">
+Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
+protect data. The operating system must implement cryptographic modules adhering to the higher
+standards approved by the federal government since this provides assurance they have been tested
+and validated.
+  </td>
+</tr>
+<tr>
+  <td>CM-3(6)<br/>IA-2(4)</td>
+  <td>Disable SSH Server If Possible (Unusual)</td>
+  <td xml:lang="en-US">
+The SSH server service, sshd, is commonly needed.
+However, if it can be disabled, do so.
+
+
+The <code>sshd</code> service can be disabled with the following command:
+<pre>$ sudo systemctl mask --now sshd.service</pre>
+
+This is unusual, as SSH is a common method for encrypted and authenticated
+remote access.
+  </td>
+  <td xml:lang="en-US">
+
+  </td>
+</tr>
+<tr>
   <td>AC-4<br/>CM-7(b)<br/>CA-3(5)<br/>SC-7(21)<br/>CM-6(a)</td>
   <td>Configure the Firewalld Ports</td>
   <td xml:lang="en-US">
@@ -4459,12 +4500,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
   </td>
   <td xml:lang="en-US">
 In order to prevent unauthorized connection of devices, unauthorized
@@ -9387,7 +9422,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9448,7 +9483,7 @@ relatively new transport layer protocol, designed to support
 streaming media and telephony.
 
 To configure the system to prevent the <code>dccp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/dccp.conf</code>:
 <pre>install dccp /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9511,7 +9546,7 @@ layer protocol designed to provide reliable high-bandwidth,
 low-latency communications between nodes in a cluster.
 
 To configure the system to prevent the <code>rds</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/rds.conf</code>:
 <pre>install rds /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -9614,7 +9649,7 @@ xinetd service's accidental (or intentional) activation.
   <td xml:lang="en-US">
 
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -10089,7 +10124,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -10320,7 +10355,7 @@ To prevent USB storage devices from being used, configure the kernel module load
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <tt>modprobe</tt> program from loading the <tt>usb-storage</tt>
 module, but will not prevent an administrator (or another program) from using the
@@ -10398,6 +10433,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mounting in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -10863,6 +10899,7 @@ For example:
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
+Automatically mounting file systems permits easy introduction of unknown devices, thereby facilitating malicious activity.
 Disabling automatic mount running in GNOME3 can prevent
 the introduction of malware via removable media.
 It will, however, also prevent desktop users from legitimate use
@@ -11306,10 +11343,6 @@ the screensaver is activated, add or set <tt>lock-delay</tt> to <tt>uint32 <abbr
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <abbr title="$var_screensaver_lock_delay"><tt>0</tt></abbr>
 </pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/screensaver/lock-delay</pre>
 After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
@@ -11498,11 +11531,6 @@ For example, to configure the system for a 15 minute delay, add the following to
 <tt>/etc/dconf/db/local.d/00-security-settings</tt>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<tt>/etc/dconf/db/local.d/locks/00-security-settings-lock</tt> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <tt>dconf update</tt>.
   </td>
   <td xml:lang="en-US">
 A session time-out lock is a temporary action taken when a user stops work and moves away from
@@ -11618,29 +11646,6 @@ Institute of Standards and Technology (NIST).
 On a system where FIPS mode is enabled, <tt>/etc/system-fips</tt> must exist.
 To enable FIPS mode, run the following command:
 <pre>fips-mode-setup --enable</pre>
-  </td>
-  <td xml:lang="en-US">
-Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
-protect data. The operating system must implement cryptographic modules adhering to the higher
-standards approved by the federal government since this provides assurance they have been tested
-and validated.
-  </td>
-</tr>
-<tr>
-  <td>SC-12(2)<br/>SC-12(3)<br/>IA-7<br/>SC-13<br/>CM-6(a)<br/>SC-12</td>
-  <td>Enable FIPS Mode</td>
-  <td xml:lang="en-US">
-To enable FIPS mode, run the following command:
-<pre>fips-mode-setup --enable</pre>
-<br />
-The <tt>fips-mode-setup</tt> command will configure the system in
-FIPS mode by automatically configuring the following:
-<ul>
-<li>Setting the kernel FIPS mode flag (<tt>/proc/sys/crypto/fips_enabled</tt>) to <tt>1</tt></li>
-<li>Creating <tt>/etc/system-fips</tt></li>
-<li>Setting the system crypto policy in <tt>/etc/crypto-policies/config</tt> to <tt><abbr title="$var_system_crypto_policy"><tt>DEFAULT</tt></abbr></tt></li>
-<li>Loading the Dracut <tt>fips</tt> module</li>
-</ul>
   </td>
   <td xml:lang="en-US">
 Use of weak or untested encryption algorithms undermines the purposes of utilizing encryption to
@@ -12323,7 +12328,7 @@ The IEEE 1394 (FireWire) is a serial bus standard for
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -12361,7 +12366,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
   </td>
   <td xml:lang="en-US">
@@ -12378,7 +12383,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
   </td>
   <td xml:lang="en-US">

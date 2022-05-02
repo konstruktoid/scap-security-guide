@@ -62,8 +62,6 @@ auditd_audispd_encrypt_sent_records
 auditd_audispd_network_failure_action
 avahi_disable_publishing
 bios_enable_execution_restrictions
-chronyd_client_only
-chronyd_no_chronyc_network
 chronyd_run_as_chrony_user
 chronyd_server_directive
 configure_bashrc_exec_tmux
@@ -257,9 +255,6 @@ sudoers_no_command_negation
 sudoers_no_root_target
 sysctl_crypto_fips_enabled
 tftpd_uses_secure_mode
-usbguard_allow_hid
-usbguard_allow_hid_and_hub
-usbguard_allow_hub
 xwindows_remove_packages
 xwindows_runlevel_target
 zipl_bls_entries_only

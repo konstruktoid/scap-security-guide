@@ -535,11 +535,7 @@ For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
 idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</td>
+</td>
 </tr></table>
 <table><tr>
 <td>Set GNOME3 Screensaver Lock Delay After Activation Period</td>
@@ -549,10 +545,24 @@ the screensaver is activated, add or set <code>lock-delay</code> to <code>uint32
 <pre>[org/gnome/desktop/screensaver]
 lock-delay=uint32 <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_screensaver_lock_delay"></xccdf-1.1:sub>
 </pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+After the settings have been set, run <code>dconf update</code>.</td>
+</tr></table>
+<table><tr>
+<td>Ensure Users Cannot Change GNOME3 Screensaver Settings</td>
+<td>If not already configured, ensure that users cannot change GNOME3 screensaver lock settings
+by adding <code>/org/gnome/desktop/screensaver/lock-delay</code>
+to <code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
 For example:
 <pre>/org/gnome/desktop/screensaver/lock-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+</tr></table>
+<table><tr>
+<td>Ensure Users Cannot Change GNOME3 Session Idle Settings</td>
+<td>If not already configured, ensure that users cannot change GNOME3 session idle settings
+by adding <code>/org/gnome/desktop/session/idle-delay</code>
+to <code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/session/idle-delay</pre>
 After the settings have been set, run <code>dconf update</code>.</td>
 </tr></table>
 <table><tr>
@@ -628,12 +638,42 @@ The console can now be locked with the following key combination:
 The session lock is implemented at the point where session activity can be determined. The operating system session lock event must include an obfuscation of the display screen so as to prevent other users from reading what was previously displayed.
 
 Publicly viewable images can include static or dynamic images, for example, patterns used with screen savers, photographic images, solid colors, a clock, a battery life indicator, or a blank screen, with the additional caveat that none of the images convey sensitive information.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Set GNOME3 Screensaver Inactivity Timeout</td>
+<td>The idle time-out value for inactivity in the GNOME3 desktop is configured via the <code>idle-delay</code>
+setting must be set under an appropriate configuration file(s) in the <code>/etc/dconf/db/local.d</code> directory
+and locked in <code>/etc/dconf/db/local.d/locks</code> directory to prevent user modification.
+<br><br>
+For example, to configure the system for a 15 minute delay, add the following to
+<code>/etc/dconf/db/local.d/00-security-settings</code>:
+<pre>[org/gnome/desktop/session]
+idle-delay=uint32 900</pre>
+</td>
+</tr></table>
+<table><tr>
+<td>Ensure Users Cannot Change GNOME3 Session Idle Settings</td>
+<td>If not already configured, ensure that users cannot change GNOME3 session idle settings
+by adding <code>/org/gnome/desktop/session/idle-delay</code>
+to <code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
+For example:
+<pre>/org/gnome/desktop/session/idle-delay</pre>
+After the settings have been set, run <code>dconf update</code>.</td>
+</tr></table>
+<table><tr>
 <td>Support session locking with tmux</td>
 <td>The <code>tmux</code> terminal multiplexer is used to implement
 automatic session locking. It should be started from
 <code>/etc/bashrc</code> or drop-in files within <code>/etc/profile.d/</code>.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Configure tmux to lock session after inactivity</td>
+<td>To enable console screen locking in <code>tmux</code> terminal multiplexer
+after a period of inactivity,
+the <code>lock-after-time</code> option has to be set to nonzero value in
+<code>/etc/tmux.conf</code>.</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56639</td>
@@ -5665,7 +5705,7 @@ network, data link, and physical layers, based on virtual circuits
 and virtual paths.
 
 To configure the system to prevent the <code>atm</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/atm.conf</code>:
 <pre>install atm /bin/true</pre>
 </td>
 </tr></table>
@@ -5676,7 +5716,7 @@ protocol which was initially developed for automotive and
 is now also used in marine, industrial, and medical applications.
 
 To configure the system to prevent the <code>can</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/can.conf</code>:
 <pre>install can /bin/true</pre>
 </td>
 </tr></table>
@@ -5686,7 +5726,7 @@ kernel module from being loaded, add the following line to a file in the directo
 high-speed real-time communication.
 
 To configure the system to prevent the <code>firewire-core</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/firewire-core.conf</code>:
 <pre>install firewire-core /bin/true</pre>
 </td>
 </tr></table>
@@ -5698,7 +5738,7 @@ message-oriented communication, with several streams of messages
 within one connection.
 
 To configure the system to prevent the <code>sctp</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/sctp.conf</code>:
 <pre>install sctp /bin/true</pre>
 </td>
 </tr></table>
@@ -5709,7 +5749,7 @@ is designed to provide communications between nodes in a
 cluster.
 
 To configure the system to prevent the <code>tipc</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/tipc.conf</code>:
 <pre>install tipc /bin/true</pre>
 </td>
 </tr></table>
@@ -5726,7 +5766,7 @@ to prevent the loading of the Bluetooth module:
 <td>Disable Mounting of cramfs</td>
 <td>
 To configure the system to prevent the <code>cramfs</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/cramfs.conf</code>:
 <pre>install cramfs /bin/true</pre>
 This effectively prevents usage of this uncommon filesystem.
 
@@ -5822,12 +5862,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 </tr></table>
 <table><tr>
@@ -6068,7 +6102,7 @@ The <code>autofs</code> service can be disabled with the following command:
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -7798,12 +7832,6 @@ to open ports, run the following command:
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
 or
 <pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
-Run the command list above for each of the ports listed below:
-
-To configure <code>firewalld</code> to allow access, run the following command(s):
-
-
-<code>firewall-cmd --permanent --add-service=ssh</code>
 </td>
 </tr></table>
 </td>
@@ -8275,7 +8303,20 @@ When discretionary access control policies are implemented, subjects are not con
 <td>Discretionary Access Control (DAC) is based on the notion that individual users are "owners" of objects and therefore have discretion over who should be authorized to access the object and in which mode (e.g., read or write). Ownership is usually acquired as a consequence of creating the object or via specified ownership assignment. DAC allows the owner to determine who will have access to objects they control. An example of DAC includes user-controlled file permissions.
 
 When discretionary access control policies are implemented, subjects are not constrained with regard to what actions they can take with information for which they have already been granted access. Thus, subjects that have been granted access to information are not prevented from passing (i.e., the subjects have the discretion to pass) the information to other subjects or objects. A subject that is constrained in its operation by Mandatory Access Control policies is still able to operate under the less rigorous constraints of this requirement. Thus, while Mandatory Access Control imposes constraints preventing a subject from passing information to another subject operating at a different sensitivity level, this requirement permits the subject to pass the information to any subject at the same sensitivity level. The policy is bounded by the information system boundary. Once the information is passed outside the control of the information system, additional means may be required to ensure the constraints remain in effect. While the older, more traditional definitions of discretionary access control require identity-based access control, that limitation is not required for this use of discretionary access control.</td>
-<td></td>
+<td>
+<table><tr>
+<td>Enable Kernel Parameter to Enforce DAC on Hardlinks</td>
+<td>To set the runtime status of the <code>fs.protected_hardlinks</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w fs.protected_hardlinks=1</pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>fs.protected_hardlinks = 1</pre>
+</td>
+</tr></table>
+<table><tr>
+<td>Enable Kernel Parameter to Enforce DAC on Symlinks</td>
+<td>To set the runtime status of the <code>fs.protected_symlinks</code> kernel parameter, run the following command: <pre>$ sudo sysctl -w fs.protected_symlinks=1</pre>
+To make sure that the setting is persistent, add the following line to a file in the directory <code>/etc/sysctl.d</code>: <pre>fs.protected_symlinks = 1</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57229</td>
@@ -9521,7 +9562,7 @@ The <code>autofs</code> service can be disabled with the following command:
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -16608,7 +16649,7 @@ The <code>autofs</code> service can be disabled with the following command:
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the

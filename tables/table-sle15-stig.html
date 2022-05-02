@@ -428,12 +428,7 @@ and locked in <code>/etc/dconf/db/local.d/locks</code> directory to prevent user
 For example, to configure the system for a 15 minute delay, add the following to
 <code>/etc/dconf/db/local.d/00-security-settings</code>:
 <pre>[org/gnome/desktop/session]
-idle-delay=uint32 900</pre>
-Once the setting has been added, add a lock to
-<code>/etc/dconf/db/local.d/locks/00-security-settings-lock</code> to prevent user modification.
-For example:
-<pre>/org/gnome/desktop/session/idle-delay</pre>
-After the settings have been set, run <code>dconf update</code>.</pre></td>
+idle-delay=uint32 900</pre></pre></td>
 <td>SLES-15-010120</td>
 <td>dconf_gnome_screensaver_idle_delay</td>
 </tr>
@@ -1595,7 +1590,7 @@ malicious software.</pre></td>
 to prevent automatic loading of the USB storage driver.
 
 To configure the system to prevent the <code>usb-storage</code>
-kernel module from being loaded, add the following line to a file in the directory <code>/etc/modprobe.d</code>:
+kernel module from being loaded, add the following line to the file <code>/etc/modprobe.d/usb-storage.conf</code>:
 <pre>install usb-storage /bin/true</pre>
 This will prevent the <code>modprobe</code> program from loading the <code>usb-storage</code>
 module, but will not prevent an administrator (or another program) from using the
@@ -4274,7 +4269,7 @@ The operating system must generate audit records for all uses of the <code>unlin
 Without generating audit records specific to the security and mission needs of the organization, it would be 
 difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
 Audit records can be generated from various components within the information system (e.g., module or policy filter).
-Add or update the following lines to <code>/etc/audit/rules.d/audit.rules</code> to configure the the operating system to generate 
+Add or update the following lines to <code>/etc/audit/rules.d/audit.rules</code> to configure the operating system to generate 
 an audit record for all uses of the <code>unlinkat</code> system call:  
 <pre>
 -a always,exit -F arch=b32 -S unlinkat -F auid&gt;=1000 -F auid!=-1 -k perm_mod

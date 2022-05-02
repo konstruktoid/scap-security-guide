@@ -2,6 +2,7 @@ account_temp_expire_date
 accounts_user_home_paths_only
 auditd_audispd_disk_full_action
 auditd_audispd_network_failure_action
+configure_firewalld_ports
 encrypt_partitions
 file_permission_user_init_files
 libreswan_approved_tunnels

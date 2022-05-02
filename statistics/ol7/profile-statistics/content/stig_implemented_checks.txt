@@ -108,7 +108,6 @@ auditd_overflow_action
 banner_etc_issue
 chronyd_or_ntpd_set_maxpoll
 clean_components_post_updating
-configure_firewalld_ports
 configure_firewalld_rate_limiting
 dconf_db_up_to_date
 dconf_gnome_banner_enabled

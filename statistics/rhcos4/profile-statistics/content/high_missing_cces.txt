@@ -6,3 +6,4 @@ file_permissions_sshd_private_key
 file_permissions_sshd_pub_key
 no_tmux_in_shells
 service_bluetooth_disabled
+service_sshd_disabled

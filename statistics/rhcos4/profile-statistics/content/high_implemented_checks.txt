@@ -196,6 +196,7 @@ service_autofs_disabled
 service_bluetooth_disabled
 service_chronyd_or_ntpd_enabled
 service_debug-shell_disabled
+service_sshd_disabled
 service_systemd-coredump_disabled
 service_usbguard_enabled
 sshd_disable_rhosts

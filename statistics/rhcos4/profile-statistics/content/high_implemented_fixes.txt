@@ -166,6 +166,7 @@ service_auditd_enabled
 service_autofs_disabled
 service_bluetooth_disabled
 service_debug-shell_disabled
+service_sshd_disabled
 service_systemd-coredump_disabled
 service_usbguard_enabled
 sshd_disable_rhosts

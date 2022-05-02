@@ -33,6 +33,7 @@ auditd_audispd_network_failure_action
 auditd_overflow_action
 avahi_disable_publishing
 chronyd_server_directive
+configure_firewalld_ports
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 dhcp_client_restrict_options
@@ -48,7 +49,6 @@ file_permission_user_init_files
 file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_ungroupowned
-firewalld_sshd_port_enabled
 ftp_configure_firewall
 ftp_limit_users
 gid_passwd_group_same

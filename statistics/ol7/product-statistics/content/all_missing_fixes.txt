@@ -42,6 +42,7 @@ avahi_disable_publishing
 bios_enable_execution_restrictions
 chronyd_server_directive
 configure_etc_hosts_deny
+configure_firewalld_ports
 configure_user_data_backups
 coreos_enable_selinux_kernel_argument
 dhcp_client_restrict_options
