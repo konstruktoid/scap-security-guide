@@ -1459,8 +1459,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify the operating system is configured to disable kernel image loading with the following commands:
 
 Check the status of the kernel.kexec_load_disabled kernel parameter.
@@ -1473,16 +1472,16 @@ If "kernel.kexec_load_disabled" is not set to "1" or is missing, this is a findi
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r kernel.kexec_load_disabled /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.kexec_load_disabled /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:kernel.kexec_load_disabled = 1
 
 If "kernel.kexec_load_disabled" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to disable kernel image loading.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 kernel.kexec_load_disabled = 1
 
@@ -1490,7 +1489,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010372</td>
-<td>SV-230266r792870_rule</td>
+<td>SV-230266r818816_rule</td>
 </tr>
 <tr>
 <td>V-230267</td>
@@ -1512,8 +1511,6 @@ The sysctl --system command will load settings from all system configuration fil
 /lib/sysctl.d/*.conf
 /etc/sysctl.conf
 
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.
-
 Satisfies: SRG-OS-000312-GPOS-00122, SRG-OS-000312-GPOS-00123, SRG-OS-000312-GPOS-00124, SRG-OS-000324-GPOS-00125</pre></td>
 <td><pre>Verify the operating system is configured to enable DAC on symlinks with the following commands:
 
@@ -1527,16 +1524,16 @@ If "fs.protected_symlinks" is not set to "1" or is missing, this is a finding.
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r fs.protected_symlinks /etc/sysctl.d/*.conf
+$ sudo grep -r fs.protected_symlinks /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:fs.protected_symlinks = 1
 
 If "fs.protected_symlinks" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to enable DAC on symlinks.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 fs.protected_symlinks = 1
 
@@ -1544,7 +1541,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010373</td>
-<td>SV-230267r792873_rule</td>
+<td>SV-230267r818819_rule</td>
 </tr>
 <tr>
 <td>V-230268</td>
@@ -1566,8 +1563,6 @@ The sysctl --system command will load settings from all system configuration fil
 /lib/sysctl.d/*.conf
 /etc/sysctl.conf
 
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.
-
 Satisfies: SRG-OS-000312-GPOS-00122, SRG-OS-000312-GPOS-00123, SRG-OS-000312-GPOS-00124, SRG-OS-000324-GPOS-00125</pre></td>
 <td><pre>Verify the operating system is configured to enable DAC on hardlinks with the following commands:
 
@@ -1581,16 +1576,16 @@ If "fs.protected_hardlinks" is not set to "1" or is missing, this is a finding.
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r fs.protected_hardlinks /etc/sysctl.d/*.conf
+$ sudo grep -r fs.protected_hardlinks /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:fs.protected_hardlinks = 1
 
 If "fs.protected_hardlinks" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to enable DAC on hardlinks.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 fs.protected_hardlinks = 1
 
@@ -1598,7 +1593,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010374</td>
-<td>SV-230268r792876_rule</td>
+<td>SV-230268r818822_rule</td>
 </tr>
 <tr>
 <td>V-230269</td>
@@ -1620,9 +1615,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify the operating system is configured to restrict access to the kernel message buffer with the following commands:
 
 Check the status of the kernel.dmesg_restrict kernel parameter.
@@ -1635,16 +1628,16 @@ If "kernel.dmesg_restrict" is not set to "1" or is missing, this is a finding.
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r kernel.dmesg_restrict /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.dmesg_restrict /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:kernel.dmesg_restrict = 1
 
 If "kernel.dmesg_restrict" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to restrict access to the kernel message buffer.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 kernel.dmesg_restrict = 1
 
@@ -1652,7 +1645,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010375</td>
-<td>SV-230269r792879_rule</td>
+<td>SV-230269r818825_rule</td>
 </tr>
 <tr>
 <td>V-230270</td>
@@ -1674,9 +1667,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify the operating system is configured to prevent kernel profiling by unprivileged users with the following commands:
 
 Check the status of the kernel.perf_event_paranoid kernel parameter.
@@ -1689,16 +1680,16 @@ If "kernel.perf_event_paranoid" is not set to "2" or is missing, this is a findi
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r kernel.perf_event_paranoid /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.perf_event_paranoid /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:kernel.perf_event_paranoid = 2
 
 If "kernel.perf_event_paranoid" is not set to "2", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to prevent kernel profiling by unprivileged users.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 kernel.perf_event_paranoid = 2
 
@@ -1706,7 +1697,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010376</td>
-<td>SV-230270r792882_rule</td>
+<td>SV-230270r818828_rule</td>
 </tr>
 <tr>
 <td>V-230271</td>
@@ -2009,9 +2000,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 implements ASLR with the following command:
 
 $ sudo sysctl kernel.randomize_va_space
@@ -2022,16 +2011,16 @@ If "kernel.randomize_va_space" is not set to "2", this is a finding.
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r kernel.randomize_va_space /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.randomize_va_space /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:kernel.randomize_va_space = 2
 
 If "kernel.randomize_va_space" is not set to "2", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure the operating system to implement virtual address space randomization.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 kernel.randomize_va_space=2
 
@@ -2039,7 +2028,7 @@ Issue the following command to make the changes take effect:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010430</td>
-<td>SV-230280r792891_rule</td>
+<td>SV-230280r818831_rule</td>
 </tr>
 <tr>
 <td>V-230281</td>
@@ -2737,9 +2726,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 disables storing core dumps with the following commands:
 
 $ sudo sysctl kernel.core_pattern
@@ -2750,16 +2737,16 @@ If the returned line does not have a value of "|/bin/false", or a line is not re
 
 Check that the configuration files are present to enable this kernel parameter.
 
-$ sudo grep -r kernel.core_pattern /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.core_pattern /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf:kernel.core_pattern = |/bin/false
 
 If "kernel.core_pattern" is not set to "|/bin/false", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to disable storing core dumps.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 kernel.core_pattern = |/bin/false
 
@@ -2767,7 +2754,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-010671</td>
-<td>SV-230311r792894_rule</td>
+<td>SV-230311r818834_rule</td>
 </tr>
 <tr>
 <td>V-230312</td>
@@ -4191,13 +4178,13 @@ If the certmap section does not exist, ask the System Administrator to indicate 
 [certmap/testing.test/rule_name]
 matchrule =&lt;SAN&gt;.*EDIPI@mil
 maprule = (userCertificate;binary={cert!bin})
-dmains = testing.test
+domains = testing.test
 
 The "sssd" service must be restarted for the changes to take effect. To restart the "sssd" service, run the following command:
 
 $ sudo systemctl restart sssd.service</pre></td>
 <td>RHEL-08-020090</td>
-<td>SV-230355r627750_rule</td>
+<td>SV-230355r818836_rule</td>
 </tr>
 <tr>
 <td>V-230356</td>
@@ -7366,7 +7353,7 @@ $ sudo grep -i '$ActionSendStreamDriverMode' /etc/rsyslog.conf /etc/rsyslog.d/*.
 
 If the value of the "$ActionSendStreamDriverMode" option is not set to "1" or the line is commented out, this is a finding.
 
-If either of the definitions above are set, ask the System Administrator to indicate how the audit logs are off-loaded to a different system or media. 
+If neither of the definitions above are set, ask the System Administrator to indicate how the audit logs are off-loaded to a different system or media. 
 
 If there is no evidence that the transfer of the audit logs being off-loaded to another system or media is encrypted, this is a finding.</pre></td>
 <td><pre>Configure the operating system to encrypt off-loaded audit records by setting the following options in "/etc/rsyslog.conf" or "/etc/rsyslog.d/[customfile].conf":
@@ -7374,7 +7361,7 @@ If there is no evidence that the transfer of the audit logs being off-loaded to 
 $DefaultNetstreamDriver gtls
 $ActionSendStreamDriverMode 1</pre></td>
 <td>RHEL-08-030710</td>
-<td>SV-230481r627750_rule</td>
+<td>SV-230481r818840_rule</td>
 </tr>
 <tr>
 <td>V-230482</td>
@@ -7628,7 +7615,7 @@ If the "pti" entry does not equal "on", is missing, or the line is commented out
 
 Check that kernel page-table isolation is enabled by default to persist in kernel updates: 
 
-$ sudo grep audit /etc/default/grub
+$ sudo grep pti /etc/default/grub
 
 GRUB_CMDLINE_LINUX="pti=on"
 
@@ -7641,7 +7628,7 @@ Add or modify the following line in "/etc/default/grub" to ensure the configurat
 
 GRUB_CMDLINE_LINUX="pti=on"</pre></td>
 <td>RHEL-08-040004</td>
-<td>SV-230491r792908_rule</td>
+<td>SV-230491r818842_rule</td>
 </tr>
 <tr>
 <td>V-230492</td>
@@ -8987,9 +8974,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 will not accept IPv6 ICMP redirect messages.
 
 Note: If IPv6 is disabled on the system, this requirement is Not Applicable.
@@ -9004,16 +8989,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.default.accept_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.default.accept_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.default.accept_redirects = 0
 
 If "net.ipv6.conf.default.accept_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to prevent IPv6 ICMP redirect messages from being accepted.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.default.accept_redirects = 0
 
@@ -9021,7 +9006,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040210</td>
-<td>SV-230535r792936_rule</td>
+<td>SV-230535r818848_rule</td>
 </tr>
 <tr>
 <td>V-230536</td>
@@ -9039,9 +9024,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not IPv4 ICMP redirect messages.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -9056,16 +9039,16 @@ If the returned line does not have a value of "0", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.all.send_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.all.send_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.all.send_redirects = 0
 
 If "net.ipv4.conf.all.send_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not allow interfaces to perform IPv4 ICMP redirects.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.all.send_redirects=0
 
@@ -9073,7 +9056,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040220</td>
-<td>SV-230536r792939_rule</td>
+<td>SV-230536r818851_rule</td>
 </tr>
 <tr>
 <td>V-230537</td>
@@ -9090,9 +9073,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not respond to ICMP echoes sent to a broadcast address.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -9107,16 +9088,16 @@ If the returned line does not have a value of "1", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.icmp_echo_ignore_broadcasts /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.icmp_echo_ignore_broadcasts /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.icmp_echo_ignore_broadcasts = 1
 
 If "net.ipv4.icmp_echo_ignore_broadcasts" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not respond to IPv4 ICMP echoes sent to a broadcast address.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.icmp_echo_ignore_broadcasts=1
 
@@ -9124,7 +9105,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040230</td>
-<td>SV-230537r792942_rule</td>
+<td>SV-230537r818854_rule</td>
 </tr>
 <tr>
 <td>V-230538</td>
@@ -9140,9 +9121,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept IPv6 source-routed packets.
 
 Note: If IPv6 is disabled on the system, this requirement is Not Applicable.
@@ -9157,16 +9136,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.all.accept_source_route /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.all.accept_source_route /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.all.accept_source_route = 0
 
 If "net.ipv6.conf.all.accept_source_route" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not forward IPv6 source-routed packets.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.all.accept_source_route=0
 
@@ -9174,7 +9153,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040240</td>
-<td>SV-230538r792945_rule</td>
+<td>SV-230538r818860_rule</td>
 </tr>
 <tr>
 <td>V-230539</td>
@@ -9190,9 +9169,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept IPv6 source-routed packets by default.
 
 Note: If IPv6 is disabled on the system, this requirement is Not Applicable.
@@ -9207,16 +9184,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.default.accept_source_route /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.default.accept_source_route /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.default.accept_source_route = 0
 
 If "net.ipv6.conf.default.accept_source_route" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not forward IPv6 source-routed packets by default.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.default.accept_source_route=0
 
@@ -9224,7 +9201,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040250</td>
-<td>SV-230539r792948_rule</td>
+<td>SV-230539r818866_rule</td>
 </tr>
 <tr>
 <td>V-230540</td>
@@ -9240,9 +9217,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 is not performing IPv6 packet forwarding, unless the system is a router.
 
 Note: If IPv6 is disabled on the system, this requirement is Not Applicable.
@@ -9257,16 +9232,16 @@ If the IPv6 forwarding value is not "0" and is not documented with the Informati
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.all.forwarding /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.all.forwarding /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.all.forwarding = 0
 
 If "net.ipv6.conf.all.forwarding" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not allow IPv6 packet forwarding, unless the system is a router.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.all.forwarding=0
 
@@ -9274,7 +9249,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040260</td>
-<td>SV-230540r792951_rule</td>
+<td>SV-230540r818872_rule</td>
 </tr>
 <tr>
 <td>V-230541</td>
@@ -9292,9 +9267,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept router advertisements on all IPv6 interfaces, unless the system is a router.
 
 Note: If IPv6 is disabled on the system, this requirement is not applicable.
@@ -9309,16 +9282,16 @@ If the "accept_ra" value is not "0" and is not documented with the Information S
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.all.accept_ra /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.all.accept_ra /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.all.accept_ra = 0
 
 If "net.ipv6.conf.all.accept_ra" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not accept router advertisements on all IPv6 interfaces unless the system is a router.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.all.accept_ra=0
 
@@ -9326,7 +9299,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040261</td>
-<td>SV-230541r792954_rule</td>
+<td>SV-230541r818875_rule</td>
 </tr>
 <tr>
 <td>V-230542</td>
@@ -9344,9 +9317,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept router advertisements on all IPv6 interfaces by default, unless the system is a router.
 
 Note: If IPv6 is disabled on the system, this requirement is not applicable.
@@ -9361,16 +9332,16 @@ If the "accept_ra" value is not "0" and is not documented with the Information S
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.default.accept_ra /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.default.accept_ra /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.default.accept_ra = 0
 
 If "net.ipv6.conf.default.accept_ra" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not accept router advertisements on all IPv6 interfaces by default unless the system is a router.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.default.accept_ra=0
 
@@ -9378,7 +9349,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040262</td>
-<td>SV-230542r792957_rule</td>
+<td>SV-230542r818878_rule</td>
 </tr>
 <tr>
 <td>V-230543</td>
@@ -9396,9 +9367,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not allow interfaces to perform Internet Protocol version 4 (IPv4) ICMP redirects by default.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -9413,16 +9382,16 @@ If the returned line does not have a value of "0", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.default.send_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.default.send_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.default.send_redirects = 0
 
 If "net.ipv4.conf.default.send_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not allow interfaces to perform Internet Protocol version 4 (IPv4) ICMP redirects by default.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.default.send_redirects = 0
 
@@ -9430,7 +9399,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040270</td>
-<td>SV-230543r792960_rule</td>
+<td>SV-230543r818881_rule</td>
 </tr>
 <tr>
 <td>V-230544</td>
@@ -9446,9 +9415,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 ignores IPv6 ICMP redirect messages.
 
 Note: If IPv6 is disabled on the system, this requirement is Not Applicable.
@@ -9463,16 +9430,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv6.conf.all.accept_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv6.conf.all.accept_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv6.conf.all.accept_redirects = 0
 
 If "net.ipv6.conf.all.accept_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to ignore IPv6 ICMP redirect messages.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv6.conf.all.accept_redirects = 0
 
@@ -9480,7 +9447,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040280</td>
-<td>SV-230544r792963_rule</td>
+<td>SV-230544r818887_rule</td>
 </tr>
 <tr>
 <td>V-230545</td>
@@ -9496,9 +9463,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 prevents privilege escalation thru the kernel by disabling access to the bpf syscall with the following commands:
 
 $ sudo sysctl kernel.unprivileged_bpf_disabled
@@ -9509,14 +9474,14 @@ If the returned line does not have a value of "1", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r kernel.unprivileged_bpf_disabled /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.unprivileged_bpf_disabled /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: kernel.unprivileged_bpf_disabled = 1
 
 If "kernel.unprivileged_bpf_disabled" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to prevent privilege escalation thru the kernel by disabling access to the bpf syscall by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to prevent privilege escalation thru the kernel by disabling access to the bpf syscall by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 kernel.unprivileged_bpf_disabled = 1
 
@@ -9524,7 +9489,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040281</td>
-<td>SV-230545r792966_rule</td>
+<td>SV-230545r818890_rule</td>
 </tr>
 <tr>
 <td>V-230546</td>
@@ -9540,9 +9505,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 restricts usage of ptrace to descendant processes with the following commands:
 
 $ sudo sysctl kernel.yama.ptrace_scope
@@ -9553,14 +9516,14 @@ If the returned line does not have a value of "1", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r kernel.yama.ptrace_scope /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.yama.ptrace_scope /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: kernel.yama.ptrace_scope = 1
 
 If "kernel.yama.ptrace_scope" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to restrict usage of ptrace to descendant processes by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to restrict usage of ptrace to descendant processes by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 kernel.yama.ptrace_scope = 1
 
@@ -9568,7 +9531,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040282</td>
-<td>SV-230546r792969_rule</td>
+<td>SV-230546r818893_rule</td>
 </tr>
 <tr>
 <td>V-230547</td>
@@ -9584,9 +9547,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 restricts exposed kernel pointer addresses access with the following commands:
 
 $ sudo sysctl kernel.kptr_restrict
@@ -9597,14 +9558,14 @@ If the returned line does not have a value of "1", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r kernel.kptr_restrict /etc/sysctl.d/*.conf
+$ sudo grep -r kernel.kptr_restrict /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: kernel.kptr_restrict = 1
 
 If "kernel.kptr_restrict" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to restrict exposed kernel pointer addresses access by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to restrict exposed kernel pointer addresses access by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 kernel.kptr_restrict = 1
 
@@ -9612,7 +9573,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040283</td>
-<td>SV-230547r792972_rule</td>
+<td>SV-230547r818896_rule</td>
 </tr>
 <tr>
 <td>V-230548</td>
@@ -9628,9 +9589,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 disables the use of user namespaces with the following commands:
 
 Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable.
@@ -9643,14 +9602,14 @@ If the returned line does not have a value of "0", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r user.max_user_namespaces /etc/sysctl.d/*.conf
+$ sudo grep -r user.max_user_namespaces /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: user.max_user_namespaces = 0
 
 If "user.max_user_namespaces" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to disable the use of user namespaces by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to disable the use of user namespaces by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable. 
 
@@ -9660,7 +9619,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040284</td>
-<td>SV-230548r792975_rule</td>
+<td>SV-230548r818899_rule</td>
 </tr>
 <tr>
 <td>V-230549</td>
@@ -9676,9 +9635,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 uses reverse path filtering on all IPv4 interfaces with the following commands:
 
 $ sudo sysctl net.ipv4.conf.all.rp_filter
@@ -9689,14 +9646,14 @@ If the returned line does not have a value of "1", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.all.rp_filter /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.all.rp_filter /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.all.rp_filter = 1
 
 If "net.ipv4.conf.all.rp_filter" is not set to "1", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to use reverse path filtering on all IPv4 interfaces by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to use reverse path filtering on all IPv4 interfaces by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 net.ipv4.conf.all.rp_filter = 1
 
@@ -9704,7 +9661,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040285</td>
-<td>SV-230549r792978_rule</td>
+<td>SV-230549r818902_rule</td>
 </tr>
 <tr>
 <td>V-230550</td>
@@ -10803,7 +10760,7 @@ Associating event types with detected events in RHEL 8 audit logs provides a mea
 Satisfies: SRG-OS-000062-GPOS-00031, SRG-OS-000037-GPOS-00015, SRG-OS-000038-GPOS-00016, SRG-OS-000039-GPOS-00017, SRG-OS-000040-GPOS-00018, SRG-OS-000041-GPOS-00019, SRG-OS-000042-GPOS-00021, SRG-OS-000051-GPOS-00024, SRG-OS-000054-GPOS-00025, SRG-OS-000122-GPOS-00063, SRG-OS-000254-GPOS-00095, SRG-OS-000255-GPOS-00096, SRG-OS-000337-GPOS-00129, SRG-OS-000348-GPOS-00136, SRG-OS-000349-GPOS-00137, SRG-OS-000350-GPOS-00138, SRG-OS-000351-GPOS-00139, SRG-OS-000352-GPOS-00140, SRG-OS-000353-GPOS-00141, SRG-OS-000354-GPOS-00142, SRG-OS-000358-GPOS-00145, SRG-OS-000365-GPOS-00152, SRG-OS-000392-GPOS-00172, SRG-OS-000475-GPOS-00220</pre></td>
 <td><pre>Verify the audit service is configured to produce audit records with the following command:
 
-$ sudo systemctl status auditd.service.
+$ sudo systemctl status auditd.service
 
 auditd.service - Security Auditing Service
 Loaded:loaded (/usr/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)
@@ -10816,7 +10773,7 @@ $ sudo systemctl enable auditd.service
 
 $ sudo systemctl start auditd.service</pre></td>
 <td>RHEL-08-030181</td>
-<td>SV-244542r743875_rule</td>
+<td>SV-244542r818838_rule</td>
 </tr>
 <tr>
 <td>V-244543</td>
@@ -11046,9 +11003,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 will not accept IPv4 ICMP redirect messages.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -11063,16 +11018,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.default.accept_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.default.accept_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.default.accept_redirects = 0
 
 If "net.ipv4.conf.default.accept_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to prevent IPv4 ICMP redirect messages from being accepted.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.default.accept_redirects = 0
 
@@ -11080,7 +11035,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040209</td>
-<td>SV-244550r792987_rule</td>
+<td>SV-244550r818845_rule</td>
 </tr>
 <tr>
 <td>V-244551</td>
@@ -11096,9 +11051,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept IPv4 source-routed packets.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -11113,16 +11066,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.all.accept_source_route /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.all.accept_source_route /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.all.accept_source_route = 0
 
 If "net.ipv4.conf.all.accept_source_route" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not forward IPv4 source-routed packets.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.all.accept_source_route=0
 
@@ -11130,7 +11083,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040239</td>
-<td>SV-244551r792990_rule</td>
+<td>SV-244551r818857_rule</td>
 </tr>
 <tr>
 <td>V-244552</td>
@@ -11146,9 +11099,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 does not accept IPv4 source-routed packets by default.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -11163,16 +11114,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.default.accept_source_route /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.default.accept_source_route /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.default.accept_source_route = 0
 
 If "net.ipv4.conf.default.accept_source_route" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not forward IPv4 source-routed packets by default.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.default.accept_source_route=0
 
@@ -11180,7 +11131,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040249</td>
-<td>SV-244552r792993_rule</td>
+<td>SV-244552r818863_rule</td>
 </tr>
 <tr>
 <td>V-244553</td>
@@ -11196,9 +11147,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 ignores IPv4 ICMP redirect messages.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -11213,16 +11162,16 @@ If the returned line does not have a value of "0", a line is not returned, or th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.all.accept_redirects /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.all.accept_redirects /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.all.accept_redirects = 0
 
 If "net.ipv4.conf.all.accept_redirects" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to ignore IPv4 ICMP redirect messages.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.all.accept_redirects = 0
 
@@ -11230,7 +11179,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040279</td>
-<td>SV-244553r792996_rule</td>
+<td>SV-244553r818884_rule</td>
 </tr>
 <tr>
 <td>V-244554</td>
@@ -11248,9 +11197,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 enables hardening for the BPF JIT with the following commands:
 
 $ sudo sysctl net.core.bpf_jit_harden
@@ -11261,14 +11208,14 @@ If the returned line does not have a value of "2", or a line is not returned, th
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.core.bpf_jit_harden /etc/sysctl.d/*.conf
+$ sudo grep -r net.core.bpf_jit_harden /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.core.bpf_jit_harden = 2
 
 If "net.core.bpf_jit_harden" is not set to "2", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
-<td><pre>Configure RHEL 8 to enable hardening for the BPF JIT compiler by adding the following line to a file, which begins with "99-", in the "/etc/sysctl.d" directory:
+If results are returned from more than one file location, this is a finding.</pre></td>
+<td><pre>Configure RHEL 8 to enable hardening for the BPF JIT compiler by adding the following line to a file, in the "/etc/sysctl.d" directory:
 
 net.core.bpf_jit_harden = 2
 
@@ -11276,7 +11223,7 @@ The system configuration files need to be reloaded for the changes to take effec
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040286</td>
-<td>SV-244554r792999_rule</td>
+<td>SV-244554r818905_rule</td>
 </tr>
 <tr>
 <td>V-245540</td>
@@ -11402,9 +11349,7 @@ The sysctl --system command will load settings from all system configuration fil
 /usr/local/lib/sysctl.d/*.conf
 /usr/lib/sysctl.d/*.conf
 /lib/sysctl.d/*.conf
-/etc/sysctl.conf
-
-Based on the information above, if a configuration file that begins with "99-" is created in the "/etc/sysctl.d/" directory, it will take precedence over any other configuration file on the system.</pre></td>
+/etc/sysctl.conf</pre></td>
 <td><pre>Verify RHEL 8 is not performing IPv4 packet forwarding, unless the system is a router.
 
 Note: If IPv4 is disabled on the system, this requirement is Not Applicable.
@@ -11418,16 +11363,16 @@ If the IPv4 forwarding value is not "0" and is not documented with the Informati
 
 Check that the configuration files are present to enable this network parameter.
 
-$ sudo grep -r net.ipv4.conf.all.forwarding /etc/sysctl.d/*.conf
+$ sudo grep -r net.ipv4.conf.all.forwarding /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf /etc/sysctl.conf /etc/sysctl.d/*.conf
 
 /etc/sysctl.d/99-sysctl.conf: net.ipv4.conf.all.forwarding = 0
 
 If "net.ipv4.conf.all.forwarding" is not set to "0", is missing or commented out, this is a finding.
 
-If the configuration file does not begin with "99-", this is a finding.</pre></td>
+If results are returned from more than one file location, this is a finding.</pre></td>
 <td><pre>Configure RHEL 8 to not allow IPv4 packet forwarding, unless the system is a router.
 
-Add or edit the following line in a system configuration file, which begins with "99-", in the "/etc/sysctl.d/" directory:
+Add or edit the following line in a system configuration file, in the "/etc/sysctl.d/" directory:
 
 net.ipv4.conf.all.forwarding=0
 
@@ -11435,7 +11380,7 @@ Load settings from all system configuration files with the following command:
 
 $ sudo sysctl --system</pre></td>
 <td>RHEL-08-040259</td>
-<td>SV-250317r793008_rule</td>
+<td>SV-250317r818869_rule</td>
 </tr>
 <tr>
 <td>V-251706</td>
