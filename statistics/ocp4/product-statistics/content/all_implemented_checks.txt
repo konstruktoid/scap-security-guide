@@ -173,6 +173,7 @@ file_perms_openshift_sdn_cniserver_config
 fips_mode_enabled
 fips_mode_enabled_on_all_nodes
 gcp_disk_encryption_enabled
+gitops_operator_exists
 idp_is_configured
 ingress_controller_certificate
 kubeadmin_removed
