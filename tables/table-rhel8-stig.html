@@ -3234,7 +3234,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "kdump" is loaded and not masked?
       </pre></td>
 <td><pre>The <code>kdump</code> service provides a kernel crash dump analyzer. It uses the <code>kexec</code>
 system call to boot a secondary kernel ("capture" kernel) following a system
@@ -5870,10 +5870,24 @@ group account, change the group ownership of the audit directories to this speci
 <td>RHEL 8 audit log directory must have a mode of 0700 or less permissive to prevent unauthorized read access.</td>
 <td>SRG-OS-ID</td>
 <td><pre>If users can write to audit logs, audit trails can be modified or destroyed.</pre></td>
-<td><pre>Run the following command to check the mode of the system audit logs:
-$ sudo ls -ld /var/log/audit
-Audit log directories must be mode 0700 or less permissive.
-      Is it the case that any are more permissive?
+<td><pre>Verify the audit log directories have a correct mode or less permissive mode.
+
+Find the location of the audit logs:
+
+$ sudo grep "^log_file" /etc/audit/auditd.conf
+
+Find the group that owns audit logs:
+
+$ sudo grep "^log_group" /etc/audit/auditd.conf
+
+Run the following command to check the mode of the system audit logs:
+
+$ sudo stat -c "%a %n" [audit_log_directory]
+
+Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
+
+If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
+      Is it the case that audit logs has more permissive mode?
       </pre></td>
 <td><pre>If <code>log_group</code> in <code>/etc/audit/auditd.conf</code> is set to a group other than the <code>root</code>
 group account, change the mode of the audit log files with the following command:
@@ -5893,8 +5907,14 @@ Otherwise, change the mode of the audit log files with the following command:
 <td><pre>Making the audit configuration immutable prevents accidental as
 well as malicious modification of the audit rules, although it may be
 problematic if legitimate changes are needed during system
-operation</pre></td>
-<td><pre></pre></td>
+operation.</pre></td>
+<td><pre>Verify the audit system prevents unauthorized changes with the following command:
+
+$ sudo grep "^\s*[^#]" /etc/audit/audit.rules | tail -1
+
+-e 2
+      Is it the case that the audit system is not set to be immutable by adding the "-e 2" option to the "/etc/audit/audit.rules"?
+      </pre></td>
 <td><pre>If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the
 default), add the following line to a file with suffix <code>.rules</code> in the
@@ -8401,7 +8421,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </pre></td>
 <td><pre>The <code>autofs</code> daemon mounts and unmounts filesystems, such as user
 home directories shared via NFS, on demand. In addition, autofs can be used to handle
@@ -9261,7 +9281,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "debug-shell" is loaded and not masked?
       </pre></td>
 <td><pre>SystemD's <code>debug-shell</code> service is intended to
 diagnose SystemD related boot issues with various <code>systemctl</code>

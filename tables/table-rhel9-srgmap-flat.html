@@ -9296,7 +9296,13 @@ immutable:
 With this setting, a reboot will be required to change any audit rules.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized read access. If it does not, this is a finding.</td>
-<td></td>
+<td>Verify the audit system prevents unauthorized changes with the following command:
+
+$ sudo grep "^\s*[^#]" /etc/audit/audit.rules | tail -1
+
+-e 2
+      Is it the case that the audit system is not set to be immutable by adding the "-e 2" option to the "/etc/audit/audit.rules"?
+      </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3741r557573_fix">Configure the operating system to protect audit information from unauthorized read access.</fixtext></td>
 <td>If the auditd daemon is configured to use the
 augenrules program to read audit rules during daemon startup (the
@@ -9405,10 +9411,24 @@ Otherwise, change the mode of the audit log files with the following command:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized read access. If it does not, this is a finding.</td>
-<td>Run the following command to check the mode of the system audit logs:
-$ sudo ls -ld /var/log/audit
-Audit log directories must be mode 0700 or less permissive.
-      Is it the case that any are more permissive?
+<td>Verify the audit log directories have a correct mode or less permissive mode.
+
+Find the location of the audit logs:
+
+$ sudo grep "^log_file" /etc/audit/auditd.conf
+
+Find the group that owns audit logs:
+
+$ sudo grep "^log_group" /etc/audit/auditd.conf
+
+Run the following command to check the mode of the system audit logs:
+
+$ sudo stat -c "%a %n" [audit_log_directory]
+
+Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
+
+If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
+      Is it the case that audit logs has more permissive mode?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3741r557573_fix">Configure the operating system to protect audit information from unauthorized read access.</fixtext></td>
 <td>If log_group in /etc/audit/auditd.conf is set to a group other than the root
@@ -9638,7 +9658,13 @@ immutable:
 With this setting, a reboot will be required to change any audit rules.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized modification. If it does not, this is a finding.</td>
-<td></td>
+<td>Verify the audit system prevents unauthorized changes with the following command:
+
+$ sudo grep "^\s*[^#]" /etc/audit/audit.rules | tail -1
+
+-e 2
+      Is it the case that the audit system is not set to be immutable by adding the "-e 2" option to the "/etc/audit/audit.rules"?
+      </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3742r557576_fix">Configure the operating system to protect audit information from unauthorized modification.</fixtext></td>
 <td>If the auditd daemon is configured to use the
 augenrules program to read audit rules during daemon startup (the
@@ -9753,10 +9779,24 @@ Otherwise, change the mode of the audit log files with the following command:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized modification. If it does not, this is a finding.</td>
-<td>Run the following command to check the mode of the system audit logs:
-$ sudo ls -ld /var/log/audit
-Audit log directories must be mode 0700 or less permissive.
-      Is it the case that any are more permissive?
+<td>Verify the audit log directories have a correct mode or less permissive mode.
+
+Find the location of the audit logs:
+
+$ sudo grep "^log_file" /etc/audit/auditd.conf
+
+Find the group that owns audit logs:
+
+$ sudo grep "^log_group" /etc/audit/auditd.conf
+
+Run the following command to check the mode of the system audit logs:
+
+$ sudo stat -c "%a %n" [audit_log_directory]
+
+Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
+
+If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
+      Is it the case that audit logs has more permissive mode?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3742r557576_fix">Configure the operating system to protect audit information from unauthorized modification.</fixtext></td>
 <td>If log_group in /etc/audit/auditd.conf is set to a group other than the root
@@ -9994,7 +10034,13 @@ immutable:
 With this setting, a reboot will be required to change any audit rules.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized deletion. If it does not, this is a finding.</td>
-<td></td>
+<td>Verify the audit system prevents unauthorized changes with the following command:
+
+$ sudo grep "^\s*[^#]" /etc/audit/audit.rules | tail -1
+
+-e 2
+      Is it the case that the audit system is not set to be immutable by adding the "-e 2" option to the "/etc/audit/audit.rules"?
+      </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3743r557579_fix">Configure the operating system to protect audit information from unauthorized deletion.</fixtext></td>
 <td>If the auditd daemon is configured to use the
 augenrules program to read audit rules during daemon startup (the
@@ -10109,10 +10155,24 @@ Otherwise, change the mode of the audit log files with the following command:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system protects audit information from unauthorized deletion. If it does not, this is a finding.</td>
-<td>Run the following command to check the mode of the system audit logs:
-$ sudo ls -ld /var/log/audit
-Audit log directories must be mode 0700 or less permissive.
-      Is it the case that any are more permissive?
+<td>Verify the audit log directories have a correct mode or less permissive mode.
+
+Find the location of the audit logs:
+
+$ sudo grep "^log_file" /etc/audit/auditd.conf
+
+Find the group that owns audit logs:
+
+$ sudo grep "^log_group" /etc/audit/auditd.conf
+
+Run the following command to check the mode of the system audit logs:
+
+$ sudo stat -c "%a %n" [audit_log_directory]
+
+Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
+
+If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
+      Is it the case that audit logs has more permissive mode?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3743r557579_fix">Configure the operating system to protect audit information from unauthorized deletion.</fixtext></td>
 <td>If log_group in /etc/audit/auditd.conf is set to a group other than the root
@@ -19544,7 +19604,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3772r557187_fix">Configure the operating system to uniquely identify peripherals before establishing a connection.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -26066,7 +26126,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "debug-shell" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3820r375033_fix">Configure the operating system to prevent non-privileged users from executing privileged functions to include disabling, circumventing, or altering implemented security safeguards/countermeasures.</fixtext></td>
 <td>SystemD's debug-shell service is intended to
@@ -29464,7 +29524,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3855r375198_fix">Configure the operating system to authenticate peripherals before establishing a connection.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -48527,7 +48587,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "debug-shell" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>SystemD's debug-shell service is intended to
@@ -50511,7 +50571,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that the autofs service is not disabled?
+      Is it the case that the "autofs" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>The autofs daemon mounts and unmounts filesystems, such as user
@@ -51439,7 +51499,7 @@ If the service is masked the command will return the following outputs:
 LoadState=masked
 
 UnitFileState=masked
-      Is it the case that ?
+      Is it the case that the "kdump" is loaded and not masked?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3905r375732_fix">Configure the operating system in accordance with the security configuration settings based on DoD security configuration or implementation guidance, including STIGs, NSA configuration guides, CTOs, and DTMs.</fixtext></td>
 <td>The kdump service provides a kernel crash dump analyzer. It uses the kexec
