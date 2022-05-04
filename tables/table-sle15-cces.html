@@ -697,6 +697,14 @@ $ sudo zypper install nss-tools</pre>
 </td>
 </tr>
 <tr>
+<td>CCE-91163-6</td>
+<td>Install dnf-automatic Package</td>
+<td>The <code>dnf-automatic</code> package can be installed with the following command:
+<pre>
+$ sudo zypper install dnf-automatic</pre>
+</td>
+</tr>
+<tr>
 <td>CCE-85551-0</td>
 <td>Ensure zypper Removes Previous Package Versions</td>
 <td>
@@ -709,6 +717,18 @@ previous software components after updating, set the <code>solver.upgradeRemoveD
 to <code>1</code> in <code>/etc/zypp/zypp.conf</code>.</td>
 </tr>
 <tr>
+<td>CCE-91165-1</td>
+<td>Configure dnf-automatic to Install Available Updates Automatically</td>
+<td>To ensure that the packages comprising the available updates will be automatically installed by <code>dnf-automatic</code>, set <code>apply_updates</code> to <code>yes</code> under <code>[commands]</code> section in <code>/etc/dnf/automatic.conf</code>.</td>
+</tr>
+<tr>
+<td>CCE-91166-9</td>
+<td>Configure dnf-automatic to Install Only Security Updates</td>
+<td>To configure <code>dnf-automatic</code> to install only security updates
+automatically, set <code>upgrade_type</code> to <code>security</code> under
+<code>[commands]</code> section in <code>/etc/dnf/automatic.conf</code>.</td>
+</tr>
+<tr>
 <td>CCE-83290-7</td>
 <td>Ensure gpgcheck Enabled In Main zypper Configuration</td>
 <td>The <code>gpgcheck</code> option controls whether
@@ -718,6 +738,14 @@ them, ensure the following line appears in <code>/etc/zypp/zypp.conf</code> in
 the <code>[main]</code> section:
 <pre>gpgcheck=1</pre>
 </td>
+</tr>
+<tr>
+<td>CCE-91167-7</td>
+<td>Ensure gpgcheck Enabled for Local Packages</td>
+<td>
+<code>zypper</code> should be configured to verify the signature(s) of local packages
+prior to installation. To configure <code>zypper</code> to verify signatures of local
+packages, set the <code>localpkg_gpgcheck</code> to <code>1</code> in <code>/etc/zypp/zypp.conf</code>.</td>
 </tr>
 <tr>
 <td>CCE-85797-9</td>
@@ -761,6 +789,14 @@ security updates:
 <br><br>
 NOTE: U.S. Defense systems are required to be patched within 30 days or sooner as local policy
 dictates.</td>
+</tr>
+<tr>
+<td>CCE-91164-4</td>
+<td>Enable dnf-automatic Timer</td>
+<td>
+The <code>dnf-automatic</code> timer can be enabled with the following command:
+<pre>$ sudo systemctl enable dnf-automatic.timer</pre>
+</td>
 </tr>
 <tr>
 <td>CCE-83262-6</td>
@@ -1065,6 +1101,61 @@ is at least <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1
 </td>
 </tr>
 <tr>
+<td>CCE-85842-3</td>
+<td>Lock Accounts After Failed Password Attempts</td>
+<td>This rule configures the system to lock out accounts after a number of incorrect login attempts
+using <code>pam_faillock.so</code>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
+depending on the OS version.</td>
+</tr>
+<tr>
+<td>CCE-91171-9</td>
+<td>Configure the root Account for Failed Password Attempts</td>
+<td>This rule configures the system to lock out the <code>root</code> account after a number of
+incorrect login attempts using <code>pam_faillock.so</code>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
+depending on the OS version.</td>
+</tr>
+<tr>
+<td>CCE-91169-3</td>
+<td>Set Interval For Counting Failed Password Attempts</td>
+<td>Utilizing <code>pam_faillock.so</code>, the <code>fail_interval</code> directive configures the system
+to lock out an account after a number of incorrect login attempts within a specified time
+period. First make sure the feature is enabled using the following command:
+<br><br>
+
+<ul><li><pre>authselect enable-feature with-faillock</pre></li></ul>
+<br>
+Then edit the <code>/etc/security/faillock.conf</code> file as follows:
+<br><br>
+<ul>
+<li> add, uncomment or edit the following line:
+<pre>fail_interval = <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_passwords_pam_faillock_fail_interval"></xccdf-1.1:sub></pre>
+</li>
+<li> add or uncomment the following line:
+<pre>silent</pre>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>CCE-85841-5</td>
+<td>Set Lockout Time for Failed Password Attempts</td>
+<td>This rule configures the system to lock out accounts during a specified time period after a
+number of incorrect login attempts using <code>pam_faillock.so</code>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <code>authselect</code> or <code>authconfig</code>,
+depending on the OS version.</td>
+</tr>
+<tr>
 <td>CCE-85554-4</td>
 <td>Set Deny For Failed Password Attempts</td>
 <td>The SUSE Linux Enterprise 15 operating system must lock an account after - at most - <xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_tally2"></xccdf-1.1:sub>
@@ -1166,7 +1257,7 @@ minimum characters required in a password. Add <code>minlen=<xccdf-1.1:sub xmlns
 after pam_pwquality to set minimum password length requirements.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91157-8</td>
 <td>Ensure PAM Enforces Password Requirements - Minimum Special Characters</td>
 <td>The pam_pwquality module's <code>ocredit=</code> parameter controls requirements for
 usage of special (or "other") characters in a password. When set to a negative number,
@@ -1599,7 +1690,7 @@ environments. The DoD requirement is 1.
 The profile requirement is <code><xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_accounts_minimum_age_login_defs"></xccdf-1.1:sub></code>.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91168-5</td>
 <td>Set Password Minimum Length in login.defs</td>
 <td>To specify password length requirements for new accounts, edit the file
 <code>/etc/login.defs</code> and add or correct the following line:
@@ -1663,6 +1754,28 @@ Password hashes <code>!</code> or <code>*</code> indicate inactive accounts not
 available for logon and are not evaluated.
 If any interactive user password hash does not begin with <code>$6</code>,
 this is a finding.</td>
+</tr>
+<tr>
+<td>CCE-91173-5</td>
+<td>Set number of Password Hashing Rounds - password-auth</td>
+<td>Configure the number or rounds for the password hashing algorithm. This can be
+accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
+<br><br>
+In file <code>/etc/pam.d/password-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
+to the <code>pam_unix.so</code> file, as shown below:
+<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
+The system's default number of rounds is 5000.</td>
+</tr>
+<tr>
+<td>CCE-91172-7</td>
+<td>Set number of Password Hashing Rounds - system-auth</td>
+<td>Configure the number or rounds for the password hashing algorithm. This can be
+accomplished by using the <code>rounds</code> option for the <code>pam_unix</code> PAM module.
+<br><br>
+In file <code>/etc/pam.d/system-auth</code> append <code>rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></code>
+to the <code>pam_unix.so</code> file, as shown below:
+<pre>password sufficient pam_unix.so <i>...existing_options...</i> rounds=<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" idref="var_password_pam_unix_rounds"></xccdf-1.1:sub></pre>
+The system's default number of rounds is 5000.</td>
 </tr>
 <tr>
 <td>CCE-85847-2</td>
@@ -5100,13 +5213,13 @@ The configuration that was used to build kernel is available at <code>/boot/conf
     </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91161-0</td>
 <td>Ensure rsyslog is Installed</td>
 <td>Rsyslog is installed by default. The <code>rsyslog</code> package can be installed with the following command: <pre> $ sudo zypper install rsyslog</pre>
 </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91162-8</td>
 <td>Enable rsyslog Service</td>
 <td>The <code>rsyslog</code> service provides syslog-style logging by default on SUSE Linux Enterprise 15.
 
@@ -5828,7 +5941,7 @@ To properly set the permissions of <code>/boot/System.map-*</code>, run the comm
 </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91175-0</td>
 <td>Ensure All SGID Executables Are Authorized</td>
 <td>The SGID (set group id) bit should be set only on files that were
 installed via authorized means. A straightforward means of identifying
@@ -5842,7 +5955,7 @@ the software should be considered an approved package on the system.
 Any SGID file not deployed through an RPM will be flagged for further review.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91174-3</td>
 <td>Ensure All SUID Executables Are Authorized</td>
 <td>The SUID (set user id) bit should be set only on files that were
 installed via authorized means. A straightforward means of identifying
@@ -7233,7 +7346,7 @@ option time-offset</pre>
 </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-85759-9</td>
 <td>Uninstall DHCP Server Package</td>
 <td>If the system does not need to act as a DHCP server,
 the dhcp package can be uninstalled.
@@ -7376,6 +7489,16 @@ The openldap-servers package is not installed by default on a SUSE Linux Enterpr
 system. It is needed only by the OpenLDAP server, not by the
 clients which use LDAP for authentication. If the system is not
 intended for use as an LDAP Server it should be removed.</td>
+</tr>
+<tr>
+<td>CCE-85761-5</td>
+<td>Uninstall Sendmail Package</td>
+<td>Sendmail is not the default mail transfer agent and is
+not installed by default.
+The <code>sendmail</code> package can be removed with the following command:
+<pre>
+$ sudo zypper remove sendmail</pre>
+</td>
 </tr>
 <tr>
 <td></td>
@@ -7699,7 +7822,7 @@ If there exist services which might be affected and access to them should not be
 modify the <code>/etc/hosts.allow</code> file appropriately before performing the remediation.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91159-4</td>
 <td>Remove NIS Client</td>
 <td>The Network Information Service (NIS), formerly known as Yellow Pages,
 is a client-server directory service protocol used to distribute system configuration
@@ -7707,7 +7830,7 @@ files. The NIS client (<code>ypbind</code>) was used to bind a system to an NIS 
 and receive the distributed configuration files.</td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-91160-2</td>
 <td>Uninstall ypserv Package</td>
 <td>The <code>ypserv</code> package can be removed with the following command:
 <pre>
@@ -7723,7 +7846,7 @@ $ sudo zypper remove rsh-server</pre>
 </td>
 </tr>
 <tr>
-<td></td>
+<td>CCE-85760-7</td>
 <td>Uninstall rsh Package</td>
 <td>
 The <code>rsh</code> package contains the client commands
@@ -7846,6 +7969,14 @@ via the following command:
 The <code>rexec</code> socket can be disabled with the following command:
 <pre>$ sudo systemctl mask --now rexec.socket</pre>
 </td>
+</tr>
+<tr>
+<td>CCE-91158-6</td>
+<td>Remove tftp Daemon</td>
+<td>Trivial File Transfer Protocol (TFTP) is a simple file transfer protocol,
+typically used to automatically transfer configuration or boot files between systems.
+TFTP does not support authentication and can be easily hacked. The package
+<code>tftp</code> is a client program that allows for connections to a <code>tftp</code> server.</td>
 </tr>
 <tr>
 <td></td>

@@ -17394,9 +17394,8 @@ length credit for each uppercase character. Modify the <code>ucredit</code> sett
 <td>To check how many uppercase characters are required in a password, run the following command:
 $ grep ucredit /etc/security/pwquality.conf
 The ucredit parameter (as a negative number) will indicate how many uppercase characters are required.
-The DoD and FISMA require at least one uppercase character in a password.
 This would appear as ucredit = -1.
-      Is it the case that ucredit is not found or not set less than or equal to the required value?
+      Is it the case that ucredit is not found or not set to the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3750r557600_fix">Configure the operating system to enforce password complexity by requiring that at least one upper-case character be used.</fixtext></td>
 <td>The pam_pwquality module's ucredit= parameter controls requirements for

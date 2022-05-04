@@ -1,0 +1,3 @@
+ensure_gpgcheck_never_disabled
+file_permissions_unauthorized_sgid
+file_permissions_unauthorized_suid

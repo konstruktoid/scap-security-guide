@@ -567,7 +567,7 @@ per session.</pre></td>
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must be configured so that when passwords are changed or new passwords are established, the new password must contain at least one upper-case character.</td>
 <td>SRG-OS-ID</td>
-<td><pre>Use of a complex password helps to increase the time and resources reuiqred to compromise the password.
+<td><pre>Use of a complex password helps to increase the time and resources required to compromise the password.
 Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts
 at guessing and brute-force attacks.
 <br><br>
@@ -577,9 +577,8 @@ the password is compromised.</pre></td>
 <td><pre>To check how many uppercase characters are required in a password, run the following command:
 $ grep ucredit /etc/security/pwquality.conf
 The ucredit parameter (as a negative number) will indicate how many uppercase characters are required.
-The DoD and FISMA require at least one uppercase character in a password.
 This would appear as ucredit = -1.
-      Is it the case that ucredit is not found or not set less than or equal to the required value?
+      Is it the case that ucredit is not found or not set to the required value?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>ucredit=</code> parameter controls requirements for
 usage of uppercase letters in a password. When set to a negative number, any password will be required to

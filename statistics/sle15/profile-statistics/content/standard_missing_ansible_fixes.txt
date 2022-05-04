@@ -1,4 +1,3 @@
-accounts_password_minlen_login_defs
 accounts_password_pam_retry
 audit_rules_file_deletion_events
 audit_rules_successful_file_modification_chmod

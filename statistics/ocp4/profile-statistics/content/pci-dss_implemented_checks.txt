@@ -41,6 +41,7 @@ api_server_token_auth
 audit_log_forwarding_enabled
 audit_profile_set
 compliancesuite_exists
+configure_network_policies
 configure_network_policies_namespaces
 controller_insecure_port_disabled
 controller_rotate_kubelet_server_certs

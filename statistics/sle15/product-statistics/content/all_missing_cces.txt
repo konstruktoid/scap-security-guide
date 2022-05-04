@@ -1,7 +1,5 @@
 account_use_centralized_automated_auth
 accounts_logon_fail_delay
-accounts_password_minlen_login_defs
-accounts_password_pam_ocredit
 accounts_password_pam_pwhistory_remember
 accounts_password_pam_retry
 accounts_password_warn_age_login_defs
@@ -111,8 +109,6 @@ file_permissions_etc_motd
 file_permissions_home_dirs
 file_permissions_sshd_config
 file_permissions_systemmap
-file_permissions_unauthorized_sgid
-file_permissions_unauthorized_suid
 file_permissions_unauthorized_world_writable
 file_permissions_var_log
 file_permissions_var_log_messages
@@ -221,7 +217,6 @@ package_MFEhiplsm_installed
 package_bind_removed
 package_chrony_installed
 package_cron_installed
-package_dhcp_removed
 package_dovecot_removed
 package_gnutls-utils_installed
 package_httpd_removed
@@ -241,8 +236,6 @@ package_openssh-server_installed
 package_openssh-server_removed
 package_openssh_installed
 package_openssh_removed
-package_rsh_removed
-package_rsyslog_installed
 package_samba-common_installed
 package_samba_removed
 package_setroubleshoot_removed
@@ -253,8 +246,6 @@ package_tcp_wrappers_installed
 package_telnetd-ssl_removed
 package_telnetd_removed
 package_xorg-x11-server-common_removed
-package_ypbind_removed
-package_ypserv_removed
 partition_for_srv
 partition_for_tmp
 partition_for_var_log
@@ -287,7 +278,6 @@ service_ntpd_enabled
 service_postfix_enabled
 service_rpcbind_disabled
 service_rsyncd_disabled
-service_rsyslog_enabled
 service_smb_disabled
 service_snmpd_disabled
 service_squid_disabled

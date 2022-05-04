@@ -892,7 +892,7 @@ of what was executed on the system, as well as, for accountability purposes.
 </tr>
 <tr>
   <td>IA-5(f)<br/>IA-5(1)(a)<br/>CM-6(a)</td>
-  <td>N/A</td>
+  <td>CCE-91168-5</td>
   <td>Set Password Minimum Length in login.defs</td>
   <td xml:lang="en-US">
 To specify password length requirements for new accounts, edit the file
@@ -991,7 +991,7 @@ compromose the password.
 </tr>
 <tr>
   <td>IA-5(c)<br/>IA-5(1)(a)<br/>CM-6(a)<br/>IA-5(4)</td>
-  <td>N/A</td>
+  <td>CCE-91157-8</td>
   <td>Ensure PAM Enforces Password Requirements - Minimum Special Characters</td>
   <td xml:lang="en-US">
 The pam_pwquality module's <tt>ocredit=</tt> parameter controls requirements for
@@ -1028,7 +1028,7 @@ length credit for each uppercase character. Modify the <tt>ucredit</tt> setting 
 <tt>/etc/security/pwquality.conf</tt> to require the use of an uppercase character in passwords.
   </td>
   <td xml:lang="en-US">
-Use of a complex password helps to increase the time and resources reuiqred to compromise the password.
+Use of a complex password helps to increase the time and resources required to compromise the password.
 Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts
 at guessing and brute-force attacks.
 <br /><br />
@@ -1093,6 +1093,96 @@ draw additional attention to some types of password-guessing attacks. Note that 
 is different from account lockout, which is provided by the pam_faillock module.
   </td>
   <td>var_password_pam_retry=3</td>
+</tr>
+<tr>
+  <td>CM-6(a)<br/>AC-7(a)</td>
+  <td>CCE-85842-3</td>
+  <td>Lock Accounts After Failed Password Attempts</td>
+  <td xml:lang="en-US">
+This rule configures the system to lock out accounts after a number of incorrect login attempts
+using <tt>pam_faillock.so</tt>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
+depending on the OS version.
+  </td>
+  <td xml:lang="en-US">
+Locking out user accounts after a number of incorrect attempts prevents direct password
+guessing attacks. In combination with the <tt>silent</tt> option, user enumeration attacks
+are also mitigated.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td>CM-6(a)<br/>AC-7(b)<br/>IA-5(c)</td>
+  <td>CCE-91171-9</td>
+  <td>Configure the root Account for Failed Password Attempts</td>
+  <td xml:lang="en-US">
+This rule configures the system to lock out the <tt>root</tt> account after a number of
+incorrect login attempts using <tt>pam_faillock.so</tt>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
+depending on the OS version.
+  </td>
+  <td xml:lang="en-US">
+By limiting the number of failed logon attempts, the risk of unauthorized system access via
+user password guessing, also known as brute-forcing, is reduced. Limits are imposed by locking
+the account.
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td>CM-6(a)<br/>AC-7(a)</td>
+  <td>CCE-91169-3</td>
+  <td>Set Interval For Counting Failed Password Attempts</td>
+  <td xml:lang="en-US">
+Utilizing <tt>pam_faillock.so</tt>, the <tt>fail_interval</tt> directive configures the system
+to lock out an account after a number of incorrect login attempts within a specified time
+period. First make sure the feature is enabled using the following command:
+<br /><br />
+
+<ul>
+<li><pre>authselect enable-feature with-faillock</pre></li>
+</ul>
+<br />
+Then edit the <tt>/etc/security/faillock.conf</tt> file as follows:
+<br /><br />
+<ul>
+<li> add, uncomment or edit the following line:
+<pre>fail_interval = <tt>900</tt></pre></li>
+<li> add or uncomment the following line:
+<pre>silent</pre></li>
+</ul>
+  </td>
+  <td xml:lang="en-US">
+By limiting the number of failed logon attempts the risk of unauthorized system
+access via user password guessing, otherwise known as brute-forcing, is reduced.
+Limits are imposed by locking the account.
+  </td>
+  <td>var_accounts_passwords_pam_faillock_fail_interval=900</td>
+</tr>
+<tr>
+  <td>CM-6(a)<br/>AC-7(b)</td>
+  <td>CCE-85841-5</td>
+  <td>Set Lockout Time for Failed Password Attempts</td>
+  <td xml:lang="en-US">
+This rule configures the system to lock out accounts during a specified time period after a
+number of incorrect login attempts using <tt>pam_faillock.so</tt>.
+
+pam_faillock.so module requires multiple entries in pam files. These entries must be carefully
+defined to work as expected. In order to avoid any errors when manually editing these files,
+it is recommended to use the appropriate tools, such as <tt>authselect</tt> or <tt>authconfig</tt>,
+depending on the OS version.
+  </td>
+  <td xml:lang="en-US">
+Locking out user accounts after a number of incorrect attempts prevents direct password
+guessing attacks. Ensuring that an administrator is involved in unlocking locked accounts
+draws appropriate attention to such situations.
+  </td>
+  <td></td>
 </tr>
 <tr>
   <td>CM-6(a)</td>
@@ -1346,7 +1436,7 @@ intercepted and either read or altered.
 </tr>
 <tr>
   <td>CM-6(a)</td>
-  <td>N/A</td>
+  <td>CCE-91161-0</td>
   <td>Ensure rsyslog is Installed</td>
   <td xml:lang="en-US">
 Rsyslog is installed by default. The <code>rsyslog</code> package can be installed with the following command: <pre> $ sudo zypper install rsyslog</pre>
@@ -1559,7 +1649,7 @@ deprecated.
 </tr>
 <tr>
   <td>CM-6(a)<br/>AU-4(1)</td>
-  <td>N/A</td>
+  <td>CCE-91162-8</td>
   <td>Enable rsyslog Service</td>
   <td xml:lang="en-US">
 The <tt>rsyslog</tt> service provides syslog-style logging by default on SUSE Linux Enterprise 15.

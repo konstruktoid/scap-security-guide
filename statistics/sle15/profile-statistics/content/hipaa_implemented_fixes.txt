@@ -75,6 +75,7 @@ disable_ctrlaltdel_burstaction
 disable_ctrlaltdel_reboot
 disable_host_auth
 ensure_gpgcheck_globally_activated
+ensure_gpgcheck_local_packages
 ensure_gpgcheck_never_disabled
 ensure_suse_gpgkey_installed
 file_groupowner_grub2_cfg
