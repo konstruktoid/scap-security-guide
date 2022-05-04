@@ -2455,12 +2455,12 @@ audit capturing mechanisms, and audit storage capacity being reached or
 exceeded.</td>
 <td>If the <code>auditd</code> daemon is configured to use the
 <code>augenrules</code> program to read audit rules during daemon startup (the
-default), add the following line to a file with suffix <code>.rules</code> in the
-directory <code>/etc/audit/rules.d</code>:
+default), add the following line to to the bottom of a file with suffix
+<code>.rules</code> in the directory <code>/etc/audit/rules.d</code>:
 <pre>-f 2</pre>
 If the <code>auditd</code> daemon is configured to use the <code>auditctl</code>
 utility to read audit rules during daemon startup, add the following line to the
-top of the <code>/etc/audit/audit.rules</code> file:
+bottom of the <code>/etc/audit/audit.rules</code> file:
 <pre>-f 2</pre>
 </td>
 <td></td>

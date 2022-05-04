@@ -156,11 +156,11 @@ configured to automatically terminate these types of accounts after a
 period of 72 hours.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system automatically removes or disables local temporary user accounts after 72 hours. If it does not, this is a finding.</td>
-<td>For every temporary and emergency account, run the following command
+<td>For every temporary account, run the following command
 to obtain its account aging and expiration information:
 $ sudo chage -l USER
 Verify each of these accounts has an expiration date set as documented.
-      Is it the case that any temporary or emergency accounts have no expiration date set or do not expire within a documented time frame?
+      Is it the case that any temporary accounts have no expiration date set or do not expire within a documented time frame?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3717r557033_fix">Configure the operating system to automatically remove or disable local temporary user accounts after 72 hours.</fixtext></td>
 <td>Temporary accounts are established as part of normal account activation
@@ -9026,7 +9026,7 @@ $ sudo postconf alias_maps
 Query the Postfix alias maps for an alias for the root user:
 $ sudo postmap -q root hash:/etc/aliases
 The output should return an alias.
-      Is it the case that it is not?
+      Is it the case that the alias is not set?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3736r557090_fix">Configure the operating system to alert the ISSO and SA (at a minimum) in the event of an audit processing failure.</fixtext></td>
 <td>Make sure that mails delivered to root user are forwarded to a monitored
@@ -20100,11 +20100,11 @@ configured to automatically terminate these types of accounts after a
 period of 72 hours.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured such that emergency administrator accounts are automatically removed or disabled within 72 hours. If it is not, this is a finding.</td>
-<td>For every temporary and emergency account, run the following command
+<td>For every temporary account, run the following command
 to obtain its account aging and expiration information:
 $ sudo chage -l USER
 Verify each of these accounts has an expiration date set as documented.
-      Is it the case that any temporary or emergency accounts have no expiration date set or do not expire within a documented time frame?
+      Is it the case that any temporary accounts have no expiration date set or do not expire within a documented time frame?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3777r557202_fix">Configure the operating system such that emergency administrator accounts are automatically removed or disabled within 72 hours.</fixtext></td>
 <td>Temporary accounts are established as part of normal account activation
