@@ -627,7 +627,7 @@ By limiting the number of failed logon attempts the risk of unauthorized system
 access via user password guessing, otherwise known as brute-forcing, is reduced.
 Limits are imposed by locking the account.
   </td>
-  <td>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900<br/>var_accounts_passwords_pam_faillock_deny=3</td>
+  <td>var_accounts_passwords_pam_faillock_deny=3<br/>var_accounts_passwords_pam_faillock_unlock_time=never<br/>var_accounts_passwords_pam_faillock_fail_interval=900</td>
 </tr>
 <tr>
   <td>CM-6(a)<br/>AC-7(b)</td>
@@ -723,7 +723,7 @@ prior to the audit daemon, add the argument <tt>audit_backlog_limit=8192</tt> to
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit_backlog_limit=8192</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>audit_backlog_limit=8192</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
@@ -746,7 +746,7 @@ add the argument <tt>page_poison=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>page_poison=1</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>page_poison=1</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
@@ -770,7 +770,7 @@ add the argument <tt>slub_debug=P</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>slub_debug=P</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>slub_debug=P</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
@@ -1140,7 +1140,7 @@ add the argument <tt>vsyscall=none</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>vsyscall=none</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>vsyscall=none</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
@@ -2037,7 +2037,7 @@ prior to the audit daemon, add the argument <tt>audit=1</tt> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <tt>audit=1</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>audit=1</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>

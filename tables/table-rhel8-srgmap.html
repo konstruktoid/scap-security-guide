@@ -760,6 +760,10 @@ Audit record content that may be necessary to satisfy this requirement includes,
 Associating event types with detected events in the operating system audit logs provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured operating system.</td>
 <td>
 <table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -776,7 +780,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -1867,7 +1871,12 @@ form to <code>/etc/audit/audit.rules</code>:
 In order to compile an accurate risk assessment and provide forensic analysis, it is essential for security personnel to know when events occurred (date and time).
 
 Associating event types with detected events in the operating system audit logs provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured operating system.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -1876,7 +1885,8 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56651</td>
@@ -1889,6 +1899,10 @@ In order to compile an accurate risk assessment and provide forensic analysis, i
 
 Associating information about where the event occurred within the operating system provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured operating system.</td>
 <td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
 <table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
@@ -1918,7 +1932,12 @@ in <code>/etc/audit/auditd.conf</code>.</td>
 In addition to logging where events occur within the operating system, the operating system must also generate audit records that identify sources of events. Sources of operating system events include, but are not limited to, processes and services.
 
 In order to compile an accurate risk assessment and provide forensic analysis, it is essential for security personnel to know the source of the event.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -1927,7 +1946,8 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56655</td>
@@ -1937,7 +1957,12 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>Without information about the outcome of events, security personnel cannot make an accurate assessment as to whether an attack was successful or if changes were made to the security state of the system.
 
 Event outcomes can include indicators of event success or failure and event-specific results (e.g., the security state of the information system after the event occurred). As such, they also provide a means to measure the impact of an event and help authorized personnel to determine the appropriate response.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -1946,7 +1971,8 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56657</td>
@@ -1968,7 +1994,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -3057,7 +3083,12 @@ form to <code>/etc/audit/audit.rules</code>:
 <td>Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information.
 
 At a minimum, the organization must audit the individual identities of group users. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the actual account involved in the activity.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -3066,7 +3097,8 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56661</td>
@@ -3159,6 +3191,10 @@ Segregation of logging data to multiple disparate computer systems is counterpro
 To support the centralized capability, the operating system must be able to provide the information in a format that can be extracted and used, allowing the application performing the centralization of the log records to meet this requirement.</td>
 <td>
 <table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -3185,7 +3221,12 @@ The <code>auditd</code> service can be enabled with the following command:
 Events of interest can be identified by the content of specific audit record fields, including, for example, identities of individuals, event types, event locations, event times, event dates, system resources involved, IP addresses involved, or information objects accessed. Organizations may define audit event criteria to any degree of granularity required, for example, locations selectable by general networking location (e.g., by network or subnetwork) or selectable by specific information system component.
 
 This requires operating systems to provide the capability to customize audit record reports based on all available criteria.</td>
-<td><table><tr>
+<td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -3194,7 +3235,8 @@ disk.
 The <code>auditd</code> service can be enabled with the following command:
 <pre>$ sudo systemctl enable auditd.service</pre>
 </td>
-</tr></table></td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-56669</td>
@@ -3567,7 +3609,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -5692,7 +5734,7 @@ add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
 argument to newly installed kernels, add <code>pti=on</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
@@ -6391,7 +6433,7 @@ add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
 argument to newly installed kernels, add <code>vsyscall=none</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
@@ -6404,7 +6446,7 @@ add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>page_poison=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
@@ -6417,7 +6459,7 @@ add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
 argument to newly installed kernels, add <code>slub_debug=P</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
@@ -7326,6 +7368,10 @@ text and is not commented out:
 <td>If auditing is enabled late in the start-up process, the actions of some start-up processes may not be audited. Some audit systems also maintain state information only available if auditing is enabled before a given process is created.</td>
 <td>
 <table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -7342,7 +7388,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -7355,7 +7401,7 @@ prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
@@ -7370,6 +7416,10 @@ Run the following command to update command line for already installed kernels:<
 <td>The operating system must produce audit records containing information to establish the identity of any individual or process associated with the event.</td>
 <td>Without information that establishes the identity of the subjects (i.e., users or processes acting on behalf of users) associated with the events, security personnel cannot determine responsibility for the potentially harmful event.</td>
 <td>
+<table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
 <table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
@@ -7506,7 +7556,7 @@ its permission with the following command:
 </td>
 </tr></table>
 <table><tr>
-<td>Verify that system commands files are group owned by root </td>
+<td>Verify that system commands files are group owned by root</td>
 <td>System commands files are stored in the following directories by default:
 <pre>/bin
 /sbin
@@ -8512,10 +8562,22 @@ depending on the OS version.</td>
 <td>If authorized individuals do not have the ability to modify auditing parameters in response to a changing threat environment, the organization may not be able to effectively respond, and important forensic information may be lost.
 
 This requirement enables organizations to extend or limit auditing as necessary to meet organizational requirements. Auditing that is limited to conserve information system resources may be extended to address certain threat situations. In addition, auditing may be limited to a specific set of events to facilitate audit reduction, analysis, and reporting.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>SV-71505</td>
@@ -8542,7 +8604,7 @@ prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
@@ -8746,10 +8808,22 @@ Alerts provide organizations with urgent messages. Real-time alerts provide thes
 <td>The ability to perform on-demand audit review and analysis, including after the audit data has been subjected to audit reduction, greatly facilitates the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Audit reduction is a technique used to reduce the volume of audit records in order to facilitate a manual review. Audit reduction does not alter original audit records. The report generation capability provided by the application must support on-demand (i.e., customizable, ad hoc, and as-needed) reports.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57255</td>
@@ -8786,10 +8860,22 @@ The <code>auditd</code> service can be enabled with the following command:
 <td>The report generation capability must support on-demand review and analysis in order to facilitate the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Report generation must be capable of generating on-demand (i.e., customizable, ad hoc, and as-needed) reports. On-demand reporting allows personnel to report issues more rapidly to more effectively meet reporting requirements. Collecting log data and aggregating it to present the data in a single, consolidated report achieves this objective.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57259</td>
@@ -8799,10 +8885,22 @@ Report generation must be capable of generating on-demand (i.e., customizable, a
 <td>The report generation capability must support on-demand reporting in order to facilitate the organization's ability to generate incident reports, as needed, to better handle larger-scale or more complex security incidents.
 
 Report generation must be capable of generating on-demand (i.e., customizable, ad hoc, and as-needed) reports. On-demand reporting allows personnel to report issues more rapidly to more effectively meet reporting requirements. Collecting log data and aggregating it to present the data in a single, consolidated report achieves this objective.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57261</td>
@@ -8812,10 +8910,22 @@ Report generation must be capable of generating on-demand (i.e., customizable, a
 <td>If the report generation capability does not support after-the-fact investigations, it is difficult to establish, correlate, and investigate the events leading up to an outage or attack or identify those responses for one. This capability is also required to comply with applicable Federal laws and DoD policies.
 
 The report generation capability must support after-the-fact investigations of security incidents either natively or through the use of third-party tools.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57263</td>
@@ -8827,10 +8937,22 @@ The report generation capability must support after-the-fact investigations of s
 Audit reduction is a process that manipulates collected audit information and organizes such information in a summary format that is more meaningful to analysts. Time ordering refers to the chronological organization of records based on time stamps. The degree of time stamp precision can affect this.
 
 This requirement is specific to operating systems providing audit reduction capabilities. The audit reduction capability can be met either natively or through the use of third-party tools.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>SV-71525</td>
@@ -8842,10 +8964,22 @@ This requirement is specific to operating systems providing audit reduction capa
 Time ordering refers to the chronological organization of records based on time stamps. The degree of time stamp precision can affect this.
 
 This requirement is specific to operating systems providing report generation capabilities. The report generation capability can be met either natively or through the use of third-party tools.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57267</td>
@@ -8915,10 +9049,22 @@ to pass.</td>
 <td>Without sufficient granularity of time stamps, it is not possible to adequately determine the chronological order of records.
 
 Time stamps generated by the operating system include date and time. Granularity of time measurements refers to the degree of synchronization between information system clocks and reference clocks.</td>
-<td><table><tr>
+<td>
+<table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
-</tr></table></td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
+</tr></table>
+</td>
 </tr>
 <tr>
 <td>V-57189</td>
@@ -8929,10 +9075,6 @@ Time stamps generated by the operating system include date and time. Granularity
 
 Time stamps generated by the operating system include date and time. Time is commonly expressed in Coordinated Universal Time (UTC), a modern continuation of Greenwich Mean Time (GMT), or local time with an offset from UTC.</td>
 <td>
-<table><tr>
-<td>Ensure the audit Subsystem is Installed</td>
-<td>The audit package should be installed.</td>
-</tr></table>
 <table><tr>
 <td>Configure Time Service Maxpoll Interval</td>
 <td>The <code>maxpoll</code> should be configured to
@@ -9657,6 +9799,10 @@ Nonlocal maintenance and diagnostic activities are those activities conducted by
 This requirement applies to hardware/software diagnostic test equipment or tools. This requirement does not cover hardware/software components that may support information system maintenance, yet are a part of the system, for example, the software implementing "ping," "ls," "ipconfig," or the hardware and software implementing the monitoring port of an Ethernet switch.</td>
 <td>
 <table><tr>
+<td>Ensure the audit Subsystem is Installed</td>
+<td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
 <td>Enable auditd Service</td>
 <td>The <code>auditd</code> service is an essential userspace component of
 the Linux Auditing System, as it is responsible for writing audit records to
@@ -9673,7 +9819,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -11162,7 +11308,7 @@ add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
 argument to newly installed kernels, add <code>slub_debug=P</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>
@@ -11186,7 +11332,7 @@ add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
 argument to newly installed kernels, add <code>pti=on</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre>
@@ -11915,7 +12061,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -14188,7 +14334,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -15352,7 +15498,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -15385,10 +15531,6 @@ edits of files involved in storing logon events:
 
 Audit records can be generated from various components within the information system (e.g., module or policy filter).</td>
 <td>
-<table><tr>
-<td>Ensure the audit Subsystem is Installed</td>
-<td>The audit package should be installed.</td>
-</tr></table>
 <table><tr>
 <td>Record Events that Modify the System's Discretionary Access Controls - chown</td>
 <td>At a minimum, the audit system should collect file permission
@@ -15602,6 +15744,16 @@ Audit records can be generated from various components within the information sy
 <table><tr>
 <td>Ensure the audit Subsystem is Installed</td>
 <td>The audit package should be installed.</td>
+</tr></table>
+<table><tr>
+<td>Enable auditd Service</td>
+<td>The <code>auditd</code> service is an essential userspace component of
+the Linux Auditing System, as it is responsible for writing audit records to
+disk.
+
+The <code>auditd</code> service can be enabled with the following command:
+<pre>$ sudo systemctl enable auditd.service</pre>
+</td>
 </tr></table>
 <table><tr>
 <td>Configure immutable Audit login UIDs</td>
@@ -16351,20 +16503,6 @@ add or correct the <code>umask</code> setting in <code>/etc/profile</code> to re
 <td>Remove the <code>UMASK</code> environment variable from all interactive users initialization files.</td>
 </tr></table>
 <table><tr>
-<td>Ensure the audit Subsystem is Installed</td>
-<td>The audit package should be installed.</td>
-</tr></table>
-<table><tr>
-<td>Enable auditd Service</td>
-<td>The <code>auditd</code> service is an essential userspace component of
-the Linux Auditing System, as it is responsible for writing audit records to
-disk.
-
-The <code>auditd</code> service can be enabled with the following command:
-<pre>$ sudo systemctl enable auditd.service</pre>
-</td>
-</tr></table>
-<table><tr>
 <td>Include Local Events in Audit Logs</td>
 <td>To configure Audit daemon to include local events in Audit logs, set
 <code>local_events</code> to <code>yes</code> in <code>/etc/audit/auditd.conf</code>.
@@ -16384,7 +16522,7 @@ add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
 argument to newly installed kernels, add <code>vsyscall=none</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
@@ -16816,7 +16954,7 @@ add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>page_poison=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>

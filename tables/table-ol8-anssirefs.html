@@ -498,7 +498,7 @@ On x86 architecture supporting VT-d, the IOMMU manages the access control policy
     of the system critical units such as the memory.
 To ensure that <tt>iommu=force</tt> is added as a kernel command line
 argument to newly installed kernels, add <tt>iommu=force</tt> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <tt>/etc/default/grub</tt> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... iommu=force ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="iommu=force"</pre>

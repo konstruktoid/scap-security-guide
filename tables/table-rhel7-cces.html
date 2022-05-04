@@ -2813,7 +2813,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre>
@@ -2827,7 +2827,7 @@ prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre>
@@ -6289,7 +6289,7 @@ cp /usr/share/doc/audit*/rules/{10-base-config,11-loginuid,30-ospp-v42,43-module
     of the system critical units such as the memory.
 To ensure that <code>iommu=force</code> is added as a kernel command line
 argument to newly installed kernels, add <code>iommu=force</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... iommu=force ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="iommu=force"</pre>
@@ -6307,7 +6307,7 @@ Select the appropriate mitigation by adding the argument
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>l1tf=xccdf_value(var_l1tf_options)</code> is added as a kernel command line
 argument to newly installed kernels, add <code>l1tf=xccdf_value(var_l1tf_options)</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... l1tf=xccdf_value(var_l1tf_options) ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="l1tf=xccdf_value(var_l1tf_options)"</pre>
@@ -6330,7 +6330,7 @@ set the MCE tolerance to zero by adding <code>mce=0</code>
 to the default GRUB 2 command line for the Linux operating system.
 To ensure that <code>mce=0</code> is added as a kernel command line
 argument to newly installed kernels, add <code>mce=0</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... mce=0 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="mce=0"</pre>
@@ -6389,7 +6389,7 @@ Select the appropriate confidence by adding the argument
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>rng_core.default_quality=xccdf_value(var_rng_core_default_quality)</code> is added as a kernel command line
 argument to newly installed kernels, add <code>rng_core.default_quality=xccdf_value(var_rng_core_default_quality)</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... rng_core.default_quality=xccdf_value(var_rng_core_default_quality) ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="rng_core.default_quality=xccdf_value(var_rng_core_default_quality)"</pre>
@@ -6407,7 +6407,7 @@ To disable merging of slabs in the Kernel add the argument <code>slab_nomerge=ye
 to the default GRUB 2 command line for the Linux operating system.
 To ensure that <code>slab_nomerge=yes</code> is added as a kernel command line
 argument to newly installed kernels, add <code>slab_nomerge=yes</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slab_nomerge=yes ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slab_nomerge=yes"</pre>
@@ -6432,7 +6432,7 @@ Select the appropriate SSB state by adding the argument
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)</code> is added as a kernel command line
 argument to newly installed kernels, add <code>spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options) ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="spec_store_bypass_disable=xccdf_value(var_spec_store_bypass_disable_options)"</pre>
@@ -6454,7 +6454,7 @@ Enforce the Spectre V2 mitigation by adding the argument
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>spectre_v2=on)</code> is added as a kernel command line
 argument to newly installed kernels, add <code>spectre_v2=on)</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... spectre_v2=on) ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="spectre_v2=on)"</pre>
@@ -6468,7 +6468,7 @@ add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
 argument to newly installed kernels, add <code>vsyscall=none</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre>
@@ -7750,7 +7750,7 @@ add the argument <code>ipv6.disable=1</code> to the default
 GRUB2 command line for the Linux operating system.
 To ensure that <code>ipv6.disable=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>ipv6.disable=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... ipv6.disable=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="ipv6.disable=1"</pre>
@@ -9452,7 +9452,7 @@ add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>page_poison=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre>
@@ -9466,7 +9466,7 @@ add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
 argument to newly installed kernels, add <code>slub_debug=P</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre>

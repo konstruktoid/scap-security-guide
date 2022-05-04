@@ -1356,18 +1356,10 @@ line and is not commented out:
 <td><pre>System binaries are executed by privileged users, as well as system services,
 and restrictive permissions are necessary to ensure execution of these programs
 cannot be co-opted.</pre></td>
-<td><pre>System executables are stored in the following directories by default:
-/bin
-/sbin
-/usr/bin
-/usr/libexec
-/usr/local/bin
-/usr/local/sbin
-/usr/sbin
-To find system executables that are group-writable or world-writable,
-run the following command for each directory DIR which contains system executables:
-$ sudo find -L DIR -perm /022 -type f
-      Is it the case that any system executables are found to be group or world writable?
+<td><pre>Verify the system commands contained in the following directories have mode "755" or less permissive with the following command:
+
+$ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/local/sbin -perm /022 -exec ls -l {} \;
+      Is it the case that any system commands are found to be group-writable or world-writable?
       </pre></td>
 <td><pre>System executables are stored in the following directories by default:
 <pre>/bin
@@ -1394,18 +1386,10 @@ following command:
 <td><pre>System binaries are executed by privileged users as well as system services,
 and restrictive permissions are necessary to ensure that their
 execution of these programs cannot be co-opted.</pre></td>
-<td><pre>System executables are stored in the following directories by default:
-/bin
-/sbin
-/usr/bin
-/usr/libexec
-/usr/local/bin
-/usr/local/sbin
-/usr/sbin
-To find system executables that are not owned by root,
-run the following command for each directory DIR which contains system executables:
-$ sudo find DIR/ \! -user root
-      Is it the case that any system executables are found to not be owned by root?
+<td><pre>Verify the system commands contained in the following directories are owned by "root" with the following command:
+
+$ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/local/sbin ! -user root -exec ls -l {} \;
+      Is it the case that any system commands are found to not be owned by root?
       </pre></td>
 <td><pre>System executables are stored in the following directories by default:
 <pre>/bin
@@ -1439,17 +1423,10 @@ Software libraries also include privileged programs which execute with
 escalated privileges. Only qualified and authorized individuals must be
 allowed to obtain access to information system components for purposes
 of initiating changes, including upgrades and modifications.</pre></td>
-<td><pre>System commands are stored in the following directories:
-/bin
-/sbin
-/usr/bin
-/usr/sbin
-/usr/local/bin
-/usr/local/sbin
-For each of these directories, run the following command to find files not
-owned by root group:
-$ sudo find -L $DIR ! -group root -type f \;
-      Is it the case that any of these files are not owned by root group?
+<td><pre>Verify the system commands contained in the following directories are group-owned by "root", or a required system account, with the following command:
+
+$ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root -exec ls -l {} \;
+      Is it the case that any system commands are returned and is not group-owned by a required system account?
       </pre></td>
 <td><pre>System commands files are stored in the following directories by default:
 <pre>/bin
@@ -1475,16 +1452,10 @@ by a group other than root correct its ownership with the following command:
 <td><pre>Files from shared library directories are loaded into the address
 space of processes (including privileged ones) or of the kernel itself at
 runtime. Restrictive permissions are necessary to protect the integrity of the system.</pre></td>
-<td><pre>Shared libraries are stored in the following directories:
-/lib
-/lib64
-/usr/lib
-/usr/lib64
+<td><pre>Verify the system-wide shared library files contained in the following directories have mode "755" or less permissive with the following command:
 
-To find shared libraries that are group-writable or world-writable,
-run the following command for each directory DIR which contains shared libraries:
-$ sudo find -L DIR -perm /022 -type f
-      Is it the case that any of these files are group-writable or world-writable?
+$ sudo find -L /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type f -exec ls -l {} \;
+      Is it the case that any system-wide shared library file is found to be group-writable or world-writable?
       </pre></td>
 <td><pre>System-wide shared library files, which are linked to executables
 during process load time or run time, are stored in the following directories
@@ -1555,15 +1526,10 @@ its permission with the following command:
 <td><pre>Files from shared library directories are loaded into the address
 space of processes (including privileged ones) or of the kernel itself at
 runtime. Proper ownership is necessary to protect the integrity of the system.</pre></td>
-<td><pre>Shared libraries are stored in the following directories:
-/lib
-/lib64
-/usr/lib
-/usr/lib64
-For each of these directories, run the following command to find files not
-owned by root:
-$ sudo find -L $DIR ! -user root -exec chown root {} \;
-      Is it the case that any of these files are not owned by root?
+<td><pre>Verify the system-wide shared library files are owned by "root" with the following command:
+
+$ sudo find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls -l {} \;
+      Is it the case that any system wide shared library file is not owned by root?
       </pre></td>
 <td><pre>System-wide shared library files, which are linked to executables
 during process load time or run time, are stored in the following directories
@@ -1592,15 +1558,10 @@ ownership with the following command:
 space of processes (including privileged ones) or of the kernel itself at
 runtime. Proper ownership of library directories is necessary to protect
 the integrity of the system.</pre></td>
-<td><pre>Shared libraries are stored in the following directories:
-/lib
-/lib64
-/usr/lib
-/usr/lib64
-For each of these directories, run the following command to find files not
-owned by root:
-$ sudo find -L $DIR ! -user root -type d -exec chown root {} \;
-      Is it the case that any of these directories are not owned by root?
+<td><pre>Verify the system-wide shared library directories are owned by "root" with the following command:
+
+$ sudo find /lib /lib64 /usr/lib /usr/lib64 ! -user root -type d -exec stat -c "%n %U" '{}' \;
+      Is it the case that any system-wide shared library directory is not owned by root?
       </pre></td>
 <td><pre>System-wide shared library files, which are linked to executables
 during process load time or run time, are stored in the following directories
@@ -1634,16 +1595,10 @@ accessible and configurable, as in the case of interpreted languages. Software l
 also include privileged programs which execute with escalated privileges. Only qualified
 and authorized individuals must be allowed to obtain access to information system components
 for purposes of initiating changes, including upgrades and modifications.</pre></td>
-<td><pre>System-wide library files are stored in the following directories:
-/lib
-/lib64
-/usr/lib
-/usr/lib64
+<td><pre>Verify the system-wide shared library files are group-owned by "root" with the following command:
 
-To find if system-wide library files stored in these directories are not group-owned by
-root run the following command for each directory DIR:
-$ sudo find -L DIR ! -group root -type f 
-      Is it the case that system wide library files are not group-owned by root?
+$ sudo find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \;
+      Is it the case that any system wide shared library file is returned and is not group-owned by a required system account?
       </pre></td>
 <td><pre>System-wide library files are stored in the following directories
 by default:
@@ -1669,15 +1624,12 @@ the following command:
 space of processes (including privileged ones) or of the kernel itself at
 runtime. Proper ownership of library directories is necessary to protect
 the integrity of the system.</pre></td>
-<td><pre>Shared libraries are stored in the following directories:
-/lib
-/lib64
-/usr/lib
-/usr/lib64
-For each of these directories, run the following command to find files not
-owned by root:
-$ sudo find -L $DIR ! -user root -type d -exec chgrp root {} \;
-      Is it the case that any of these directories are not group-owned by root?
+<td><pre>Verify the system-wide shared library directories are group-owned by "root" with the following command:
+
+$ sudo find /lib /lib64 /usr/lib /usr/lib64 ! -group root -type d -exec stat -c "%n %G" '{}' \;
+
+If any system-wide shared library directory is returned and is not group-owned by a required system account, this is a finding.
+      Is it the case that any system-wide shared library directory is returned and is not group-owned by a required system account?
       </pre></td>
 <td><pre>System-wide shared library files, which are linked to executables
 during process load time or run time, are stored in the following directories
@@ -2305,7 +2257,7 @@ add the argument <code>page_poison=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>page_poison=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>page_poison=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... page_poison=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="page_poison=1"</pre></pre></td>
@@ -2339,7 +2291,7 @@ add the argument <code>vsyscall=none</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>vsyscall=none</code> is added as a kernel command line
 argument to newly installed kernels, add <code>vsyscall=none</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... vsyscall=none ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="vsyscall=none"</pre></pre></td>
@@ -2376,7 +2328,7 @@ add the argument <code>slub_debug=P</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>slub_debug=P</code> is added as a kernel command line
 argument to newly installed kernels, add <code>slub_debug=P</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... slub_debug=P ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="slub_debug=P"</pre></pre></td>
@@ -7488,7 +7440,7 @@ prior to the audit daemon, add the argument <code>audit=1</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit=1</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit=1</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit=1 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit=1"</pre></pre></td>
@@ -7524,7 +7476,7 @@ prior to the audit daemon, add the argument <code>audit_backlog_limit=8192</code
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>audit_backlog_limit=8192</code> is added as a kernel command line
 argument to newly installed kernels, add <code>audit_backlog_limit=8192</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... audit_backlog_limit=8192 ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="audit_backlog_limit=8192"</pre></pre></td>
@@ -8150,7 +8102,7 @@ add the argument <code>pti=on</code> to the default
 GRUB 2 command line for the Linux operating system.
 To ensure that <code>pti=on</code> is added as a kernel command line
 argument to newly installed kernels, add <code>pti=on</code> to the
-default Grub2 command line for Linux operating systems.  Modify the line within
+default Grub2 command line for Linux operating systems. Modify the line within
 <code>/etc/default/grub</code> as shown below:
 <pre>GRUB_CMDLINE_LINUX="... pti=on ..."</pre>
 Run the following command to update command line for already installed kernels:<pre># grubby --update-kernel=ALL --args="pti=on"</pre></pre></td>
