@@ -30,7 +30,6 @@ directory_permissions_var_log_audit
 encrypt_partitions
 ensure_gpgcheck_never_disabled
 file_permission_user_init_files
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid

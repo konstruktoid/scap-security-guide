@@ -45,7 +45,6 @@ enable_ldap_client
 encrypt_partitions
 etc_system_fips_exists
 file_permission_user_init_files
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_ungroupowned
 ftp_configure_firewall

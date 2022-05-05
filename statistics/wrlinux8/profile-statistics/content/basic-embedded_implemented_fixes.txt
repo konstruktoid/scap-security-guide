@@ -3,4 +3,5 @@ accounts_max_concurrent_login_sessions
 accounts_no_uid_except_zero
 accounts_umask_etc_login_defs
 accounts_umask_etc_profile
+file_permissions_home_dirs
 no_empty_passwords

@@ -4,7 +4,6 @@ accounts_no_uid_except_zero
 accounts_password_all_shadowed
 accounts_root_path_dirs_no_write
 accounts_umask_etc_login_defs
-file_permissions_home_dirs
 no_empty_passwords
 no_netrc_files
 root_path_no_dot

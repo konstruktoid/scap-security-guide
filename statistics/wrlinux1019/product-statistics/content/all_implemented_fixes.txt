@@ -120,6 +120,7 @@ file_permissions_etc_motd
 file_permissions_etc_passwd
 file_permissions_etc_shadow
 file_permissions_home_directories
+file_permissions_home_dirs
 file_permissions_library_dirs
 file_permissions_sshd_private_key
 file_permissions_sshd_pub_key

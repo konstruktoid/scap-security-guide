@@ -65,7 +65,6 @@ encrypt_partitions
 etc_system_fips_exists
 file_ownership_var_log_audit
 file_permission_user_init_files
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_world_writable
 file_permissions_ungroupowned

@@ -25,7 +25,6 @@ dhcp_server_minimize_served_info
 dir_perms_world_writable_sticky_bits
 disallow_bypass_password_sudo
 file_ownership_binary_dirs
-file_permissions_home_dirs
 file_permissions_systemmap
 ftp_configure_firewall
 ftp_limit_users

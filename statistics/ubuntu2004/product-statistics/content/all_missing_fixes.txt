@@ -39,7 +39,6 @@ enable_dconf_user_profile
 encrypt_partitions
 ensure_sudo_group_restricted
 file_ownership_binary_dirs
-file_permissions_home_dirs
 file_permissions_systemmap
 ftp_configure_firewall
 ftp_limit_users

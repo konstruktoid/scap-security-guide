@@ -8,7 +8,6 @@ chronyd_server_directive
 configure_user_data_backups
 dhcp_client_restrict_options
 dhcp_server_minimize_served_info
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid

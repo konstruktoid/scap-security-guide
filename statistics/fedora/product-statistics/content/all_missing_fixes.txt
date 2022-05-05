@@ -66,7 +66,6 @@ enable_dracut_fips_module
 encrypt_partitions
 ensure_gpgcheck_repo_metadata
 etc_system_fips_exists
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid

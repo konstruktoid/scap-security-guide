@@ -60,7 +60,6 @@ display_login_attempts
 file_ownership_binary_dirs
 file_ownership_var_log_audit
 file_permissions_binary_dirs
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_world_writable
 ftp_configure_firewall

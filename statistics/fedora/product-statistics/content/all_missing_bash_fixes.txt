@@ -82,7 +82,6 @@ ensure_gpgcheck_repo_metadata
 etc_system_fips_exists
 file_ownership_binary_dirs
 file_permissions_binary_dirs
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid

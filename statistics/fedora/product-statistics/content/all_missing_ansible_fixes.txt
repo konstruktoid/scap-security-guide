@@ -80,7 +80,6 @@ ensure_fedora_gpgkey_installed
 ensure_gpgcheck_repo_metadata
 etc_system_fips_exists
 file_ownership_var_log_audit
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_unauthorized_sgid
 file_permissions_unauthorized_suid

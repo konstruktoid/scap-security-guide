@@ -24,7 +24,6 @@ dir_perms_world_writable_system_owned_group
 directory_permissions_var_log_audit
 encrypt_partitions
 file_permission_user_init_files
-file_permissions_home_dirs
 file_permissions_systemmap
 file_permissions_ungroupowned
 ftp_configure_firewall
