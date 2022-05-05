@@ -1808,7 +1808,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -4782,7 +4782,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -4822,7 +4822,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -4896,7 +4896,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -4934,7 +4934,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -7796,7 +7796,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -7964,7 +7964,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -8004,7 +8004,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -8329,7 +8329,7 @@ If it does not, this is a finding.</td>
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -14218,7 +14218,6 @@ length credit for each lowercase character. Modify the <code>lcredit</code> sett
 <td>To check how many lowercase characters are required in a password, run the following command:
 $ grep lcredit /etc/security/pwquality.conf
 The lcredit parameter (as a negative number) will indicate how many special characters are required.
-The DoD and FISMA require at least one lowercase character in a password. This would appear as lcredit = -1.
       Is it the case that lcredit is not found or not less than or equal to the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3751r557603_fix">Configure the operating system to enforce password complexity by requiring that at least one lower-case character be used.</fixtext></td>
@@ -14251,7 +14250,6 @@ length credit for each digit. Modify the <code>dcredit</code> setting in
 <td>To check how many digits are required in a password, run the following command:
 $ grep dcredit /etc/security/pwquality.conf
 The dcredit parameter (as a negative number) will indicate how many digits are required.
-The DoD requires at least one digit in a password. This would appear as dcredit = -1.
       Is it the case that dcredit is not found or not equal to or less than the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3752r557606_fix">Configure the operating system to enforce password complexity by requiring that at least one numeric character be used.</fixtext></td>
@@ -14650,13 +14648,10 @@ lifetime by running the following command:
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify operating system enforces 24 hours/1 day as the minimum password lifetime. If it does not, this is a finding.</td>
-<td>Check whether the minimum time period between password changes for each
-user account is one day or greater by running the following command for
-each user:
-$ sudo chage -l USER | grep Minimum
-The output for each user should return something similary to the following:
-Minimum number of days between password change\t\t: 1
-      Is it the case that existing passwords are not configured correctly?
+<td>Check whether the minimum time period between password changes for each user account is one day or greater.
+
+$ sudo awk -F: '$4 &lt; 1 {print $1 "" "" $4}' /etc/shadow
+      Is it the case that any results are returned that are not associated with a system account?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3756r557618_fix">Configure operating system to enforce 24 hours/1 day as the minimum password lifetime.</fixtext></td>
 <td>Configure non-compliant accounts to enforce a 24 hours/1 day minimum password
@@ -15236,7 +15231,7 @@ The <code>firewalld</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 firewalld service:
-$ systemctl is-active firewalld
+$ sudo systemctl is-active firewalld
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </td>
@@ -15260,27 +15255,27 @@ $ sudo systemctl enable firewalld.service</td>
 Operating systems are capable of providing a wide variety of functions and services. Some of the functions and services provided by default may not be necessary to support essential organizational operations. Additionally, it is sometimes convenient to provide multiple services from a single component (e.g., VPN and IPS); however, doing so increases risk over limiting the services provided by any one component.
 
 To support the requirements and principles of least functionality, the operating system must support the organizational requirements, providing only essential capabilities and limiting the use of ports, protocols, and/or services to only those required, authorized, and approved to conduct official business or to address authorized quality of life issues.</td>
-<td>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
+<td>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system is configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the PPSM CAL and vulnerability assessments. If it does not, this is a finding.</td>
-<td>Inspect the list of enabled firewall ports and verify they are configured
-correctly by running the following command:
+<td>Inspect the list of enabled firewall ports and verify they are configured correctly by running
+the following command:
 $ sudo firewall-cmd --list-all
-      Is it the case that the default rules are not configured?
+      Is it the case that the firewalld rules are not configured?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3763r557641_fix">Configure the operating system to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the PPSM CAL and vulnerability assessments.</fixtext></td>
-<td>Configure the firewalld ports to allow approved
-services to have access to the system. To configure firewalld
-to open ports, run the following command:
-$ sudo firewall-cmd --permanent --add-port=port_number/tcp
-or
-$ sudo firewall-cmd --permanent --add-port=service_name</td>
+<td>Configure the firewalld ports to allow approved services to have access to the system.
+To configure firewalld to open ports, run the following command:
+firewall-cmd --permanent --add-port=port_number/tcp
+To configure firewalld to allow access for pre-defined services, run the following
+command:
+firewall-cmd --permanent --add-service=service_name</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -16021,19 +16016,19 @@ The <code>autofs</code> service can be disabled with the following command:
 <td>
 To check that the autofs service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled autofs
+$ sudo systemctl is-enabled autofs
 Output should indicate the autofs service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled autofs disabled
+$ sudo systemctl is-enabled autofs disabled
 
 Run the following command to verify autofs is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active autofs
+$ sudo systemctl is-active autofs
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the autofs is masked, run the following command:
-$ systemctl show autofs | grep "LoadState\|UnitFileState"
+$ sudo systemctl show autofs | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -16232,7 +16227,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -18554,7 +18549,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -18590,7 +18585,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -18906,8 +18901,6 @@ to require use of a special character in passwords.</td>
 $ grep ocredit /etc/security/pwquality.conf
 The ocredit parameter (as a negative number) will indicate how many special
 characters are required.
-The DoD and FISMA require at least one special character in a password.
-This would appear as ocredit = -1.
       Is it the case that value of "ocredit" is a positive number or is commented out?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3801r374916_fix">Configure the operating system to enforce password complexity by requiring that at least one special character be used.</fixtext></td>
@@ -19442,7 +19435,7 @@ The <code>firewalld</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 firewalld service:
-$ systemctl is-active firewalld
+$ sudo systemctl is-active firewalld
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </td>
@@ -19466,27 +19459,27 @@ $ sudo systemctl enable firewalld.service</td>
 Remote access is access to DoD nonpublic information systems by an authorized user (or an information system) communicating through an external, non-organization-controlled network. Remote access methods include, for example, dial-up, broadband, and wireless.
 
 Operating system functionality (e.g., RDP) must be capable of taking enforcement action if the audit reveals unauthorized activity. Automated control of remote access sessions allows organizations to ensure ongoing compliance with remote access policies by enforcing connection rules of remote access applications on a variety of information system components (e.g., servers, workstations, notebook computers, smartphones, and tablets).</td>
-<td>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
+<td>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre>
 </td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system controls remote access methods. If it does not, this is a finding.</td>
-<td>Inspect the list of enabled firewall ports and verify they are configured
-correctly by running the following command:
+<td>Inspect the list of enabled firewall ports and verify they are configured correctly by running
+the following command:
 $ sudo firewall-cmd --list-all
-      Is it the case that the default rules are not configured?
+      Is it the case that the firewalld rules are not configured?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3811r374946_fix">Configure the operating system to control remote access methods.</fixtext></td>
-<td>Configure the firewalld ports to allow approved
-services to have access to the system. To configure firewalld
-to open ports, run the following command:
-$ sudo firewall-cmd --permanent --add-port=port_number/tcp
-or
-$ sudo firewall-cmd --permanent --add-port=service_name</td>
+<td>Configure the firewalld ports to allow approved services to have access to the system.
+To configure firewalld to open ports, run the following command:
+firewall-cmd --permanent --add-port=port_number/tcp
+To configure firewalld to allow access for pre-defined services, run the following
+command:
+firewall-cmd --permanent --add-service=service_name</td>
 <td>medium</td>
 <td></td>
 <td></td>
@@ -21084,7 +21077,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21602,7 +21595,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21642,7 +21635,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21680,7 +21673,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21718,7 +21711,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21756,7 +21749,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21796,7 +21789,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21836,7 +21829,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -21968,7 +21961,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -22398,7 +22391,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -23698,19 +23691,19 @@ The <code>autofs</code> service can be disabled with the following command:
 <td>
 To check that the autofs service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled autofs
+$ sudo systemctl is-enabled autofs
 Output should indicate the autofs service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled autofs disabled
+$ sudo systemctl is-enabled autofs disabled
 
 Run the following command to verify autofs is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active autofs
+$ sudo systemctl is-active autofs
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the autofs is masked, run the following command:
-$ systemctl show autofs | grep "LoadState\|UnitFileState"
+$ sudo systemctl show autofs | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -23903,7 +23896,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -27400,7 +27393,7 @@ The <code>sshd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 sshd service:
-$ systemctl is-active sshd
+$ sudo systemctl is-active sshd
 If the service is running, it should return the following: active
       Is it the case that sshd service is disabled?
       </td>
@@ -27514,7 +27507,7 @@ If it does not, this is a finding.</td>
 
 Run the following command to determine the current status of the
 sshd service:
-$ systemctl is-active sshd
+$ sudo systemctl is-active sshd
 If the service is running, it should return the following: active
       Is it the case that sshd service is disabled?
       </td>
@@ -27581,7 +27574,7 @@ The <code>sshd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 sshd service:
-$ systemctl is-active sshd
+$ sudo systemctl is-active sshd
 If the service is running, it should return the following: active
       Is it the case that sshd service is disabled?
       </td>
@@ -27648,7 +27641,7 @@ The <code>sshd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 sshd service:
-$ systemctl is-active sshd
+$ sudo systemctl is-active sshd
 If the service is running, it should return the following: active
       Is it the case that sshd service is disabled?
       </td>
@@ -38970,7 +38963,7 @@ The <code>auditd</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </td>
@@ -41608,7 +41601,7 @@ The <code>firewalld</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 firewalld service:
-$ systemctl is-active firewalld
+$ sudo systemctl is-active firewalld
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </td>
@@ -42359,19 +42352,19 @@ The <code>autofs</code> service can be disabled with the following command:
 <td>
 To check that the autofs service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled autofs
+$ sudo systemctl is-enabled autofs
 Output should indicate the autofs service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled autofs disabled
+$ sudo systemctl is-enabled autofs disabled
 
 Run the following command to verify autofs is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active autofs
+$ sudo systemctl is-active autofs
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the autofs is masked, run the following command:
-$ systemctl show autofs | grep "LoadState\|UnitFileState"
+$ sudo systemctl show autofs | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -42620,19 +42613,19 @@ The <code>kdump</code> service can be disabled with the following command:
 <td>
 To check that the kdump service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled kdump
+$ sudo systemctl is-enabled kdump
 Output should indicate the kdump service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled kdump disabled
+$ sudo systemctl is-enabled kdump disabled
 
 Run the following command to verify kdump is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active kdump
+$ sudo systemctl is-active kdump
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the kdump is masked, run the following command:
-$ systemctl show kdump | grep "LoadState\|UnitFileState"
+$ sudo systemctl show kdump | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -44063,7 +44056,7 @@ The <code>firewalld</code> service can be enabled with the following command:
 
 Run the following command to determine the current status of the
 firewalld service:
-$ systemctl is-active firewalld
+$ sudo systemctl is-active firewalld
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </td>

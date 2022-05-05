@@ -4156,30 +4156,29 @@ a file under <code>/etc/security/limits.d/</code>:
 <td>medium</td>
 <td>The Oracle Linux operating system must be configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the Ports, Protocols, and Services Management Component Local Service Assessment (PPSM CLSA) and vulnerability assessments.</td>
 <td>SRG-OS-ID</td>
-<td><pre>In order to prevent unauthorized connection of devices, unauthorized
-transfer of information, or unauthorized tunneling (i.e., embedding of data
-types within data types), organizations must disable or restrict unused or
-unnecessary physical and logical ports/protocols on information systems.
+<td><pre>In order to prevent unauthorized connection of devices, unauthorized transfer of information,
+or unauthorized tunneling (i.e., embedding of data types within data types), organizations must
+disable or restrict unused or unnecessary physical and logical ports/protocols on information
+systems.
 <br><br>
-Operating systems are capable of providing a wide variety of functions and
-services. Some of the functions and services provided by default may not be
-necessary to support essential organizational operations.
-Additionally, it is sometimes convenient to provide multiple services from
-a single component (e.g., VPN and IPS); however, doing so increases risk
-over limiting the services provided by any one component.
+Operating systems are capable of providing a wide variety of functions and services.
+Some of the functions and services provided by default may not be necessary to support
+essential organizational operations.
+Additionally, it is sometimes convenient to provide multiple services from a single component
+(e.g., VPN and IPS); however, doing so increases risk over limiting the services provided by
+one component.
 <br><br>
-To support the requirements and principles of least functionality, the
-operating system must support the organizational requirements, providing
-only essential capabilities and limiting the use of ports, protocols,
-and/or services to only those required, authorized, and approved to conduct
-official business or to address authorized quality of life issues.</pre></td>
+To support the requirements and principles of least functionality, the operating system must
+support the organizational requirements, providing only essential capabilities and limiting the
+use of ports, protocols, and/or services to only those required, authorized, and approved to
+conduct official business.</pre></td>
 <td><pre></pre></td>
-<td><pre>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre></pre></td>
+<td><pre>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre></pre></td>
 <td>OL07-00-040100</td>
 <td>configure_firewalld_ports</td>
 </tr>

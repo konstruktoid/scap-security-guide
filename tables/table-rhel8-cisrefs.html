@@ -1452,7 +1452,7 @@ which aids in forensic investigations.
 
 Run the following command to determine the current status of the
 <code>chronyd</code> service:
-<pre>$ systemctl is-active chronyd</pre>
+<pre>$ sudo systemctl is-active chronyd</pre>
 If the service is running, it should return the following: <pre>active</pre>
 Note: The <tt>chronyd</tt> daemon is enabled by default.
 <br /><br />
@@ -1460,7 +1460,7 @@ Note: The <tt>chronyd</tt> daemon is enabled by default.
 
 Run the following command to determine the current status of the
 <code>ntpd</code> service:
-<pre>$ systemctl is-active ntpd</pre>
+<pre>$ sudo systemctl is-active ntpd</pre>
 If the service is running, it should return the following: <pre>active</pre>
 Note: The <tt>ntpd</tt> daemon is not enabled by default. Though as mentioned
 in the previous sections in certain environments the <tt>ntpd</tt> daemon might

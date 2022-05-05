@@ -7638,7 +7638,7 @@ This recommendation only applies if chrony is in use on the system.</td>
 
 Run the following command to determine the current status of the
 <code>chronyd</code> service:
-<pre>$ systemctl is-active chronyd</pre>
+<pre>$ sudo systemctl is-active chronyd</pre>
 If the service is running, it should return the following: <pre>active</pre>
 Note: The <code>chronyd</code> daemon is enabled by default.
 <br><br>
@@ -7646,7 +7646,7 @@ Note: The <code>chronyd</code> daemon is enabled by default.
 
 Run the following command to determine the current status of the
 <code>ntpd</code> service:
-<pre>$ systemctl is-active ntpd</pre>
+<pre>$ sudo systemctl is-active ntpd</pre>
 If the service is running, it should return the following: <pre>active</pre>
 Note: The <code>ntpd</code> daemon is not enabled by default. Though as mentioned
 in the previous sections in certain environments the <code>ntpd</code> daemon might

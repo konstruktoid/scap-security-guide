@@ -2497,7 +2497,7 @@ feeds random data from hardware device to kernel random device.</pre></td>
 
 Run the following command to determine the current status of the
 rngd service:
-$ systemctl is-active rngd
+$ sudo systemctl is-active rngd
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </pre></td>
@@ -2876,7 +2876,7 @@ logging services, which are essential to system administration.</pre></td>
 
 Run the following command to determine the current status of the
 rsyslog service:
-$ systemctl is-active rsyslog
+$ sudo systemctl is-active rsyslog
 If the service is running, it should return the following: active
       Is it the case that ?
       </pre></td>
@@ -3167,19 +3167,19 @@ development or testing, there is little need to run the kdump service.</pre></td
 <td><pre>
 To check that the kdump service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled kdump
+$ sudo systemctl is-enabled kdump
 Output should indicate the kdump service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled kdump disabled
+$ sudo systemctl is-enabled kdump disabled
 
 Run the following command to verify kdump is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active kdump
+$ sudo systemctl is-active kdump
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the kdump is masked, run the following command:
-$ systemctl show kdump | grep "LoadState\|UnitFileState"
+$ sudo systemctl show kdump | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -4590,7 +4590,6 @@ more difficult by ensuring a larger search space.</pre></td>
 <td><pre>To check how many lowercase characters are required in a password, run the following command:
 $ grep lcredit /etc/security/pwquality.conf
 The lcredit parameter (as a negative number) will indicate how many special characters are required.
-The DoD and FISMA require at least one lowercase character in a password. This would appear as lcredit = -1.
       Is it the case that lcredit is not found or not less than or equal to the required value?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>lcredit</code> parameter controls requirements for
@@ -4620,7 +4619,6 @@ search space.</pre></td>
 <td><pre>To check how many digits are required in a password, run the following command:
 $ grep dcredit /etc/security/pwquality.conf
 The dcredit parameter (as a negative number) will indicate how many digits are required.
-The DoD requires at least one digit in a password. This would appear as dcredit = -1.
       Is it the case that dcredit is not found or not equal to or less than the required value?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>dcredit</code> parameter controls requirements for
@@ -4773,13 +4771,10 @@ changes to defeat the password reuse or history enforcement requirement. If
 users are allowed to immediately and continually change their password, the
 password could be repeatedly changed in a short period of time to defeat the
 organization's policy regarding password reuse.</pre></td>
-<td><pre>Check whether the minimum time period between password changes for each
-user account is one day or greater by running the following command for
-each user:
-$ sudo chage -l USER | grep Minimum
-The output for each user should return something similary to the following:
-Minimum number of days between password change\t\t: 1
-      Is it the case that existing passwords are not configured correctly?
+<td><pre>Check whether the minimum time period between password changes for each user account is one day or greater.
+
+$ sudo awk -F: '$4 &lt; 1 {print $1 "" "" $4}' /etc/shadow
+      Is it the case that any results are returned that are not associated with a system account?
       </pre></td>
 <td><pre>Configure non-compliant accounts to enforce a 24 hours/1 day minimum password
 lifetime by running the following command:
@@ -5118,8 +5113,6 @@ more difficult by ensuring a larger search space.</pre></td>
 $ grep ocredit /etc/security/pwquality.conf
 The ocredit parameter (as a negative number) will indicate how many special
 characters are required.
-The DoD and FISMA require at least one special character in a password.
-This would appear as ocredit = -1.
       Is it the case that value of "ocredit" is a positive number or is commented out?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>ocredit=</code> parameter controls requirements for
@@ -5838,7 +5831,7 @@ $ sudo stat -c "%a %n" [audit_log_directory]
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
-      Is it the case that audit logs has more permissive mode?
+      Is it the case that audit logs have a more permissive mode?
       </pre></td>
 <td><pre>If <code>log_group</code> in <code>/etc/audit/auditd.conf</code> is set to a group other than the <code>root</code>
 group account, change the mode of the audit log files with the following command:
@@ -6178,7 +6171,7 @@ can be held accountable for their actions.</pre></td>
 
 Run the following command to determine the current status of the
 auditd service:
-$ systemctl is-active auditd
+$ sudo systemctl is-active auditd
 If the service is running, it should return the following: active
       Is it the case that the auditd service is not running?
       </pre></td>
@@ -8308,34 +8301,33 @@ kernel module from being loaded, add the following line to the file <code>/etc/m
 <td>medium</td>
 <td>RHEL 8 must be configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the Ports, Protocols, and Services Management (PPSM) Category Assignments List (CAL) and vulnerability assessments.</td>
 <td>SRG-OS-ID</td>
-<td><pre>In order to prevent unauthorized connection of devices, unauthorized
-transfer of information, or unauthorized tunneling (i.e., embedding of data
-types within data types), organizations must disable or restrict unused or
-unnecessary physical and logical ports/protocols on information systems.
+<td><pre>In order to prevent unauthorized connection of devices, unauthorized transfer of information,
+or unauthorized tunneling (i.e., embedding of data types within data types), organizations must
+disable or restrict unused or unnecessary physical and logical ports/protocols on information
+systems.
 <br><br>
-Operating systems are capable of providing a wide variety of functions and
-services. Some of the functions and services provided by default may not be
-necessary to support essential organizational operations.
-Additionally, it is sometimes convenient to provide multiple services from
-a single component (e.g., VPN and IPS); however, doing so increases risk
-over limiting the services provided by any one component.
+Operating systems are capable of providing a wide variety of functions and services.
+Some of the functions and services provided by default may not be necessary to support
+essential organizational operations.
+Additionally, it is sometimes convenient to provide multiple services from a single component
+(e.g., VPN and IPS); however, doing so increases risk over limiting the services provided by
+one component.
 <br><br>
-To support the requirements and principles of least functionality, the
-operating system must support the organizational requirements, providing
-only essential capabilities and limiting the use of ports, protocols,
-and/or services to only those required, authorized, and approved to conduct
-official business or to address authorized quality of life issues.</pre></td>
-<td><pre>Inspect the list of enabled firewall ports and verify they are configured
-correctly by running the following command:
+To support the requirements and principles of least functionality, the operating system must
+support the organizational requirements, providing only essential capabilities and limiting the
+use of ports, protocols, and/or services to only those required, authorized, and approved to
+conduct official business.</pre></td>
+<td><pre>Inspect the list of enabled firewall ports and verify they are configured correctly by running
+the following command:
 $ sudo firewall-cmd --list-all
-      Is it the case that the default rules are not configured?
+      Is it the case that the firewalld rules are not configured?
       </pre></td>
-<td><pre>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre></pre></td>
+<td><pre>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre></pre></td>
 <td>RHEL-08-040030</td>
 <td>configure_firewalld_ports</td>
 </tr>
@@ -8353,19 +8345,19 @@ unknown devices, thereby facilitating malicious activity.</pre></td>
 <td><pre>
 To check that the autofs service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled autofs
+$ sudo systemctl is-enabled autofs
 Output should indicate the autofs service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled autofs disabled
+$ sudo systemctl is-enabled autofs disabled
 
 Run the following command to verify autofs is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active autofs
+$ sudo systemctl is-active autofs
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the autofs is masked, run the following command:
-$ systemctl show autofs | grep "LoadState\|UnitFileState"
+$ sudo systemctl show autofs | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 
@@ -8464,7 +8456,7 @@ prevents connections from unknown hosts and protocols.</pre></td>
 
 Run the following command to determine the current status of the
 firewalld service:
-$ systemctl is-active firewalld
+$ sudo systemctl is-active firewalld
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </pre></td>
@@ -8926,7 +8918,7 @@ implements application whitelisting to decide file access rights.</pre></td>
 
 Run the following command to determine the current status of the
 fapolicyd service:
-$ systemctl is-active fapolicyd
+$ sudo systemctl is-active fapolicyd
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </pre></td>
@@ -8998,7 +8990,7 @@ enforce the USB device authorization policy for all USB devices.</pre></td>
 
 Run the following command to determine the current status of the
 usbguard service:
-$ systemctl is-active usbguard
+$ sudo systemctl is-active usbguard
 If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </pre></td>
@@ -9059,7 +9051,7 @@ of interception and modification.</pre></td>
 
 Run the following command to determine the current status of the
 sshd service:
-$ systemctl is-active sshd
+$ sudo systemctl is-active sshd
 If the service is running, it should return the following: active
       Is it the case that sshd service is disabled?
       </pre></td>
@@ -9213,19 +9205,19 @@ access when the system is rebooted.</pre></td>
 <td><pre>
 To check that the debug-shell service is disabled in system boot configuration,
 run the following command:
-$ systemctl is-enabled debug-shell
+$ sudo systemctl is-enabled debug-shell
 Output should indicate the debug-shell service has either not been installed,
 or has been disabled at all runlevels, as shown in the example below:
-$ systemctl is-enabled debug-shell disabled
+$ sudo systemctl is-enabled debug-shell disabled
 
 Run the following command to verify debug-shell is not active (i.e. not running) through current runtime configuration:
-$ systemctl is-active debug-shell
+$ sudo systemctl is-active debug-shell
 
 If the service is not running the command will return the following output:
 inactive
 
 The service will also be masked, to check that the debug-shell is masked, run the following command:
-$ systemctl show debug-shell | grep "LoadState\|UnitFileState"
+$ sudo systemctl show debug-shell | grep "LoadState\|UnitFileState"
 
 If the service is masked the command will return the following outputs:
 

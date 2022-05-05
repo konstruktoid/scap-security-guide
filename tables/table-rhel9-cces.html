@@ -8642,12 +8642,12 @@ The <code>firewalld</code> service can be enabled with the following command:
 <tr>
 <td>CCE-86041-1</td>
 <td>Configure the Firewalld Ports</td>
-<td>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
+<td>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre>
 </td>
 </tr>
 <tr>
@@ -14977,10 +14977,13 @@ the SSH server is being used but denied by the firewall, this exception should
 be added to the firewall configuration.
 <br><br>
 
-To configure <code>firewalld</code> to allow access, run the following command(s):
 
 
-<code>firewall-cmd --permanent --add-service=ssh</code>
+To configure <code>firewalld</code> to allow <code>ssh</code> access, run the following command(s):
+<pre>firewall-cmd --permanent --add-service=ssh</pre>
+
+Then run the following command to load the newly created rule(s):
+<pre>firewall-cmd --reload</pre>
 </td>
 </tr>
 <tr>

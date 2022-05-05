@@ -5898,12 +5898,12 @@ The <code>firewalld</code> service can be enabled with the following command:
 </tr></table>
 <table><tr>
 <td>Configure the Firewalld Ports</td>
-<td>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
+<td>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre>
 </td>
 </tr></table>
 <table><tr>
@@ -7876,12 +7876,12 @@ The <code>firewalld</code> service can be enabled with the following command:
 </tr></table>
 <table><tr>
 <td>Configure the Firewalld Ports</td>
-<td>Configure the <code>firewalld</code> ports to allow approved
-services to have access to the system. To configure <code>firewalld</code>
-to open ports, run the following command:
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>port_number</i>/tcp</pre>
-or
-<pre>$ sudo firewall-cmd --permanent --add-port=<i>service_name</i></pre>
+<td>Configure the <code>firewalld</code> ports to allow approved services to have access to the system.
+To configure <code>firewalld</code> to open ports, run the following command:
+<pre>firewall-cmd --permanent --add-port=<i>port_number/tcp</i></pre>
+To configure <code>firewalld</code> to allow access for pre-defined services, run the following
+command:
+<pre>firewall-cmd --permanent --add-service=<i>service_name</i></pre>
 </td>
 </tr></table>
 </td>
