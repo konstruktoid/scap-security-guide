@@ -698,9 +698,11 @@ Requiring a minimum number of different characters during password changes ensur
 newly changed passwords should not resemble previously compromised ones.
 Note that passwords which are changed on compromised systems will still be compromised, however.</pre></td>
 <td><pre>To check how many characters must differ during a password change, run the following command:
-$ grep difok /etc/security/pwquality.conf
+$ sudo grep difok /etc/security/pwquality.conf
+difok = 
+
 The difok parameter will indicate how many characters must differ.
-      Is it the case that difok is not found or not equal to or greater than the required value?
+      Is it the case that difok is not found or set to less than the required value?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>difok</code> parameter sets the number of characters
 in a password that must not be present in and old password during a password change.
@@ -729,11 +731,11 @@ Requiring a minimum number of character categories makes password guessing attac
 by ensuring a larger search space.</pre></td>
 <td><pre>To check how many categories of characters must be used in password during a password change,
 run the following command:
-$ grep minclass /etc/security/pwquality.conf
+$ sudo grep minclass /etc/security/pwquality.conf
 The minclass parameter will indicate how many character classes must be used. If
-the requirement was for the password to contain characters from three different categories,
-then this would appear as minclass = 3.
-      Is it the case that minclass is not found or not set equal to or greater than the required value?
+the requirement was for the password to contain characters from  different categories,
+then this would appear as minclass = .
+      Is it the case that the value of "minclass" is set to less than "&lt;sub idref="var_password_pam_minclass" /&gt;" or is commented out?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>minclass</code> parameter controls
 requirements for usage of different character classes, or types, of character
@@ -770,10 +772,8 @@ password is compromised.
 <br><br>
 Passwords with excessive repeating characters may be more vulnerable to password-guessing attacks.</pre></td>
 <td><pre>To check the maximum value for consecutive repeating characters, run the following command:
-$ grep maxrepeat /etc/security/pwquality.conf
-Look for the value of the maxrepeat parameter. The DoD requirement is 3, which would appear as
-maxrepeat=3.
-      Is it the case that maxrepeat is not found or not greater than or equal to the required value?
+$ sudo grep maxrepeat /etc/security/pwquality.conf
+      Is it the case that the value of "maxrepeat" is set to more than "&lt;sub idref="var_password_pam_maxrepeat" /&gt;" or is commented out?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>maxrepeat</code> parameter controls requirements for
 consecutive repeating characters. When set to a positive number, it will reject passwords
@@ -789,7 +789,7 @@ run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" id
 <td>medium</td>
 <td>The Red Hat Enterprise Linux operating system must be configured so that when passwords are changed the number of repeating characters of the same character class must not be more than four characters.</td>
 <td>SRG-OS-ID</td>
-<td><pre>Use of a complex password helps to increase the time and resources required to comrpomise the password.
+<td><pre>Use of a complex password helps to increase the time and resources required to compromise the password.
 Password complexity, or strength, is a measure of the effectiveness of a password in resisting
 attempts at guessing and brute-force attacks.
 <br>
@@ -797,9 +797,8 @@ Password complexity is one factor of several that determines how long it takes t
 more complex a password, the greater the number of possible combinations that need to be tested before the
 password is compromised.</pre></td>
 <td><pre>To check the value for maximum consecutive repeating characters, run the following command:
-$ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
-      Is it the case that that is not the case?
+$ sudo grep maxclassrepeat /etc/security/pwquality.conf
+      Is it the case that the value of "maxclassrepeat" is set to "0", more than "&lt;sub idref="var_password_pam_maxclassrepeat" /&gt;" or is commented out?
       </pre></td>
 <td><pre>The pam_pwquality module's <code>maxclassrepeat</code> parameter controls requirements for
 consecutive repeating characters from the same character class. When set to a positive number, it will reject passwords

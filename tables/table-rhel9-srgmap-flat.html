@@ -17578,9 +17578,11 @@ when changing passwords.</td>
 <td>Applicable - Configurable</td>
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check how many characters must differ during a password change, run the following command:
-$ grep difok /etc/security/pwquality.conf
+$ sudo grep difok /etc/security/pwquality.conf
+difok = 
+
 The difok parameter will indicate how many characters must differ.
-      Is it the case that difok is not found or not equal to or greater than the required value?
+      Is it the case that difok is not found or set to less than the required value?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
 <td>The pam_pwquality module's difok parameter sets the number of characters
@@ -17613,9 +17615,8 @@ to prevent a run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/
 <td>Applicable - Configurable</td>
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check the value for maximum consecutive repeating characters, run the following command:
-$ grep maxclassrepeat /etc/security/pwquality.conf
-For DoD systems, the output should show maxclassrepeat=4 or less but greater than zero.
-      Is it the case that that is not the case?
+$ sudo grep maxclassrepeat /etc/security/pwquality.conf
+      Is it the case that the value of "maxclassrepeat" is set to "0", more than "&lt;sub idref="var_password_pam_maxclassrepeat" /&gt;" or is commented out?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
 <td>The pam_pwquality module's maxclassrepeat parameter controls requirements for
@@ -17647,10 +17648,8 @@ run of (<xccdf-1.1:sub xmlns:xccdf-1.1="http://checklists.nist.gov/xccdf/1.1" id
 <td>Applicable - Configurable</td>
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check the maximum value for consecutive repeating characters, run the following command:
-$ grep maxrepeat /etc/security/pwquality.conf
-Look for the value of the maxrepeat parameter. The DoD requirement is 3, which would appear as
-maxrepeat=3.
-      Is it the case that maxrepeat is not found or not greater than or equal to the required value?
+$ sudo grep maxrepeat /etc/security/pwquality.conf
+      Is it the case that the value of "maxrepeat" is set to more than "&lt;sub idref="var_password_pam_maxrepeat" /&gt;" or is commented out?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
 <td>The pam_pwquality module's maxrepeat parameter controls requirements for
@@ -17694,11 +17693,11 @@ differing categories of characters when changing passwords.</td>
 <td>Verify the operating system requires the change of at least eight of the total number of characters when passwords are changed. If it does not, this is a finding.</td>
 <td>To check how many categories of characters must be used in password during a password change,
 run the following command:
-$ grep minclass /etc/security/pwquality.conf
+$ sudo grep minclass /etc/security/pwquality.conf
 The minclass parameter will indicate how many character classes must be used. If
-the requirement was for the password to contain characters from three different categories,
-then this would appear as minclass = 3.
-      Is it the case that minclass is not found or not set equal to or greater than the required value?
+the requirement was for the password to contain characters from  different categories,
+then this would appear as minclass = .
+      Is it the case that the value of "minclass" is set to less than "&lt;sub idref="var_password_pam_minclass" /&gt;" or is commented out?
       </td>
 <td><fixtext xmlns="http://checklists.nist.gov/xccdf/1.1" fixref="F-3753r557609_fix"> Configure the operating system to require the change of at least eight of the total number of characters when passwords are changed.</fixtext></td>
 <td>The pam_pwquality module's minclass parameter controls
